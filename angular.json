@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "Frontend-DuAnTN"
+  "defaultProject": "Frontend-DuAnTN",
+  "cli": {
+    "analytics": false
+  }
 }
