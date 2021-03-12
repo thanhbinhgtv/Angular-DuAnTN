@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { ViewHomeComponent } from './home-admin/view-home.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [{
   path: '', component: AdminComponent,
   children: [
     {
-      path: 'home-admin', component: ViewHomeComponent,
+      path: 'home-admin', component: HomeComponent,
     },
+    
     { path: '**', redirectTo: 'home-admin' },
   ],
 }];
