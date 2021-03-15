@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
                   <div class="sidebar-brand-icon rotate-n-15">
                       <i class="fas fa-laugh-wink"></i>
                   </div>
-                  <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                  <div class="sidebar-brand-text mx-3">Admin<sup>123</sup></div>
               </a>
               <!-- Divider -->
               <hr class="sidebar-divider my-0">
@@ -65,21 +65,21 @@ import { Component, OnInit } from '@angular/core';
               <hr class="sidebar-divider">
               <!-- Heading -->
               <div class="sidebar-heading">
-                  Addons
+                  Chức Năng Chính
               </div>
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                       aria-expanded="true" aria-controls="collapsePages">
                       <i class="fas fa-fw fa-folder"></i>
-                      <span>Pages</span>
+                      <span>Danh Sách</span>
                   </a>
                   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
-                          <h6 class="collapse-header">Managements:</h6>
-                          <a class="collapse-item" href="login.html">Staffs</a>
-                          <a class="collapse-item" href="register.html">Demo1</a>
-                          <a class="collapse-item" href="forgot-password.html">Demo2</a>
+                          <h6 class="collapse-header">Quản Lý:</h6>
+                          <a class="collapse-item" routerLink="view-staff">Nhân Viên</a>
+                          <a class="collapse-item" href="register.html">Bài Đăng</a>
+                          <a class="collapse-item" href="forgot-password.html">Khách Hàng</a>
                           <div class="collapse-divider"></div>
                           <h6 class="collapse-header">Other Pages:</h6>
                           <a class="collapse-item" href="404.html">404 Page</a>
@@ -91,14 +91,33 @@ import { Component, OnInit } from '@angular/core';
                   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuth"
                       aria-expanded="true" aria-controls="collapsePages">
                       <i class="fas fa-fw fa-folder"></i>
-                      <span>Auth</span>
+                      <span>Tài Khoản</span>
                   </a>
                   <div id="collapseAuth" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
-                          <h6 class="collapse-header">Login Screens:</h6>
-                          <a class="collapse-item" href="login.html">Login</a>
-                          <a class="collapse-item" href="register.html">Register</a>
-                          <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                          <h6 class="collapse-header">Tài Khoản:</h6>
+                          <a class="collapse-item" href="login.html">Đăng Nhập</a>
+                          <a class="collapse-item" href="register.html">Đăng Ký</a>
+                          <a class="collapse-item" href="forgot-password.html">Quên Mật Khẩu</a>
+                          <div class="collapse-divider"></div>
+                          <h6 class="collapse-header">Other Pages:</h6>
+                          <a class="collapse-item" href="404.html">404 Page</a>
+                          <a class="collapse-item" href="blank.html">Blank Page</a>
+                      </div>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStatistical"
+                      aria-expanded="true" aria-controls="collapsePages">
+                      <i class="fas fa-fw fa-folder"></i>
+                      <span>Thống Kê</span>
+                  </a>
+                  <div id="collapseStatistical" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                          <h6 class="collapse-header">Thống Kê:</h6>
+                          <a class="collapse-item" href="login.html">Doanh Thu</a>
+                          <a class="collapse-item" href="register.html">Khách Hàng</a>
+                          <a class="collapse-item" href="forgot-password.html">Bài Đăng</a>
                           <div class="collapse-divider"></div>
                           <h6 class="collapse-header">Other Pages:</h6>
                           <a class="collapse-item" href="404.html">404 Page</a>
