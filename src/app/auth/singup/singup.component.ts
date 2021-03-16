@@ -41,6 +41,8 @@ export class SingupComponent implements OnInit {
     this.signupModel.phone = this.signupForm.get('phone').value;
     this.signupModel.gender = this.signupForm.get('gender').value;
     this.signupModel.pass = this.signupForm.get('password').value;
+    console.log(this.signupModel.gender);
+    
    
     this.authService.signup(this.signupModel).subscribe(() => {
        this.router.navigate(['/auth'], { queryParams: { registered: 'true' } });
