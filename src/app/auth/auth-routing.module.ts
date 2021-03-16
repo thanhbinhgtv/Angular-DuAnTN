@@ -12,7 +12,7 @@ const routes: Routes = [{
       path: 'login', component: LoginComponent,
     },
     {
-      path: 'singup', component: SingupComponent,
+      path: 'signup', component: SingupComponent,
     },
     {
       path: 'forgot-password', component: ForgotPasswordComponent,

@@ -1,5 +1,7 @@
 export interface SingupModel {
-    username: string;
+    name: string;
+    gender: boolean;
     email: string;
-    password: string;
+    pass: string;
+    phone: string;
 }

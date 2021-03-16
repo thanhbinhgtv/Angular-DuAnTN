@@ -96,9 +96,9 @@ import { Component, OnInit } from '@angular/core';
                   <div id="collapseAuth" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
                           <h6 class="collapse-header">Tài Khoản:</h6>
-                          <a class="collapse-item" href="login.html">Đăng Nhập</a>
-                          <a class="collapse-item" href="register.html">Đăng Ký</a>
-                          <a class="collapse-item" href="forgot-password.html">Quên Mật Khẩu</a>
+                          <a class="collapse-item" routerLink="/auth/login">Đăng Nhập</a>
+                          <a class="collapse-item" routerLink="/auth/signup">Đăng Ký</a>
+                          <a class="collapse-item" routerLink="/auth/forgot-password">Quên Mật Khẩu</a>
                           <div class="collapse-divider"></div>
                           <h6 class="collapse-header">Other Pages:</h6>
                           <a class="collapse-item" href="404.html">404 Page</a>
