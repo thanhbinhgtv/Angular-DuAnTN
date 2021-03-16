@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/service/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -96,7 +97,8 @@ import { Component, OnInit } from '@angular/core';
                   <div id="collapseAuth" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
                           <h6 class="collapse-header">Tài Khoản:</h6>
-                          <a class="collapse-item" routerLink="/auth/login">Đăng Nhập</a>
+                          <a class="collapse-item" routerLink="/auth/login" *ngIf="!isLoggedIn">Đăng Nhập</a>
+                          <a class="collapse-item" routerLink="/auth/login" *ngIf="isLoggedIn">Đăng Xuất</a>
                           <a class="collapse-item" routerLink="/auth/signup">Đăng Ký</a>
                           <a class="collapse-item" routerLink="/auth/forgot-password">Quên Mật Khẩu</a>
                           <div class="collapse-divider"></div>
@@ -164,10 +166,13 @@ import { Component, OnInit } from '@angular/core';
   `,
 })
 export class AdminComponent implements OnInit {
+  isLoggedIn: boolean;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
 }

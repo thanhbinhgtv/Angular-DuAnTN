@@ -23,12 +23,14 @@ export class AuthService {
   login(loginModel: LoginModel): Observable<any>{
       return this.httpClient.post<LoginResponse>('http://localhost:8080/login', loginModel)
       .pipe(map(data =>{ 
+        this.localStorage.store('image', data.image);
         this.localStorage.store('role', data.role);
+        this.localStorage.store('name', data.name);
+        this.localStorage.store('email', data.email);
         this.localStorage.store('token', data.token);
 
         this.loggedIn.emit(true);
-        this.username.emit(loginModel.email);
-        console.log(loginModel.email);
+        this.username.emit(data.name);
         
         return true;
       }));
@@ -39,7 +41,7 @@ export class AuthService {
   }
 
   getUserName() {
-    return this.localStorage.retrieve('role');
+    return this.localStorage.retrieve('name');
   }
 
   isLoggedIn(): boolean {   //header
