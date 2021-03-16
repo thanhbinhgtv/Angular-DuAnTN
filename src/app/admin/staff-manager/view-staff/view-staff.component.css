@@ -1,3 +1,10 @@
+
+/* CSS BUTOON THÊM NHÂN VIÊN */
+.addNhanVien{
+    margin-left: 380px;
+    margin-top: -37px;
+}
+
 /* CSS CHO Ô TÌM KIẾM GÓC TRÁI */
 .search-box {
     position: relative;        
@@ -42,5 +49,5 @@ table.table td a.delete {
     color: #E34724;
 }
 table.table td i {
-    font-size: 19px;
+    /* font-size: 19px; */
 } 
