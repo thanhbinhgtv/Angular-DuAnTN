@@ -8,42 +8,54 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Tạo một tài khoản!</h1>
                         </div>
                         <form class="user">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="First Name">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                        placeholder="Last Name">
-                                </div>
+                            <div class="form-group">                             
+                                    <input type="text" class="form-control form-control-user" id="name"
+                                        placeholder="Họ và tên">                                                         
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Email Address">
+                                <input type="email" class="form-control form-control-user" id="email"
+                                    placeholder=" Email">
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="phone"
+                                    placeholder=" Số điện thoại">
+                            </div>
+                            <div class="form-group row">                                
+                                <div class="radio-label">
+                                    Giới tính:  
+                                </div>                               
+                            <div class="radio">
+                                <input id="radio-1" name="radio" type="radio" >
+                                <label for="radio-1" class="radio-label">Nam </label>
+                              
+                                <input id="radio-2" name="radio" type="radio">
+                                <label  for="radio-2" class="radio-label">Nữ</label>
+                              </div>
+                        </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password">
+                                        id="pass" placeholder="Mật khẩu">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu">
                                 </div>
                             </div>
+                           
+
                             <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                Register Account
+                                Đăng ký tài khoản
                             </a>
                             <hr>
                             <a href="index.html" class="btn btn-google btn-user btn-block">
-                                <i class="fab fa-google fa-fw"></i> Register with Google
+                                <i class="fab fa-google fa-fw"></i> Đăng ký với Google
                             </a>
                             <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                <i class="fab fa-facebook-f fa-fw"></i> Đăng ký với Facebook
                             </a>
                         </form>
                         <hr>
