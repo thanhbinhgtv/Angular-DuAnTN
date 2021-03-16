@@ -14,21 +14,21 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Chào mừng trở lại!</h1>
                                 </div>
                                 <!-- Form -->
                                 <form class="user" [formGroup]="loginForm" (ngSubmit)="login()">
                                     <div class="form-group">
                                         <input type="email" [formControlName]="'email'" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address..." required>
+                                            placeholder="Nhập địa chỉ Email..." required>
                                         <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="help-block">
                                             &nbsp;&nbsp;&nbsp;Vui lòng nhập email hợp lệ
                                         </span>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" [formControlName]="'password'" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="exampleInputPassword" placeholder="Mật khẩu">
                                         <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">
                                             &nbsp;&nbsp;&nbsp;Vui lòng nhập mật khẩu hợp lệ
                                         </span>
@@ -36,19 +36,18 @@
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
                                             <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Remember
-                                                Me</label>
+                                            <label class="custom-control-label" for="customCheck">Nhớ tôi</label>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Login
+                                        Đăng nhập
                                     </button>
                                     <hr>
                                     <a href="index.html" class="btn btn-google btn-user btn-block">
-                                        <i class="fab fa-google fa-fw"></i> Login with Google
+                                        <i class="fab fa-google fa-fw"></i> Đăng nhập với Google
                                     </a>
                                     <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        <i class="fab fa-facebook-f fa-fw"></i> Đăng nhập với Facebook
                                     </a>
                                 </form>
                                 <!-- End Form -->
