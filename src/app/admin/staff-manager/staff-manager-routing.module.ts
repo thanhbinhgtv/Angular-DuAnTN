@@ -29,8 +29,3 @@ const routes: Routes = [{
   exports: [RouterModule]
 })
 export class StaffManagerRoutingModule { }
-
-export const routedComponents = [
-  ViewStaffComponent,
-  CreateStaffComponent
-];

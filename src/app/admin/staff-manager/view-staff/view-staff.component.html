@@ -34,82 +34,26 @@
                             <th>STT</th>
                             <th>Họ tên</th>
                             <th>Email</th>
-                            <th>Mật khẩu</th>
-                            <th>CMND</th>
-                            <th>Sinh nhật</th>
-                            <th>Giới tính</th>
-                            <th>Địa chỉ</th>
                             <th>SĐT</th>
-                            <th>Chức vụ</th>
+                            <th>Địa Chỉ</th>
+                            <th>Tuổi</th>
+                            <th>Giới Tính</th>
+                            <th>Vai Trò</th>
                             <th>Ảnh</th>
                             <th>Chức năng</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ tên</th>
-                            <th>Email</th>
-                            <th>Mật khẩu</th>
-                            <th>CMND</th>
-                            <th>Sinh nhật</th>
-                            <th>Giới tính</th>
-                            <th>Địa chỉ</th>
-                            <th>SĐT</th>
-                            <th>Chức vụ</th>
-                            <th>Ảnh</th>
-                            <th>Chức năng</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Hiệp ub</td>
-                            <td>hiep@gmail.com</td>
-                            <td>***</td>
-                            <td>101323770</td>
-                            <td>31/08/1999</td>
-                            <td>Nam</td>
-                            <td>UB QN</td>
-                            <td>SĐT</td>
-                            <td>Admin</td>
-                            <td>hiep.jpg</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Hiệp ub</td>
-                            <td>hiep@gmail.com</td>
-                            <td>***</td>
-                            <td>101323770</td>
-                            <td>31/08/1999</td>
-                            <td>Nam</td>
-                            <td>UB QN</td>
-                            <td>SĐT</td>
-                            <td>Admin</td>
-                            <td>hiep.jpg</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Hiệp ub</td>
-                            <td>hiep@gmail.com</td>
-                            <td>***</td>
-                            <td>101323770</td>
-                            <td>31/08/1999</td>
-                            <td>Nam</td>
-                            <td>UB QN</td>
-                            <td>SĐT</td>
-                            <td>Admin</td>
-                            <td>hiep.jpg</td>
+                        <tr *ngFor="let staff of staffs">
+                            <td>{{staff.staffId}}</td>
+                            <td>{{staff.name}}</td>
+                            <td>{{staff.email}}</td>
+                            <td>{{staff.phone}}</td>
+                            <td>{{staff.address}}</td>
+                            <td>{{staff.dob}}</td>
+                            <td>{{staff.gender}}</td>
+                            <td>{{staff.role}}</td>
+                            <td>{{staff.image}}</td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                 <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
