@@ -2,19 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { HomeComponent } from './home/home.component';
-import { ViewStaffComponent } from './staff-manager/view-staff/view-staff.component';
+import { StaffManagerComponent } from './staff-manager/staff-manager.component';
 
 const routes: Routes = [{
   path: '', component: AdminComponent,
   children: [
     {
-      path: 'home-admin', component: HomeComponent,
+      path: 'home', component: HomeComponent,
     },
     {
-      path: 'view-staff', component: ViewStaffComponent,
+      path: 'staff',
+      loadChildren: () => import('./staff-manager/staff-manager.module')
+        .then(m => m.StaffManagerModule),
     },
-    
-    { path: '**', redirectTo: 'home-admin' },
+    { path: '**', redirectTo: 'home' },
   ],
 }];
 

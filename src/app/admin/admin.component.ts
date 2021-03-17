@@ -78,7 +78,7 @@ import { AuthService } from '../auth/service/auth.service';
                   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
                           <h6 class="collapse-header">Quản Lý:</h6>
-                          <a class="collapse-item" routerLink="view-staff">Nhân Viên</a>
+                          <a class="collapse-item" routerLink="staff">Nhân Viên</a>
                           <a class="collapse-item" href="register.html">Bài Đăng</a>
                           <a class="collapse-item" href="forgot-password.html">Khách Hàng</a>
                           <div class="collapse-divider"></div>

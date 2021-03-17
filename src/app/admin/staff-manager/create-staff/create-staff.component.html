@@ -10,17 +10,17 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Thêm nhân viên mới!</h1>
                         </div>
-                        <form class="user" [formGroup]="signupForm" (ngSubmit)="signup()">
+                        <form class="user">
                             <div class="form-group">                             
-                                    <input type="text" [formControlName]="'username'" class="form-control form-control-user" id="name"
+                                    <input type="text" class="form-control form-control-user" id="name"
                                         placeholder="Họ và tên">                                                         
                             </div>
                             <div class="form-group">
-                                <input type="email" [formControlName]="'email'" class="form-control form-control-user" id="email"
+                                <input type="email"  class="form-control form-control-user" id="email"
                                     placeholder=" Email">
                             </div>
                             <div class="form-group">
-                                <input type="text" [formControlName]="'phone'" class="form-control form-control-user" id="phone"
+                                <input type="text" class="form-control form-control-user" id="phone"
                                     placeholder=" Số điện thoại">
                             </div>
                             <div class="form-group row">                                
@@ -28,20 +28,20 @@
                                     Giới tính:  
                                 </div>
                             <div class="radio">
-                                <input id="radio-1" name="radio" type="radio" [value]="0" [formControlName]="'gender'">
+                                <input id="radio-1" name="radio" type="radio" >
                                 <label for="radio-1" class="radio-label">Nam </label>
                               
-                                <input id="radio-2" name="radio" type="radio" [value]="1" [formControlName]="'gender'">
+                                <input id="radio-2" name="radio" type="radio" >
                                 <label  for="radio-2" class="radio-label">Nữ</label>
                               </div>
                         </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" [formControlName]="'password'" class="form-control form-control-user"
+                                    <input type="password"  class="form-control form-control-user"
                                         id="pass" placeholder="Mật khẩu">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="password" [formControlName]="'repassword'" class="form-control form-control-user"
+                                    <input type="password"  class="form-control form-control-user"
                                         id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu">
                                 </div>
                             </div>

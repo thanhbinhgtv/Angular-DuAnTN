@@ -11,20 +11,8 @@ const routes: Routes = [
   {
     path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
-  // {
-  //   path: 'auth', component: AuthComponent,
-  //     children: [
-  //       {
-  //         path: 'login', component: LoginComponent,
-  //       },
-  //       {
-  //         path: 'singup', component: SingupComponent,
-  //       },
-  //     ],
-  // },
-  {
-     path: '**', redirectTo: 'admin' ,
-  },
+
+  { path: '**', redirectTo: 'admin' },
 ];
 
 @NgModule({
