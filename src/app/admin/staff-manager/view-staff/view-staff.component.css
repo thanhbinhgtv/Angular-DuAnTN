@@ -1,7 +1,7 @@
 
 /* CSS BUTOON THÊM NHÂN VIÊN */
 .addNhanVien{
-    margin-left: 380px;
+    margin-left: 850px;
     margin-top: -37px;
 }
 
@@ -9,6 +9,7 @@
 .search-box {
     position: relative;        
     float: right;
+    margin-right: 280px;
 }
 .search-box input {
     height: 34px;
@@ -16,7 +17,7 @@
     padding-left: 35px;
     border-color: #ddd;
     box-shadow: none;
-    margin-top: -37px;
+    margin-top: -36px;
 }
 .search-box input:focus {
     border-color: #3FBAE4;
