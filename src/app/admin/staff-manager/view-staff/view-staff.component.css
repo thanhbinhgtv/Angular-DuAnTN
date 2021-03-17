@@ -1,0 +1,53 @@
+
+/* CSS BUTOON THÊM NHÂN VIÊN */
+.addNhanVien{
+    margin-left: 380px;
+    margin-top: -37px;
+}
+
+/* CSS CHO Ô TÌM KIẾM GÓC TRÁI */
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+    margin-top: -37px;
+}
+.search-box input:focus {
+    border-color: #3FBAE4;
+}
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    /* font-size: 19px; */
+    top: 8px;
+    left: 10px;
+    margin-top: -37px;
+}
+
+/* CSS CHO 3 NÚT THÊM XÓA SỬA */
+table.table td:last-child {
+    width: 130px;
+}
+table.table td a {
+    color: #a0a5b1;
+    display: inline-block;
+    margin: 0 5px;
+}
+table.table td a.view {
+    color: #03A9F4;
+}
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #E34724;
+}
+table.table td i {
+    /* font-size: 19px; */
+} 
