@@ -41,16 +41,22 @@ export class SingupComponent implements OnInit {
     this.signupModel.phone = this.signupForm.get('phone').value;
     this.signupModel.gender = this.signupForm.get('gender').value;
     this.signupModel.pass = this.signupForm.get('password').value;
-    console.log(this.signupModel.gender);
-    
    
     this.authService.signup(this.signupModel).subscribe(() => {
        this.router.navigate(['/auth'], { queryParams: { registered: 'true' } });
-       this.toastr.error('Đăng ký tài khoản thành công')
+       this.toastr.success('Đăng ký tài khoản thành công')
        console.log('Đăng ký thành công');
    }, () => {
        this.toastr.error('Đăng ký thất bại! Vui lòng kiểm tra lại');
        console.log('Đăng ký thất bại');
    });
  }
+
+ checkPassword(){
+   if(this.signupForm.get('password').value != this.signupForm.get('repassword').value){
+      console.log(false);
+   }else {
+     console.log(true);
+   }
+ };
 }
