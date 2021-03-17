@@ -1,15 +1,15 @@
 
 /* CSS BUTOON THÊM NHÂN VIÊN */
 .addNhanVien{
-    margin-left: 850px;
-    margin-top: -37px;
+    margin-left: 800px;
+    margin-top: -45px;
+    position: relative; top: 9px;
 }
 
 /* CSS CHO Ô TÌM KIẾM GÓC TRÁI */
 .search-box {
-    position: relative;        
+    position: relative; top: 9px;      
     float: right;
-    margin-right: 280px;
 }
 .search-box input {
     height: 34px;
@@ -49,6 +49,3 @@ table.table td a.edit {
 table.table td a.delete {
     color: #E34724;
 }
-table.table td i {
-    /* font-size: 19px; */
-} 
