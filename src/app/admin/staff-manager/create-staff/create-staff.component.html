@@ -1,5 +1,4 @@
 <div class="container">
-
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
@@ -10,54 +9,53 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Thêm nhân viên mới!</h1>
                         </div>
-                        <form class="user">
-
+                        <form class="user" [formGroup]="StaffForm" (ngSubmit)="createStaff()">
                             <div class="form-group">
                                 <label> Họ và tên </label>
-                                <input type="text" class="form-control form-control-user" id="name" placeholder="" required>
+                                <h1>{{this.timestamp | date:'dd/MM/yyyy'}}</h1>
+                                <input type="text" [formControlName]="'name'" class="form-control form-control-user" id="name" placeholder="" required>
                             </div>
                             <div class="form-group">
                                 <label> Email </label>
-                                <input type="email" class="form-control form-control-user" id="email" placeholder="">
+                                <input type="email" [formControlName]="'email'" class="form-control form-control-user" id="email" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label> Số điện thoại </label>
-                                <input type="text" class="form-control form-control-user" id="cardId" placeholder="">
+                                <input type="text" [formControlName]="'phone'" class="form-control form-control-user" id="cardId" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label> Số chứng minh nhân dân - thẻ căn cước </label>
-                                <input type="text" class="form-control form-control-user" id="phone" placeholder="">
+                                <input type="text" [formControlName]="'cardId'" class="form-control form-control-user" id="phone" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label> Địa chỉ </label>
-                                <input type="text" class="form-control form-control-user" id="address" placeholder="">
+                                <input type="text" [formControlName]="'address'" class="form-control form-control-user" id="address" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label> Ngày sinh </label>
-                                <input type="date" class="form-control form-control-user" id="birthday" placeholder="">
+                                <input type="date" [formControlName]="'birthday'" class="form-control form-control-user" id="birthday" placeholder="">
                             </div>
                             <div class="form-group row">
                                 <div class="radio-label">
                                     Giới tính:
                                 </div>
                                 <div class="radio">
-                                    <input id="radio-1" name="radio" type="radio">
+                                    <input id="radio-1" type="radio" name="gender"  [value]="true" [formControlName]="'gender'">
                                     <label for="radio-1" class="radio-label">Nam </label>
 
-                                    <input id="radio-2" name="radio" type="radio">
+                                    <input id="radio-2" type="radio" name="gender" [value]="false" [formControlName]="'gender'">
                                     <label for="radio-2" class="radio-label">Nữ</label>
                                 </div>
                             </div>
 
-
-                            <label> Vị trí </label>
+                            <label>Vai Trò</label>
                             <div class="form-group">
                                 <div class="form-control form-control-user">
-                                    <select name="subject">
-                                        <option disabled="disabled" selected="selected">Choose option</option>
-                                        <option>Subject 1</option>
-                                        <option>Subject 2</option>
-                                        <option>Subject 3</option>
+                                    <select name="subject" [formControlName]="'role'">
+                                        <option disabled="disabled" selected="selected">Lựa Chọn</option>
+                                        <option>Admin</option>
+                                        <option>Super Admin</option>
+                                        <option>Khách Hàng</option>
                                     </select>
                                     <div class="select-dropdown"></div>
                                 </div>
@@ -68,17 +66,13 @@
                                 <input type="file" class="form-control form-control-user"
                                     id="image" placeholder="">
                             </div>
-                          
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Thêm nhân viên
                             </button>
-
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

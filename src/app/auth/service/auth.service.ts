@@ -52,6 +52,10 @@ export class AuthService {
     this.localStorage.clear('token');
   }
 
+  forgotPassword(email: string): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/forgot/?email=' + email);
+  }
+
   getJwtToken(){
     return this.localStorage.retrieve('token');
   }

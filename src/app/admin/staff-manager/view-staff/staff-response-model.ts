@@ -1,4 +1,4 @@
-export interface StaffsModel {
+export interface StaffResponseModel {
     address: string,
     cardId: string,
     dob: number,
@@ -10,4 +10,4 @@ export interface StaffsModel {
     phone: string,
     role: boolean,
     staffId: number,
-} 
+}

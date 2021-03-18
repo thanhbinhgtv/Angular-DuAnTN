@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { StaffsService } from '../staffs.service';
-import { StaffsModel } from './staffs-model';
+import { StaffResponseModel } from './staff-response-model';
 
 @Component({
   selector: 'app-view-staff',
@@ -9,7 +9,7 @@ import { StaffsModel } from './staffs-model';
   styleUrls: ['./view-staff.component.css']
 })
 export class ViewStaffComponent implements OnInit {
-  staffs: Array<StaffsModel> = [];
+  staffs: Array<StaffResponseModel> = [];
   deleteSuccess : boolean;
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
