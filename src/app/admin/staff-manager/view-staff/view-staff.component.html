@@ -51,8 +51,10 @@
                             <td>{{staff.phone}}</td>
                             <td>{{staff.address}}</td>
                             <td>{{staff.dob}}</td>
-                            <td>{{staff.gender}}</td>
-                            <td>{{staff.role}}</td>
+                            <td *ngIf="staff.gender == true">Nam</td>
+                            <td *ngIf="staff.gender == false">Nữ</td>
+                            <td *ngIf="staff.role == true">Admin</td>
+                            <td *ngIf="staff.role == false">Super Admin</td>
                             <td>{{staff.image}}</td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
