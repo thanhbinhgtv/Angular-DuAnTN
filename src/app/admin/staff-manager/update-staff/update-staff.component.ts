@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-staff',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-staff.component.css']
 })
 export class UpdateStaffComponent implements OnInit {
+  staffForm: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  updateStaff(){
+    
+  }
 }
