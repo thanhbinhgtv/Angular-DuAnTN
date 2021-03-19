@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Đăng nhập thành công');
     }, error => {
         this.isError = true;
-        this.toastr.error(error.error.mess);
+        this.toastr.error("Đăng nhập thất bại! Kiểm tra lại thông tin đăng nhập");
         throwError(error)
     });
 }

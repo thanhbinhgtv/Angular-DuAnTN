@@ -25,7 +25,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.forgotForm.get('email').value;
     
     this.authService.forgotPassword(this.forgotForm.get('email').value).subscribe((success) =>{
-        // this.router.navigateByUrl('/auth');
+        this.router.navigateByUrl('/auth');
         this.toastr.success(success.mess);
     }, (error) => {
         this.toastr.error(error.error.mess);
