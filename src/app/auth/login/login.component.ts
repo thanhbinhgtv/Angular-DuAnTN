@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginModel: LoginModel;
   registerSuccessMessage: string;
-  isError: boolean;
 
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { 
       this.loginModel = {
@@ -26,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(6)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
   // this.activatedRoute.queryParams
@@ -45,13 +44,11 @@ export class LoginComponent implements OnInit {
     this.loginModel.pass = this.loginForm.get('password').value;
     
     this.authService.login(this.loginModel).subscribe(() =>{
-        this.isError = false;
         this.router.navigateByUrl('/admin');
         this.toastr.success('Đăng nhập thành công');
-    }, error => {
-        this.isError = true;
-        this.toastr.error("Đăng nhập thất bại! Kiểm tra lại thông tin đăng nhập");
-        throwError(error)
+    }, () => {
+        this.toastr.error("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin");
+        // throwError(error.error.pass);
     });
 }
 

@@ -13,6 +13,7 @@ import { SingupModel } from './singup-model';
 export class SingupComponent implements OnInit {
   signupModel: SingupModel;   //Truyền dữ liệu qua biến này
   signupForm: FormGroup;  //Biến signForm có kiểu FormGroup (B1)
+  messNumber : number;
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { 
     this.signupModel = {
@@ -26,25 +27,42 @@ export class SingupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({   //Validate, Viền đỏ khi emply (B1)
-      username: new FormControl('', Validators.required),
+      username: new FormControl('', [Validators.required, Validators.minLength(6)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', Validators.required),
-      gender: new FormControl(true, Validators.required),
-      password: new FormControl('', Validators.required),
-      repassword: new FormControl('', Validators.required)
+      phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
+      gender: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      repassword: new FormControl('', [Validators.required])
     });
   }
 
   signup(){
-    if(this.signupForm.get('username').value == ""){
-      this.toastr.error('Không để trống họ tên');
-    }else if(this.signupForm.get('email').value == ""){
-        this.toastr.error('Không để trống email');
-    }else if(this.signupForm.get('password').value == ""){
-        this.toastr.error('Mật khẩu phải trùng nhau');
-    }else if(this.signupForm.get('password').value != this.signupForm.get('repassword').value){
-        this.toastr.error('Mật khẩu phải trùng nhau');
-    }else{
+      if(this.signupForm.get('username').errors?.required){
+        this.messNumber = 1;
+      }else if(this.signupForm.get('username').errors?.minlength){
+        this.messNumber = 2;
+      }else if(this.signupForm.get('email').errors?.required){
+        this.messNumber = 3;
+      }else if(this.signupForm.get('email').errors?.email){
+        this.messNumber = 4;
+      }else if(this.signupForm.get('email').errors?.email){
+        this.messNumber = 4;
+      }else if(this.signupForm.get('phone').errors?.required){
+        this.messNumber = 5;
+      }else if(this.signupForm.get('phone').errors?.minlength){
+        this.messNumber = 6;
+      }else if(this.signupForm.get('gender').errors?.required){
+        this.messNumber = 7;
+      }else if(this.signupForm.get('password').errors?.required){
+        this.messNumber = 8;
+      }else if(this.signupForm.get('password').errors?.minlength){
+        this.messNumber = 9;
+      }else if(this.signupForm.get('repassword').errors?.required){
+        this.messNumber = 10;
+      }else if(this.signupForm.get('repassword').value != this.signupForm.get('password').value){
+        this.messNumber = 11;
+      }else{
+        this.messNumber = 12;
         this.signupModel.name = this.signupForm.get('username').value;
         this.signupModel.email = this.signupForm.get('email').value;
         this.signupModel.phone = this.signupForm.get('phone').value;
@@ -54,19 +72,10 @@ export class SingupComponent implements OnInit {
         this.authService.signup(this.signupModel).subscribe(() => {
         this.router.navigate(['/auth'], { queryParams: { registered: 'true' } });
         this.toastr.success('Đăng ký tài khoản thành công')
-        console.log('Đăng ký thành công');
         }, () => {
             this.toastr.error('Đăng ký thất bại! Vui lòng kiểm tra lại');
         });
-    }
-    
- }
-
- checkPassword(){
-   if(this.signupForm.get('password').value != this.signupForm.get('repassword').value){
-      console.log(false);
-   }else {
-     console.log(true);
+      }
    }
- };
+
 }

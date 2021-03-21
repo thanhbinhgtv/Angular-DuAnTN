@@ -19,7 +19,7 @@ export class CreateStaffComponent implements OnInit {
   constructor(private staffService: StaffsService, private router: Router, private toastr: ToastrService) { 
     this.staffModel = {
       address: '',
-      birthday: null,
+      birthday: 0,
       cardId: '',
       email: '',
       gender: true,
@@ -33,15 +33,16 @@ export class CreateStaffComponent implements OnInit {
 
   ngOnInit(): void {
     this.StaffForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      cardId: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      birthday: new FormControl('',Validators.required),
-      gender: new FormControl('', Validators.required),
-      role: new FormControl('', Validators.required),
-      pass: new FormControl('', Validators.required),
+      name: new FormControl("", Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      phone: new FormControl("", Validators.required),
+      cardId: new FormControl("", Validators.required),
+      address: new FormControl("", Validators.required),
+      birthday: new FormControl("",Validators.required),
+      gender: new FormControl("", Validators.required),
+      role: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required),
+      repassword: new FormControl("", Validators.required),
     });
 
   }
@@ -55,14 +56,17 @@ export class CreateStaffComponent implements OnInit {
         this.staffModel.birthday = Date.parse(this.StaffForm.get('birthday').value);
         this.staffModel.gender = this.StaffForm.get('gender').value;
         this.staffModel.role = this.StaffForm.get('role').value;
-        this.staffModel.pass = this.StaffForm.get('pass').value;
+        this.staffModel.pass = this.StaffForm.get('password').value;
         // this.staffModel.image = this.StaffForm.get('image').value;
+        
+        console.log(this.StaffForm.get('password').value);
+        console.log(this.StaffForm.get('repassword').value);
     
         this.staffService.createStaff(this.staffModel).subscribe(() => {
         this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
         this.toastr.success('Thành công')
         }, (error) => {
-          this.toastr.error('Thêm thất bại! Vui lòng kiểm tra lại');
+          this.toastr.error(error.error);
           console.log(error);
       });
   }

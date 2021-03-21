@@ -13,37 +13,87 @@
                         <form class="user" [formGroup]="signupForm" (ngSubmit)="signup()">
                             <div class="form-group">                             
                                     <input type="text" [formControlName]="'username'" class="form-control form-control-user" id="name"
-                                        placeholder="Họ và tên">                                                         
+                                        placeholder="Họ và tên">
+                                        <div class="valid-false">
+                                            <span *ngIf="messNumber == 1">
+                                                &nbsp;&nbsp;&nbsp;Họ tên không được bỏ trống
+                                            </span>
+                                            <span *ngIf="messNumber == 2">
+                                                &nbsp;&nbsp;&nbsp;Hãy nhập không dưới 6 ký tự
+                                            </span>
+                                        </div>                                                    
                             </div>
                             <div class="form-group">
                                 <input type="email" [formControlName]="'email'" class="form-control form-control-user" id="email"
                                     placeholder=" Email">
+                                    <div class="valid-false">
+                                        <span *ngIf="messNumber == 3">
+                                            &nbsp;&nbsp;&nbsp;Email không được bỏ trống
+                                        </span>
+                                        <span *ngIf="messNumber == 4">
+                                            &nbsp;&nbsp;&nbsp;Hãy nhập email hợp lệ
+                                        </span>
+                                    </div>
                             </div>
                             <div class="form-group">
                                 <input type="text" [formControlName]="'phone'" class="form-control form-control-user" id="phone"
                                     placeholder=" Số điện thoại">
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 5">
+                                        &nbsp;&nbsp;&nbsp;Số điện thoại không được bỏ trống
+                                    </span>
+                                    <span *ngIf="messNumber == 6">
+                                        &nbsp;&nbsp;&nbsp;Hãy nhập không dưới 9 ký tự
+                                     </span>
+                                </div>    
                             </div>
                             <div class="form-group row">                                
                                 <div class="radio-label">
                                     Giới tính:  
                                 </div>
-                            <div class="radio">
-                                <input id="radio-1" name="gender" type="radio" [value]="true" [formControlName]="'gender'">
-                                <label for="radio-1" class="radio-label">Nam </label>
-                              
-                                <input id="radio-2" name="gender" type="radio" [value]="false" [formControlName]="'gender'">
-                                <label  for="radio-2" class="radio-label">Nữ</label>
-                              </div>
-                        </div>
+                                <div class="radio">
+                                    <input id="radio-1" name="gender" type="radio" [value]="true" [formControlName]="'gender'">
+                                    <label for="radio-1" class="radio-label">Nam </label>
+                                
+                                    <input id="radio-2" name="gender" type="radio" [value]="false" [formControlName]="'gender'">
+                                    <label  for="radio-2" class="radio-label">Nữ</label>
+                                </div>
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 7">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bạn chưa chọn giới tính
+                                    </span>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" [formControlName]="'password'" class="form-control form-control-user"
                                         id="pass" placeholder="Mật khẩu">
+                                        <div class="valid-false">
+                                            <span *ngIf="messNumber == 8">
+                                                &nbsp;&nbsp;&nbsp;Mật khẩu không được bỏ trống
+                                            </span>
+                                            <span *ngIf="messNumber == 9">
+                                                &nbsp;&nbsp;&nbsp;Mật khẩu không dưới 6 ký tự
+                                            </span>
+                                        </div>  
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" [formControlName]="'repassword'" class="form-control form-control-user"
                                         id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu">
+                                        <div class="valid-false">
+                                            <span *ngIf="messNumber == 10">
+                                                &nbsp;&nbsp;&nbsp;Mật khẩu không được bỏ trống
+                                            </span>
+                                            <span *ngIf="messNumber == 11">
+                                                &nbsp;&nbsp;&nbsp;Mật khẩu và nhập lại mật khẩu phải trùng nhau
+                                            </span>
+                                        </div>
                                 </div>
+                            </div>
+                            <div class="valid-true">
+                                <span *ngIf="messNumber == 12">
+                                    &nbsp;&nbsp;&nbsp;Đăng ký thành công, chờ giây lát...
+                                </span>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Đăng ký tài khoản
