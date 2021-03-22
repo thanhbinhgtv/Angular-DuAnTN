@@ -11,6 +11,7 @@ import { StaffResponseModel } from './staff-response-model';
 export class ViewStaffComponent implements OnInit {
   staffs: Array<StaffResponseModel> = [];
   deleteSuccess : boolean;
+  page = 0;
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
@@ -20,7 +21,7 @@ export class ViewStaffComponent implements OnInit {
   }
 
   getAllStaff(){
-    this.staffService.getAllStaffs().subscribe(staff =>{
+    this.staffService.getAllStaffs(this.page).subscribe(staff =>{
       this.staffs = staff;
     });
   }
@@ -35,6 +36,11 @@ export class ViewStaffComponent implements OnInit {
     }, () => {
       this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
   });
+  }
+
+  onPage(page: number){
+     this.page = page;
+     this.getAllStaff();
   }
 
 }

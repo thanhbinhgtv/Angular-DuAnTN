@@ -7,10 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NgxWebstorageModule.forRoot(),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

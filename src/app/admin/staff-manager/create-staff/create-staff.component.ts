@@ -15,6 +15,7 @@ export class CreateStaffComponent implements OnInit {
   StaffForm: FormGroup;
   staffModel: StaffRequestModel;
   timestamp = 1587168000000;
+  messNumber : number;
 
   constructor(private staffService: StaffsService, private router: Router, private toastr: ToastrService) { 
     this.staffModel = {
@@ -33,7 +34,7 @@ export class CreateStaffComponent implements OnInit {
 
   ngOnInit(): void {
     this.StaffForm = new FormGroup({
-      name: new FormControl("", Validators.required),
+      name: new FormControl("", [Validators.required, Validators.minLength(6)]),
       email: new FormControl("", [Validators.required, Validators.email]),
       phone: new FormControl("", Validators.required),
       cardId: new FormControl("", Validators.required),
@@ -48,6 +49,15 @@ export class CreateStaffComponent implements OnInit {
   }
 
   createStaff(){
+    if(this.StaffForm.get('name').errors?.required){
+      this.messNumber = 1;
+    }else if(this.StaffForm.get('name').errors?.minlength){
+      this.messNumber = 2;
+    }else if(this.StaffForm.get('email').errors?.required){
+      this.messNumber = 3;
+    }else if(this.StaffForm.get('email').errors?.email){
+      this.messNumber = 4;
+    }else{
         this.staffModel.name = this.StaffForm.get('name').value;
         this.staffModel.email = this.StaffForm.get('email').value;
         this.staffModel.phone = this.StaffForm.get('phone').value;
@@ -69,6 +79,7 @@ export class CreateStaffComponent implements OnInit {
           this.toastr.error(error.error);
           console.log(error);
       });
+    }
   }
 
 }

@@ -11,8 +11,8 @@ export class StaffsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllStaffs(): Observable<Array<StaffResponseModel>> {
-    return this.http.get<Array<StaffResponseModel>>('http://localhost:8080/super-admin/staffs');
+  getAllStaffs(page: number): Observable<Array<StaffResponseModel>> {
+    return this.http.get<Array<StaffResponseModel>>(`http://localhost:8080/super-admin/staffs?page=${page}&&limit=5`);
   }
 
   createStaff(postStaffModel: StaffRequestModel): Observable<any>{

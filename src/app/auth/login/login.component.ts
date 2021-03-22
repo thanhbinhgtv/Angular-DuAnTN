@@ -14,6 +14,7 @@ import { LoginModel } from './login-model';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginModel: LoginModel;
+  messNumber : number;
   registerSuccessMessage: string;
 
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { 
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(6)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
@@ -40,16 +41,26 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.loginModel.email = this.loginForm.get('email').value;
-    this.loginModel.pass = this.loginForm.get('password').value;
-    
-    this.authService.login(this.loginModel).subscribe(() =>{
-        this.router.navigateByUrl('/admin');
-        this.toastr.success('Đăng nhập thành công');
-    }, () => {
-        this.toastr.error("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin");
-        // throwError(error.error.pass);
-    });
-}
+    if(this.loginForm.get('email').errors?.required){
+      this.messNumber = 1;
+    }else if(this.loginForm.get('email').errors?.email){
+      this.messNumber = 2;
+    }else if(this.loginForm.get('password').errors?.required){
+      this.messNumber = 3;
+    }else if(this.loginForm.get('password').errors?.minlength){
+      this.messNumber = 4;
+    }else{
+      this.loginModel.email = this.loginForm.get('email').value;
+      this.loginModel.pass = this.loginForm.get('password').value;
+      
+      this.authService.login(this.loginModel).subscribe(() =>{
+          this.router.navigateByUrl('/admin');
+          this.toastr.success('Đăng nhập thành công');
+      }, () => {
+          this.toastr.error("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin");
+          // throwError(error.error.pass);
+      });
+    }
+  }
 
 }
