@@ -1,10 +1,18 @@
 
 /* CSS BUTOON THÊM NHÂN VIÊN */
 .addNhanVien{
-    margin-left: 800px;
+    margin-left: 600px;
     margin-top: -45px;
     position: relative; top: 9px;
 }
+
+.chonTatCa{
+    display: block;
+    float: left;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
 
 /* CSS CHO Ô TÌM KIẾM GÓC TRÁI */
 .search-box {
@@ -49,3 +57,5 @@ table.table td a.edit {
 table.table td a.delete {
     color: #E34724;
 }
+
+/* css chọn lọc */
