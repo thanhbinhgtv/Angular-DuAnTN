@@ -19,6 +19,11 @@ const routes: Routes = [{
       loadChildren: () => import('./article-manager/article-manager.module')
         .then(m => m.ArticleManagerModule),
     },
+    {
+      path: 'customer',
+      loadChildren: () => import('./customer-manager/customer-manager.module')
+        .then(m => m.CustomerManagerModule),
+    },
 
     { path: '**', redirectTo: 'home' },
   ],
