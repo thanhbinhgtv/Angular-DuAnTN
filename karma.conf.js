@@ -1,3 +1,5 @@
+//karma.conf.js: Tập tin cấu hình cho Karma, liên quan nhiều đến phần testing.
+
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 

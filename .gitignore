@@ -1,3 +1,7 @@
+#.gitignore: Đây là tập tin metadata của Git, chứa thông tin 
+# những tập tin hoặc thư mục sẽ bị ignore không được commit lên Git Repository.
+
+
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
