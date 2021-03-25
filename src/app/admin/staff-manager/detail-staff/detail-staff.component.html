@@ -1,47 +1,112 @@
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                      <!-- ẢNH NHÂN VIÊN -->
+                        <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <ul class="meta list list-unstyled">
+                            <!-- TÊN NHÂN VIÊN -->
+                            <li class="name">Nguyễn Thanh Hiệp
+                                <!-- CHỨC VỤ -->
+                                <label class="label label-info">Admin</label>
+                            </li>
+                            <!-- <li class="email"><a href="#">hiepnguyen31899@gmail.com</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-panel">
+                    <h1 class="title">CHI TIẾT NHÂN VIÊN</h1>
 
-<!-- Link lấy giao diện https://www.niemvuilaptrinh.com/article/Product-Card-Snippet-trong-Bootstrap-4 -->
-  
-  <div class="wrapper">
-    <div class="product-img">
+                    <div class="form-group">
+                      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                          <input class="btn btn-primary" type="submit" value="Update Profile">
+                      </div>
+                  </div>
+                    <form class="form-horizontal">
+                        <fieldset class="fieldset">
+                            <h3 class="fieldset-title">Thông tin cá nhân </h3>
+                            <!-- MÃ NHÂN VIÊN -->
+                            <div class="form-group">
+                              <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã nhân viên: </label> 
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" class="form-control" value="NV01" disabled>
+                              </div>
+                          </div>
+                            <!-- TÊN -->
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ tên: </label> 
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value="Nguyễn thanh Hiệp" disabled>
+                                </div>
+                            </div>
+                            <!-- CHỨC VỤ -->
+                            <div class="form-group">
+                              <label class="col-md-2 col-sm-3 col-xs-12 control-label">Chức vụ: </label> 
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" class="form-control" value="Admin" disabled>
+                              </div>
+                            </div>
+                             <!-- Chứng minh nd - căn cước -->
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-3 col-xs-12 control-label">Chứng minh nd - căn cước: </label> 
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" class="form-control" value="101323770" disabled>
+                                </div>
+                            </div>
 
-      <!-- ảnh nhân viên -->
-      <img src="https://media-cdn.laodong.vn/Storage/NewsPortal/2020/8/21/829850/Bat-Cuoi-Truoc-Nhung-07.jpg" height="420" width="327">
+                            <!-- GIỚI TÍNH -->
+                            <div class="form-group">
+                              <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính: </label> 
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" class="form-control" value="Nam" disabled>
+                              </div>
+                            </div>  
+                            
+                            <!-- Ngày sinh -->
+                            <div class="form-group">
+                              <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh: </label> 
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" class="form-control" value="31/08/1999" disabled>
+                              </div>
+                            </div> 
+                        </fieldset>
+                        <fieldset class="fieldset">
+                            <h3 class="fieldset-title">Thông tin liên hệ</h3>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="email" class="form-control" value="Hiepnguyen31899@gmail.com" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Địa chỉ -->
+                            <div class="form-group">
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Địa chỉ</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value="Uông Bí, Quảng Ninh" disabled>
+                                    <!-- <p class="help-block">Địa chỉ hiện tại</p> -->
+                                </div>
+                            </div>
+
+                            <!-- Số điện thoại -->
+                            <div class="form-group">
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="url" class="form-control" value="0365834845" disabled>
+                                    <!-- <p class="help-block">eg. https://www.linkedin.com/in/yourname</p> -->
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="product-info">
-
-      <div class="product-text">
-
-        <!-- tên nhân viên -->
-        <h1>Nguyễn Thanh Hiệp</h1> 
-        <br>
-        <br>
-
-        <!-- email -->
-        <h2>hiep@gmail.com </h2>
-
-        <!-- SĐT -->
-        <h2>0365834845</h2>
-        
-        <!-- Tuổi -->
-        <h2>02/01/1970 </h2>
-
-        <!-- Giới Tính -->
-        <h2>Nam </h2>
-
-        <!-- Vai Trò -->
-        <h2>Super Admin </h2>
-
-        <!-- Địa Chỉ -->
-        <p>Số 4 Ngõ Chùa Hưng Ký, phố Minh Khai, Quận Hai Bà Trưng, Thành phố Hà Nội</p>
-      </div>
-
-      <div class="product-price-btn">
-        <!-- <p><span>78</span>$</p> -->
-        <!-- <button type="button">buy now</button> -->
-      </div>
-
-    </div>
-  </div>
-
-  <!-- <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet"> -->
-
+</div>

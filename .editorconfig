@@ -1,3 +1,6 @@
+#.editorconfig: Chứa các cấu hình liên quan đến phần Editor 
+# để chỉnh sửa source code như: indent_size, max_line_length,…
+
 # Editor configuration, see https://editorconfig.org
 root = true
 
