@@ -23,8 +23,6 @@ export class DetailStaffComponent implements OnInit {
   getStaffById(){
     this.staffService.getStaffsById(this.staffId).subscribe((data) => {
         this.staff = data;
-        console.log(this.staff);
-        
     })
   }
 }

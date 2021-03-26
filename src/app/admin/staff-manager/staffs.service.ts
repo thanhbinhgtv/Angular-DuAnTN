@@ -16,7 +16,6 @@ export class StaffsService {
   }
 
   getStaffsById(id: number): Observable<StaffResponseModel> {
-    console.log(id);
     return this.http.get<StaffResponseModel>('http://localhost:8080/super-admin/staffs/' +id);
   }
 

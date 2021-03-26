@@ -45,8 +45,6 @@ export class SingupComponent implements OnInit {
         this.messNumber = 3;
       }else if(this.signupForm.get('email').errors?.email){
         this.messNumber = 4;
-      }else if(this.signupForm.get('email').errors?.email){
-        this.messNumber = 4;
       }else if(this.signupForm.get('phone').errors?.required){
         this.messNumber = 5;
       }else if(this.signupForm.get('phone').errors?.minlength){

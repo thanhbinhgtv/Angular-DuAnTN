@@ -37,18 +37,47 @@
                             <div class="form-group">
                                 <label> Số điện thoại </label>
                                 <input type="text" [formControlName]="'phone'" class="form-control form-control-user" id="cardId" placeholder="">
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 5">
+                                        Phone không được bỏ trống
+                                    </span>
+                                    <span *ngIf="messNumber == 6">
+                                        Hãy nhập không dưới 9 ký tự
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label> Số chứng minh nhân dân - thẻ căn cước </label>
                                 <input type="text" [formControlName]="'cardId'" class="form-control form-control-user" id="phone" placeholder="">
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 7">
+                                        CardId không được bỏ trống
+                                    </span>
+                                    <span *ngIf="messNumber == 8">
+                                        Hãy nhập không dưới 9 ký tự
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label> Địa chỉ </label>
                                 <input type="text" [formControlName]="'address'" class="form-control form-control-user" id="address" placeholder="">
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 9">
+                                        Địa chỉ không được bỏ trống
+                                    </span>
+                                    <span *ngIf="messNumber == 10">
+                                        Hãy nhập không dưới 6 ký tự
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label> Ngày sinh </label>
                                 <input type="date" [formControlName]="'birthday'" class="form-control form-control-user" id="birthday" placeholder="">
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 11">
+                                        Ngày sinh không được bỏ trống
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <div class="radio-label">
@@ -60,6 +89,11 @@
 
                                     <input id="radio-2" type="radio" name="gender" [value]="false" [formControlName]="'gender'">
                                     <label for="radio-2" class="radio-label">Nữ</label>
+                                    <div class="valid-false">
+                                        <span *ngIf="messNumber == 12">
+                                            Giới tính không được bỏ trống
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -74,6 +108,11 @@
                                     </select>
                                     <div class="select-dropdown"></div>
                                 </div>
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 13">
+                                        Vai Trò không được bỏ trống
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -87,11 +126,32 @@
                                     <label>Mật khẩu</label>
                                     <input type="password" [formControlName]="'password'" class="form-control form-control-user"
                                         id="pass" placeholder="" required>
+                                    <div class="valid-false">
+                                        <span *ngIf="messNumber == 14">
+                                            Mật khẩu không được bỏ trống
+                                        </span>
+                                        <span *ngIf="messNumber == 15">
+                                            Hãy nhập không dưới 6 ký tự
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Nhập lại mật khẩu</label>
                                     <input type="repassword" [formControlName]="'repassword'" class="form-control form-control-user"
                                         id="exampleRepeatPassword" placeholder="" required >
+                                    <div class="valid-false">
+                                        <span *ngIf="messNumber == 16">
+                                            Nhập lại mật khẩu không được bỏ trống
+                                        </span>
+                                        <span *ngIf="messNumber == 17">
+                                            Hãy nhập không dưới 6 ký tự
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="valid-false">
+                                    <span *ngIf="messNumber == 18">
+                                        Mật khẩu phải trùng nhau
+                                    </span>
                                 </div>
                             </div>
                             

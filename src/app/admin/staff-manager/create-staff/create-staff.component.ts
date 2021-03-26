@@ -36,14 +36,14 @@ export class CreateStaffComponent implements OnInit {
     this.StaffForm = new FormGroup({
       name: new FormControl("", [Validators.required, Validators.minLength(6)]),
       email: new FormControl("", [Validators.required, Validators.email]),
-      phone: new FormControl("", Validators.required),
-      cardId: new FormControl("", Validators.required),
-      address: new FormControl("", Validators.required),
-      birthday: new FormControl("",Validators.required),
-      gender: new FormControl("", Validators.required),
-      role: new FormControl("", Validators.required),
-      password: new FormControl("", Validators.required),
-      repassword: new FormControl("", Validators.required),
+      phone: new FormControl("", [Validators.required, Validators.minLength(9)]),
+      cardId: new FormControl("", [Validators.required, Validators.minLength(9)]),
+      address: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      birthday: new FormControl("", [Validators.required]),
+      gender: new FormControl("", [Validators.required]),
+      role: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      repassword: new FormControl("", [Validators.required, Validators.minLength(6)]),
     });
 
   }
@@ -57,6 +57,34 @@ export class CreateStaffComponent implements OnInit {
       this.messNumber = 3;
     }else if(this.StaffForm.get('email').errors?.email){
       this.messNumber = 4;
+    }else if(this.StaffForm.get('phone').errors?.required){
+      this.messNumber = 5;
+    }else if(this.StaffForm.get('phone').errors?.minlength){
+      this.messNumber = 6;
+    }else if(this.StaffForm.get('cardId').errors?.required){
+      this.messNumber = 7;
+    }else if(this.StaffForm.get('cardId').errors?.minlength){
+      this.messNumber = 8;
+    }else if(this.StaffForm.get('address').errors?.required){
+      this.messNumber = 9;
+    }else if(this.StaffForm.get('address').errors?.minlength){
+      this.messNumber = 10;
+    }else if(this.StaffForm.get('birthday').errors?.required){
+      this.messNumber = 11;
+    }else if(this.StaffForm.get('gender').errors?.required){
+      this.messNumber = 12;
+    }else if(this.StaffForm.get('role').errors?.required){
+      this.messNumber = 13;
+    }else if(this.StaffForm.get('password').errors?.required){
+      this.messNumber = 14;
+    }else if(this.StaffForm.get('password').errors?.minlength){
+      this.messNumber = 15;
+    }else if(this.StaffForm.get('repassword').errors?.required){
+      this.messNumber = 16;
+    }else if(this.StaffForm.get('repassword').errors?.minlength){
+      this.messNumber = 17;
+    }else if(this.StaffForm.get('password').value != this.StaffForm.get('repassword').value){
+      this.messNumber = 18;
     }else{
         this.staffModel.name = this.StaffForm.get('name').value;
         this.staffModel.email = this.StaffForm.get('email').value;
@@ -69,14 +97,11 @@ export class CreateStaffComponent implements OnInit {
         this.staffModel.pass = this.StaffForm.get('password').value;
         // this.staffModel.image = this.StaffForm.get('image').value;
         
-        console.log(this.StaffForm.get('password').value);
-        console.log(this.StaffForm.get('repassword').value);
-    
         this.staffService.createStaff(this.staffModel).subscribe(() => {
         this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
         this.toastr.success('Thành công')
         }, (error) => {
-          this.toastr.error(error.error);
+          this.toastr.error(error.error.mess);
           console.log(error);
       });
     }
