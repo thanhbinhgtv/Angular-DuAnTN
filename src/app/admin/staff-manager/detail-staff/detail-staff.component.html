@@ -9,9 +9,10 @@
                         <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                         <ul class="meta list list-unstyled">
                             <!-- TÊN NHÂN VIÊN -->
-                            <li class="name">Nguyễn Thanh Hiệp
+                            <li class="name">{{staff?.name}}<br>
                                 <!-- CHỨC VỤ -->
-                                <label class="label label-info">Admin</label>
+                                <label class="label label-info" *ngIf="staff?.role == true">Admin</label>
+                                <label class="label label-info" *ngIf="staff?.role == false">Super Admin</label>
                             </li>
                             <!-- <li class="email"><a href="#">hiepnguyen31899@gmail.com</a></li> -->
                         </ul>
@@ -32,44 +33,50 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã nhân viên: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="NV01" disabled>
+                                  <input type="text" class="form-control" value="{{staff?.staffId}}" disabled>
                               </div>
                           </div>
                             <!-- TÊN -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ tên: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Nguyễn thanh Hiệp" disabled>
+                                    <input type="text" class="form-control" value="{{staff?.name}}" disabled>
                                 </div>
                             </div>
                             <!-- CHỨC VỤ -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Chức vụ: </label> 
-                              <div class="col-md-10 col-sm-9 col-xs-12">
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == true">
                                   <input type="text" class="form-control" value="Admin" disabled>
                               </div>
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == false">
+                                <input type="text" class="form-control" value="Super Admin" disabled>
+                            </div>
                             </div>
                              <!-- Chứng minh nd - căn cước -->
                             <div class="form-group">
                                 <label class="col-md-4 col-sm-3 col-xs-12 control-label">Chứng minh nd - căn cước: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="101323770" disabled>
+                                  <input type="text" class="form-control" value="{{staff?.cardId}}" disabled>
                                 </div>
                             </div>
 
                             <!-- GIỚI TÍNH -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính: </label> 
-                              <div class="col-md-10 col-sm-9 col-xs-12">
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.gender == true">
                                   <input type="text" class="form-control" value="Nam" disabled>
                               </div>
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.gender == false">
+                                <input type="text" class="form-control" value="Nữ" disabled>
+                            </div>
                             </div>  
                             
                             <!-- Ngày sinh -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="31/08/1999" disabled>
+                                  <input type="text" class="form-control" value="{{staff?.birthday | date:'dd/MM/yyyy'}}" disabled>
                               </div>
                             </div> 
                         </fieldset>
@@ -80,7 +87,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="Hiepnguyen31899@gmail.com" disabled>
+                                    <input type="email" class="form-control" value="{{staff?.email}}" disabled>
                                 </div>
                             </div>
 
@@ -88,7 +95,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Uông Bí, Quảng Ninh" disabled>
+                                    <input type="text" class="form-control" value="{{staff?.address}}" disabled>
                                     <!-- <p class="help-block">Địa chỉ hiện tại</p> -->
                                 </div>
                             </div>
@@ -97,7 +104,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="url" class="form-control" value="0365834845" disabled>
+                                    <input type="url" class="form-control" value="{{staff?.phone}}" disabled>
                                     <!-- <p class="help-block">eg. https://www.linkedin.com/in/yourname</p> -->
                                 </div>
                             </div>

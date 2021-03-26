@@ -1,7 +1,7 @@
 export interface StaffResponseModel {
     address: string,
     cardId: string,
-    dob: number,
+    birthday: number,
     email: string,
     gender: boolean,
     image: string,

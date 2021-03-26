@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StaffsService } from '../staffs.service';
 import { StaffResponseModel } from './staff-response-model';
@@ -13,7 +14,7 @@ export class ViewStaffComponent implements OnInit {
   deleteSuccess : boolean;
   page = 0;
 
-  constructor(private staffService: StaffsService, private toastr: ToastrService) { 
+  constructor(private staffService: StaffsService, private activateRoute: ActivatedRoute, private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
