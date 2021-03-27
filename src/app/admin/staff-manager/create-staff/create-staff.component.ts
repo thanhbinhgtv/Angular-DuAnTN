@@ -16,6 +16,7 @@ export class CreateStaffComponent implements OnInit {
   staffModel: StaffRequestModel;
   timestamp = 1587168000000;
   messNumber : number;
+  isloading : boolean;
 
   constructor(private staffService: StaffsService, private router: Router, private toastr: ToastrService) { 
     this.staffModel = {
@@ -86,6 +87,8 @@ export class CreateStaffComponent implements OnInit {
     }else if(this.StaffForm.get('password').value != this.StaffForm.get('repassword').value){
       this.messNumber = 18;
     }else{
+        this.messNumber = 19;
+        this.isloading = true;
         this.staffModel.name = this.StaffForm.get('name').value;
         this.staffModel.email = this.StaffForm.get('email').value;
         this.staffModel.phone = this.StaffForm.get('phone').value;
@@ -102,7 +105,7 @@ export class CreateStaffComponent implements OnInit {
         this.toastr.success('Thành công')
         }, (error) => {
           this.toastr.error(error.error.mess);
-          console.log(error);
+          this.isloading = false;
       });
     }
   }

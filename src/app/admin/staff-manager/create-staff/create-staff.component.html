@@ -154,7 +154,11 @@
                                     </span>
                                 </div>
                             </div>
-                            
+                            <div class="valid-true">
+                                <span *ngIf="messNumber == 19 && this.isloading != false">
+                                    &nbsp;&nbsp;&nbsp;Vui lòng chờ giây lát ...
+                                </span>
+                            </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Thêm nhân viên
                             </button>
