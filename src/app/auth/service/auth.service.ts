@@ -36,15 +36,7 @@ export class AuthService {
       }));
   }
 
-  logout() {   //header
-    // this.refreshTokenPayload.username = this.getUserName();
-    // this.refreshTokenPayload.refreshToken = this.getRefreshToken();
-    // this.httpClient.post('http://localhost:8080/logout', this.refreshTokenPayload, {responseType: 'text' })
-    //   .subscribe(data => {    //Thiếu sẽ ko xóa đc refreshToken
-    //     console.log(data);
-    //   }, error => {
-    //     throwError(error);
-    //   })
+  logout() {
     this.localStorage.clear('image');
     this.localStorage.clear('role');
     this.localStorage.clear('name');
