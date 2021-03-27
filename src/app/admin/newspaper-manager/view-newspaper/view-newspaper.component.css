@@ -459,4 +459,11 @@
   table.table td a.delete {
     color: #E34724;
   }
+
+  .textnd{
+    max-width: 300px;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
  
