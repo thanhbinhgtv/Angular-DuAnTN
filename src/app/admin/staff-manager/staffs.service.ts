@@ -15,6 +15,10 @@ export class StaffsService {
     return this.http.get<Array<StaffResponseModel>>(`http://localhost:8080/super-admin/staffs?page=${page}&&limit=5`);
   }
 
+  getStaffsById(id: number): Observable<StaffResponseModel> {
+    return this.http.get<StaffResponseModel>('http://localhost:8080/super-admin/staffs/' +id);
+  }
+
   createStaff(postStaffModel: StaffRequestModel): Observable<any>{
     return this.http.post('http://localhost:8080/super-admin/staffs', postStaffModel);
   }

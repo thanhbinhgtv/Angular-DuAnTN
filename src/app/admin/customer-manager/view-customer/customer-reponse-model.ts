@@ -1,13 +1,12 @@
-export interface StaffResponseModel {
+export interface CustomerResponseModel{
+    accountBalance: number,
     address: string,
-    cardId: string,
     birthday: number,
+    cardId: string,
+    customerId: number,
     email: string,
     gender: boolean,
     image: string,
     name: string,
-    pass: string,
     phone: string,
-    role: boolean,
-    staffId: number,
 }

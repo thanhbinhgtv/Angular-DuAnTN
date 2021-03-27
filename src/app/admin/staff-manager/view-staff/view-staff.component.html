@@ -57,14 +57,14 @@
                             <td>{{staff.email}}</td>
                             <td>{{staff.phone}}</td>
                             <td>{{staff.address}}</td>
-                            <td>{{staff.dob | date:'dd/MM/yyyy'}}</td>
+                            <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
                             <td *ngIf="staff.gender == true">Nam</td>
                             <td *ngIf="staff.gender == false">Nữ</td>
                             <td *ngIf="staff.role == true">Admin</td>
                             <td *ngIf="staff.role == false">Super Admin</td>
                             <td>{{staff.image}}</td>
                             <td>
-                                <a routerLink="detail-staff" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                 <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteStaff(staff.staffId)">&#xE872;</i></a>
                             </td>
