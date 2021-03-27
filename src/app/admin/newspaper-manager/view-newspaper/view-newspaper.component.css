@@ -440,6 +440,7 @@
   input::-webkit-search-cancel-button {
     display: none; 
   }
+  
   /* CSS CHO 3 NÚT THÊM XÓA SỬA */
   table.table td:last-child {
     width: 130px;
@@ -458,3 +459,4 @@
   table.table td a.delete {
     color: #E34724;
   }
+ 

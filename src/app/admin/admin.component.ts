@@ -10,7 +10,7 @@ import { AuthService } from '../auth/service/auth.service';
           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
               <!-- Sidebar - Brand -->
               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                  <div class="sidebar-brand-icon rotate-n-15">
+                  <div class="sidebar-brand-icon">
                      <i class="fas fa-home"></i>
                   </div>
                   <div class="sidebar-brand-text mx-3">Thanh Xuân</div>
@@ -80,6 +80,7 @@ import { AuthService } from '../auth/service/auth.service';
                           <h6 class="collapse-header">Danh Sách:</h6>
                           <a class="collapse-item" routerLink="/admin/staff">Nhân Viên</a>
                           <a class="collapse-item" routerLink="/admin/article">Bài Đăng</a>
+                          <a class="collapse-item" routerLink="/admin/newspaper">Tin Tức</a>
                           <a class="collapse-item" routerLink="/admin/customer">Khách Hàng</a>
                           <div class="collapse-divider"></div>
                           <h6 class="collapse-header">Other Pages:</h6>

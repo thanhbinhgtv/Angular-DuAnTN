@@ -8,14 +8,13 @@ import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ModalLogoutComponent } from './shared/modal-logout/modal-logout.component';
 
-
 @NgModule({
   declarations: [
     AdminComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    ModalLogoutComponent
+    ModalLogoutComponent,
   ],
   imports: [
     CommonModule,

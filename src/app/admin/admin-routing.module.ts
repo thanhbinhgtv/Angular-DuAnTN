@@ -25,6 +25,11 @@ const routes: Routes = [{
       loadChildren: () => import('./customer-manager/customer-manager.module')
         .then(m => m.CustomerManagerModule), canActivate: [AuthGuard],
     },
+    {
+      path: 'newspaper',
+      loadChildren: () => import('./newspaper-manager/newspaper-manager.module')
+        .then(m => m.NewspaperManagerModule), canActivate: [AuthGuard],
+    },
 
     { path: '**', redirectTo: 'home' },
   ],
