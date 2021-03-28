@@ -62,7 +62,9 @@
                             <td *ngIf="staff.gender == false">Nữ</td>
                             <td *ngIf="staff.role == true">Admin</td>
                             <td *ngIf="staff.role == false">Super Admin</td>
-                            <td>{{staff.image}}</td>
+                            <td>
+                                <img src={{staff.image}} alt="" style="width: 80px; height: 100px; padding-top: 10px;"/> 
+                            </td>
                             <td>
                                 <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                 <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
