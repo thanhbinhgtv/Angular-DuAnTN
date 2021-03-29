@@ -65,7 +65,7 @@
                             <td>{{staff.image}}</td>
                             <td>
                                 <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a routerLink="update-staff/{{staff.staffId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteStaff(staff.staffId)">&#xE872;</i></a>
                             </td>
                         </tr>

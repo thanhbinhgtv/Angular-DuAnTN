@@ -16,7 +16,7 @@ const routes: Routes = [{
       path: 'create-staff', component: CreateStaffComponent,
     },
     {
-      path: 'update-staff', component: UpdateStaffComponent,
+      path: 'update-staff/:id', component: UpdateStaffComponent,
     },
     {
       path: 'detail-staff/:id', component: DetailStaffComponent,
