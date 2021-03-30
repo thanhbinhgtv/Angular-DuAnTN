@@ -1,0 +1,52 @@
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                      <!-- ẢNH -->
+                        <img class="img-profile img-circle img-responsive center-block" src="https://foodi.com.vn/wp-content/uploads/2019/12/website-cho-thue-phong-tro-1.png" alt="">
+                    </div>
+                </div>
+                <div class="content-panel">
+                    <h1 class="title">CHI TIẾT BÀI VIẾT</h1>
+
+                    <form class="form-horizontal" [formGroup]="newsPaperForm">
+                        <fieldset class="fieldset">
+                            <!-- <h3 class="fieldset-title">Thông tin cá nhân</h3> -->
+                            <!-- Mã bài viết -->
+                            <div class="form-group">
+                              <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã bài viết</label> 
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                  <input type="text" [formControlName]="'newId'" class="form-control">
+                              </div>
+                          </div>
+                            <!-- Tác giả -->
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Tác giả</label> 
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" [formControlName]="'author'" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Tiêu đề -->
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Tiêu đề</label> 
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" [formControlName]="'title'" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Nội dung -->
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nội dung</label> 
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <textarea type="text" [formControlName]="'content'" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

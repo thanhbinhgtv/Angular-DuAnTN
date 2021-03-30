@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DetailNewspaperComponent } from '../newspaper-manager/detail-newspaper/detail-newspaper.component';
 import { ArticleManagerComponent } from './article-manager.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { ViewArticleComponent } from './view-article/view-article.component';
 
@@ -17,9 +19,9 @@ const routes: Routes = [{
     {
       path: 'update-article', component: UpdateArticleComponent,
     },
-    // {
-    //   path: 'detail-staff', component: DetailStaffComponent,
-    // },
+    {
+      path: 'detail-article/:id', component: DetailArticleComponent,
+    },
   ],
 }];
 

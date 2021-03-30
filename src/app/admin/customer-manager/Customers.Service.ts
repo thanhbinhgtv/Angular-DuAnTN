@@ -16,7 +16,6 @@ export class CustomersService{
     
     //
     getCustomerById(id: number): Observable<CustomerResponseModel>{
-        console.log(id)
         return this.http.get<CustomerResponseModel>('http://localhost:8080/admin/customers/' + id);
     }
 

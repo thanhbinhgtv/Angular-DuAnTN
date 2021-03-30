@@ -70,8 +70,8 @@ export class SingupComponent implements OnInit {
         this.authService.signup(this.signupModel).subscribe(() => {
         this.router.navigate(['/auth'], { queryParams: { registered: 'true' } });
         this.toastr.success('Đăng ký tài khoản thành công, Vui lòng kích hoạt tài khoản qua email')
-        }, () => {
-            this.toastr.error('Đăng ký thất bại! Vui lòng kiểm tra lại');
+        }, (error) => {
+            this.toastr.error(error.error.mess);
         });
       }
    }

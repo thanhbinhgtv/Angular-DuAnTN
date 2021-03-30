@@ -6,17 +6,20 @@ import { ViewNewspaperComponent } from './view-newspaper/view-newspaper.componen
 import { CreateNewspaperComponent } from './create-newspaper/create-newspaper.component';
 import { UpdateNewspaperComponent } from './update-newspaper/update-newspaper.component';
 import { NewspaperManagerComponent } from './newspaper-manager.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DetailNewspaperComponent } from './detail-newspaper/detail-newspaper.component';
 
 @NgModule({
   declarations: [
     NewspaperManagerComponent,
     ViewNewspaperComponent, 
     CreateNewspaperComponent, 
-    UpdateNewspaperComponent
+    UpdateNewspaperComponent, DetailNewspaperComponent
   ],
   imports: [
     CommonModule,
-    NewspaperManagerRoutingModule
+    NewspaperManagerRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class NewspaperManagerModule { }

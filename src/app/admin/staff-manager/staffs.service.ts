@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StaffRequestModel } from './create-staff/staff-request-model';
+import { StaffUpdateRequestModel } from './update-staff/staff-update-request-model';
 import { StaffResponseModel } from './view-staff/staff-response-model';
 
 @Injectable({
@@ -21,6 +22,10 @@ export class StaffsService {
 
   createStaff(postStaffModel: StaffRequestModel): Observable<any>{
     return this.http.post('http://localhost:8080/super-admin/staffs', postStaffModel);
+  }
+
+  updateStaff(id: number, updateStaffModel: StaffUpdateRequestModel): Observable<any>{
+    return this.http.put('http://localhost:8080/super-admin/staffs/'+id, updateStaffModel);
   }
   
   deleteStaff(id: number): Observable<any> {

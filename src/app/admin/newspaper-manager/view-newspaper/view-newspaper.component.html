@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <a class="btn btn-success btn-sm d-none d-md-block"
-                            href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a>
+                            routerLink="create-newspaper">Đăng tin mới</a>
                         <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
                                 href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a></div>
                     </div>
@@ -108,9 +108,9 @@
                                         <span class="text text-warning" style="white-space: nowrap;">Đăng hiển thị</span>
                                     </td>
                                     <td>
-                                        <a routerLink="detail-staff" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                        <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        <a routerLink="detail-newspaper/{{new.newId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                        <a routerLink="update-newspaper/{{new.newId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a routerLink="." class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteNewpaper(new.newId)">&#xE872;</i></a>
                                     </td>
                                 </tr>
                             </tbody>

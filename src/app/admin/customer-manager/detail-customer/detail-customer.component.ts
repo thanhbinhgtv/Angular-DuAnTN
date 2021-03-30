@@ -13,7 +13,7 @@ export class DetailCustomerComponent implements OnInit {
   customerId: number;
 
   constructor(private customerService: CustomersService, private activateRoute: ActivatedRoute) {
-    this.customerId = this.activateRoute.snapshot.params.id; // chua hieu doan nay
+    this.customerId = this.activateRoute.snapshot.params.id;
    }
 
   ngOnInit(): void {
@@ -23,7 +23,6 @@ export class DetailCustomerComponent implements OnInit {
   getCustomerById(){
     this.customerService.getCustomerById(this.customerId).subscribe((data) => {
       this.customer = data;
-      console.log(data)
     })
   }
 }

@@ -14,7 +14,7 @@ export class ViewStaffComponent implements OnInit {
   deleteSuccess : boolean;
   page = 0;
 
-  constructor(private staffService: StaffsService, private activateRoute: ActivatedRoute, private toastr: ToastrService) { 
+  constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class ViewStaffComponent implements OnInit {
   }
 
   getAllStaff(){
-    this.staffService.getAllStaffs(this.page).subscribe(staff =>{
-      this.staffs = staff;
+    this.staffService.getAllStaffs(this.page).subscribe(data =>{
+      this.staffs = data;
     });
   }
 

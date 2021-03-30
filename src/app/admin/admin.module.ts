@@ -19,6 +19,6 @@ import { ModalLogoutComponent } from './shared/modal-logout/modal-logout.compone
   imports: [
     CommonModule,
     AdminRoutingModule
-  ]
+  ],
 })
 export class AdminModule { }

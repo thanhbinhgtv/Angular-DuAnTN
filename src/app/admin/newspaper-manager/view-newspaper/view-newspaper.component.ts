@@ -11,6 +11,7 @@ import { NewsPaperResponseModel } from './newspaper-response-model';
 export class ViewNewspaperComponent implements OnInit {
   news: Array<NewsPaperResponseModel> = [];
   page = 0;
+  deleteSuccess : boolean;
 
   constructor(private newspaperService: NewspaperService, private toastr: ToastrService) { }
 
@@ -23,4 +24,17 @@ export class ViewNewspaperComponent implements OnInit {
       this.news = news;
     });
   }
+
+  deleteNewpaper(id: number){
+    this.newspaperService.deleteNewspaper(id).subscribe(() =>{
+      this.toastr.success('Xóa thành công')
+      this.deleteSuccess = true;
+      if(this.deleteSuccess){
+        this.getAllNewsPaper();
+      }
+    }, () => {
+      this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
+  });
+  }
+
 }

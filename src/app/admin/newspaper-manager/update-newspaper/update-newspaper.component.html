@@ -1,1 +1,44 @@
-<p>update-newspaper works!</p>
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">CẬP NHẬT BÀI VIẾT</h1>
+                        </div>
+                        <form class="user" [formGroup]="newsPaperForm" (ngSubmit)="updateNewsPaper()">
+                            <div class="form-group">
+                                <label> Mã Nhân Viên </label>
+                                <input type="text" [formControlName]="'staffId'" class="form-control form-control-user" id="staffId">
+                            </div>
+
+                            <div class="form-group">
+                                <label> Tiêu Đề </label>
+                                <input type="text" [formControlName]="'title'" class="form-control form-control-user" id="title">
+                            </div>
+
+                            <div class="form-group">
+                                <label> Nội Dung </label>
+                                <!-- <input type="tex" [formControlName]="'content'" class="form-control form-control-user" id="content"> -->
+                                <textarea type="tex" [formControlName]="'content'" class="form-control form-control-user" id="content"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label> Ảnh </label>
+                                <input type="file" class="form-control form-control-user"
+                                    id="image" placeholder="">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="newsPaperForm.invalid">
+                                Cập nhật
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

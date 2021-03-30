@@ -32,28 +32,28 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã người dùng: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{customer?.customerId}}" disabled>
+                                  <input type="text" class="form-control" value="{{customer?.customerId}}">
                               </div>
                           </div>
                             <!-- TÊN -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ tên: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="{{customer?.name}}" disabled>
+                                    <input type="text" class="form-control" value="{{customer?.name}}">
                                 </div>
                             </div>
                             <!-- Số dư tài khoản -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Số dư tài khoản: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{customer?.accountBalance}}" disabled>
+                                  <input type="text" class="form-control" value="{{customer?.accountBalance}}">
                               </div>
                             </div>
                              <!-- Chứng minh nd - căn cước -->
                             <div class="form-group">
                                 <label class="col-md-4 col-sm-3 col-xs-12 control-label">Chứng minh nd - căn cước: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{customer?.cardId}}" disabled>
+                                  <input type="text" class="form-control" value="{{customer?.cardId}}">
                                 </div>
                             </div>
 
@@ -61,10 +61,10 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="customer?.gender == true">
-                                  <input type="text" class="form-control" value="Nam" disabled>
+                                  <input type="text" class="form-control" value="Nam">
                               </div>
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="customer?.gender == false">
-                                <input type="text" class="form-control" value="Nữ" disabled>
+                                <input type="text" class="form-control" value="Nữ">
                             </div>
                             </div>  
                             
@@ -72,7 +72,7 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{customer?.birthday | date:'dd/MM/yyyy'}}" disabled>
+                                  <input type="text" class="form-control" value="{{customer?.birthday | date:'dd/MM/yyyy'}}">
                               </div>
                             </div> 
                         </fieldset>
@@ -83,7 +83,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="{{customer?.email}}" disabled>
+                                    <input type="email" class="form-control" value="{{customer?.email}}">
                                 </div>
                             </div>
 
@@ -91,7 +91,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="{{customer?.address}}" disabled>
+                                    <input type="text" class="form-control" value="{{customer?.address}}">
                                     <!-- <p class="help-block">Địa chỉ hiện tại</p> -->
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="url" class="form-control" value="{{customer?.phone}}" disabled>
+                                    <input type="url" class="form-control" value="{{customer?.phone}}">
                                     <!-- <p class="help-block">eg. https://www.linkedin.com/in/yourname</p> -->
                                 </div>
                             </div>

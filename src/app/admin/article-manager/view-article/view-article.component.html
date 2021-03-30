@@ -66,8 +66,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#312303</td>
+                                <tr *ngFor="let article of article">
+                                    <td>#{{article.articleId}}</td>
                                     <td>
                                         <div class="post_thumb">
                                             <a href="https://phongtro123.com/quan-ly/tin-dang.html#" target="_blank">
@@ -81,7 +81,7 @@
 
                                         <a class="post_title" target="_blank"
                                             href="https://phongtro123.com/quan-ly/tin-dang.html#"
-                                            style="color: #055699;">Nhà Trọ Phương Canh Giá Rẻ: 1tr2 25m2
+                                            style="color: #055699;">{{article.title}}
                                         </a>
 
                                         <div class="post_btn_toolbar mt-3">
@@ -99,19 +99,19 @@
                                                 </svg> Đăng lại tin</a>
                                         </div>
                                         <span style="display: block; color: #999; margin-top: 10px;">
-                                            Cập nhật gần nhất: 17:08 08/10/2020
+                                            Cập nhật gần nhất: {{article.lastUpdateTime | date:'dd/MM/yyyy'}}
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="post_price">1.2 triệu/tháng</div>
+                                        <div class="post_price">{{article.roomPrice}}</div>
                                     </td>
-                                    <td>08/10/2020 17:08:10</td> 
-                                    <td>13/10/2020 17:08:10</td>
+                                    <td>{{article.createTime | date:'dd/MM/yyyy - HH:mm'}}</td> 
+                                    <td>{{article.lastUpdateTime | date:'dd/MM/yyyy - HH:mm'}}</td>
                                     <td>
-                                        <span class="text text-warning" style="white-space: nowrap;">Tin chưa duyệt</span>
+                                        <span class="text text-warning" style="white-space: nowrap;">{{article.status}}</span>
                                     </td>
                                     <td>
-                                        <a routerLink="detail-staff" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                        <a routerLink="detail-article/{{article.articleId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                         <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                     </td>
