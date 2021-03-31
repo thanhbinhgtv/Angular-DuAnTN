@@ -6,6 +6,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { ViewArticleComponent } from './view-article/view-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
   ],
   imports: [
     CommonModule,
-    ArticleManagerRoutingModule
+    ArticleManagerRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class ArticleManagerModule { }

@@ -13,4 +13,8 @@ export class ArticleManagerService {
   getAllArticle(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/admin/article?page=${page}&&limit=5`);
   }
+
+  getAllArticleById(id: number): Observable<ArticleResponseModel> {
+    return this.httpClient.get<ArticleResponseModel>('http://localhost:8080/admin/article/' +id);
+  }
 }
