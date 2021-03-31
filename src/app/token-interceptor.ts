@@ -15,7 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     constructor(public authService: AuthService, private router: Router){}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const jwtToken = this.authService.getJwtToken();    //Lấy token User đang login
 
         // if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
@@ -24,15 +24,17 @@ export class TokenInterceptor implements HttpInterceptor {
         //   }
 
         if (jwtToken) {         // nếu có mã JwtToken trong localStorage thì:
-            return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
+            return next.handle(this.addToken(request, jwtToken)).pipe(catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 403) {
-                    return this.handleAuthErrors(req, next);
+                    return this.handleAuthErrors(request, next);
                 } else {
                     return throwError(error);
                 }
             }));
+        }else{
+            console.log("Token = null");
         }
-        return next.handle(req);
+        return next.handle(request);
     }
 
     private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -68,8 +70,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     addToken(req: HttpRequest<any>, jwtToken: any) {
         return req.clone({
-            headers: req.headers.set('Authorization',
-                'Bearer ' + jwtToken)
+            headers: req.headers.set('Authorization', 'Bearer ' + jwtToken)
         });
     }
 
