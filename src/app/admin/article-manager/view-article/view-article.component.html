@@ -43,8 +43,8 @@
                                     đã duyệt</a>
                             </div>
                         </div>
-                        <a class="btn btn-success btn-sm d-none d-md-block"
-                            href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a>
+                        <button class="btn btn-success btn-sm d-none d-md-block"
+                            href="https://phongtro123.com/quan-ly/dang-tin-moi.html" [disabled]="true">Đăng tin mới</button>
                         <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
                                 href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a></div>
                     </div>
@@ -112,7 +112,7 @@
                                     </td>
                                     <td>
                                         <a routerLink="detail-article/{{article.articleId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                        <a routerLink="create-staff" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a routerLink="update-article/{{article.articleId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                         <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                     </td>
                                 </tr>

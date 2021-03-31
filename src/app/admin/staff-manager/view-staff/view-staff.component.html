@@ -60,8 +60,8 @@
                             <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
                             <td *ngIf="staff.gender == true">Nam</td>
                             <td *ngIf="staff.gender == false">Nữ</td>
-                            <td *ngIf="staff.role == true">Admin</td>
-                            <td *ngIf="staff.role == false">Super Admin</td>
+                            <td *ngIf="staff.role == true">Super Admin</td>
+                            <td *ngIf="staff.role == false">Admin</td>
                             <td>
                                 <img src={{staff.image}} alt="" style="width: 80px; height: 100px; padding-top: 10px;"/> 
                             </td>

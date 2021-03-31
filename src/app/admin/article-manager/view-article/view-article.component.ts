@@ -20,7 +20,6 @@ export class ViewArticleComponent implements OnInit {
 
   getAllStaff(){
     this.articleService.getAllArticle(this.page).subscribe((data) =>{
-      console.log(data);
       this.article = data;
     });
   }

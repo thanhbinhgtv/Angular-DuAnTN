@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NewsPaperPostRequestModel } from './newspaper-post-request';
 import { NewspaperService } from '../newspaper.service';
+import { AuthService } from 'src/app/auth/service/auth.service';
 
 @Component({
   selector: 'app-create-newspaper',
@@ -13,8 +14,11 @@ import { NewspaperService } from '../newspaper.service';
 export class CreateNewspaperComponent implements OnInit {
   newsPaperForm : FormGroup;
   newpaperModel: NewsPaperPostRequestModel;
+  accountId: number;
 
-  constructor(private newspaperService: NewspaperService, private router: Router, private toastr: ToastrService) { 
+  constructor(private newspaperService: NewspaperService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
+    this.accountId = this.authService.getId();
+    
     this.newpaperModel = {
       staffId: 0,
       title: '',
@@ -25,11 +29,12 @@ export class CreateNewspaperComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsPaperForm = new FormGroup({
-      staffId: new FormControl("", Validators.required),
+      staffId: new FormControl({value:"", disabled: true}, Validators.required),
       title: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(250)]),
       content: new FormControl("", [Validators.required, Validators.minLength(100)]),
       // image: new FormControl("", [Validators.required, Validators.minLength(9)]),
     });
+    this.newsPaperForm.get('staffId').setValue(this.accountId);
   }
 
   createNewsPaper(){

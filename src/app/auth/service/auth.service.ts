@@ -22,7 +22,8 @@ export class AuthService {
 
   login(loginModel: LoginModel): Observable<any>{
       return this.httpClient.post<LoginResponse>('http://localhost:8080/login', loginModel)
-      .pipe(map(data =>{ 
+      .pipe(map(data =>{
+        this.localStorage.store('id', data.id);
         this.localStorage.store('image', data.image);
         this.localStorage.store('role', data.role);
         this.localStorage.store('name', data.name);
@@ -37,6 +38,7 @@ export class AuthService {
   }
 
   logout() {
+    this.localStorage.clear('id');
     this.localStorage.clear('image');
     this.localStorage.clear('role');
     this.localStorage.clear('name');
@@ -46,6 +48,10 @@ export class AuthService {
 
   forgotPassword(email: string): Observable<any> {
     return this.httpClient.get('http://localhost:8080/forgot/?email=' + email);
+  }
+
+  getId() {
+    return this.localStorage.retrieve('id');
   }
 
   getJwtToken(){

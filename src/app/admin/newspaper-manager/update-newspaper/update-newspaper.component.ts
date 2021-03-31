@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/service/auth.service';
 import { NewsPaperPostRequestModel } from '../create-newspaper/newspaper-post-request';
 import { NewspaperService } from '../newspaper.service';
 
@@ -14,10 +15,12 @@ export class UpdateNewspaperComponent implements OnInit {
   newsPaperForm: FormGroup;
   newPaperId: number
   newpaperModel: NewsPaperPostRequestModel;
-
-  constructor( private newspaperService: NewspaperService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
+  accountId: number;
+  
+  constructor( private newspaperService: NewspaperService, private authService: AuthService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
     this.newPaperId = this.activateRoute.snapshot.params.id;
-
+    this.accountId = this.authService.getId();
+    
     this.newpaperModel = {
       staffId: 0,
       title: '',
@@ -30,11 +33,12 @@ export class UpdateNewspaperComponent implements OnInit {
     this.getStaffById();
 
     this.newsPaperForm = new FormGroup({
-      staffId: new FormControl("", Validators.required),
+      staffId: new FormControl({value: "", disabled:true}, Validators.required),
       title: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(250)]),
       content: new FormControl("", [Validators.required, Validators.minLength(100)]),
       // image: new FormControl("", [Validators.required, Validators.minLength(9)]),
     });
+    this.newsPaperForm.get('staffId').setValue(this.accountId);
   }
 
   updateNewsPaper(){

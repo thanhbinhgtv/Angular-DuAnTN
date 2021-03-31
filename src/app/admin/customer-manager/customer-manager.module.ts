@@ -7,6 +7,7 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DetailCustomerComponent } from './detail-customer/detail-customer.compo
   ],
   imports: [
     CommonModule,
-    CustomerManagerRoutingModule
+    CustomerManagerRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class CustomerManagerModule { }

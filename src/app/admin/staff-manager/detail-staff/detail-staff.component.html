@@ -46,10 +46,10 @@
                             <!-- CHỨC VỤ -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Chức vụ: </label> 
-                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == true">
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == false">
                                   <input type="text" class="form-control" value="Admin" disabled>
                               </div>
-                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == false">
+                              <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == true">
                                 <input type="text" class="form-control" value="Super Admin" disabled>
                             </div>
                             </div>
