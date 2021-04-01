@@ -15,7 +15,7 @@ const routes: Routes = [{
         .then(m => m.PaypalModule), canActivate: [AuthGuard],
     },
 
-    { path: '**', redirectTo: 'home' },
+    { path: '**', redirectTo: 'paypal' },
   ],
 }];
 

@@ -7,11 +7,12 @@ const routes: Routes = [{
   path: '', component: PaypalComponent,
   children: [
     {
-      path: '', component: ViewHandlePaypalComponent,
+      path: 'handle', component: ViewHandlePaypalComponent,
     },
     // {
     //   path: 'create-staff', component: CreateStaffComponent,
     // },
+    { path: '**', redirectTo: 'handle' },
   ],
 }];
 

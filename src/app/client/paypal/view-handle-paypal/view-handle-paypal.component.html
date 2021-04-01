@@ -1,9 +1,10 @@
+<div class="desktop dashboard quan-ly nap-tien the-tin-dung loaded ready">
 <nav class="navbar navbar-expand-md fixed-top flex-md-nowrap p-0" id="mobile_navbar_top">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://phongtro123.com/">Phongtro123.com</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/admin/home">ThanhBinh.com</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" target="_blank" href="https://phongtro123.com/">Trang chủ</a>
+                <a class="nav-link" target="_blank" routerLink="/admin/home">Trang chủ</a>
             </li>
          
             <li class="nav-item d-none d-md-block">
@@ -34,10 +35,10 @@
         <nav class="col-lg-2 d-none d-lg-block bg-light sidebar">
             <div class="user_info">
                 <a href="https://phongtro123.com/quan-ly/nap-tien/the-tin-dung.html?fbclid=IwAR0QldxYF6C0N-tOhI1NPYCBPkHUpGQmrKTLG-Sk66SKQno0aDSUc0I-aXY#" class="clearfix">
-                    <div class="user_avatar"><img src="./Nạp tiền vào tài khoản_files/boy_1544603222.png"></div>
+                    <div class="user_avatar"><img src="assets/img/Avarta-min.jpg"></div>
                     <div class="user_meta">
                         <div class="inner">					
-                            <div class="user_name">Nguyễn Thanh Hiệp</div>
+                            <div class="user_name">Phạm Thanh Bình</div>
                             <div class="user_verify" style="color: #555; font-size: 0.9rem;">0365834845</div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@
 
 <div class="row">
     <div class="col-md-9">
-        <form class="-form-horizontal js-form-submit-data" id="frm-nap-card" action="https://phongtro123.com/quan-ly/nap-tien/the-tin-dung.html?fbclid=IwAR0QldxYF6C0N-tOhI1NPYCBPkHUpGQmrKTLG-Sk66SKQno0aDSUc0I-aXY#" data-action-url="https://phongtro123.com/api/payment/atm" method="POST" novalidate="novalidate">
+        <form class="-form-horizontal js-form-submit-data" id="frm-nap-card" [formGroup]="paypalForm" (ngSubmit)="getPaypal()">
             <div class="step_content_atm">
                 <div class="atm_block">
                     <h3 class="mt-4 mb-3">Chọn số tiền cần nạp</h3>
@@ -177,12 +178,22 @@
                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                     <div class="js-price-wrapper">
                                         <div class="input-group mb-3">
-                                          <input type="text" class="form-control js-price" name="amount_input" placeholder="Nhập số tiền cần nạp">
+                                          <input type="text" class="form-control js-price" [formControlName]="'money'" name="amount_input" placeholder="Nhập số tiền cần nạp">
                                           <div class="input-group-append">
-                                            <span class="input-group-text" id="basic-addon2">vnđ</span>
+                                            <span class="input-group-text" id="basic-addon2">USD</span>
                                           </div>
                                         </div>
                                         <span class="js-price-text hidden"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Mô tả</p>
+                            <div class="row">
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="js-price-wrapper">
+                                        <div class="input-group mb-3">
+                                          <textarea type="text" class="form-control js-price" [formControlName]="'description'" name="amount_input" placeholder="Có thể để trống"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +217,7 @@
         <div class="card mb-3">
             <div class="card-body">
                 <div>Số dư tài khoản</div>
-                <h3 class="heading" style="margin-top: 0; margin-bottom: 0; color: #28a745;"><strong>0đ</strong></h3>
+                <h3 class="heading" style="margin-top: 0; margin-bottom: 0; color: #28a745;"><strong>{{customerModel?.accountBalance}} đ</strong></h3>
             </div>
         </div>
         <a class="btn btn-secondary btn-block" href="https://phongtro123.com/quan-ly/lich-su-nap-tien.html">Lịch sử nạp tiền <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
@@ -323,3 +334,4 @@
                 
             </div>
         </div> 
+    </div>
