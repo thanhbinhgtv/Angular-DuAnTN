@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from 'src/app/admin/customer-manager/Customers.Service';
 import { CustomerResponseModel } from 'src/app/admin/customer-manager/view-customer/customer-reponse-model';
 import { AuthService } from 'src/app/auth/service/auth.service';
+import { PaypalService } from '../paypal-service/paypal.service';
 
 @Component({
   selector: 'app-view-handle-paypal',
@@ -16,7 +17,7 @@ export class ViewHandlePaypalComponent implements OnInit {
   customerModel: CustomerResponseModel;
   constomerId: number;
 
-  constructor( private customerService: CustomersService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
+  constructor( private customerService: CustomersService, private paypalService: PaypalService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
     this.constomerId = this.authService.getId();
   }
 
@@ -32,9 +33,12 @@ export class ViewHandlePaypalComponent implements OnInit {
   getPaypal(){
     const money = this.paypalForm.get('money').value;
     const description = this.paypalForm.get('description').value;
-
-    window.open(`http://localhost:8080/pay?price=${money}&email=${this.customerModel.email}&description=${description}`);
     this.toastr.info("Vui lòng chờ giây lát");
+    
+    this.paypalService.getPaypal(money, this.customerModel.email, description).subscribe((data) => {
+      window.open(data.mess);
+    })
+    
   }
 
   getCustomerById(){
