@@ -24,7 +24,7 @@ export class ViewHandlePaypalComponent implements OnInit {
     this.getCustomerById();
 
     this.paypalForm = new FormGroup({
-      money: new FormControl("", Validators.required),
+      money: new FormControl("", [Validators.required, Validators.max(10000)]),
       description: new FormControl(""),
     });
   }
@@ -32,7 +32,7 @@ export class ViewHandlePaypalComponent implements OnInit {
   getPaypal(){
     const money = this.paypalForm.get('money').value;
     const description = this.paypalForm.get('description').value;
-    
+
     window.open(`http://localhost:8080/pay?price=${money}&email=${this.customerModel.email}&description=${description}`);
     this.toastr.info("Vui lòng chờ giây lát");
   }
