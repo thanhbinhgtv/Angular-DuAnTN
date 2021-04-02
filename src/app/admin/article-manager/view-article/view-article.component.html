@@ -71,7 +71,7 @@
                                     <td>
                                         <div class="post_thumb">
                                            
-                                                <img src="{{article.image}}">
+                                                <img src={{article?.image}}>
                                         </div>
                                     </td>
                                     <td>
@@ -81,7 +81,7 @@
 
                                         <a class="post_title" target="_blank"
                                             href="https://phongtro123.com/quan-ly/tin-dang.html#"
-                                            style="color: #055699;">{{article.title}}
+                                            style="color: #055699;">{{article?.title}}
                                         </a>
 
                                         <div class="post_btn_toolbar mt-3">
@@ -99,7 +99,7 @@
                                                 </svg> Đăng lại tin</a>
                                         </div>
                                         <span style="display: block; color: #999; margin-top: 10px;">
-                                            Cập nhật gần nhất: {{article.lastUpdateTime | date:'dd/MM/yyyy'}}
+                                            Cập nhật gần nhất: {{article?.lastUpdateTime | date:'dd/MM/yyyy'}}
                                         </span>
                                     </td>
                                     <td>
@@ -108,7 +108,7 @@
                                     <td>{{article.createTime | date:'dd/MM/yyyy - HH:mm'}}</td> 
                                     <td>{{article.lastUpdateTime | date:'dd/MM/yyyy - HH:mm'}}</td>
                                     <td>
-                                        <span class="text text-warning" style="white-space: nowrap;">{{article.status}}</span>
+                                        <span class="text text-warning" style="white-space: nowrap;">{{article?.status}}</span>
                                     </td>
                                     <td>
                                         <a routerLink="detail-article/{{article.articleId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
