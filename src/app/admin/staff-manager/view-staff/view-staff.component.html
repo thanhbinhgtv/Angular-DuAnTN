@@ -1,100 +1,92 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Quản Lý Nhân Viên</h1>
-    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                    For more information about DataTables, please visit the <a target="_blank"
-                        href="https://datatables.net">official DataTables documentation</a>.</p> -->
+<div id="webpage">
+    <div class="container-fluid">
+        <div class="row" style="margin-left: -250px;">
+            <main role="main" class="ml-sm-auto col-lg-10" style="margin-top: -70px;">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Quản Lý Nhân Viên</h1>
 
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <form>
-        <div class="card-header py-3">
-            
-            <!-- thêm ô checkbox để chọn tất cả nhân viên -->
-            <h6 class="font-weight-bold text-primary" id="danhsach"> <input type="checkbox" id="chonTatCa">  Danh sách nhân viên</h6>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div id="hic">
+                            <div id="demo-2">
+                                <input type="search" placeholder="Tìm kiếm" style="border: 1px solid #e6e6e6;">
+                            </div>
+                        </div>
+                        <div class="dropdown mr-1">
+                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Lọc theo trạng thái
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item"
+                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=publish&amp;package=all">
+                                    Đang Block</a>
+                                <a class="dropdown-item"
+                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=expired&amp;package=all">
+                                    Đã active</a>
+                            </div>
+                        </div>
+                        <!-- BUTTON THÊM NHÂN VIÊN -->
+                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="create-staff">Thêm nhân
+                            viên</a>
+                    </div>
+                </div>
 
-          
+                <div class="d-none d-md-block">
+                    <div class="table-responsive">
+                        <table class="table table_post_listing table-bordered _table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mã nhân viên</th>
+                                    <th>Họ tên</th>
+                                    <th>Email</th>
+                                    <th>Địa Chỉ</th>
+                                    <th>Tuổi</th>
+                                    <th>Giới Tính</th>
+                                    <th>Vai Trò</th>
+                                    <th style="text-align: center; white-space: nowrap;">Ảnh</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let staff of staffs">
+                                    <td>{{staff.staffId}}
+                                        <br> <!-- thêm ô checkbox để chọn từng nhân viên  -->
+                                        <input type="checkbox" style="border-radius: 10px;">
+                                    </td>
+                                    <td>
+                                        <a routerLink="detail-staff/{{staff.staffId}}" style="color: #003366;">
+                                            <strong> {{staff.name}}</strong>
+                                        </a>
+                                    </td>
+                                    <td>{{staff.phone}}</td>
+                                    <td>{{staff.address}}</td>
+                                    <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
+                                    <td *ngIf="staff.gender == true">Nam</td>
+                                    <td *ngIf="staff.gender == false">Nữ</td>
+                                    <td *ngIf="staff.role == true">Super Admin</td>
+                                    <td *ngIf="staff.role == false">Admin</td>
+                                    <td>
+                                        <img src="{{staff.image}}" 
+                                            style="width: 80px; height: 100px; padding-top: 10px;" />
+                                    </td>
 
-            <!-- BUTTON THÊM NHÂN VIÊN -->
-            <div class="addNhanVien">
-                <a class="btn btn-primary btn-user" routerLink="create-staff">
-                    Thêm nhân viên
-                </a>
-            </div>
-
-            <!-- ô tìm kiếm -->
-            <div class="search-box">
-                <i class="material-icons">&#xE8B6;</i>
-                <input type="text" class="form-control" placeholder="Tìm kiếm nhân viên&hellip;">
-            </div>
+                                    <td>
+                                        <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View"
+                                            data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                        <a routerLink="update-staff/{{staff.staffId}}" class="edit" title="Edit"
+                                            data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i
+                                                class="material-icons"
+                                                (click)="deleteStaff(staff.staffId)">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
         </div>
-        
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Mã nhân viên</th>
-                            <th>Họ tên</th>
-                            <th>Email</th>
-                            <th>SĐT</th>
-                            <th>Địa Chỉ</th>
-                            <th>Tuổi</th>
-                            <th>Giới Tính</th>
-                            <th>Vai Trò</th>
-                            <th>Ảnh</th>
-                            <th>Chức năng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let staff of staffs">
-                            <td>{{staff.staffId}}
-                                <br>  <!-- thêm ô checkbox để chọn từng nhân viên  -->
-                                <input type="checkbox" style="border-radius: 10px;">
-                            </td>
-                            <td>{{staff.name}}</td>
-                            <td>{{staff.email}}</td>
-                            <td>{{staff.phone}}</td>
-                            <td>{{staff.address}}</td>
-                            <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
-                            <td *ngIf="staff.gender == true">Nam</td>
-                            <td *ngIf="staff.gender == false">Nữ</td>
-                            <td *ngIf="staff.role == true">Super Admin</td>
-                            <td *ngIf="staff.role == false">Admin</td>
-                            <td>
-                                <img src={{staff.image}} alt="" style="width: 80px; height: 100px; padding-top: 10px;"/> 
-                            </td>
-                            <td>
-                                <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a routerLink="update-staff/{{staff.staffId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteStaff(staff.staffId)">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(0)">1</a></li>
-                      <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(1)">2</a></li>
-                      <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(2)">3</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-            </div>
-        </div>
-    </form>
     </div>
-</div>
-<!-- /.container-fluid -->
+</div><!-- end webpage -->
