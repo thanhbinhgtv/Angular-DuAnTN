@@ -17,4 +17,9 @@ export class ArticleManagerService {
   getAllArticleById(id: number): Observable<ArticleResponseModel> {
     return this.httpClient.get<ArticleResponseModel>('http://localhost:8080/admin/article/' +id);
   }
+
+  getActive(id: number): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/admin/article/active/' +id);
+  }
+
 }
