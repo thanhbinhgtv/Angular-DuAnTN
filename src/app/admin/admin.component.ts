@@ -145,7 +145,7 @@ import { AuthService } from '../auth/service/auth.service';
               <!-- Sidebar Toggler (Sidebar) -->
               <!-- Sidebar Message -->
               <div class="sidebar-card" [ngStyle]="{'background-color':'#313D60'}">
-                  <img class="sidebar-card-illustration mb-2" src="assets/img/icon-house.png" alt="" [ngStyle]="{'height': '80px'}">
+                  <img class="sidebar-card-illustration mb-2" src="assets/admin/img/icon-house.png" alt="" [ngStyle]="{'height': '80px'}">
                 <a class="btn btn-secondary btn-sm" href="#" [ngStyle]="{'background-color':'#37446B'}">Trang Chủ</a>
               </div>
           </ul>
