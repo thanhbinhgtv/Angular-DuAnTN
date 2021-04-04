@@ -36,7 +36,7 @@ export class UpdateStaffComponent implements OnInit {
     this.getStaffById();
 
     this.staffForm = new FormGroup({
-      email: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      email: new FormControl({value:"", disabled:true}, [Validators.required, Validators.minLength(6)]),
       name: new FormControl("", [Validators.required, Validators.minLength(6)]),
       phone: new FormControl("", [Validators.required, Validators.minLength(9)]),
       cardId: new FormControl("", [Validators.required, Validators.minLength(9)]),
