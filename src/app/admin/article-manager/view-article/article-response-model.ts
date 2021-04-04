@@ -28,7 +28,7 @@ export interface ArticleResponseModel {
       email: string,
     },
     moderator: null,
-    address: {
+    location: {
       wardName: string,
       districtId: number,
       districtName: string,

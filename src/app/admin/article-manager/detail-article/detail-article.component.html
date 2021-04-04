@@ -23,8 +23,8 @@
                                             <label for="province_id" class="col-form-label">Tỉnh/Thành phố</label>
                                             <label id="province_id" name="province_id"
                                                 class="form-control js-select-tinhthanhpho select2-hidden-accessible"
-                                                required=""  data-msg-required="Chưa chọn Tỉnh/TP"  tabindex="-1"  aria-hidden="true" disabled>
-                                              {{article?.address.cityName}}                                  
+                                                required=""  data-msg-required="Chưa chọn Tỉnh/TP"  tabindex="-1"  aria-hidden="true">
+                                              {{article?.location.cityName}}                                  
                                             </label>
                                         </div>
                                     </div>
@@ -35,7 +35,7 @@
                                                 class="form-control js-select-quanhuyen select2-hidden-accessible"
                                                 required="" data-msg-required="Chưa chọn Quận/Huyện"
                                                 tabindex="-1" aria-hidden="true" disabled>
-                                                <option value="">{{article?.address.districtName}}</option>
+                                                <option value="">{{article?.location.districtName}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                             <select
                                                 class="form-control js-select-phuongxa select2-hidden-accessible"
                                                 name="phuongxa" id="phuongxa" tabindex="-1" aria-hidden="true" disabled>
-                                                <option value="">{{article?.address.wardName}}</option>
+                                                <option value="">{{article?.location.wardName}}</option>
                                             </select>
                                
                                         </div>
@@ -78,7 +78,7 @@
                                             <label for="diachi" class="col-form-label">Địa chỉ chính xác</label>
                                                 <label ype="text" readonly="" class="form-control" name="dia_chi"
                                                 id="diachi" >
-                                                {{article?.address.wardName}}, {{article?.address.districtName}}, {{article?.address.cityName}}
+                                                {{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}
                                                 </label>
                                         </div>
                                     </div>
