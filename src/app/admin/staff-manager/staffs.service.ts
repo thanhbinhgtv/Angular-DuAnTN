@@ -32,4 +32,11 @@ export class StaffsService {
     return this.http.delete('http://localhost:8080/super-admin/staffs/' + id);
   }
   
+  getActiveStaff(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/super-admin/staffs/active/${id}`);
+  }
+
+  getBlockStaff(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/super-admin/staffs/block/${id}`);
+  }
 }

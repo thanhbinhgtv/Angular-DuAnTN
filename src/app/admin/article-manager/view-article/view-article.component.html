@@ -61,6 +61,7 @@
                                     <th>Giá</th>
                                     <th style="white-space: nowrap;">Ngày bắt đầu</th>
                                     <th style="white-space: nowrap;">Ngày hết hạn</th>
+                                    <th>Người đăng</th>
                                     <th style="white-space: nowrap;">Trạng thái</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -107,6 +108,7 @@
                                     </td>
                                     <td>{{article.createTime | date:'dd/MM/yyyy - HH:mm'}}</td> 
                                     <td>{{article.lastUpdateTime | date:'dd/MM/yyyy - HH:mm'}}</td>
+                                    <td>{{article.customer.email}}</td>
                                     <td>
                                         <span class="text text-warning" style="white-space: nowrap;">{{article?.status}}</span>
                                     </td>

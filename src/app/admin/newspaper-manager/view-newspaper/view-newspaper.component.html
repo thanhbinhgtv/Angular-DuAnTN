@@ -104,9 +104,8 @@
                                     </td>
                                     <td  class="textnd">{{new.content}}</td> 
                                     <td>{{new.author}}</td>
-                                    <td>
-                                        <span class="text text-warning" style="white-space: nowrap;">Đăng hiển thị</span>
-                                    </td>
+                                    <td *ngIf="new.deleted == true" [ngStyle]="{'color':'red'}">Đã ẩn</td>
+                                    <td *ngIf="new.deleted == false" [ngStyle]="{'color':'green'}">Đang hiện</td>
                                     <td>
                                         <a routerLink="detail-newspaper/{{new.newId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a routerLink="update-newspaper/{{new.newId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

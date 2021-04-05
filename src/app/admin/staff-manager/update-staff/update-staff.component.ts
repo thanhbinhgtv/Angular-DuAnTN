@@ -59,7 +59,7 @@ export class UpdateStaffComponent implements OnInit {
         
         this.staffService.updateStaff(this.staffId, this.staffModel).subscribe(() => {
         this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
-        this.toastr.success('Cập nhật Thành công')
+        this.toastr.success('Cập nhật Thành công');
         }, () => {
           this.toastr.error('Cập nhật thất bại, vui lòng kiểm tra lại thông tin');
       });

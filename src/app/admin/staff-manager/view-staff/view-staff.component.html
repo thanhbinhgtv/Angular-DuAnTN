@@ -19,12 +19,9 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=publish&amp;package=all">
-                                    Đang Block</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=expired&amp;package=all">
-                                    Đã active</a>
+                                <a class="dropdown-item">Tất cả</a>
+                                <a class="dropdown-item">Đang Block</a>
+                                <a class="dropdown-item">Đã Active</a>
                             </div>
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->
@@ -45,6 +42,7 @@
                                     <th>Tuổi</th>
                                     <th>Giới Tính</th>
                                     <th>Vai Trò</th>
+                                    <th>Trạng Thái</th>
                                     <th style="text-align: center; white-space: nowrap;">Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -55,18 +53,16 @@
                                         <br> <!-- thêm ô checkbox để chọn từng nhân viên  -->
                                         <input type="checkbox" style="border-radius: 10px;">
                                     </td>
-                                    <td>
-                                        <a routerLink="detail-staff/{{staff.staffId}}" style="color: #003366;">
-                                            <strong> {{staff.name}}</strong>
-                                        </a>
-                                    </td>
-                                    <td>{{staff.phone}}</td>
+                                    <td>{{staff.name}}</td>
+                                    <td>{{staff.email}}</td>
                                     <td>{{staff.address}}</td>
                                     <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
                                     <td *ngIf="staff.gender == true">Nam</td>
                                     <td *ngIf="staff.gender == false">Nữ</td>
                                     <td *ngIf="staff.role == true">Super Admin</td>
                                     <td *ngIf="staff.role == false">Admin</td>
+                                    <td *ngIf="staff.deleted == true" [ngStyle]="{'color':'red'}">Đang khóa</td>
+                                    <td *ngIf="staff.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
                                     <td>
                                         <img src="{{staff.image}}" 
                                             style="width: 80px; height: 100px; padding-top: 10px;" />

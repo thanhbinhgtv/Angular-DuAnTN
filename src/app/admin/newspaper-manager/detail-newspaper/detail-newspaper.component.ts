@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { NewspaperService } from '../newspaper.service';
+import { NewsPaperResponseModel } from '../view-newspaper/newspaper-response-model';
 
 @Component({
   selector: 'app-detail-newspaper',
@@ -11,8 +13,9 @@ import { NewspaperService } from '../newspaper.service';
 export class DetailNewspaperComponent implements OnInit {
   newsPaperForm: FormGroup;
   newPaperId: number
-  
-  constructor( private newspaperService: NewspaperService, private activateRoute: ActivatedRoute) { 
+  news : NewsPaperResponseModel;
+
+  constructor( private newspaperService: NewspaperService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
     this.newPaperId = this.activateRoute.snapshot.params.id;
   }
 
@@ -31,6 +34,25 @@ export class DetailNewspaperComponent implements OnInit {
   getStaffById(){
     this.newspaperService.getNewpaperById(this.newPaperId).subscribe((data) => {
         this.newsPaperForm.patchValue(data);
+        this.news = data;
     })
+  }
+
+  activeNews(){
+    this.newspaperService.getActiveNewsPaper(this.newPaperId).subscribe((data) => {
+      this.toastr.success(data.mess);
+      this.router.navigate(['/admin/newspaper']);
+    }, error =>{
+        this.toastr.error(error.error.mess);
+    });
+  }
+
+  hiddenNews(){
+    this.newspaperService.getHiddenNewsPaper(this.newPaperId).subscribe((data) => {
+      this.toastr.success(data.mess);
+      this.router.navigate(['/admin/newspaper']);
+    }, error =>{
+        this.toastr.error(error.error.mess);
+    });
   }
 }

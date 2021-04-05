@@ -31,4 +31,11 @@ export class NewspaperService {
     return this.http.delete('http://localhost:8080/admin/new/' + id);
   }
 
+  getActiveNewsPaper(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/admin/new/active/${id}`);
+  }
+
+  getHiddenNewsPaper(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/admin/new/hidden/${id}`);
+  }
 }

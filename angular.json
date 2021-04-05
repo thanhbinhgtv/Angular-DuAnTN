@@ -27,15 +27,11 @@
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/admin/vendor/fontawesome-free/css/all.min.css",
-              "src/assets/admin/css/sb-admin-2.min.css",
-              "src/assets/admin/vendor/datatables/dataTables.bootstrap4.min.css"
+              "src/assets/admin/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "src/assets/admin/vendor/jquery/jquery.min.js",
-              "src/assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/admin/vendor/jquery-easing/jquery.easing.min.js",
-              "src/assets/admin/vendor/datatables/jquery.dataTables.min.js",
-              "src/assets/admin/vendor/datatables/dataTables.bootstrap4.min.js"
+              "src/assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {

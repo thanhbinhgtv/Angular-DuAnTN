@@ -9,5 +9,6 @@ export interface StaffResponseModel {
     pass: string,
     phone: string,
     role: boolean,
+    deleted: boolean,
     staffId: number,
 }
