@@ -19,9 +19,9 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">Tất cả</a>
-                                <a class="dropdown-item">Đang Block</a>
-                                <a class="dropdown-item">Đã Active</a>
+                                <button class="dropdown-item" (click)="getAllStaff()">Tất cả</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrBlockStaff(false)">Hoạt động</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrBlockStaff(true)">Đã khóa</button>
                             </div>
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->

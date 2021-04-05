@@ -35,12 +35,9 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=publish&amp;package=all">Tin
-                                    chưa duyệt</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=expired&amp;package=all">Tin
-                                    đã duyệt</a>
+                                <button class="dropdown-item" (click)="getAllNewsPaper()">Tất cả</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrHiddenNewsPaper(false)">Tin đang hiện</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrHiddenNewsPaper(true)">Tin đã ẩn</button>
                             </div>
                         </div>
                         <a class="btn btn-success btn-sm d-none d-md-block"

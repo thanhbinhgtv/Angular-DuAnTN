@@ -27,6 +27,13 @@ export class ViewStaffComponent implements OnInit {
     });
   }
 
+  getAllActiveOrBlockStaff(deleted: boolean){
+    this.staffService.getAllStaffs(this.page).subscribe(data =>{
+      const filterData = data.filter(data => data.deleted == deleted);
+      this.staffs = filterData;
+    });
+  }
+
   deleteStaff(id: number){
     this.staffService.deleteStaff(id).subscribe(() =>{
       this.toastr.success('Xóa thành công')

@@ -25,6 +25,13 @@ export class ViewNewspaperComponent implements OnInit {
     });
   }
 
+  getAllActiveOrHiddenNewsPaper(deleted: boolean){
+    this.newspaperService.getAllNewsPaper(this.page).subscribe(data =>{
+      const filterData = data.filter(data => data.deleted == deleted);
+      this.news = filterData;
+    });
+  }
+
   deleteNewpaper(id: number){
     this.newspaperService.deleteNewspaper(id).subscribe(() =>{
       this.toastr.success('Xóa thành công')
