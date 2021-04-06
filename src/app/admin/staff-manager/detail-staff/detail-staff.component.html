@@ -38,31 +38,31 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã nhân viên: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{staff?.staffId}}" disabled>
+                                  <label type="text" class="form-control" value="" tabindex="-1"> {{staff?.staffId}}</label>
                               </div>
                           </div>
                             <!-- TÊN -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ tên: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="{{staff?.name}}" disabled>
+                                    <label type="text" class="form-control" tabindex="-1">{{staff?.name}}</label>
                                 </div>
                             </div>
                             <!-- CHỨC VỤ -->
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Chức vụ: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == false">
-                                  <input type="text" class="form-control" value="Admin" disabled>
+                                  <label type="text" class="form-control" value="" tabindex="-1">Admin</label>
                               </div>
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.role == true">
-                                <input type="text" class="form-control" value="Super Admin" disabled>
+                                <label type="text" class="form-control" value="" tabindex="-1">Super Admin</label>
                             </div>
                             </div>
                              <!-- Chứng minh nd - căn cước -->
                             <div class="form-group">
                                 <label class="col-md-4 col-sm-3 col-xs-12 control-label">Chứng minh nd - căn cước: </label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{staff?.cardId}}" disabled>
+                                  <label type="text" class="form-control" tabindex="-1">{{staff?.cardId}}</label>
                                 </div>
                             </div>
 
@@ -70,10 +70,10 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.gender == true">
-                                  <input type="text" class="form-control" value="Nam" disabled>
+                                  <label type="text" class="form-control" value="Nam" tabindex="-1"> Nam</label>
                               </div>
                               <div class="col-md-10 col-sm-9 col-xs-12" *ngIf="staff?.gender == false">
-                                <input type="text" class="form-control" value="Nữ" disabled>
+                                <label type="text" class="form-control" value="Nữ" tabindex="-1" >Nữ</label>
                             </div>
                             </div>  
                             
@@ -81,7 +81,7 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh: </label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" class="form-control" value="{{staff?.birthday | date:'dd/MM/yyyy'}}" disabled>
+                                  <label type="text" class="form-control" tabindex="-1"  > {{staff?.birthday | date:'dd/MM/yyyy'}}</label>
                               </div>
                             </div> 
                         </fieldset>
@@ -92,7 +92,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="{{staff?.email}}" disabled>
+                                    <label type="email" class="form-control" tabindex="-1">{{staff?.email}}</label>
                                 </div>
                             </div>
 
@@ -100,7 +100,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="{{staff?.address}}" disabled>
+                                    <label type="text" class="form-control" tabindex="-1">{{staff?.address}}</label>
                                     <!-- <p class="help-block">Địa chỉ hiện tại</p> -->
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="url" class="form-control" value="{{staff?.phone}}" disabled>
+                                    <label type="url" class="form-control" tabindex="-1" >{{staff?.phone}}</label>
                                     <!-- <p class="help-block">eg. https://www.linkedin.com/in/yourname</p> -->
                                 </div>
                             </div>

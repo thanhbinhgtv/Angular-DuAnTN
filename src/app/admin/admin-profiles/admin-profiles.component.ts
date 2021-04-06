@@ -10,6 +10,7 @@ export class AdminProfilesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
