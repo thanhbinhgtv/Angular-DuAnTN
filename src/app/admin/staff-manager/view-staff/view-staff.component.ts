@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StaffsService } from '../staffs.service';
 import { StaffResponseModel } from './staff-response-model';
@@ -11,8 +10,11 @@ import { StaffResponseModel } from './staff-response-model';
 })
 export class ViewStaffComponent implements OnInit {
   staffs: Array<StaffResponseModel> = [];
+  staffsFilter: Array<StaffResponseModel> = [];
   deleteSuccess : boolean;
   page = 0;
+  value = '';
+  status = 0;
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
@@ -22,16 +24,19 @@ export class ViewStaffComponent implements OnInit {
   }
 
   getAllStaff(){
+    this.status = 0;
     this.staffService.getAllStaffs(this.page).subscribe(data =>{
       this.staffs = data;
+      this.staffsFilter = this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
+      || staff.email.toLowerCase().includes(this.value));
     });
   }
 
   getAllActiveOrBlockStaff(deleted: boolean){
-    this.staffService.getAllStaffs(this.page).subscribe(data =>{
-      const filterData = data.filter(data => data.deleted == deleted);
-      this.staffs = filterData;
-    });
+      this.status = deleted ? 2 : 1;
+      const filterData = this.staffs.filter(staff => staff.deleted === deleted && (staff.name.toLowerCase().includes(this.value) 
+                        || staff.email.toLowerCase().includes(this.value)));
+      this.staffsFilter = filterData;
   }
 
   deleteStaff(id: number){
@@ -49,6 +54,14 @@ export class ViewStaffComponent implements OnInit {
   onPage(page: number){
      this.page = page;
      this.getAllStaff();
+  }
+
+  onChange(event: any){
+    this.value = event.target.value.toLowerCase();
+    this.staffsFilter = this.status === 0 ? this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
+                || staff.email.toLowerCase().includes(this.value)) 
+                : this.staffs.filter(staff => (staff.name.toLowerCase().includes(this.value) 
+                || staff.email.toLowerCase().includes(this.value)) && this.status === 1 ? !staff.deleted : staff.deleted);
   }
 
 }
