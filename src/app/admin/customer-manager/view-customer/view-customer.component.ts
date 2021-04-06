@@ -23,9 +23,16 @@ export class ViewCustomerComponent implements OnInit {
   }
 
   getAllCustomer(){
-    this.customerService.getAllCustomers(this.page).subscribe(customer =>{
-      this.customers = customer;
+    this.customerService.getAllCustomers(this.page).subscribe(data =>{
+      this.customers = data;
     })
+  }
+
+  getAllActiveOrHiddenCustomer(deleted: boolean){
+    this.customerService.getAllCustomers(this.page).subscribe(data =>{
+      const filterData = data.filter(data => data.deleted == deleted);
+      this.customers = filterData;
+    });
   }
 
   onPage(page: number){

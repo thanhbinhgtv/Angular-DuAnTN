@@ -20,12 +20,9 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=publish&amp;package=all">Tin
-                                    chưa duyệt</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=expired&amp;package=all">Tin
-                                    đã duyệt</a>
+                                <button class="dropdown-item" (click)="getAllCustomer()">Tất cả</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrHiddenCustomer(false)">Hoạt động</button>
+                                <button class="dropdown-item" (click)="getAllActiveOrHiddenCustomer(true)">Đã khóa</button>
                             </div>
                         </div>
                     </div>
@@ -44,6 +41,7 @@
                                     <th>Ngày sinh</th>
                                     <th>SĐT</th>
                                     <th>Giới tính</th>
+                                    <th>Trạng thái</th>
                                     <th style="text-align: center; white-space: nowrap;">Ảnh đại diện</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -61,8 +59,10 @@
                                     <td>{{customer?.address}}</td>
                                     <td>{{customer?.birthday | date:'dd/MM/yyyy'}}</td>
                                     <td>{{customer?.phone}}</td>
-                                    <td *ngIf="customer.gender == true">Nam</td>
-                                    <td *ngIf="customer.gender == false">Nữ</td>
+                                    <td *ngIf="customer?.gender == true">Nam</td>
+                                    <td *ngIf="customer?.gender == false">Nữ</td>
+                                    <td *ngIf="customer?.deleted == true" [ngStyle]="{'color':'red'}">Đang khóa</td>
+                                    <td *ngIf="customer?.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
                                     <td>
                                         <div class="post_thumb">
                                             <img src="{{customer?.image}}">

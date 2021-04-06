@@ -9,4 +9,5 @@ export interface CustomerResponseModel{
     image: string,
     name: string,
     phone: string,
+    deleted: boolean,
 }

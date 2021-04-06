@@ -19,9 +19,9 @@ import { AuthService } from '../auth/service/auth.service';
               <hr class="sidebar-divider my-0">
               <!-- Nav Item - Dashboard -->
               <li class="nav-item active">
-                  <a class="nav-link" href="index.html">
+                  <a class="nav-link" href="http://localhost:4201">
                       <i class="fas fa-fw fa-tachometer-alt"></i>
-                      <span>Bảng Cá Nhân</span></a>
+                      <span>Trang Chủ</span></a>
               </li>
               <!-- Divider -->
               <hr class="sidebar-divider">
