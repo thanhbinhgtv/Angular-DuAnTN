@@ -11,9 +11,9 @@ const routes: Routes = [{
       path: 'home', component: ClientHomeComponent,
     },
     {
-      path: 'paypal',
-      loadChildren: () => import('./paypal/paypal.module')
-        .then(m => m.PaypalModule), canActivate: [AuthGuard],
+      path: 'profile',
+      loadChildren: () => import('./profiles/profiles.module')
+        .then(m => m.ProfilesModule), canActivate: [AuthGuard],
     },
 
     { path: '**', redirectTo: 'paypal' },

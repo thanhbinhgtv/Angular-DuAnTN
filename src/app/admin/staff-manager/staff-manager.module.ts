@@ -8,6 +8,7 @@ import { CreateStaffComponent } from './create-staff/create-staff.component';
 import { DetailStaffComponent } from './detail-staff/detail-staff.component';
 import { UpdateStaffComponent } from './update-staff/update-staff.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewStaffComponent,
     CreateStaffComponent,
     DetailStaffComponent,
-    UpdateStaffComponent
+    UpdateStaffComponent,
   ],
   imports: [
     CommonModule,
     StaffManagerRoutingModule,
     ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class StaffManagerModule { }

@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from 'src/app/admin/customer-manager/Customers.Service';
 import { CustomerResponseModel } from 'src/app/admin/customer-manager/view-customer/customer-reponse-model';
 import { AuthService } from 'src/app/auth/service/auth.service';
-import { PaypalService } from '../paypal-service/paypal.service';
+import { PaypalService } from '../../../service/paypal.service';
 
 @Component({
   selector: 'app-view-handle-paypal',

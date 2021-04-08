@@ -1,0 +1,56 @@
+.body {
+    padding: 100px 40px;
+    font-family: Helvetica;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table th {
+    background: #eee;
+}
+
+.data_block {
+    padding-top: 120px;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.data_block .block_title {
+    color: #52982B;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+img {
+    max-width: 100%;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background: #E13427;
+}
+
+ul>li {
+    padding: 5px 0;
+}

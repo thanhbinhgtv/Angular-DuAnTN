@@ -1,0 +1,167 @@
+<div class="desktop dashboard quan-ly nap-tien the-tin-dung loaded ready">
+    <div id="webpage">
+        <!-- Header -->
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <main role="main" class="ml-sm-auto col-lg-10">
+                    <div class="user_quick_info js-mobile-user-quick-info">
+                        <p style="margin-top: 0; margin-bottom: 5px;">Xin chào <strong>Phạm Thanh Bình</strong>. Mã tài khoản: <strong>99624</strong></p>
+                        <p style="margin-bottom: 0;">Số dư TK của bạn là: <strong>0 đ</strong></p>
+                    </div>
+                    <!-- Phongtro123.com/Quản lý/Nạp tiền/Thẻ tín dụng quốc tế -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="https://phongtro123.com/">Phongtro123.com</a></li>
+                            <li class="breadcrumb-item"><a href="https://phongtro123.com/quan-ly/index.html">Quản lý</a></li>
+                            <li class="breadcrumb-item"><a href="https://phongtro123.com/quan-ly/nap-tien.html">Nạp tiền</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Thẻ tín dụng quốc tế</li>
+                        </ol>
+                    </nav>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Thẻ tín dụng quốc tế</h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <form class="-form-horizontal js-form-submit-data" id="frm-nap-card" [formGroup]="paypalForm" (ngSubmit)="getPaypal()">
+                                <div class="step_content_atm">
+                                    <div class="atm_block">
+                                        <h3 class="mt-4 mb-3">Chọn số tiền cần nạp</h3>
+                                        <div class="atm_block_body">
+                                            <div class="form-group">
+                                                <p>Chọn nhanh số tiền cần nạp</p>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio5" [value]="5" checked="">
+                                                    <label class="form-check-label" for="radio5">
+                                    5 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio10" [value]="10">
+                                                    <label class="form-check-label" for="radio10">
+                                    10 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio20" [value]="20">
+                                                    <label class="form-check-label" for="radio20">
+                                    20 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio50" [value]="50">
+                                                    <label class="form-check-label" for="radio50">
+                                    50 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio100" [value]="100">
+                                                    <label class="form-check-label" for="radio100">
+                                    100 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline mr-4 js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio200" [value]="200">
+                                                    <label class="form-check-label" for="radio200">
+                                    200 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio500" [value]="500">
+                                                    <label class="form-check-label" for="radio500">
+                                    500 USD
+                                </label>
+                                                </div>
+                                                <div class="form-check form-check-inline js-btn-group-price">
+                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio1000" [value]="1000">
+                                                    <label class="form-check-label" for="radio1000">
+                                    1000 USD
+                                </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-4">
+                                                <p>Hoặc nhập số tiền cần nạp (tối đa: 10.000 usd)</p>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                                        <div class="js-price-wrapper">
+                                                            <div class="input-group mb-3">
+                                                                <input type="number" class="form-control js-price" [formControlName]="'money'" name="amount_input" placeholder="Nhập số tiền cần nạp">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="basic-addon2">USD</span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="js-price-text hidden"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p>Mô tả</p>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                                        <div class="js-price-wrapper">
+                                                            <div class="input-group mb-3">
+                                                                <textarea type="text" class="form-control js-price" [formControlName]="'description'" name="amount_input" placeholder="Có thể để trống"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-30">
+                                        <div class="col-md-6 col-sm-4 col-xs-12">
+                                            <button type="submit" name="thanhtoan" class="btn btn-primary btn-block js-btn-hoan-tat" [disabled]="paypalForm.invalid">Tiếp tục <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="type_charging" value="visa">
+                            </form>
+                            <div class="note alert alert-danger mt-5" role="alert">
+                                <p>Lưu ý quan trọng: Trong quá trình thanh toán, bạn vui lòng <strong>KHÔNG ĐÓNG TRÌNH DUYỆT</strong>.</p>
+                                <p>Nếu gặp khó khăn trong quá trình thanh toán, xin liên hệ <strong>0917686101</strong> để chúng tôi hỗ trợ bạn.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-none d-md-block">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div>Số dư tài khoản</div>
+                                    <h3 class="heading" style="margin-top: 0; margin-bottom: 0; color: #28a745;"><strong>{{customerModel?.accountBalance}} đ</strong></h3>
+                                </div>
+                            </div>
+                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/quan-ly/lich-su-nap-tien.html">Lịch sử nạp tiền <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/quan-ly/lich-su-thanh-toan.html">Lịch sử thanh toán <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/bang-gia-dich-vu">Bảng giá dịch vụ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                        </div>
+                    </div>
+
+                    <!-- PHẦN Ô QUẢNG CÁO Ở CUỐI TRANG WEB HIỂN THỊ SDT CHO NG DÙNG LIÊN HỆ -->
+                    <section class="section section-support">
+                        <div class="section-content clearfix">
+                            <div class="support-bg"></div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7f7Gitdec2e-3xCRvIl5IL98FTlOwOWKubA&usqp=CAU" class="support-bg">
+                            <div class="list-support clearfix">
+                                <div class="list-support-title">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</div>
+                                <div class="support-item">
+                                    <span class="support-item-title">Hỗ trợ thanh toán</span>
+                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                </div>
+                                <div class="support-item">
+                                    <span class="support-item-title">Hỗ trợ đăng tin</span>
+                                    <a rel="nofollow" href="tel:0902657123">Điện thoại: 0902657123</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0902657123">Zalo: 0902657123</a>
+                                </div>
+                                <div class="support-item">
+                                    <span class="support-item-title">Hotline 24/7</span>
+                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                </div>
+                                <a class="btn btn-page-contact" rel="nofollow" href="https://phongtro123.com/lien-he">Gửi liên hệ</a>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
