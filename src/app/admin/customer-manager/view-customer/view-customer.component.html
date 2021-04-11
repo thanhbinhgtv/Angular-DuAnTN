@@ -9,7 +9,7 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2">
-                                <input type="search" placeholder="Tìm kiếm" style="border: 1px solid #e6e6e6;">
+                                <input type="search" placeholder="Tìm kiếm" (keyup)="onChange($event)" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@
                                     <td *ngIf="customer?.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
                                     <td>
                                         <div class="post_thumb">
-                                            <img src="{{customer?.image}}">
+                                            <img src={{customer?.image}}>
                                         </div>
                                     </td>
                                     <td>
