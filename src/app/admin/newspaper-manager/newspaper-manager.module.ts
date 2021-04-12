@@ -8,18 +8,21 @@ import { UpdateNewspaperComponent } from './update-newspaper/update-newspaper.co
 import { NewspaperManagerComponent } from './newspaper-manager.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailNewspaperComponent } from './detail-newspaper/detail-newspaper.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
     NewspaperManagerComponent,
     ViewNewspaperComponent, 
     CreateNewspaperComponent, 
-    UpdateNewspaperComponent, DetailNewspaperComponent
+    UpdateNewspaperComponent, 
+    DetailNewspaperComponent
   ],
   imports: [
     CommonModule,
     NewspaperManagerRoutingModule,
     ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class NewspaperManagerModule { }

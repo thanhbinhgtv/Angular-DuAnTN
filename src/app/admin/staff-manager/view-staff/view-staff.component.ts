@@ -57,7 +57,9 @@ export class ViewStaffComponent implements OnInit {
   }
 
   onChange(event: any){
+    console.log(event);
     this.value = event.target.value.toLowerCase();
+    
     this.staffsFilter = this.status === 0 ? this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
                 || staff.email.toLowerCase().includes(this.value)) 
                 : this.staffs.filter(staff => (staff.name.toLowerCase().includes(this.value) 

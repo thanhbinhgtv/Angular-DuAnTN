@@ -6,21 +6,25 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireStorageModule } from "angularfire2/storage";
-import { FirebaseService } from './upload-file/firebase.service';
+import { Ckeditor5Component } from './ckeditor5/ckeditor5.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
     PaginationComponent,
     UploadFileComponent,
+    Ckeditor5Component,
   ],
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig ),
     AngularFirestoreModule,
     AngularFireStorageModule,
+    CKEditorModule,
   ],
   exports: [
-    UploadFileComponent
+    UploadFileComponent,
+    Ckeditor5Component,
   ],
   providers: [],
 })

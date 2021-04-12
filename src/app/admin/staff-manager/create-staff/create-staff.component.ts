@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UploadFileComponent } from 'src/app/shared/upload-file/upload-file.component';
 import { StaffsService } from '../staffs.service';
 import { StaffRequestModel } from './staff-request-model';
 
@@ -16,6 +17,9 @@ export class CreateStaffComponent implements OnInit {
   timestamp = 1587168000000;
   messNumber : number;
   isloading : boolean;
+  url = "";
+  ImgName = "Staff";
+  @ViewChild('uploadfile') uploadfile: UploadFileComponent;
 
   constructor(private staffService: StaffsService, private router: Router, private toastr: ToastrService) { 
     this.staffModel = {
@@ -88,6 +92,7 @@ export class CreateStaffComponent implements OnInit {
     }else{
         this.messNumber = 19;
         this.isloading = true;
+        
         this.staffModel.name = this.StaffForm.get('name').value;
         this.staffModel.email = this.StaffForm.get('email').value;
         this.staffModel.phone = this.StaffForm.get('phone').value;
@@ -98,8 +103,10 @@ export class CreateStaffComponent implements OnInit {
         this.staffModel.role = this.StaffForm.get('role').value;
         this.staffModel.pass = this.StaffForm.get('password').value;
         // this.staffModel.image = this.StaffForm.get('image').value;
+        console.log("url :" + this.url);
         
         this.staffService.createStaff(this.staffModel).subscribe(() => {
+          this.uploadfile.uploadFile(this.ImgName);
         this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
         this.toastr.success('Thành công')
         }, (error) => {
@@ -107,6 +114,10 @@ export class CreateStaffComponent implements OnInit {
           this.isloading = false;
       });
     }
+  }
+
+  linkUrl(value){
+    this.url = value;
   }
 
 }

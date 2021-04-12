@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable, throwError } from "rxjs";
@@ -17,17 +17,16 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const jwtToken = this.authService.getJwtToken();    //Lấy token User đang login
-
-        // if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
-        //     //Kiểm tra hết hạn
-        //     return next.handle(req);
-        //   }
-
-        if (jwtToken) {         // nếu có mã JwtToken trong localStorage thì:
-            return next.handle(this.addToken(request, jwtToken)).pipe(catchError(error => {
+        if (jwtToken != null) {
+            const headers = new HttpHeaders().set('token-binh', jwtToken)
+                                            .set('Authorization', 'Bearer ' + jwtToken);
+            const AuthRequest = request.clone({headers: headers});
+            return next.handle(AuthRequest).pipe(catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 403) {
+                    console.log("if");
                     return this.handleAuthErrors(request, next);
                 } else {
+                    console.log("else");
                     return throwError(error);
                 }
             }));
@@ -44,8 +43,8 @@ export class TokenInterceptor implements HttpInterceptor {
             //Đặt refreshTokenSubject thành null để các lệnh gọi API tiếp theo sẽ đợi cho đến khi mã thông báo mới được truy xuất
             this.refreshTokenSubject.next(null);
             // T
+            this.router.navigateByUrl('auth/login');
             this.authService.logout();
-            this.router.navigateByUrl('login');
 
             // return this.authService.getJwtToken().pipe(    //Làm mới token (after change)
             //     switchMap((TokenResponse: LoginResponse) => {
@@ -68,10 +67,8 @@ export class TokenInterceptor implements HttpInterceptor {
         }
     }
 
-    addToken(req: HttpRequest<any>, jwtToken: any) {
-        return req.clone({
-            headers: req.headers.set('Authorization', 'Bearer ' + jwtToken)
-        });
+    addToken(request: HttpRequest<any>, jwtToken: any) {
+        return request.clone({headers: request.headers.set('Authorization', 'Bearer ' + jwtToken)});
     }
 
 }

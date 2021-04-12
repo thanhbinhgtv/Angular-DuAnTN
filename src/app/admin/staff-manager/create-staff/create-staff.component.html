@@ -116,8 +116,8 @@
 
                             <div class="form-group">
                                 <label> Ảnh </label>
-                                <input type="file" class="form-control form-control-user"id="image" placeholder="">
-                                <!-- <upload-file class="form-control form-control-user" (urlFile)="url" #upload [formControlName]="'image'" [folderName]="staffsName"></upload-file> -->
+                                <!-- <input type="file" class="form-control form-control-user"id="image" placeholder=""> -->
+                                <upload-file #uploadfile (urlFile)="linkUrl($event)" [formControlName]="'image'" [folderName]="ImgName" class="form-control form-control-user"></upload-file>
                             </div>
 
                             <div class="form-group row">

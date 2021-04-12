@@ -1,5 +1,3 @@
-<div class="container py-4">
-
     <input type="file" multiple (change)="detectFiles($event)" accept="image/x-png,image/gif,image/jpeg,image/jpg" />
     <button (click)="uploadFile('images')" class="btn btn-primary">UPLOAD</button>
   
@@ -7,14 +5,11 @@
       <a [href]="downloadURL">{{ downloadURL }}</a>
     </div>
   
-    <hr>
     <div class="row">
       <div class="col-lg-2 col-6" *ngFor="let img of images | async">
         <div class="card">
-          <img class="card-img-top" src="{{ img.url }}" width="100%"
-           />
+          <img class="card-img-top" src="{{ img.url }}" width="100%"/>
           <button (click)="removeFile(img)">Delete</button>
         </div>
       </div>
     </div>
-  </div>

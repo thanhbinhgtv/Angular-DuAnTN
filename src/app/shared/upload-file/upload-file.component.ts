@@ -26,7 +26,6 @@ export class UploadFileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.folderName);
     this.mostrarImagenes();
   }
 
@@ -36,9 +35,7 @@ export class UploadFileComponent implements OnInit {
 
   uploadFile(images: string) {
     this.downloadURLs = [];
-    this.urlFile.emit(this.downloadURLs);
-
-    console.log(this.downloadURLs);
+    this.urlFile.emit("123");
     for (let i = 0; i < this.selectedFile.length; i++) {
       let file = this.selectedFile[i];
       const item = this.afs.collection(images).ref.doc();
