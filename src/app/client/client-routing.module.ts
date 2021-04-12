@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard/auth.guard';
 import { ClientHomeComponent } from './client-home/client-home.component';
+import { ClientRentRoomComponent } from './client-rent-room/client-rent-room.component';
+import { ClientRoommatesComponent } from './client-roommates/client-roommates.component';
 import { ClientComponent } from './client.component';
 
 const routes: Routes = [{
@@ -9,6 +11,12 @@ const routes: Routes = [{
   children: [
     {
       path: 'home', component: ClientHomeComponent,
+    },
+    {
+      path: 'room-mates', component: ClientRoommatesComponent,
+    },
+    {
+      path: 'rent-room', component: ClientRentRoomComponent,
     },
     {
       path: 'profile',
