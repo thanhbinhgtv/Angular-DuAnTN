@@ -22,11 +22,11 @@ export class UploadFileComponent implements OnInit {
     fb: FormBuilder,
     private storage: AngularFireStorage,
     private afs: AngularFirestore,
-    private fs: FirebaseService
+    private firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
-    this.mostrarImagenes();
+    // this.mostrarImagenes();
   }
 
   detectFiles(event) {
@@ -69,16 +69,16 @@ export class UploadFileComponent implements OnInit {
     }
   }
 
-  removeFile(img) {
-    const filePath = this.folderName + `/${img.id}`;
-    this.storage.ref(filePath).delete();
-    this.afs
-      .collection("images")
-      .doc(img.id)
-      .delete();
-  }
+  // removeFile(img) {
+  //   const filePath = this.folderName + `/${img.id}`;
+  //   this.storage.ref(filePath).delete();
+  //   this.afs
+  //     .collection("images")
+  //     .doc(img.id)
+  //     .delete();
+  // }
 
-  mostrarImagenes() {
-    this.images = this.fs.getImages();
-  }
+  // mostrarImagenes() {
+  //   this.images = this.firebaseService.getImages();
+  // }
 }

@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard/auth.guard';
-import { ClientHomeComponent } from './client-home/client-home.component';
-import { ClientRentRoomComponent } from './client-rent-room/client-rent-room.component';
-import { ClientRoommatesComponent } from './client-roommates/client-roommates.component';
+import { ClientHomeComponent } from './clients-page/client-home/client-home.component';
 import { ClientComponent } from './client.component';
 
 const routes: Routes = [{
   path: '', component: ClientComponent,
   children: [
+    // {
+    //   path: 'home', component: ClientHomeComponent,
+    // },
     {
-      path: 'home', component: ClientHomeComponent,
-    },
-    {
-      path: 'room-mates', component: ClientRoommatesComponent,
-    },
-    {
-      path: 'rent-room', component: ClientRentRoomComponent,
+      path: '',
+      loadChildren: () => import('./clients-page/client-page.module')
+        .then(m => m.ClientPageModule), canActivate: [AuthGuard],
     },
     {
       path: 'profile',
@@ -24,7 +21,7 @@ const routes: Routes = [{
         .then(m => m.ProfilesModule), canActivate: [AuthGuard],
     },
 
-    { path: '**', redirectTo: 'paypal' },
+    { path: '**', redirectTo: '' },
   ],
 }];
 

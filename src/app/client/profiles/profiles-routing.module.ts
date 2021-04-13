@@ -18,7 +18,6 @@ const routes: Routes = [{
     {
       path: 'paypal-handle', component: ViewHandlePaypalComponent,
     },
-
     {
       path: 'article-manager', component: ArticleManagerComponent,
     },

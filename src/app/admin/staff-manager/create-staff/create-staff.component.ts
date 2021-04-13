@@ -92,7 +92,7 @@ export class CreateStaffComponent implements OnInit {
     }else{
         this.messNumber = 19;
         this.isloading = true;
-        
+        this.uploadfile.uploadFile(this.ImgName);
         this.staffModel.name = this.StaffForm.get('name').value;
         this.staffModel.email = this.StaffForm.get('email').value;
         this.staffModel.phone = this.StaffForm.get('phone').value;
@@ -102,11 +102,10 @@ export class CreateStaffComponent implements OnInit {
         this.staffModel.gender = this.StaffForm.get('gender').value;
         this.staffModel.role = this.StaffForm.get('role').value;
         this.staffModel.pass = this.StaffForm.get('password').value;
-        // this.staffModel.image = this.StaffForm.get('image').value;
-        console.log("url :" + this.url);
+        this.staffModel.image = this.url;
+        console.log(this.staffModel.image);
         
         this.staffService.createStaff(this.staffModel).subscribe(() => {
-          this.uploadfile.uploadFile(this.ImgName);
         this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
         this.toastr.success('Thành công')
         }, (error) => {

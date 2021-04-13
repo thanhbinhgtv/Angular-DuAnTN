@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProfilesRoutingModule } from './profiles-routing.module';
-import { ClientHomeComponent } from '../client-home/client-home.component';
 import { ArticleManagerComponent } from './article-manager/article-manager.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -19,13 +18,12 @@ import { PriceListComponent } from './price-list/price-list.component';
 
 @NgModule({
   declarations: [
-    ProfilesComponent,
-    ViewHandlePaypalComponent,
-    ClientHomeComponent,
-    ArticleManagerComponent,
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
+    ProfilesComponent,
+    ViewHandlePaypalComponent,
+    ArticleManagerComponent,
     PaymentHistoryComponent,
     RechargeHistoryComponent,
     EditProfileComponent,
