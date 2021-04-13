@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerResponseModel } from 'src/app/shared/model/responses/customer-reponse-model';
+import { CustomerService } from 'src/app/client/service/customer.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  customerModel: CustomerResponseModel;
 
-  constructor() { }
+  constructor( private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.getCustomerById();
   }
 
+  getCustomerById(){
+    this.customerService.getCustomerById().subscribe((data) => {
+      this.customerModel = data;
+    })
+  }
 }

@@ -28,7 +28,7 @@ export class CreateStaffComponent implements OnInit {
       cardId: '',
       email: '',
       gender: true,
-      image: 'img/binh.jpg',
+      image: '',
       name: '',
       pass: '',
       phone: '',

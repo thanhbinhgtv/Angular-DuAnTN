@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from '../Customers.Service';
-import { CustomerResponseModel } from './customer-reponse-model';
+import { CustomerResponseModel } from '../../../shared/model/responses/customer-reponse-model';
 
 @Component({
   selector: 'app-view-customer',

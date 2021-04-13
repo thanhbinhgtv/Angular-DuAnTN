@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CustomerResponseModel } from 'src/app/admin/customer-manager/view-customer/customer-reponse-model';
+import { CustomerResponseModel } from 'src/app/shared/model/responses/customer-reponse-model';
 
 @Injectable({
   providedIn: 'root'

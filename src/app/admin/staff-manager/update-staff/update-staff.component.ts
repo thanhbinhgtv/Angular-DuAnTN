@@ -18,6 +18,7 @@ export class UpdateStaffComponent implements OnInit {
 
   constructor(public datepipe: DatePipe, private staffService: StaffsService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
     this.staffId = this.activateRoute.snapshot.params.id;
+    
     datepipe = new DatePipe('en-US');
 
     this.staffModel = {

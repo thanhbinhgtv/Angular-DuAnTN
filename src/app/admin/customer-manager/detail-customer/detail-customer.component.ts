@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from '../Customers.Service';
-import { CustomerResponseModel } from '../view-customer/customer-reponse-model';
+import { CustomerResponseModel } from '../../../shared/model/responses/customer-reponse-model';
 
 @Component({
   selector: 'app-detail-customer',

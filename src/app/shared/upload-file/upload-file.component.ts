@@ -33,11 +33,8 @@ export class UploadFileComponent implements OnInit {
     this.selectedFile = event.target.files;
   }
 
-  uploadFile(images: string) {
-    this.downloadURLs = [];
-    this.urlFile.emit("123");
-    for (let i = 0; i < this.selectedFile.length; i++) {
-      let file = this.selectedFile[i];
+  postImg(i: number, images: string){
+    let file = this.selectedFile[i];
       const item = this.afs.collection(images).ref.doc();
       //đặt tên thư mục tại đây
       const filePath = this.folderName + `/${item.id}`;
@@ -53,6 +50,7 @@ export class UploadFileComponent implements OnInit {
               .toPromise()
               .then(url => {
                 this.downloadURLs.push(url);
+                this.urlFile.emit(this.downloadURLs);
 
                 item.set({
                   url: url,
@@ -65,8 +63,21 @@ export class UploadFileComponent implements OnInit {
               });
           })
         )
-        .subscribe();
-    }
+        .subscribe(data =>{
+          if(i< this.selectedFile.length){
+            this.postImg(i+1, images);
+          }else{
+            console.log(this.downloadURLs);
+            
+          }
+        });
+  }
+
+  uploadFile(images: string) {
+    this.downloadURLs = [];
+
+    this.postImg(0, images);
+
   }
 
   // removeFile(img) {

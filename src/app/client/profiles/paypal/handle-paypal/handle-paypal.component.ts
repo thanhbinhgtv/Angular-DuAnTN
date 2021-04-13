@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from 'src/app/admin/customer-manager/Customers.Service';
-import { CustomerResponseModel } from 'src/app/admin/customer-manager/view-customer/customer-reponse-model';
+import { CustomerResponseModel } from 'src/app/shared/model/responses/customer-reponse-model';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { CustomerService } from 'src/app/client/service/customer.service';
 import { PaypalService } from '../../../service/paypal.service';

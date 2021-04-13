@@ -2603,6 +2603,8 @@ button.toast-close-button {
     color: #000;
     line-height: 1.15;
     -webkit-text-size-adjust: 90%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 p {
