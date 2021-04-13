@@ -37,7 +37,7 @@ export class HandlePaypalComponent implements OnInit {
     this.toastr.info("Vui lòng chờ giây lát");
     
     this.paypalService.getPaypal(money, description).subscribe((data) => {
-      window.open(data.mess);
+      window.location.replace(data.mess);
     })
     
   }

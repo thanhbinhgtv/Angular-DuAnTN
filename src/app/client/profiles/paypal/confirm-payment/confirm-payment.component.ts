@@ -22,4 +22,7 @@ export class ConfirmPaymentComponent implements OnInit {
     console.log(this.usd);
   }
 
+  clickToastr(){
+    this.toastr.success("Thanh toán thành công");
+  }
 }

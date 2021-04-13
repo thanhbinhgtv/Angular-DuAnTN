@@ -1,1 +1,21 @@
-<p>confirm-payment works!</p>
+<div class="body">
+    <section class="bg">
+        <div class="content">
+        <div class="header-icon">
+            <a href="https://www.mockplus.com/">
+            <i class="iconfont icon_logo"></i>
+            </a>
+        </div>
+        <div class="from-content">
+            <h1>Thanh Toán Thành Công</h1>
+            <h5>Số tiền : {{usd}} USD</h5>
+            <h5>Tương đương : {{vnd}} VNĐ</h5>
+            <div class="from">
+            <div class="submit-btn">
+                <button id="login" (click)="clickToastr()" routerLink="/client/profile/paypal-view">Xác Nhận</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</div>
