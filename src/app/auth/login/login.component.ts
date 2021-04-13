@@ -54,7 +54,12 @@ export class LoginComponent implements OnInit {
       this.loginModel.pass = this.loginForm.get('password').value;
       
       this.authService.login(this.loginModel).subscribe(() =>{
+        const isRoles = this.authService.getRole();
+        if (isRoles == "ADMIN" || isRoles == "SUPER_ADMIN") {
           this.router.navigateByUrl('/admin');
+        } else {
+            this.router.navigateByUrl('/client/home');
+        }
           this.toastr.success('Đăng nhập thành công');
       }, (error) => {
           this.toastr.error(error.error.mess);

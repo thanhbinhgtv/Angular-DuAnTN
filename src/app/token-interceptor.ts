@@ -13,27 +13,27 @@ export class TokenInterceptor implements HttpInterceptor {
     isTokenRefreshing = false;
     refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 
-    constructor(public authService: AuthService, private router: Router){}
+    constructor(public authService: AuthService) { }
+    
+    intercept(req: HttpRequest<any>, next: HttpHandler):
+        Observable<HttpEvent<any>> {
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
+            return next.handle(req);
+        }
         const jwtToken = this.authService.getJwtToken();    //Lấy token User đang login
-        if (jwtToken != null) {
-            const headers = new HttpHeaders().set('token-binh', jwtToken)
-                                            .set('Authorization', 'Bearer ' + jwtToken);
-            const AuthRequest = request.clone({headers: headers});
-            return next.handle(AuthRequest).pipe(catchError(error => {
+
+        if (jwtToken) {         // kiểm tra xem có mã JwtToken trong localStorage hay ko
+            return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 403) {
-                    console.log("if");
-                    return this.handleAuthErrors(request, next);
+                    return this.handleAuthErrors(req, next);
                 } else {
-                    console.log("else");
                     return throwError(error);
                 }
             }));
-        }else{
-            console.log("Token = null");
         }
-        return next.handle(request);
+        return next.handle(req);
+
     }
 
     private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -42,15 +42,12 @@ export class TokenInterceptor implements HttpInterceptor {
 
             //Đặt refreshTokenSubject thành null để các lệnh gọi API tiếp theo sẽ đợi cho đến khi mã thông báo mới được truy xuất
             this.refreshTokenSubject.next(null);
-            // T
-            this.router.navigateByUrl('auth/login');
-            this.authService.logout();
 
-            // return this.authService.getJwtToken().pipe(    //Làm mới token (after change)
-            //     switchMap((TokenResponse: LoginResponse) => {
+            // return this.authService.refreshToken().pipe(    //Làm mới token
+            //     switchMap((refreshTokenResponse: LoginResponse) => {
             //         this.isTokenRefreshing = false;
-            //         this.refreshTokenSubject.next(TokenResponse.token);
-            //         return next.handle(this.addToken(req, TokenResponse.token));
+            //         this.refreshTokenSubject.next(refreshTokenResponse.authenticationToken);
+            //         return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
             //     })
             // )
         } else {
@@ -67,8 +64,10 @@ export class TokenInterceptor implements HttpInterceptor {
         }
     }
 
-    addToken(request: HttpRequest<any>, jwtToken: any) {
-        return request.clone({headers: request.headers.set('Authorization', 'Bearer ' + jwtToken)});
+    addToken(req: HttpRequest<any>, jwtToken: any) {
+        return req.clone({
+            headers: req.headers.set('Authorization',
+                'Bearer ' + jwtToken)
+        });
     }
-
 }

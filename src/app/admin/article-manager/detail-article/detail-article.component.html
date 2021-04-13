@@ -352,7 +352,7 @@
                             </div>
 
                             <!-- NGƯỜI Ở GHÉP -->
-                            <div *ngIf="article.roommate.roommateId == null" class="nguoiOghep">
+                            <div *ngIf="article?.roommate?.roommateId == null" class="nguoiOghep">
                                 <div class="form-group row mt-5">
                                     <div class="col-md-12">
                                         <h3>Bạn cùng phòng</h3>
@@ -366,7 +366,7 @@
                                                 class="form-control js-select-tinhthanhpho select2-hidden-accessible"
                                                 required="" data-msg-required="Chưa chọn Tỉnh/TP" tabindex="-1"
                                                 aria-hidden="true">
-                                                {{article?.roommate.gender}}
+                                                {{article?.roommate?.gender}}
                                             </label>
                                         </div>
                                     </div>
@@ -377,7 +377,7 @@
                                                 class="form-control js-select-quanhuyen select2-hidden-accessible"
                                                 required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1"
                                                 aria-hidden="true">
-                                                {{article?.roommate.quantity}}
+                                                {{article?.roommate?.quantity}}
                                             </label>
                                         </div>
                                     </div>
@@ -388,7 +388,7 @@
                                                 class="form-control js-select-quanhuyen select2-hidden-accessible"
                                                 required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1"
                                                 aria-hidden="true">
-                                                {{article?.roommate.description}}
+                                                {{article?.roommate?.description}}
                                             </label>
                                         </div>
                                     </div>

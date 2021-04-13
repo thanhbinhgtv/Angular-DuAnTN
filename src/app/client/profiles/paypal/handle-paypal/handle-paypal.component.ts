@@ -5,19 +5,20 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from 'src/app/admin/customer-manager/Customers.Service';
 import { CustomerResponseModel } from 'src/app/admin/customer-manager/view-customer/customer-reponse-model';
 import { AuthService } from 'src/app/auth/service/auth.service';
+import { CustomerService } from 'src/app/client/service/customer.service';
 import { PaypalService } from '../../../service/paypal.service';
 
 @Component({
-  selector: 'app-view-handle-paypal',
-  templateUrl: './view-handle-paypal.component.html',
-  styleUrls: ['./view-handle-paypal.component.css']
+  selector: 'app-handle-paypal',
+  templateUrl: './handle-paypal.component.html',
+  styleUrls: ['./handle-paypal.component.css']
 })
-export class ViewHandlePaypalComponent implements OnInit {
+export class HandlePaypalComponent implements OnInit {
   paypalForm: FormGroup;
   customerModel: CustomerResponseModel;
   constomerId: number;
 
-  constructor( private customerService: CustomersService, private paypalService: PaypalService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
+  constructor( private customerService: CustomerService, private paypalService: PaypalService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
     this.constomerId = this.authService.getId();
   }
 
@@ -35,14 +36,14 @@ export class ViewHandlePaypalComponent implements OnInit {
     const description = this.paypalForm.get('description').value;
     this.toastr.info("Vui lòng chờ giây lát");
     
-    this.paypalService.getPaypal(money, this.customerModel.email, description).subscribe((data) => {
+    this.paypalService.getPaypal(money, description).subscribe((data) => {
       window.open(data.mess);
     })
     
   }
 
   getCustomerById(){
-    this.customerService.getCustomerById(this.constomerId).subscribe((data) => {
+    this.customerService.getCustomerById().subscribe((data) => {
       this.customerModel = data;
     })
   }

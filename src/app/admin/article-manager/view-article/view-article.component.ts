@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleManagerService } from '../article-manager.service';
-import { ArticleResponseModel } from './article-response-model';
+import { ArticleResponseModel } from '../../../shared/model/responses/article-response-model';
 
 @Component({
   selector: 'app-view-article',
@@ -15,10 +15,10 @@ export class ViewArticleComponent implements OnInit {
   constructor(private articleService: ArticleManagerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.getAllStaff();
+    this.getAllArticle();
   }
 
-  getAllStaff(){
+  getAllArticle(){
     this.articleService.getAllArticle(this.page).subscribe((data) =>{
       this.article = data;
     });

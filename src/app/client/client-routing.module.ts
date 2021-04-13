@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard/auth.guard';
 import { ClientHomeComponent } from './clients-page/client-home/client-home.component';
 import { ClientComponent } from './client.component';
+import { ConfirmPaymentComponent } from './profiles/paypal/confirm-payment/confirm-payment.component';
 
 const routes: Routes = [{
   path: '', component: ClientComponent,
   children: [
-    // {
-    //   path: 'home', component: ClientHomeComponent,
-    // },
+    {
+      path: 'confirm-payment', component: ConfirmPaymentComponent,
+    },
     {
       path: '',
       loadChildren: () => import('./clients-page/client-page.module')

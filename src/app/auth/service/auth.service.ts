@@ -58,6 +58,10 @@ export class AuthService {
     return this.localStorage.retrieve('token');
   }
 
+  getRole(){
+    return this.localStorage.retrieve('role');
+  }
+
   getUserName() {
     return this.localStorage.retrieve('name');
   }

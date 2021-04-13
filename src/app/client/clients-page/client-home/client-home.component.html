@@ -130,9 +130,9 @@
             <section class="section section-tinnoibat">
                 <div class="section-header"><span class="section-title">Tin nổi bật</span></div>
                 <ul class="post-listing grid clearfix">
-                    <div class="inner">
+                    <div class="inner" >
                         <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                            post-id="585180">
+                            post-id="585180" *ngFor="let article of articles">
                             <figure><a
                                     href="https://phongtro123.com/phong-vip-biet-thu-binh-loi-full-noi-that-pr585180.html"><img
                                         class="lazy_done"
@@ -145,13 +145,11 @@
                                     title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
                             <div class="post-meta">
                                 <h4 class="post-title"><span class="star star-5"></span><a style="color: #E13427;"
-                                        href="https://phongtro123.com/phong-vip-biet-thu-binh-loi-full-noi-that-pr585180.html">Phòng
-                                        VIP biệt thự Bình Lợi, full nội thất</a></h4><span class="post-price">4.8
-                                    triệu/tháng</span><span class="post-acreage">32m²</span><span
+                                        href="https://phongtro123.com/phong-vip-biet-thu-binh-loi-full-noi-that-pr585180.html">{{article.title}}</a></h4><span class="post-price">{{article.roomPrice}}
+                                    triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span><span
                                     class="post-location"><a
                                         href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                        title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">Quận Bình Thạnh, Hồ Chí
-                                        Minh</a></span><time class="post-time">Cập nhật: 7 giờ trước</time><span
+                                        title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.address}}</a></span><time class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time><span
                                     class="post-hot"></span>
                             </div>
                         </li>

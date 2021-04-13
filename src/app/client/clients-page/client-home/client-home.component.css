@@ -3878,16 +3878,25 @@ figure img:hover {
     font-style: italic
 }
 
-.section-whyus .star.star-5 {
+/* .section-whyus .star.star-5 {
     width: 100px;
     height: 20px;
-    /* background: url(../images/mobile/star2.png) left center repeat-x; */
+    background: url("https://img.freepik.com/free-vector/start_53876-25533.jpg?size=338&ext=jpg") left center repeat-x;
+    background-size: 20px 20px;
+    display: inline-block;
+    margin-right: 3px;
+    float: none
+} */
+/* Thêm */
+.star.star-5 {
+    width: 100px;
+    height: 20px;
+    background: url("https://www.pinclipart.com/picdir/middle/17-170999_christmas-christmas-star-clip-art-library-amazing.png") left center repeat-x;
     background-size: 20px 20px;
     display: inline-block;
     margin-right: 3px;
     float: none
 }
-
 .section-support {
     border: 7px dashed #e8eefc;
     padding: 30px;

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,  FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleManagerService } from '../article-manager.service';
-import { ArticleResponseModel } from '../view-article/article-response-model';
+import { ArticleResponseModel } from '../../../shared/model/responses/article-response-model';
 
 @Component({
   selector: 'app-detail-article',
@@ -16,7 +16,7 @@ export class DetailArticleComponent implements OnInit {
   article: ArticleResponseModel;
 
   
-  constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute, private toastr: ToastrService) {
+  constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) {
     this.articleId = this.activateRoute.snapshot.params.id;
    }
 
@@ -42,7 +42,8 @@ export class DetailArticleComponent implements OnInit {
 
   active(){
     this.ArticleService.getActive(this.articleId).subscribe((data) => {
-      this.toastr.error(data.mess);
+      this.toastr.success(data.mess);
+      this.router.navigate(['/admin/article']);
     }, (error) => {
       this.toastr.error(error.error.mess);
     });

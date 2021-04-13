@@ -10,30 +10,27 @@ export interface ArticleResponseModel {
     expDate: null,
     vip: boolean,
     status: string,
-
-    service: { // dịch vụ
+    acreage: number,
+    address: string,
+    service: {
       serviceId: number,
       waterPrice: number,
       electricPrice: number,
       wifiPrice: number,
     },
-
-    roommate: { // bạn cùng phòng
+    roommate: {
       roommateId: number,
       gender: boolean,
       quantity: number,
       description: string,
     },
-
     customer: { // người cho thuê
       customerId: number,
       name: string,
       email: string,
     },
-
     moderator: null,
-
-    location: {// ở đầu
+    location: {
       wardName: string,
       districtId: number,
       districtName: string,
