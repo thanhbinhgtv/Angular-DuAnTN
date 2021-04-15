@@ -9,7 +9,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">THÊM NHÂN VIÊN MỚI!</h1>
                         </div>
-                        <form class="user" [formGroup]="newsPaperForm" (ngSubmit)="createNewsPaper()">
+                        <form class="user" [formGroup]="newsPaperForm" enctype="multipart/form-data" (ngSubmit)="createNewsPaper()">
                             <div class="form-group">
                                 <label> Mã Nhân Viên </label>
                                 <input type="text" [formControlName]="'staffId'" class="form-control form-control-user" id="staffId">
@@ -28,8 +28,7 @@
 
                             <div class="form-group">
                                 <label> Ảnh </label>
-                                <input type="file" class="form-control form-control-user"
-                                    id="image" placeholder="">
+                                <input type="file" [formControlName]="'image'" (change)="getFiles($event)" class="form-control form-control-user" id="image" placeholder="">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="newsPaperForm.invalid">

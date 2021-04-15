@@ -1,14 +1,14 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AngularFirestore } from "angularfire2/firestore";
 import { Observable } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class FirebaseService {
-  images: Observable<any[]>;
+  constructor(private http: HttpClient) {}
 
-  constructor(private afs: AngularFirestore) {}
-
-  getImages() {
-    return this.afs.collection("images").valueChanges();
+  uploadFiles(files): Observable<any>{
+    return this.http.post(`http://localhost:8080/firebase/upload`, files);
   }
 }

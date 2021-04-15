@@ -5,4 +5,5 @@ export interface LoginResponse{
     name: string;
     email: string;
     token: String;
+    refreshToken: string;
 }

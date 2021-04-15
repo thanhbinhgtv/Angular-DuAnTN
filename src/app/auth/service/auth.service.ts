@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { SingupModel } from '../singup/singup-model';
 import { LoginModel } from '../login/login-model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { LoginResponse } from '../login/login-response';
 
 @Injectable({
@@ -29,6 +29,7 @@ export class AuthService {
         this.localStorage.store('name', data.name);
         this.localStorage.store('email', data.email);
         this.localStorage.store('token', data.token);
+        this.localStorage.store('refreshToken', data.refreshToken);
 
         this.loggedIn.emit(true);
         this.username.emit(data.name);
@@ -44,7 +45,17 @@ export class AuthService {
     this.localStorage.clear('name');
     this.localStorage.clear('email');
     this.localStorage.clear('token');
+    this.localStorage.clear('refreshToken');
   }
+
+  refreshToken() {
+    const refreshToken = this.getRefreshToken();
+    console.log(refreshToken);
+    return this.httpClient.post<LoginResponse>('http://localhost:8080/refreshtoken', refreshToken)
+      .pipe(tap(response => {
+        this.localStorage.store('token', response.token);
+      }));
+}
 
   forgotPassword(email: string): Observable<any> {
     return this.httpClient.get('http://localhost:8080/forgot/?email=' + email);
@@ -56,6 +67,10 @@ export class AuthService {
 
   getJwtToken(){
     return this.localStorage.retrieve('token');
+  }
+
+  getRefreshToken() {
+    return this.localStorage.retrieve('refreshToken');
   }
 
   getRole(){

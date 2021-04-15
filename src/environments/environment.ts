@@ -5,15 +5,15 @@
 export const environment = {
   production: false,
 
-  firebaseConfig:  {
-    apiKey: "AIzaSyCfRsog7WTXeNv1mlABaAhFBK3Xy-a6l6g",
-    authDomain: "du-an-tot-nghiep-fpt.firebaseapp.com",
-    projectId: "du-an-tot-nghiep-fpt",
-    storageBucket: "du-an-tot-nghiep-fpt.appspot.com",
-    messagingSenderId: "333699397061",
-    appId: "1:333699397061:web:0bb6ae82e5ff78adee07ac",
-    measurementId: "G-HWX7PNK09X"
-  }
+  // firebaseConfig:  {
+  //   apiKey: "AIzaSyCfRsog7WTXeNv1mlABaAhFBK3Xy-a6l6g",
+  //   authDomain: "du-an-tot-nghiep-fpt.firebaseapp.com",
+  //   projectId: "du-an-tot-nghiep-fpt",
+  //   storageBucket: "du-an-tot-nghiep-fpt.appspot.com",
+  //   messagingSenderId: "333699397061",
+  //   appId: "1:333699397061:web:0bb6ae82e5ff78adee07ac",
+  //   measurementId: "G-HWX7PNK09X"
+  // }
 };
 
 /*

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { NewspaperManagerRoutingModule } from './newspaper-manager-routing.module';
 import { ViewNewspaperComponent } from './view-newspaper/view-newspaper.component';
 import { CreateNewspaperComponent } from './create-newspaper/create-newspaper.component';

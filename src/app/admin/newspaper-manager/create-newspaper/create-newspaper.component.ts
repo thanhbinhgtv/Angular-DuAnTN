@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NewsPaperPostRequestModel } from './newspaper-post-request';
 import { NewspaperService } from '../newspaper.service';
 import { AuthService } from 'src/app/auth/service/auth.service';
+import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 
 @Component({
   selector: 'app-create-newspaper',
@@ -15,15 +16,18 @@ export class CreateNewspaperComponent implements OnInit {
   newsPaperForm : FormGroup;
   newpaperModel: NewsPaperPostRequestModel;
   accountId: number;
+  selectedFile: File[] = null;
+  url : "";
 
-  constructor(private newspaperService: NewspaperService, private authService: AuthService, private router: Router, private toastr: ToastrService) { 
+  constructor(private newspaperService: NewspaperService, private firebaseService: FirebaseService,
+     private authService: AuthService, private router: Router, private toastr: ToastrService) { 
     this.accountId = this.authService.getId();
     
     this.newpaperModel = {
       staffId: 0,
       title: '',
       content: '',
-      image: 'img/binh.jpg',
+      image: '',
     };
   }
 
@@ -32,21 +36,34 @@ export class CreateNewspaperComponent implements OnInit {
       staffId: new FormControl({value:"", disabled: true}, Validators.required),
       title: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(250)]),
       content: new FormControl("", [Validators.required, Validators.minLength(100)]),
-      // image: new FormControl("", [Validators.required, Validators.minLength(9)]),
+      image: new FormControl("", Validators.required),
     });
     this.newsPaperForm.get('staffId').setValue(this.accountId);
   }
 
   createNewsPaper(){
-    this.newpaperModel.staffId = this.newsPaperForm.get('staffId').value;
-    this.newpaperModel.title = this.newsPaperForm.get('title').value;
-    this.newpaperModel.content = this.newsPaperForm.get('content').value;
-    
-    this.newspaperService.createNewpaper(this.newpaperModel).subscribe(() => {
-      this.router.navigate(['/admin/newspaper'], { queryParams: { registered: 'true' } });
-      this.toastr.success('Thành công')
-      }, (error) => {
-        this.toastr.error(error.error.mess);
+    const fb = new FormData();
+    for(var i=0; i<this.selectedFile.length; i++){
+      fb.append('files', this.selectedFile[i]);
+    }
+    this.firebaseService.uploadFiles(fb).subscribe((data) => {
+        this.newpaperModel.staffId = this.newsPaperForm.get('staffId').value;
+        this.newpaperModel.title = this.newsPaperForm.get('title').value;
+        this.newpaperModel.content = this.newsPaperForm.get('content').value;
+        this.newpaperModel.image = data.join();
+        
+        this.newspaperService.createNewpaper(this.newpaperModel).subscribe(() => {
+            this.router.navigate(['/admin/newspaper'], { queryParams: { registered: 'true' } });
+            this.toastr.success('Thành công')
+        }, (error) => {
+            this.toastr.error(error.error.mess);
+        });
+    }, (error) => {
+      this.toastr.error(error.error.mess);
     });
+  }
+
+  getFiles(event){
+      this.selectedFile = event.target.files;
   }
 }
