@@ -11,6 +11,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AsideComponent } from './shared/aside/aside.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     AsideComponent,
     SearchbarComponent,
+    DetailArticleComponent,
   ],
   imports: [
     CommonModule,

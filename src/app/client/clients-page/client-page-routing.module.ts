@@ -4,6 +4,7 @@ import { ClientHomeComponent } from './client-home/client-home.component';
 import { ClientRentRoomComponent } from './client-rent-room/client-rent-room.component';
 import { ClientRoommatesComponent } from './client-roommates/client-roommates.component';
 import { ClientsPageComponent } from './client-page.component';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 
 const routes: Routes = [{
   path: '', component: ClientsPageComponent,
@@ -16,6 +17,9 @@ const routes: Routes = [{
     },
     {
       path: 'rent-room', component: ClientRentRoomComponent,
+    },
+    {
+      path: 'detail-article', component: DetailArticleComponent,
     },
   ],
 }];
