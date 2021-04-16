@@ -17,7 +17,7 @@ export class CreateNewspaperComponent implements OnInit {
   newpaperModel: NewsPaperPostRequestModel;
   accountId: number;
   selectedFile: File[] = null;
-  url : "";
+  urlFiles : "";
 
   constructor(private newspaperService: NewspaperService, private firebaseService: FirebaseService,
      private authService: AuthService, private router: Router, private toastr: ToastrService) { 
@@ -47,10 +47,19 @@ export class CreateNewspaperComponent implements OnInit {
       fb.append('files', this.selectedFile[i]);
     }
     this.firebaseService.uploadFiles(fb).subscribe((data) => {
+        console.log(data);
+        this.urlFiles = data.join();
+        this.uploadForm();
+    }, (error) => {
+      this.toastr.error(error.error.mess);
+    });
+  }
+
+  uploadForm(){
         this.newpaperModel.staffId = this.newsPaperForm.get('staffId').value;
         this.newpaperModel.title = this.newsPaperForm.get('title').value;
         this.newpaperModel.content = this.newsPaperForm.get('content').value;
-        this.newpaperModel.image = data.join();
+        this.newpaperModel.image = this.urlFiles;
         
         this.newspaperService.createNewpaper(this.newpaperModel).subscribe(() => {
             this.router.navigate(['/admin/newspaper'], { queryParams: { registered: 'true' } });
@@ -58,9 +67,6 @@ export class CreateNewspaperComponent implements OnInit {
         }, (error) => {
             this.toastr.error(error.error.mess);
         });
-    }, (error) => {
-      this.toastr.error(error.error.mess);
-    });
   }
 
   getFiles(event){
