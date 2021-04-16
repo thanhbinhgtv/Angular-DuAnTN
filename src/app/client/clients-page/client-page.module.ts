@@ -8,6 +8,9 @@ import { ClientRoommatesComponent } from './client-roommates/client-roommates.co
 import { ClientRentRoomComponent } from './client-rent-room/client-rent-room.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { AsideComponent } from './shared/aside/aside.component';
+import { SearchbarComponent } from './shared/searchbar/searchbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,10 +21,13 @@ import { FooterComponent } from './shared/footer/footer.component';
     ClientRentRoomComponent,
     HeaderComponent,
     FooterComponent,
+    AsideComponent,
+    SearchbarComponent,
   ],
   imports: [
     CommonModule,
-    ClientPageRoutingModule
+    ClientPageRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientPageModule { }

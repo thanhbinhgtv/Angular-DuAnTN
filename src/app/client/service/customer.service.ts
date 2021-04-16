@@ -12,5 +12,5 @@ export class CustomerService {
 
   getCustomerById(): Observable<CustomerResponseModel>{
     return this.httpClient.get<CustomerResponseModel>('http://localhost:8080/customer/profile');
-}
+  }
 }

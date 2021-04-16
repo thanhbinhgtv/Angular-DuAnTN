@@ -10,7 +10,13 @@ export class ArticleService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllArticle(page: number): Observable<Array<ArticleResponseModel>> {
+  //No login
+  getAllArticleNoLogin(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=10`);
   }
+  
+  getAllArticleCustomer(page: number): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/customer/article?page=${page}&&limit=10`);
+  }
+
 }

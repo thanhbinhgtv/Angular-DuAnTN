@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionResponseModel } from 'src/app/shared/model/responses/transaction.response.model';
+import { PaypalService } from '../../service/paypal.service';
 
 @Component({
   selector: 'app-payment-history',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-history.component.css']
 })
 export class PaymentHistoryComponent implements OnInit {
+  transaction: Array<TransactionResponseModel> = [];
+  page = 0;
 
-  constructor() { }
+  constructor(private paypal: PaypalService) { }
 
   ngOnInit(): void {
+      this.getTransaction();
   }
 
+  getTransaction(){
+      this.paypal.getTransaction(this.page).subscribe(data => {
+          this.transaction = data;
+      })
+  }
 }

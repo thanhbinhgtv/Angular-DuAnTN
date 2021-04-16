@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleManagerService } from 'src/app/admin/article-manager/article-manager.service';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
 import { ArticleService } from '../../service/article.service';
 
@@ -19,7 +18,7 @@ export class ClientHomeComponent implements OnInit {
   }
 
   getAllArticle(){
-    this.articleService.getAllArticle(this.page).subscribe((data) =>{
+    this.articleService.getAllArticleNoLogin(this.page).subscribe((data) =>{
       this.articles = data;
     });
   }

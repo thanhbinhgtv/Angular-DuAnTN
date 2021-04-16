@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
+import { ArticleService } from '../../service/article.service';
 
 @Component({
   selector: 'app-article-manager',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-manager.component.css']
 })
 export class ArticleManagerComponent implements OnInit {
+  articles: Array<ArticleResponseModel> = [];
+  page = 0
 
-  constructor() { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+      this.getAllArticleCustomer();
   }
 
+  getAllArticleCustomer(){
+      this.articleService.getAllArticleCustomer(this.page).subscribe(data => {
+          this.articles = data;
+      })
+  }
 }

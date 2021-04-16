@@ -12,4 +12,8 @@ export class PaypalService {
   getPaypal(price: number, description: string): Observable<any> {
     return this.httpClient.get(`http://localhost:8080/customer/pay?price=${price}&description=${description}`);
   }
+
+  getTransaction(page: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/customer/transaction?page=${page}&&limit=10`);
+  }
 }
