@@ -1,9 +1,9 @@
 <main role="main" class="ml-sm-auto col-lg-10">
 
-    <div class="user_quick_info js-mobile-user-quick-info">
+    <!-- <div class="user_quick_info js-mobile-user-quick-info">
         <p style="margin-top: 0; margin-bottom: 5px;">Xin chào <strong>Phạm Thanh Bình</strong>. Mã tài khoản: <strong>99624</strong></p>
         <p style="margin-bottom: 0;">Số dư TK của bạn là: <strong>0 đ</strong></p>
-    </div>
+    </div> -->
 
 
     <nav aria-label="breadcrumb">
@@ -16,13 +16,12 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
         <h1 class="h1">Đăng tin mới</h1>
     </div>
-
     <div class="alert alert-danger mb-5" role="alert">
         Nếu bạn đã từng đăng tin trên Phongtro.com, hãy sử dụng chức năng ĐẨY TIN / GIA HẠN / NÂNG CẤP VIP trong mục QUẢN LÝ TIN ĐĂNG để làm mới, đẩy tin lên cao thay vì đăng tin mới. Tin đăng trùng nhau sẽ không được duyệt.
     </div>
 
-
-    <form id="form_dangtin" class="form-horizontal js-form-submit-data js-frm-manage-post" data-action-url="https://phongtro123.com/api/post/create" novalidate="novalidate">
+    <!-- FORM -->
+    <form id="form_dangtin" class="form-horizontal" [formGroup]="articleForm" (ngSubmit)="createArticle()">
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
@@ -55,9 +54,9 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="col-form-label" for="phuongxa">Phường/Xã</label>
-                            <select class="form-control js-select-phuongxa select2-hidden-accessible" name="phuongxa" id="phuongxa" tabindex="-1" aria-hidden="true">
-                                <option value="0">Tất cả</option>
-                                <option *ngFor="let ward of wards">{{ward.name}}</option>
+                            <select class="form-control js-select-phuongxa select2-hidden-accessible" [formControlName]="'wardId'" [ngModel]="0" (change)="getWardId($event.target.value)">
+                                <option [value]="0">Tất cả</option>
+                                <option *ngFor="let ward of wards" value="{{ward.id}}">{{ward.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -76,16 +75,18 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="diachi" class="col-form-label">Địa chỉ chính xác</label>
-                            <input type="text" class="form-control" name="dia_chi" id="diachi" required="" data-msg-required="Chưa chọn khu vực đăng tin">
+                            <input type="text" class="form-control" [formControlName]="'address'" name="dia_chi" id="diachi">
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
                         <h3>Thông tin mô tả</h3>
                     </div>
                 </div>
-                <div class="form-group row mt-3">
+
+                <!-- <div class="form-group row mt-3">
                     <label for="post_cat" class="col-md-12 col-form-label">Loại chuyên mục</label>
                     <div class="col-md-6">
                         <select class="form-control" id="post_cat" name="loai_chuyen_muc" required="" data-msg-required="Chưa chọn loại chuyên mục">
@@ -101,20 +102,23 @@
                             <option value="5">Cho thuê mặt bằng</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="form-group row">
                     <label for="post_title" class="col-md-12 col-form-label">Tiêu đề</label>
                     <div class="col-md-12">
-                        <input type="text" class="form-control" name="tieu_de" id="post_title" value="" minlength="30" maxlength="120" required="" data-msg-required="Tiêu đề không được để trống" data-msg-minlength="Tiêu đề quá ngắn" data-msg-maxlength="Tiêu đề quá dài">
+                        <input type="text" class="form-control" [formControlName]="'title'" name="tieu_de" id="post_title" value="">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="post_content" class="col-md-12 col-form-label">Nội dung mô tả</label>
                     <div class="col-md-12">
-                        <textarea class="form-control" name="noi_dung" id="post_content" rows="10" required="" minlength="100" data-msg-required="Bạn chưa nhập nội dung" data-msg-minlength="Nội dung tối thiểu 100 kí tự"></textarea>
+                        <textarea class="form-control" [formControlName]="'description'" name="noi_dung" id="post_content" rows="8"></textarea>
                     </div>
                 </div>
-                <div class="form-group row">
+
+                <!-- <div class="form-group row">
                     <label for="phone" class="col-md-12 col-form-label">Thông tin liên hệ</label>
                     <div class="col-md-6">
                         <div class="input-group mb-3">
@@ -122,12 +126,13 @@
                             <input id="phone" type="number" name="phone" class="form-control" readonly="readonly" required="" data-msg-required="Số điện thoại" value="0365834845">
                         </div>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="form-group row">
                     <label for="giachothue" class="col-md-12 col-form-label">Giá cho thuê</label>
                     <div class="col-md-6">
                         <div class="input-group">
-                            <input id="giachothue" name="gia" pattern="[0-9.]+" type="text" class="form-control" required="" data-msg-required="Bạn chưa nhập giá phòng" data-msg-min="Giá phòng chưa đúng">
+                            <input id="giachothue" name="gia" [formControlName]="'roomPrice'" pattern="[0-9.]+" type="text" class="form-control">
                             <div class="input-group-append">
                                 <span class="input-group-text">đồng</span>
                             </div>
@@ -136,18 +141,47 @@
                     </div>
                     <label for="text_giachothue" id="text_giachothue" class="col-sm-12 control-label js-number-text" style="color: red;"></label>
                 </div>
+
                 <div class="form-group row">
                     <label for="post_acreage" class="col-md-12 col-form-label">Diện tích</label>
                     <div class="col-md-6">
                         <div class="input-group mb-3">
-                            <input id="post_acreage" type="number" attern="[0-9.]+" name="dien_tich" max="1000" class="form-control" required="" data-msg-required="Bạn chưa nhập diện tích">
+                            <input id="post_acreage" type="number" [formControlName]="'acreage'" attern="[0-9.]+" name="dien_tich" max="1000" class="form-control" required="" data-msg-required="Bạn chưa nhập diện tích">
                             <div class="input-group-append">
                                 <span class="input-group-text">m<sup>2</sup></span>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
+                    <label for="phone" class="col-md-12 col-form-label">Giá điện</label>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input id="phone" type="number" [formControlName]="'electricPrice'" name="phone" class="form-control" placeholder="Giá điện phải lớn hơn 1000" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="phone" class="col-md-12 col-form-label">Giá nước</label>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input id="phone" type="number" [formControlName]="'waterPrice'" name="phone" class="form-control" placeholder="Giá nước phải lớn hơn 1000" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="phone" class="col-md-12 col-form-label">Giá wifi</label>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input id="phone" type="number" [formControlName]="'wifiPrice'" name="phone" class="form-control" placeholder="Giá wifi phải lớn hơn 1000" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group row">
                     <label for="doi_tuong" class="col-md-12 col-form-label">Đối tượng cho thuê</label>
                     <div class="col-md-6">
                         <div class="input-group mb-3">
@@ -158,12 +192,14 @@
                     </select>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
                         <h3>Hình ảnh</h3>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-md-12">
                         <p>Cập nhật hình ảnh rõ ràng sẽ cho thuê nhanh hơn</p>
@@ -182,20 +218,23 @@
                                 <input name="" value="" type="hidden">
                             </div>
                         </div> -->
-                        <input type="file">
+                        <input type="file" multiple [formControlName]="'image'" (change)="getFiles($event)">
                     </div>
                 </div>
+
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
                         <h3>Video</h3>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="youtube_url" class="col-md-12 col-form-label">Video Link (Youtube)</label>
                     <div class="col-md-12">
-                        <input class="form-control" name="youtube_url" id="youtube_url">
+                        <input class="form-control" [formControlName]="'video'" name="youtube_url" id="youtube_url">
                     </div>
                 </div>
+
                 <!-- <div class="form-group row">
                     <div class="col-md-12">
                         <p>Hoặc upload Video từ máy của bạn</p>
@@ -227,50 +266,60 @@
                         <h3>Chọn hình thức đăng tin</h3>
                     </div>
                 </div>
+
                 <div class="row mt-3">
                     <div class="col-md-4 js-group-package">
                         <div class="form-group">
                             <label for="post_package" class="col-form-label">Chọn loại tin</label>
-                            <select class="form-control" id="post_package" name="package" required="" data-msg-required="Chưa chọn gói tin">
-                                <option value="1">Tin thường : 2.000/ngày</option>
-                                <option value="2">Tin VIP : 10.000/ngày</option>
+                            <select class="form-control" id="post_package" [formControlName]="'vip'" [ngModel]="0">
+                                <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                                <option value="false">Tin thường : 2.000/ngày</option>
+                                <option value="true">Tin VIP : 10.000/ngày</option>
                             </select>
                         </div>
                     </div>
+
                     <div class="col-md-4 js-group-package-type">
                         <div class="form-group">
                             <label for="post_cat" class="col-form-label">Gói thời gian</label>
-                            <select class="form-control" id="post_cat" name="package_type">
-                        <option value="day">Đăng theo ngày</option>
-                        <option value="week">Đăng theo tuần</option>
-                        <option value="month">Đăng theo tháng</option>
-                    </select>
+                            <select class="form-control" [formControlName]="'type'" [ngModel]="0" id="post_cat" name="package_type">
+                                <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                                <option value="day">Đăng theo ngày</option>
+                                <option value="week">Đăng theo tuần</option>
+                                <option value="month">Đăng theo tháng</option>
+                            </select>
                         </div>
                     </div>
+
                     <div class="col-md-4 js-group-type-date">
                         <div class="form-group">
                             <div class="js-package-type js-package-type-day">
-                                <label class="col-form-label" for="formGroupInputSmall">Số ngày</label>
-                                <select class="form-control" name="total_day">
-                                    <option value="3" disabled="disabled">3 ngày</option>
-                                    <option value="4" disabled="disabled">4 ngày</option>
-                                    <option value="5">5 ngày</option>
-                                    <option value="6">6 ngày</option>
-                                    <option value="7">7 ngày</option>
-                                     <option value="8">8 ngày</option>
+                                <label class="col-form-label" for="formGroupInputSmall">Số ngày/tuần/tháng</label>
+                                <select class="form-control" name="total_day" [formControlName]="'number'" [ngModel]="0">
+                                    <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
                                 </select>
                             </div>
-                            <div class="js-package-type js-package-type-week hidden">
+
+                            <!-- <div class="js-package-type js-package-type-week hidden">
                                 <label class="col-form-label" for="formGroupInputSmall">Số tuần</label>
                                 <select class="form-control" name="total_week">
+                                    <option [disabled]="true" [value]="0">Lựa Chọn</option>
                                     <option value="1">1 tuần</option>
                                     <option value="2">2 tuần</option>
                                     <option value="3">3 tuần</option>
                                     <option value="4">4 tuần</option>
                                     <option value="5">5 tuần</option>
                                 </select>
-                            </div>
-                            <div class="form-group js-package-type js-package-type-month hidden">
+                            </div> -->
+
+                            <!-- <div class="form-group js-package-type js-package-type-month hidden">
                                 <label class="col-form-label" for="formGroupInputSmall">Số tháng</label>
                                 <select class="form-control" name="total_month">
                                     <option value="1">1 tháng</option>
@@ -280,11 +329,13 @@
                                     <option value="5">5 tháng</option>
                                     <option value="6">6 tháng</option>
                                 </select>
-                            </div>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
-                <div class="row mt-3">
+
+                <!-- <div class="row mt-3">
                     <div class="col-md-4">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="label-title" for="">Gắn nhãn</label>
@@ -294,7 +345,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="card-title" style="font-weight: bold; font-size: 1.5rem; margin-bottom: 20px; margin-top: 30px;">Chọn phương thức thanh toán</div>
                 <div class="form-group payment_method_group">
                     <div class="form-check js-payment-item js-payment-account">
@@ -339,6 +391,8 @@
                         <button type="submit" class="btn btn-success mb-5 btn-lg btn-block">Hoàn tất &amp; Thanh toán (<span class="js-package-grand-total">10.000đ</span>)</button>
                     </div>
                 </div>
+                <!-- END FORM BUTTON -->
+
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
                         <h4>Bảng giá tham khảo</h4>
@@ -601,6 +655,7 @@
         <input type="hidden" id="map_lat" name="map_lat" value="">
         <input type="hidden" id="map_long" name="map_long" value="">
     </form>
+    <!-- END FORM -->
 
     <!-- PHẦN Ô QUẢNG CÁO Ở CUỐI TRANG WEB HIỂN THỊ SDT CHO NG DÙNG LIÊN HỆ -->
     <section class="section section-support">

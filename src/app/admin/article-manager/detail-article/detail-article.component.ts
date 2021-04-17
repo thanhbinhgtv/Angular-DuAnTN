@@ -29,14 +29,17 @@ export class DetailArticleComponent implements OnInit {
       content: new FormControl({value:"", disabled:true}),
       customerId: new FormControl({value:"", disabled:true}),
       description: new FormControl({value:"", disabled:true}),
-      
     });
   }
 
   getStaffById(){
-    this.ArticleService.getAllArticleById(this.articleId).subscribe((data) => {
+    this.ArticleService.getArticleById(this.articleId).subscribe((data) => {
+        let convertData:any = data;
+        let convertImage = data.image.split(",");
+        convertData.image = convertImage;
+      
         this.articleForm.patchValue(data);
-        this.article = data;
+        this.article = convertData;
     });
   }
 
@@ -48,4 +51,14 @@ export class DetailArticleComponent implements OnInit {
       this.toastr.error(error.error.mess);
     });
   }
+
+  hidden(){
+    this.ArticleService.getHidden(this.articleId).subscribe((data) => {
+      this.toastr.success(data.mess);
+      this.router.navigate(['/admin/article']);
+    }, (error) => {
+      this.toastr.error(error.error.mess);
+    });
+  }
+
 }

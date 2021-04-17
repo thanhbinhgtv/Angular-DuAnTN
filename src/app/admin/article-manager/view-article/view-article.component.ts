@@ -23,4 +23,9 @@ export class ViewArticleComponent implements OnInit {
       this.article = data;
     });
   }
+
+  onPage(page: number){
+    this.page = page;
+    this.getAllArticle();
+ }
 }

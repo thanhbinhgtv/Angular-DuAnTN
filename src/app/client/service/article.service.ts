@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ArticlePostRequestModel } from 'src/app/shared/model/requests/article-post-request-model';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
 
 @Injectable({
@@ -9,6 +10,10 @@ import { ArticleResponseModel } from 'src/app/shared/model/responses/article-res
 export class ArticleService {
 
   constructor(private httpClient: HttpClient) { }
+
+  createArticle(postArticleModel: ArticlePostRequestModel): Observable<any>{
+    return this.httpClient.post('http://localhost:8080/customer/article', postArticleModel);
+  }
 
   //No login
   getAllArticleNoLogin(page: number): Observable<Array<ArticleResponseModel>> {

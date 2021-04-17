@@ -11,15 +11,19 @@ export class ArticleManagerService {
   constructor(private httpClient: HttpClient) { }
 
   getAllArticle(page: number): Observable<Array<ArticleResponseModel>> {
-    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/admin/article?page=${page}&&limit=15`);
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/admin/article?page=${page}&&limit=10`);
   }
 
-  getAllArticleById(id: number): Observable<ArticleResponseModel> {
+  getArticleById(id: number): Observable<ArticleResponseModel> {
     return this.httpClient.get<ArticleResponseModel>('http://localhost:8080/admin/article/' +id);
   }
 
   getActive(id: number): Observable<any> {
     return this.httpClient.get('http://localhost:8080/admin/article/active/' +id);
+  }
+
+  getHidden(id: number): Observable<any> {
+    return this.httpClient.post(`http://localhost:8080/admin/article/hidden/${id}`, "Ok");
   }
 
 }

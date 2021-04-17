@@ -296,8 +296,8 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <div class="list_photos row dropzone-previews" id="list-photos-dropzone-previews">
-                                        <div class="photo_item col-md-2 col-3 js-photo-manual">
-                                            <div class="photo"><img src="{{article?.image}}">
+                                        <div class="photo_item col-md-2 col-3 js-photo-manual" *ngFor="let image of article?.image">
+                                            <div class="photo"><img src="{{image}}">
                                             </div>
                                             <div class="dz-progress"><span class="dz-upload"></span></div>
                                             <div class="bottom clearfix">
@@ -306,7 +306,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="photo_item col-md-2 col-3 js-photo-manual">
+                                        <!-- <div class="photo_item col-md-2 col-3 js-photo-manual">
                                             <div class="photo"><img src="{{article?.image}}"> </div>
                                             <div class="dz-progress"><span class="dz-upload"></span></div>
                                             <div class="bottom clearfix">
@@ -324,7 +324,7 @@
                                                     Ảnh 3
                                                 </span>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                 </div>
@@ -398,7 +398,7 @@
                             <hr>
                             <div class="form-group row">
                                 <button type="button" class="btn btn-success" (click)="active()">Duyệt bài</button>
-                                <button type="button" class="btn btn-secondary">Ẩn bài</button>
+                                <button type="button" class="btn btn-secondary" (click)="hidden()">Ẩn bài</button>
                             </div>
                         </div>
                     </div>

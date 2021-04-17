@@ -1,0 +1,17 @@
+export interface ArticlePostRequestModel {
+    wardId: number,
+    address: string,
+    title: string,
+    description: string,
+    roomPrice: number,
+    acreage: number,
+    electricPrice: number,
+    waterPrice: number,
+    wifiPrice: number,
+    image: string,
+    video: string,
+    roommateInsertDTO: string,
+    vip: boolean,
+    type: string,
+    number: string,
+}
