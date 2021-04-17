@@ -35,11 +35,9 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="province_id" class="col-form-label">Tỉnh/Thành phố</label>
-                            <select id="province_id" name="province_id" class="form-control js-select-tinhthanhpho select2-hidden-accessible" required="" data-msg-required="Chưa chọn Tỉnh/TP" tabindex="-1" aria-hidden="true">
-                                <option value="">-- Chọn Tỉnh/TP --</option>
-                                <option value="90">Hồ Chí Minh</option>
-                                <option value="41">Hà Nội</option>
-                                <option value="72">Đà Nẵng</option>
+                            <select id="province_id" name="province_id" (change)="getAllDistrictByCityId($event.target.value)" class="form-control js-select-tinhthanhpho select2-hidden-accessible" required="" data-msg-required="Chưa chọn Tỉnh/TP" tabindex="-1" aria-hidden="true">
+                                <option value="0">Tất cả</option>
+                                <option *ngFor="let city of citys" value="{{city.id}}">{{city.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -47,8 +45,9 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="col-form-label" for="district_id">Quận/Huyện</label>
-                            <select name="district_id" id="district_id" class="form-control js-select-quanhuyen select2-hidden-accessible" required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1" aria-hidden="true">
-                                <option value="">chọn quận huyện</option>
+                            <select name="district_id" id="district_id" (change)="getAllWardByDistrictId($event.target.value)" class="form-control js-select-quanhuyen select2-hidden-accessible" required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1" aria-hidden="true">
+                                <option value="0">Tất cả</option>
+                                <option *ngFor="let district of districts" value="{{district.id}}">{{district.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -57,7 +56,8 @@
                         <div class="form-group">
                             <label class="col-form-label" for="phuongxa">Phường/Xã</label>
                             <select class="form-control js-select-phuongxa select2-hidden-accessible" name="phuongxa" id="phuongxa" tabindex="-1" aria-hidden="true">
-                                <option value="">chọn phường xã</option>
+                                <option value="0">Tất cả</option>
+                                <option *ngFor="let ward of wards">{{ward.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div> -->
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -89,18 +89,17 @@
                     <label for="post_cat" class="col-md-12 col-form-label">Loại chuyên mục</label>
                     <div class="col-md-6">
                         <select class="form-control" id="post_cat" name="loai_chuyen_muc" required="" data-msg-required="Chưa chọn loại chuyên mục">
-                    <option value="">-- Chọn loại chuyên mục --</option>
-                    
-                    <option value="1">Phòng trọ, nhà trọ</option>
-                    <option value="2">Nhà thuê nguyên căn</option>
-                    <optgroup label="Căn hộ">
-                        <option value="3">Cho thuê căn hộ</option>
-                        <option value="6">Cho thuê căn hộ mini</option>
-                        <option value="7">Cho thuê căn hộ dịch vụ</option>
-                    </optgroup>
-                    <option value="4">Tìm người ở ghép</option>
-                    <option value="5">Cho thuê mặt bằng</option>
-                </select>
+                            <option value="">-- Chọn loại chuyên mục --</option>
+                            <option value="1">Phòng trọ, nhà trọ</option>
+                            <option value="2">Nhà thuê nguyên căn</option>
+                            <optgroup label="Căn hộ">
+                                <option value="3">Cho thuê căn hộ</option>
+                                <option value="6">Cho thuê căn hộ mini</option>
+                                <option value="7">Cho thuê căn hộ dịch vụ</option>
+                            </optgroup>
+                            <option value="4">Tìm người ở ghép</option>
+                            <option value="5">Cho thuê mặt bằng</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -168,11 +167,11 @@
                 <div class="form-group row">
                     <div class="col-md-12">
                         <p>Cập nhật hình ảnh rõ ràng sẽ cho thuê nhanh hơn</p>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div for="browse_photos" class="browse_photos js-dropzone dz-clickable"><i class="icon-upload-image"></i><span class="js-btn-chon-anh">Thêm Ảnh</span></div>
-                        </div>
-                        <div class="list_photos row dropzone-previews" id="list-photos-dropzone-previews"></div>
-                        <div id="tpl" style="display:none">
+                        </div> -->
+                        <!-- <div class="list_photos row dropzone-previews" id="list-photos-dropzone-previews"></div> -->
+                        <!-- <div id="tpl" style="display:none">
                             <div class="photo_item col-md-2 col-3 js-photo-manual">
                                 <div class="photo"><img data-dz-thumbnail=""></div>
                                 <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
@@ -182,8 +181,8 @@
                                 </div>
                                 <input name="" value="" type="hidden">
                             </div>
-                        </div>
-
+                        </div> -->
+                        <input type="file">
                     </div>
                 </div>
                 <div class="form-group row mt-5">
@@ -197,7 +196,7 @@
                         <input class="form-control" name="youtube_url" id="youtube_url">
                     </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <div class="col-md-12">
                         <p>Hoặc upload Video từ máy của bạn</p>
                         <div class="form-group">
@@ -221,7 +220,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
@@ -233,12 +232,9 @@
                         <div class="form-group">
                             <label for="post_package" class="col-form-label">Chọn loại tin</label>
                             <select class="form-control" id="post_package" name="package" required="" data-msg-required="Chưa chọn gói tin">
-                                                            <option value="5" data-title="Tin thường" data-price-day="2.000/ngày" data-price-week="12.000/tuần" data-price-month="48.000/tháng">Tin thường 2.000/ngày</option>
-                                                            <option value="4" data-title="Tin VIP 3" data-price-day="10.000/ngày" data-price-week="63.000/tuần" data-price-month="240.000/tháng">Tin VIP 3 10.000/ngày</option>
-                                                            <option value="3" data-title="Tin VIP 2" data-price-day="20.000/ngày" data-price-week="133.000/tuần" data-price-month="540.000/tháng">Tin VIP 2 20.000/ngày</option>
-                                                            <option value="2" data-title="Tin VIP 1" data-price-day="30.000/ngày" data-price-week="190.000/tuần" data-price-month="800.000/tháng">Tin VIP 1 30.000/ngày</option>
-                                                            <option value="1" data-title="Tin VIP nổi bật" data-price-day="50.000/ngày" data-price-week="315.000/tuần" data-price-month="1.200.000/tháng">Tin VIP nổi bật 50.000/ngày</option>
-                                                    </select>
+                                <option value="1">Tin thường : 2.000/ngày</option>
+                                <option value="2">Tin VIP : 10.000/ngày</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4 js-group-package-type">
@@ -267,34 +263,23 @@
                             <div class="js-package-type js-package-type-week hidden">
                                 <label class="col-form-label" for="formGroupInputSmall">Số tuần</label>
                                 <select class="form-control" name="total_week">
-                                                                <option value="1">1 tuần</option>
-                                                                <option value="2">2 tuần</option>
-                                                                <option value="3">3 tuần</option>
-                                                                <option value="4">4 tuần</option>
-                                                                <option value="5">5 tuần</option>
-                                                                <option value="6">6 tuần</option>
-                                                                <option value="7">7 tuần</option>
-                                                                <option value="8">8 tuần</option>
-                                                                <option value="9">9 tuần</option>
-                                                                <option value="10">10 tuần</option>
-                                                            </select>
+                                    <option value="1">1 tuần</option>
+                                    <option value="2">2 tuần</option>
+                                    <option value="3">3 tuần</option>
+                                    <option value="4">4 tuần</option>
+                                    <option value="5">5 tuần</option>
+                                </select>
                             </div>
                             <div class="form-group js-package-type js-package-type-month hidden">
                                 <label class="col-form-label" for="formGroupInputSmall">Số tháng</label>
                                 <select class="form-control" name="total_month">
-                                                                <option value="1">1 tháng</option>
-                                                                <option value="2">2 tháng</option>
-                                                                <option value="3">3 tháng</option>
-                                                                <option value="4">4 tháng</option>
-                                                                <option value="5">5 tháng</option>
-                                                                <option value="6">6 tháng</option>
-                                                                <option value="7">7 tháng</option>
-                                                                <option value="8">8 tháng</option>
-                                                                <option value="9">9 tháng</option>
-                                                                <option value="10">10 tháng</option>
-                                                                <option value="11">11 tháng</option>
-                                                                <option value="12">12 tháng</option>
-                                                            </select>
+                                    <option value="1">1 tháng</option>
+                                    <option value="2">2 tháng</option>
+                                    <option value="3">3 tháng</option>
+                                    <option value="4">4 tháng</option>
+                                    <option value="5">5 tháng</option>
+                                    <option value="6">6 tháng</option>
+                                </select>
                             </div>
                         </div>
                     </div>

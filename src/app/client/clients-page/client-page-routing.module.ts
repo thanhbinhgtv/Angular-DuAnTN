@@ -5,8 +5,9 @@ import { ClientRentRoomComponent } from './client-rent-room/client-rent-room.com
 import { ClientRoommatesComponent } from './client-roommates/client-roommates.component';
 import { ClientsPageComponent } from './client-page.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
-import { ClientBlockComponent } from './client-block/client-block.component';
+import { ClientBlogComponent } from './client-blog/client-blog.component';
 import { ClientTutorialComponent } from './client-tutorial/client-tutorial.component';
+import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.component';
 
 const routes: Routes = [{
   path: '', component: ClientsPageComponent,
@@ -24,7 +25,10 @@ const routes: Routes = [{
       path: 'detail-article', component: DetailArticleComponent,
     },
     {
-      path: 'block', component: ClientBlockComponent,
+      path: 'detail-newpaper', component: DetailNewpaperComponent,
+    },
+    {
+      path: 'blog', component: ClientBlogComponent,
     },
     {
       path: 'tutorial', component: ClientTutorialComponent,

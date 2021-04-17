@@ -12,8 +12,9 @@ import { AsideComponent } from './shared/aside/aside.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
-import { ClientBlockComponent } from './client-block/client-block.component';
+import { ClientBlogComponent } from './client-blog/client-blog.component';
 import { ClientTutorialComponent } from './client-tutorial/client-tutorial.component';
+import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { ClientTutorialComponent } from './client-tutorial/client-tutorial.compo
     AsideComponent,
     SearchbarComponent,
     DetailArticleComponent,
-    ClientBlockComponent,
+    ClientBlogComponent,
     ClientTutorialComponent,
+    DetailNewpaperComponent,
   ],
   imports: [
     CommonModule,
