@@ -12,7 +12,8 @@ import { AsideComponent } from './shared/aside/aside.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
-
+import { ClientBlockComponent } from './client-block/client-block.component';
+import { ClientTutorialComponent } from './client-tutorial/client-tutorial.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
     AsideComponent,
     SearchbarComponent,
     DetailArticleComponent,
+    ClientBlockComponent,
+    ClientTutorialComponent,
   ],
   imports: [
     CommonModule,

@@ -32,24 +32,20 @@
                     <div class="inner" >
                         <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
                             post-id="585180" *ngFor="let article of articles">
-                            <figure><a
-                                    href="https://phongtro123.com/phong-vip-biet-thu-binh-loi-full-noi-that-pr585180.html"><img
-                                        class="lazy_done"
-                                        src="https://blogcdn.muaban.net/wp-content/uploads/2018/07/5-luu-y-khi-tim-phong-tro-Ha-Noi.jpg"
-                                        data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/untitled_1617533434.png"
-                                        alt="Phòng VIP biệt thự Bình Lợi, full nội thất" height="100" width="100"
-                                        layout="responsive" data-loaded="true"></a><span class="images-number">14
-                                    ảnh</span><span class="chothuenhanh-label"></span><span
-                                    class="post-save js-btn-save" data-post-id="585180"
-                                    title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
+                            <figure><a routerLink="/client/detail-article">
+                                        <img class="lazy_done" src="{{article.image}}" alt="" height="100" width="100" layout="responsive" data-loaded="true">
+                                    </a><span class="images-number">14 ảnh</span><span class="chothuenhanh-label"></span>
+                                    <span class="post-save js-btn-save" data-post-id="585180" title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
                             <div class="post-meta">
-                                <h4 class="post-title"><span class="star star-5"></span><a style="color: #E13427;"
-                                        href="https://phongtro123.com/phong-vip-biet-thu-binh-loi-full-noi-that-pr585180.html">{{article.title}}</a></h4><span class="post-price">{{article.roomPrice}}
-                                    triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span><span
-                                    class="post-location"><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                        title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.address}}</a></span><time class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time><span
-                                    class="post-hot"></span>
+                                <h4 class="post-title"><span class="star star-5"></span>
+                                    <a style="color: #E13427;" >{{article.title}}</a>
+                                    </h4><span class="post-price">{{article.roomPrice}}
+                                    triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span>
+                                    <span class="post-location">
+                                        <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.address}}</a>
+                                    </span>
+                                    <time class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time>
+                                    <span class="post-hot"></span>
                             </div>
                         </li>
                     </div>

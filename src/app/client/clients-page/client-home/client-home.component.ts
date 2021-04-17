@@ -14,10 +14,10 @@ export class ClientHomeComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.getAllArticle();
+    this.getAllArticleNoLogin();
   }
 
-  getAllArticle(){
+  getAllArticleNoLogin(){
     this.articleService.getAllArticleNoLogin(this.page).subscribe((data) =>{
       this.articles = data;
     });

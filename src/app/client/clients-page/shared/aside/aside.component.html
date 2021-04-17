@@ -21,81 +21,15 @@
     <section class="section section-aside-tinmoidang">
         <div class="section-header"><span class="section-title">Tin mới đăng</span></div>
         <ul class="post-listing aside clearfix">
-            <li class="post-item clearfix tin-vip vip2" post-id="585197"><a
-                    href="https://phongtro123.com/cho-thue-phong-tro-tai-pho-le-thanh-nghi-quan-hai-ba-trung-la-khu-bach-kinh-xay-pr585197.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/05/104331338-1935086759958279-3188441475817702536-n-15947888021_1617558867.jpg"
-                            alt="Cho thuê phòng trọ tại phố Lê Thanh Nghị quận hai bà trưng là khu bách kinh xây"
-                            height="100" width="100" layout="responsive"></figure>
+            <li class="post-item clearfix tin-vip vip2" post-id="585197" *ngFor="let article of articles">
+                    <a href="https://phongtro123.com/cho-thue-phong-tro-tai-pho-le-thanh-nghi-quan-hai-ba-trung-la-khu-bach-kinh-xay-pr585197.html">
+                    <img class="lazy" src="{{article.image}}" alt="" height="75" width="75" layout="responsive">
                     <div class="post-meta">
                         <h4 class="post-title" style="color: #f60;"><span class="star star-3"></span>
-                            Cho thuê phòng trọ tại phố Lê Thanh Nghị… </h4><span class="post-price">1.3
+                            {{article.title}}</h4><span class="post-price">{{article.roomPrice}}
                             triệu/tháng</span>
-                    </div>
-                </a></li>
-            <li class="post-item clearfix normal" post-id="315520"><a
-                    href="https://phongtro123.com/cho-thue-phong-tro-tai-nguyen-an-ninh-truong-dinh-gan-dhkt-xd-bk-pr315520.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/12/01/mt001_1606798356.jpg"
-                            alt="Cho thuê phòng trọ tại Nguyễn An Ninh, Trương Định gần ĐHKT, XD, BK"
-                            height="100" width="100" layout="responsive"></figure>
-                    <div class="post-meta">
-                        <h4 class="post-title" style="color: #055699;"> Cho thuê phòng trọ tại Nguyễn An
-                            Ninh, Trương… </h4><span class="post-price">3 triệu/tháng</span>
-                    </div>
-                </a></li>
-            <li class="post-item clearfix normal" post-id="585196"><a
-                    href="https://phongtro123.com/cho-thue-nha-nguyen-can-1-tret-1-lau-mat-tien-ha-thi-kheo-p-trung-my-tay-q12-gia-15tr-th-pr585196.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/1_1617555418.jpg"
-                            alt="Cho thuê nhà nguyên căn 1 trệt 1 lầu mặt tiền Hà Thị Khéo P Trung Mỹ Tây Q12 giá 15tr/th"
-                            height="100" width="100" layout="responsive"></figure>
-                    <div class="post-meta">
-                        <h4 class="post-title" style="color: #055699;"> Cho thuê nhà nguyên căn 1 trệt 1
-                            lầu mặt… </h4><span class="post-price">15 triệu/tháng</span>
-                    </div>
-                </a></li>
-            <li class="post-item clearfix tin-vip vip3" post-id="585194"><a
-                    href="https://phongtro123.com/chothue-phong-tro-mini-cao-ca-p-mo-i-xa-y-vanghouse-pr585194.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/img-0480_1617555086.jpg"
-                            alt="#ChoThue PHÒNG TRỌ MINI CAO CẤP MỚI XÂY - VangHouse:" height="100"
-                            width="100" layout="responsive"></figure>
-                    <div class="post-meta">
-                        <h4 class="post-title" style="color: #3763e0;"><span class="star star-2"></span>
-                            #ChoThue PHÒNG TRỌ MINI CAO CẤP MỚI XÂY -… </h4><span
-                            class="post-price">4.5 triệu/tháng</span>
-                    </div>
-                </a></li>
-            <li class="post-item clearfix normal" post-id="585195"><a
-                    href="https://phongtro123.com/chinh-chu-cho-thue-nha-nc-4-lau-tai-982-1a-quang-trung-p8-gvap-gia-16tr-th-pr585195.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/1_1617554470.jpg"
-                            alt="Chính chủ cho thuê nhà NC 4 lầu tại 982/1A Quang Trung P8 GVấp giá 16tr/th"
-                            height="100" width="100" layout="responsive"></figure>
-                    <div class="post-meta">
-                        <h4 class="post-title" style="color: #055699;"> Chính chủ cho thuê nhà NC 4 lầu
-                            tại 982/1A… </h4><span class="post-price">16 triệu/tháng</span>
-                    </div>
-                </a></li>
-            <li class="post-item clearfix normal" post-id="585193"><a
-                    href="https://phongtro123.com/cho-thue-2-phong-le-trong-chung-cu-3pn-an-khang-quan-2-gia-5tr-phong-pr585193.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/received-1391215547891248_1617554036.jpg"
-                            alt="Cho thuê 2 phòng lẻ trong chung cư 3PN An Khang Quận 2, giá 5tr/phòng"
-                            height="100" width="100" layout="responsive"><span class="has-video"></span>
-                    </figure>
-                    <div class="post-meta">
-                        <h4 class="post-title" style="color: #055699;"> Cho thuê 2 phòng lẻ trong chung
-                            cư 3PN An Khang… </h4><span class="post-price">5 triệu/tháng</span>
-                    </div>
-                </a></li>
+                    </div></a>
+            </li>
         </ul>
     </section>
     <section class="section">
@@ -107,73 +41,17 @@
         <!-- </center> -->
     </section>
     <section class="section section-aside-tinmoidang">
-        <div class="section-header" [ngStyle]="{'margin-botttom':'10px'}"><span class="section-title">Bài viết
-                mới</span></div>
+        <div class="section-header" [ngStyle]="{'margin-botttom':'10px'}"><span class="section-title">Bài viết mới</span></div>
         <ul class="blog-listing aside clearfix">
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/uu-va-nhuoc-diem-cua-viec-o-tro-ban-nen-biet.html">
+            <article class="article-item clearfix" *ngFor="let newpaper of newpapers">
+                    <a href="https://phongtro123.com/uu-va-nhuoc-diem-cua-viec-o-tro-ban-nen-biet.html">
                     <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/01/30/uu-va-nhuoc-diem-cua-o-tro_1611981473.jpg">
+                            src="{{newpaper.image}}">
                     </figure>
                     <div class="article-meta">
-                        <h6 class="article-title">Ưu và nhược điểm của việc ở trọ "bạn nên biết"</h6>
-                    </div>
-                </a></article>
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/top-5-website-dang-tin-cho-thue-mat-bang-hieu-qua-nhat-hien-nay.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/06/09/chothuematbang01-1_1591697241.jpg">
-                    </figure>
-                    <div class="article-meta">
-                        <h6 class="article-title">Top 5 website đăng tin cho thuê mặt bằng hiệu quả nhất
-                            hiện nay</h6>
-                    </div>
-                </a></article>
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/dang-tin-tim-nguoi-o-ghep-mien-phi-o-dau-hieu-qua.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/03/13/trang-web-dang-tin-o-ghep-bds123_1584091714.png">
-                    </figure>
-                    <div class="article-meta">
-                        <h6 class="article-title">Đăng tin tìm người ở ghép miễn phí ở đâu hiệu quả?
-                        </h6>
-                    </div>
-                </a></article>
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/dau-tu-dat-xay-phong-tro_1567824476.jpg">
-                    </figure>
-                    <div class="article-meta">
-                        <h6 class="article-title">Kinh nghiệm chọn đất đầu tư xây phòng trọ không bao
-                            giờ lỗ</h6>
-                    </div>
-                </a></article>
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/bds123-giao-dien_1567824794.png">
-                    </figure>
-                    <div class="article-meta">
-                        <h6 class="article-title">Đăng tin cho thuê văn phòng ở đâu hiệu quả nhất?</h6>
-                    </div>
-                </a></article>
-            <article class="article-item clearfix"><a
-                    href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html">
-                    <figure><img class="lazy"
-                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/default.jpg"
-                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/bds123-giao-dien_1567824838.png">
-                    </figure>
-                    <div class="article-meta">
-                        <h6 class="article-title">Đăng tin cho thuê mặt bằng ở đâu nhanh chóng và hiệu
-                            quả nhất?</h6>
-                    </div>
-                </a></article>
+                        <h6 class="article-title">{{newpaper.title}}</h6>
+                    </div></a>
+            </article>
         </ul>
     </section>
     <section class="section section-sublink">

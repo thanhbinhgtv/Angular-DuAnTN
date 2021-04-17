@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NewspaperService } from '../newspaper.service';
-import { NewsPaperResponseModel } from './newspaper-response-model';
+import { NewsPaperResponseModel } from '../../../shared/model/responses/newspaper-response-model';
 
 @Component({
   selector: 'app-view-newspaper',

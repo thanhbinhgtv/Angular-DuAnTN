@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NewspaperService } from '../newspaper.service';
-import { NewsPaperResponseModel } from '../view-newspaper/newspaper-response-model';
+import { NewsPaperResponseModel } from '../../../shared/model/responses/newspaper-response-model';
 
 @Component({
   selector: 'app-detail-newspaper',

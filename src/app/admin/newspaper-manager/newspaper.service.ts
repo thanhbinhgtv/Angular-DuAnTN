@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewsPaperPostRequestModel } from './create-newspaper/newspaper-post-request';
-import { NewsPaperResponseModel } from './view-newspaper/newspaper-response-model';
+import { NewsPaperResponseModel } from '../../shared/model/responses/newspaper-response-model';
 
 @Injectable({
   providedIn: 'root'

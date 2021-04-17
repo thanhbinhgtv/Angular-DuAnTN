@@ -5,4 +5,5 @@ export interface NewsPaperResponseModel {
     content: string,
     author: string,
     deleted: boolean,
+    updateTime: number,
 }
