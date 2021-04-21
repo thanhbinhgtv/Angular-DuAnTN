@@ -2672,7 +2672,7 @@ figure img:hover {
     z-index: 9
 }
 
-.dropdown.open .dropdown-menu {
+.dropdown:hover .dropdown-menu {
     display: block
 }
 
@@ -3052,48 +3052,50 @@ figure img:hover {
 }
 
 .user-welcome .dropdown-menu-item i {
-    width: 16px;
-    height: 16px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px
 }
 
+/* link tải icon https://icons8.com/icons/new */
 .user-welcome .dropdown-menu-item.dang-tin i {
-    /* background: url(../images/dashboard-add-post.svg) center no-repeat; */
-    background-size: contain
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/addNew1.png) center no-repeat;
+    background-size: contain;
+
 }
 
 .user-welcome .dropdown-menu-item.quan-ly-tin-dang i {
-    /* background: url(../images/dashboard-manage-post.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/list.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.nap-tien i {
-    /* background: url(../images/dashboard-payment.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/money.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.lich-su-nap-tien i {
-    /* background: url(../images/dashboard-payment-history.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/DepositHistory.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.thong-tin-ca-nhan i {
-    /* background: url(../images/dashboard-user.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/profile.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.tin-da-luu i {
-    /* background: url(../images/dashboard-post-saved.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/heart.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.thoat i {
-    /* background: url(../images/dashboard-logout.svg) center no-repeat; */
+    background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/exit.png) center no-repeat;
     background-size: contain
 }
 
 .user-welcome .dropdown-menu-item.quay-lai i {
-    /* background: url(../images/dashboard-logout.svg) center no-repeat; */
+    /* background: url(../../../../../assets/admin/img/Logo_dropdown_header_client/DepositHistory.png) center no-repeat; */
     background-size: contain
 }
 
@@ -4766,3 +4768,14 @@ figure img:hover {
 }
 
 /*# sourceMappingURL=min.desktop.frontend.2021.css.map */
+/* .dropdown-menu a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  } */
+
+  /* .dropdown:hover .btn {
+    background-color: #3e8e41;
+  } */
