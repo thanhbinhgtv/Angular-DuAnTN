@@ -15,6 +15,7 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { ClientBlogComponent } from './client-blog/client-blog.component';
 import { ClientTutorialComponent } from './client-tutorial/client-tutorial.component';
 import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.compo
   imports: [
     CommonModule,
     ClientPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
   ]
 })
 export class ClientPageModule { }

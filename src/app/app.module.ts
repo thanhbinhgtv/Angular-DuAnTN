@@ -10,6 +10,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { SharedModule } from './shared/shared.module';
 import { DatePipe } from '@angular/common';
 import { TokenInterceptor } from './token-interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TokenInterceptor } from './token-interceptor';
     BrowserAnimationsModule,
     NgxWebstorageModule.forRoot(),
     SharedModule,
+    NgbModule,
   ],
   providers: [
     DatePipe,

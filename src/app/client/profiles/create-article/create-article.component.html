@@ -33,7 +33,7 @@
                 <div class="row mt-3">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="province_id" class="col-form-label">Tỉnh/Thành phố</label>
+                            <label class="col-form-label">Tỉnh/Thành phố</label>
                             <select id="province_id" name="province_id" (change)="getAllDistrictByCityId($event.target.value)" class="form-control js-select-tinhthanhpho select2-hidden-accessible" required="" data-msg-required="Chưa chọn Tỉnh/TP" tabindex="-1" aria-hidden="true">
                                 <option value="0">Tất cả</option>
                                 <option *ngFor="let city of citys" value="{{city.id}}">{{city.name}}</option>
@@ -43,7 +43,7 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="col-form-label" for="district_id">Quận/Huyện</label>
+                            <label class="col-form-label">Quận/Huyện</label>
                             <select name="district_id" id="district_id" (change)="getAllWardByDistrictId($event.target.value)" class="form-control js-select-quanhuyen select2-hidden-accessible" required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1" aria-hidden="true">
                                 <option value="0">Tất cả</option>
                                 <option *ngFor="let district of districts" value="{{district.id}}">{{district.name}}</option>
@@ -53,9 +53,9 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="col-form-label" for="phuongxa">Phường/Xã</label>
-                            <select class="form-control js-select-phuongxa select2-hidden-accessible" [formControlName]="'wardId'" [ngModel]="0" (change)="getWardId($event.target.value)">
-                                <option [value]="0">Tất cả</option>
+                            <label class="col-form-label">Phường/Xã</label>
+                            <select [formControlName]="'wardId'" (change)="getWardId($event.target.value)" class="form-control js-select-phuongxa select2-hidden-accessible">
+                                <option [selected]="true">Tất cả</option>
                                 <option *ngFor="let ward of wards" value="{{ward.id}}">{{ward.name}}</option>
                             </select>
                         </div>
@@ -75,7 +75,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="diachi" class="col-form-label">Địa chỉ chính xác</label>
-                            <input type="text" class="form-control" [formControlName]="'address'" name="dia_chi" id="diachi">
+                            <input type="text" class="form-control" [formControlName]="'address'">
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                 <div class="form-group row">
                     <label for="post_title" class="col-md-12 col-form-label">Tiêu đề</label>
                     <div class="col-md-12">
-                        <input type="text" class="form-control" [formControlName]="'title'" name="tieu_de" id="post_title" value="">
+                        <input type="text" class="form-control" [formControlName]="'title'">
                     </div>
                 </div>
 
@@ -146,7 +146,7 @@
                     <label for="post_acreage" class="col-md-12 col-form-label">Diện tích</label>
                     <div class="col-md-6">
                         <div class="input-group mb-3">
-                            <input id="post_acreage" type="number" [formControlName]="'acreage'" attern="[0-9.]+" name="dien_tich" max="1000" class="form-control" required="" data-msg-required="Bạn chưa nhập diện tích">
+                            <input id="post_acreage" type="number" [formControlName]="'acreage'" class="form-control" required="">
                             <div class="input-group-append">
                                 <span class="input-group-text">m<sup>2</sup></span>
                             </div>
@@ -271,8 +271,8 @@
                     <div class="col-md-4 js-group-package">
                         <div class="form-group">
                             <label for="post_package" class="col-form-label">Chọn loại tin</label>
-                            <select class="form-control" id="post_package" [formControlName]="'vip'" [ngModel]="0">
-                                <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                            <select class="form-control" id="post_package" [formControlName]="'vip'">
+                                <option [disabled]="true" [selected]='true'>Lựa Chọn</option>
                                 <option value="false">Tin thường : 2.000/ngày</option>
                                 <option value="true">Tin VIP : 10.000/ngày</option>
                             </select>
@@ -282,8 +282,8 @@
                     <div class="col-md-4 js-group-package-type">
                         <div class="form-group">
                             <label for="post_cat" class="col-form-label">Gói thời gian</label>
-                            <select class="form-control" [formControlName]="'type'" [ngModel]="0" id="post_cat" name="package_type">
-                                <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                            <select class="form-control" [formControlName]="'type'" id="post_cat" name="package_type">
+                                <option [disabled]="true" [selected]="true">Lựa Chọn</option>
                                 <option value="day">Đăng theo ngày</option>
                                 <option value="week">Đăng theo tuần</option>
                                 <option value="month">Đăng theo tháng</option>
@@ -295,8 +295,8 @@
                         <div class="form-group">
                             <div class="js-package-type js-package-type-day">
                                 <label class="col-form-label" for="formGroupInputSmall">Số ngày/tuần/tháng</label>
-                                <select class="form-control" name="total_day" [formControlName]="'number'" [ngModel]="0">
-                                    <option [disabled]="true" [value]="0">Lựa Chọn</option>
+                                <select class="form-control" name="total_day" [formControlName]="'number'">
+                                    <option [disabled]="true" [selected]="true">Lựa Chọn</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -352,43 +352,43 @@
                     <div class="form-check js-payment-item js-payment-account">
                         <input type="radio" name="payment_method" id="payment_from_account" value="account" checked="checked" class="form-check-input">
                         <label for="payment_from_account" class="form-check-label">
-                    Trừ tiền trong tài khoản Phongtro123 (Bạn đang có TK Chính: 0đ
-                    <p style="color: red;" class="js-note-outofmoney">Số tiền trong tài khoản của bạn không đủ để thực hiện thanh toán, vui lòng <a href="https://phongtro123.com/quan-ly/nap-tien.html">nạp thêm</a> hoặc chọn phương thức khác bên dưới</p>
-                </label>
+                            Trừ tiền trong tài khoản Phongtro123 (Bạn đang có TK Chính: 0đ
+                            <p style="color: red;" class="js-note-outofmoney">Số tiền trong tài khoản của bạn không đủ để thực hiện thanh toán, vui lòng <a href="https://phongtro123.com/quan-ly/nap-tien.html">nạp thêm</a> hoặc chọn phương thức khác bên dưới</p>
+                        </label>
                     </div>
-                    <div class="form-check js-payment-item js-payment-momo">
+                    <!-- <div class="form-check js-payment-item js-payment-momo">
                         <input type="radio" name="payment_method" id="payment_from_momo" value="momo" class="form-check-input">
                         <label for="payment_from_momo" class="form-check-label">
-                    Thanh toán qua ví điện tử MOMO
-                    <span class="bds_icon icon_momo" style="display: block;"></span>
-                </label>
-                    </div>
-                    <div class="form-check js-payment-item js-payment-atm">
+                            Thanh toán qua ví điện tử MOMO
+                            <span class="bds_icon icon_momo" style="display: block;"></span>
+                        </label>
+                    </div> -->
+                    <!-- <div class="form-check js-payment-item js-payment-atm">
                         <input type="radio" name="payment_method" id="payment_from_atm" value="atm" class="form-check-input">
                         <label for="payment_from_atm" class="form-check-label">
-                    Thanh toán qua thẻ ngân hàng nội địa
-                    <span class="bds_icon icon_internet_banking" style="display: block;"></span>
-                </label>
-                    </div>
+                            Thanh toán qua thẻ ngân hàng nội địa
+                            <span class="bds_icon icon_internet_banking" style="display: block;"></span>
+                        </label>
+                    </div> -->
                     <div class="form-check js-payment-item js-payment-visa">
                         <input type="radio" name="payment_method" id="payment_from_credit" value="visa" class="form-check-input">
                         <label for="payment_from_credit" class="form-check-label">
-                Thanh toán qua thẻ quốc tế
-                <div><span class="bds_icon icon_visa"></span><span style="margin: 0 3px;" class="bds_icon icon_mastercard"></span><span class="bds_icon icon_jcb"></span></div>
-                </label>
+                            Thanh toán qua thẻ quốc tế
+                            <div><span class="bds_icon icon_visa"></span><span style="margin: 0 3px;" class="bds_icon icon_mastercard"></span><span class="bds_icon icon_jcb"></span></div>
+                        </label>
                     </div>
                     <div class="form-check js-payment-item js-payment-bank-transfer mb-2">
                         <input type="radio" name="payment_method" id="payment_from_bank_transfer" value="bank_transfer" class="form-check-input">
                         <label for="payment_from_bank_transfer" class="form-check-label">
-                    Chuyển khoản ngân hàng
-                    <p class="js-note-transfer-money" style="font-weight: normal;">Nội dung chuyển khoản: <span style="color: red;">PT123_0365834845_DANGTINMOI_<span class="js-package-title-ck">tin thuong</span>_<span class="js-time-type-ck">Dang theo ngay</span>_<span class="js-time-type-so-luong">5 ngay</span></span></p>
-                    <p>Số tiền chuyển khoản: <span style="color: red;" class="js-package-grand-total">10.000đ</span></p>
-                </label>
+                            Chuyển khoản ngân hàng
+                            <p class="js-note-transfer-money" style="font-weight: normal;">Nội dung chuyển khoản: <span style="color: red;">PT123_0365834845_DANGTINMOI_<span class="js-package-title-ck">tin thuong</span>_<span class="js-time-type-ck">Dang theo ngay</span>_<span class="js-time-type-so-luong">5 ngay</span></span></p>
+                            <p>Số tiền chuyển khoản: <span style="color: red;" class="js-package-grand-total">10.000đ</span></p>
+                        </label>
                     </div>
                 </div>
                 <div class="form-group row mt-5">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-success mb-5 btn-lg btn-block">Hoàn tất &amp; Thanh toán (<span class="js-package-grand-total">10.000đ</span>)</button>
+                        <button type="submit" class="btn btn-success mb-5 btn-lg btn-block" [disabled]="articleForm.invalid">Hoàn tất &amp; Thanh toán (<span class="js-package-grand-total">10.000đ</span>)</button>
                     </div>
                 </div>
                 <!-- END FORM BUTTON -->

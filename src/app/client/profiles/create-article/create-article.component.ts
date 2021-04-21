@@ -46,27 +46,25 @@ export class CreateArticleComponent implements OnInit {
       this.getAllCity();
 
       this.articleForm = new FormGroup({
-          wardId: new FormControl({value:""}, Validators.required),
-          address: new FormControl("", [Validators.required]),
-          title: new FormControl("", [Validators.required]),
-          description: new FormControl("", Validators.required),
-          roomPrice: new FormControl("", Validators.required),
-          acreage: new FormControl("", [Validators.required]),
-          electricPrice: new FormControl("", [Validators.required]),
-          waterPrice: new FormControl("", Validators.required),
-          wifiPrice: new FormControl({value:""}, Validators.required),
+          wardId: new FormControl("", Validators.required),
+          address: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(220)]),
+          title: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(220)]),
+          description: new FormControl("", [Validators.minLength(3), Validators.maxLength(220)]),
+          roomPrice: new FormControl("", [Validators.required, Validators.min(1000)]),
+          acreage: new FormControl("", [Validators.required, Validators.min(1000)]),
+          electricPrice: new FormControl("", [Validators.required, Validators.min(1000)]),
+          waterPrice: new FormControl("", [Validators.required, Validators.min(1000)]),
+          wifiPrice: new FormControl({value:""}, [Validators.required, Validators.min(1000)]),
           image: new FormControl("", [Validators.required]),
-          video: new FormControl("", [Validators.required]),
-          roommateInsertDTO: new FormControl("", Validators.required),
-          vip: new FormControl(false, [Validators.required]),
+          video: new FormControl("", [Validators.minLength(3), Validators.maxLength(220)]),
+        //   roommateInsertDTO: new FormControl("", Validators.required),
+          vip: new FormControl("", [Validators.required]),
           type: new FormControl("", [Validators.required]),
-          number: new FormControl("", Validators.required),
+          number: new FormControl("", [Validators.required, Validators.min(1)]),
       });
   }
 
   createArticle(){
-    console.log("1 :"+this.articleForm.get('wardId').value);
-    console.log("2 :"+this.wardId);
       const fb = new FormData();
       for(var i=0; i<this.selectedFile.length; i++){
           fb.append('files', this.selectedFile[i]);
@@ -99,9 +97,9 @@ export class CreateArticleComponent implements OnInit {
       this.articleService.createArticle(this.articleModel).subscribe((data) => {
           console.log(data);
           // this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
-          this.toastr.success('Thành công')
+          this.toastr.success('Thành công');
       }, (error) => {
-          this.toastr.error(error.error.mess);
+          this.toastr.error("Vui lòng kiểm tra lại thông tin");
       });
   }
 

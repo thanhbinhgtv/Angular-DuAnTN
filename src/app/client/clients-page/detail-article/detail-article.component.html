@@ -5,66 +5,10 @@
             <div class="container clearfix">
                 <div id="left-col">
                     <article class="the-post tin-vip vipnoibat">
-                        <section class="post-images">
-
-                            <div class="slideshow-container">
-                                <h2>Freetus.net hướng dẫn tạo slideShow đơn giản</h2>
-                                <div class="mySlides fade">
-                                    <img src="https://freetuts.net/upload/tut_post/images/2017/07/30/964/slide-1.jpg"
-                                        style="width:100%">
-
-                                </div>
-
-                                <div class="mySlides fade">
-                                    <img src="https://freetuts.net/upload/tut_post/images/2017/07/30/964/slide-2.jpg"
-                                        style="width:100%">
-
-                                </div>
-
-                                <div class="mySlides fade">
-                                    <img src="https://freetuts.net/upload/tut_post/images/2017/07/30/964/slide-3.jpg"
-                                        style="width:100%">
-
-                                </div>
-                            </div>
-                            <br>
-
-                            <div style="text-align:center">
-                                <span class="dot" onclick="currentSlide(0)"></span>
-                                <span class="dot" onclick="currentSlide(1)"></span>
-                                <span class="dot" onclick="currentSlide(2)"></span>
-                            </div>
-
-                            <!-- <div class="images-swiper-container swiper-container-horizontal">
-                                <div class="swiper-wrapper"
-                                    style="transition-duration: 0ms; transform: translate3d(-1360px, 0px, 0px);">
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5"
-                                        style="width: 680px;"><img
-                                            alt="Cho thuê phòng trọ cao cấp số 224/17 Phan Văn Hân, phường 17, quận Bình Thạnh"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/14e207164791a5cffc80_1556015521.jpg">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0"
-                                        style="width: 680px;"><img
-                                            alt="Cho thuê phòng trọ cao cấp số 224/17 Phan Văn Hân, phường 17, quận Bình Thạnh"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/44694a920a15e84bb104-1_1556015459.jpg">
-                                    </div>                          
-                                </div>
-                                <div class="swiper-pagination swiper-pagination-bullets"><span
-                                        class="swiper-pagination-bullet"></span><span
-                                        class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
-                                        class="swiper-pagination-bullet"></span><span
-                                        class="swiper-pagination-bullet"></span><span
-                                        class="swiper-pagination-bullet"></span><span
-                                        class="swiper-pagination-bullet"></span></div>
-                                <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
-                                </div>
-                                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
-                                </div><span class="post-save js-btn-save saved" data-post-id="280845"
-                                    title="Lưu tin này vào danh sách quan tâm"
-                                    data-original-title="Tin đã lưu"><i></i></span><span class="swiper-notification"
-                                    aria-live="assertive" aria-atomic="true"></span>
-                            </div> -->
-                        </section>
+                        <div class="ngslideshow">
+                            <app-slideshow [images]="article?.image" [length]="article?.image.length"></app-slideshow>
+                        </div>
+                        
                         <div id="breadcrumb">
                             <ol class="clearfix" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                                 <li itemprop="itemListElement" class="first link" itemscope=""

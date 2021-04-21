@@ -19,6 +19,10 @@ export class ArticleService {
   getAllArticleNoLogin(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=10`);
   }
+
+  getArticleByIdNoLogin(id: number): Observable<ArticleResponseModel> {
+    return this.httpClient.get<ArticleResponseModel>(`http://localhost:8080/article/${id}`);
+  }
   
   getAllArticleCustomer(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/customer/article?page=${page}&&limit=10`);
