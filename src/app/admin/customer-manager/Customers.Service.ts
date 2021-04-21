@@ -10,7 +10,7 @@ export class CustomersService{
     constructor(private http: HttpClient) {}
 
     getAllCustomers(page: number): Observable<Array<CustomerResponseModel>>{
-        return this.http.get<Array<CustomerResponseModel>>(`http://localhost:8080/admin/customers?page=${page}&&limit=5`);
+        return this.http.get<Array<CustomerResponseModel>>(`http://localhost:8080/admin/customers?page=${page}&&limit=10`);
     }
     
     getCustomerById(id: number): Observable<CustomerResponseModel>{
