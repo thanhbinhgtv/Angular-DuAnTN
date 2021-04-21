@@ -1,11 +1,16 @@
-<ngb-carousel *ngIf="images">
-    <ng-template ngbSlide *ngFor="let item of images, let i=index">
-      <div class="picsum-img-wrapper">
-        <img [src]="images[i]" alt="Random first slide">
+<ngb-carousel class="post-images" *ngIf="images">
+  <!-- <div class="images-swiper-container "> -->
+    <ng-template class="images-swiper-container swiper-container-horizontal" ngbSlide *ngFor="let item of images, let i=index">
+      <div class="swiper-wrapper" >
+        <div class="swiper-slide swiper-slide-active">
+          <img [src]="images[i]" alt="Random first slide"  >
+        </div>       
       </div>
-      <div class="carousel-caption">
+      <!-- <div class="carousel-caption">
         <h3>Ảnh </h3>
-        <!-- <h3 *ngIf="i === images.length-1">{{images[i]}}</h3> -->
-      </div>
+        <h3 *ngIf="i === images.length-1">{{images[i]}}</h3>
+      </div> -->
     </ng-template>
-  </ngb-carousel>
+  <!-- </div> -->
+
+</ngb-carousel>
