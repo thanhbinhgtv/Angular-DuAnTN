@@ -8,7 +8,7 @@ import { PaypalService } from '../../service/paypal.service';
   styleUrls: ['./payment-history.component.css']
 })
 export class PaymentHistoryComponent implements OnInit {
-  transaction: Array<TransactionResponseModel> = [];
+  paymentHistory: Array<TransactionResponseModel> = [];
   page = 0;
 
   constructor(private paypal: PaypalService) { }
@@ -18,8 +18,8 @@ export class PaymentHistoryComponent implements OnInit {
   }
 
   getTransaction(){
-      this.paypal.getTransaction(this.page).subscribe(data => {
-          this.transaction = data;
+      this.paypal.getTransaction2(this.page).subscribe(data => {
+          this.paymentHistory = data;
       })
   }
 }

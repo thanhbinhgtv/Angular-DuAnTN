@@ -18,7 +18,7 @@ export class RechargeHistoryComponent implements OnInit {
   }
 
   getTransaction(){
-      this.paypal.getTransaction(this.page).subscribe(data => {
+      this.paypal.getTransaction1(this.page).subscribe(data => {
           this.rechargeHistory = data;
       })
   }

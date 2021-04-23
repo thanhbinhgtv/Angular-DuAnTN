@@ -6,6 +6,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { ViewArticleComponent } from './view-article/view-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ArticleManagerRoutingModule,
     ReactiveFormsModule,
+    MatSliderModule,
   ]
 })
 export class ArticleManagerModule { }

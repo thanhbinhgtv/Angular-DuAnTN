@@ -53,359 +53,37 @@
                     </div>
                 </ul>
             </section>
+
             <div class="container clearfix">
+                <!-- Danh Sách Tin Đăng -->
                 <div id="left-col">
                     <section class="section section-post-listing">
                         <div class="section-header"><span class="section-title">Danh sách tin đăng</span></div>
                         <ul class="post-listing clearfix">
                             <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="585160">
-                                <figure><a
-                                        href="https://phongtro123.com/q4-cho-thue-phong-tro-tien-nghi-an-ninh-yen-tinh-pr585160.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/1_1617507000.jpg"
-                                            alt="Q4 - Cho thuê Phòng trọ Tiện nghi, An ninh, Yên tĩnh!" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">14
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585160"
+                                post-id="585160" *ngFor="let article of articles">
+                                <figure><a routerLink="/detail-article/{{article.articleId}}">
+                                    <img class="lazy_done"
+                                            src="{{article.image}}"
+                                            alt="" height="100"
+                                            width="100" layout="responsive"></a>
+                                            <span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="post-save js-btn-save" data-post-id="585160"
                                         title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
                                 <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/q4-cho-thue-phong-tro-tien-nghi-an-ninh-yen-tinh-pr585160.html"><span
-                                                class="star star-5"></span> Q4 - Cho thuê Phòng trọ Tiện nghi, An ninh,
-                                            Yên tĩnh! </a></h4>
+                                    <h4 class="post-title"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
+                                        <span class="star star-5"></span>{{article.title}}</a></h4>
                                     <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">25m²</span><span
+                                            class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
+                                    <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
                                             class="post-location"><a
                                                 href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-4"
-                                                title="Cho thuê Phòng trọ Quận 4, Hồ Chí Minh">Quận 4, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
+                                                title="{{article.title}}">{{article.address}}</a></span></div>
+                                                <span class="post-hot"></span>
                                     <p class="post-summary">Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
                                         Tiện nghi của 2 phòng:- Máy lạnh- Máy nước nóng lạnh- Bếp riêng trong phòng- WC
                                         riêng trong…</p>
                                 </div>
                             </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="261116">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/o-ghep-kv-q-4-chi-15-trieu-1-ng-phong-moi-100-mien-phi-dien-nuoc-giu-xe-wifi.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2018/09/07/128f4c38-c6e5-422f-8a69-9c95b9cad2ac_1536306359.jpg"
-                                            alt="Homestay share phòng Q.4 chỉ 1,6 triệu/người. Miễn phí: điện, nước, giữ xe, wifi, vệ sinh phòng..."
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">13 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="261116" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/o-ghep-kv-q-4-chi-15-trieu-1-ng-phong-moi-100-mien-phi-dien-nuoc-giu-xe-wifi.html"><span
-                                                class="star star-5"></span> Homestay share phòng Q.4 chỉ 1,6
-                                            triệu/người. Miễn phí: điện, nước, giữ xe,… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">1.6 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">40m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tim-nguoi-o-ghep-quan-4-ho-chi-minh"
-                                                title="Tìm người ở ghép Quận 4, Hồ Chí Minh">Quận 4, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Homestay share phòng chỉ 1,6 triệu/1 ngườiMiễn phí: điện,
-                                        nước, giữ xe, máy lạnh, quạt, máy nước nóng, máy giặt, vệ sinh dọn phòng...Nghĩa
-                                        là bạn chỉ…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="270520">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/o-ghep-nha-biet-thu-gan-lotte-mark-q7-chi-16-tr-thang-mien-phi-dien-nuoc-wifi-giu-xe.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2018/09/19/img-5473_1537345838.jpg"
-                                            alt="Ở ghép nhà Biệt Thự gần Lotte Mart Q.7 chỉ 1,6 tr/tháng, miễn phí: điện, nước, wifi, giữ xe, vệ sinh phòng 4 ng/tuần..."
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">28 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="270520" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/o-ghep-nha-biet-thu-gan-lotte-mark-q7-chi-16-tr-thang-mien-phi-dien-nuoc-wifi-giu-xe.html"><span
-                                                class="star star-5"></span> Ở ghép nhà Biệt Thự gần Lotte Mart Q.7 chỉ
-                                            1,6 tr/tháng, miễn phí: điện,… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">1.6 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-7"
-                                                title="Cho thuê Phòng trọ Quận 7, Hồ Chí Minh">Quận 7, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Homestay Biệt Thự share phòng chỉ 1,6 triệu/1 người tại Quận
-                                        7Miễn phí: điện, nước, giữ xe, máy lạnh, quạt, máy nước nóng, máy giặt, máy sấy
-                                        quần…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="276705">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/homestay-share-phong-134-nguyen-thi-thap-q7-chi-15-tr-thang-mien-phi-tron-goi.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/01/29/696ca50d-6b75-4361-8ebc-ded5a1f4ba63_1548739111.jpg"
-                                            alt="Homestay Biệt Thự 1,5 triệu/người (bao gồm tất cả chi phí: điện, nước, net, xe.) Nguyễn Thị Thập, Q7"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">18 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="276705" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/homestay-share-phong-134-nguyen-thi-thap-q7-chi-15-tr-thang-mien-phi-tron-goi.html"><span
-                                                class="star star-5"></span> Homestay Biệt Thự 1,5 triệu/người (bao gồm
-                                            tất cả chi phí: điện, nước,… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">1.5 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">40m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tim-nguoi-o-ghep-quan-7-ho-chi-minh"
-                                                title="Tìm người ở ghép Quận 7, Hồ Chí Minh">Quận 7, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Homestay cao cấp ở ghép chỉ 1,5 triệu/1 ngườiĐẶC BIỆT:️KHÔNG
-                                        THU PHÍ GIỮ XE 2 MÁY GIẶT và 2 MÁY SẤY KHÔ QUẦN ÁO ️MÁY LỌC NƯỚC UỐNG MIỄN…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="277630">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-tro-dang-can-ho-mini-cao-cap-tai-796-le-duc-tho-p-15-quan-go-vap.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/02/25/63b548ae81a263fc3ab3_1551067966.jpg"
-                                            alt="Phòng trọ dạng căn hộ mini cao cấp tại 796 Lê Đức Thọ, P.15, Quận Gò Vấp"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">3 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="277630" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-tro-dang-can-ho-mini-cao-cap-tai-796-le-duc-tho-p-15-quan-go-vap.html"><span
-                                                class="star star-5"></span> Phòng trọ dạng căn hộ mini cao cấp tại 796
-                                            Lê Đức Thọ, P.15, Quận Gò Vấp </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">2.5 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-go-vap"
-                                                title="Cho thuê Phòng trọ Quận Gò Vấp, Hồ Chí Minh">Quận Gò Vấp, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Cho thuê căn hộ mini cao cấp 30m2, giá 2.5 triệu - 3
-                                        triệu/tháng. Có thang máy, giờ tự do, có bảo vệ 24/24. Có Wifi, máy nước nóng,
-                                        trường hình cáp. Địa…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="278453">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-cho-thue-co-du-tien-nghi-duong-tran-thai-tong-gan-cong-kcn-tan-binh.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/07/10/ee8d5c4296fe6ba032ef_1594342167.jpg"
-                                            alt="PHÒNG ĐẸP CHO THUÊ - ĐƯỜNG TRẦN THÁI TÔNG, GẦN CỔNG KCN TÂN BÌNH-SÂN BAY TSN"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">8 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="278453" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-cho-thue-co-du-tien-nghi-duong-tran-thai-tong-gan-cong-kcn-tan-binh.html"><span
-                                                class="star star-5"></span> PHÒNG ĐẸP CHO THUÊ - ĐƯỜNG TRẦN THÁI TÔNG,
-                                            GẦN CỔNG KCN TÂN BÌNH-SÂN BAY TSN </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">2.5 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">20m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-binh"
-                                                title="Cho thuê Phòng trọ Quận Tân Bình, Hồ Chí Minh">Quận Tân Bình, Hồ
-                                                Chí Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Cho thuê phòng trọ 34/18 Đường Trần Thái Tông, Phường 15,
-                                        Quận Tân Bình, Hồ Chí Minh.- Còn duy nhất 1 phòng 20m2 lầu 2, phòng có MÁY LẠNH,
-                                        giếng trời…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="225431">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/ki-tuc-xa-nu-cao-cap-day-du-tien-nghi-chuan-5-ngay-cmt8-va-to-hien-thanh-lh-0973373779.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/07/15/received-460794631334089_1594779694.jpg"
-                                            alt="KÍ TÚC XÁ CAO CẤP ĐẦY ĐỦ TIỆN NGHI CHUẨN 5 * NGAY CMT8 VÀ TÔ HIẾN THÀNH. LH: 0973373779"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">16 ảnh</span><span class="chothuenhanh-label"></span><span
-                                        class="post-save js-btn-save" data-post-id="225431"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/ki-tuc-xa-nu-cao-cap-day-du-tien-nghi-chuan-5-ngay-cmt8-va-to-hien-thanh-lh-0973373779.html"><span
-                                                class="star star-5"></span> KÍ TÚC XÁ CAO CẤP ĐẦY ĐỦ TIỆN NGHI CHUẨN 5 *
-                                            NGAY CMT8 VÀ TÔ HIẾN THÀNH. LH:… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">1.5 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">35m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-10"
-                                                title="Cho thuê Phòng trọ Quận 10, Hồ Chí Minh">Quận 10, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Bạn cần tìm một không gian sạch sẽ - tiện nghi - an ninh -
-                                        thoải mái nhưng với mức giá hợp lý?Bạn muốn sống trong một căn phòng đẹp gần
-                                        trung tâm, sang…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="275838">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-tro-cao-cap-co-gac-30m2-co-cua-so-bep-bao-ve-24-24.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/08/07/img-20200807-163316_1596793218.jpg"
-                                            alt="PHÒNG TRỌ CAO CẤP MỚI XÂY CÓ GÁC 30M2 CÓ MÁY LẠNH + CỬA SỔ + BẾP + BẢO VỆ 24/24"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">9 ảnh</span><span class="chothuenhanh-label"></span><span
-                                        class="post-save js-btn-save" data-post-id="275838"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-tro-cao-cap-co-gac-30m2-co-cua-so-bep-bao-ve-24-24.html"><span
-                                                class="star star-5"></span> PHÒNG TRỌ CAO CẤP MỚI XÂY CÓ GÁC 30M2 CÓ MÁY
-                                            LẠNH + CỬA SỔ + BẾP + BẢO… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">3 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-binh"
-                                                title="Cho thuê Phòng trọ Quận Tân Bình, Hồ Chí Minh">Quận Tân Bình, Hồ
-                                                Chí Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">Cho thuê phòng trọ mới xây số 13-15 đường Thân Nhân Trung -
-                                        Cộng Hòa, P13 - Quận Tân Bình, gần cầu vượt Hoàng Hoa Thám, cách Etown 50m.*
-                                        Chính thức đưa vào…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="272444">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/khai-truong-phong-tro-dang-can-ho-mini-co-may-lanh-cua-so-bep-bao-ve-24-24-doi-dien-etown.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2018/10/26/20181024-091849_1540520938.jpg"
-                                            alt="KHAI TRƯƠNG PHÒNG TRỌ DANG CĂN HỘ MINI CÓ MÁY LẠNH - CỬA SỔ - BẾP - BẢO VỆ 24/24 ĐỐI DIỆN ETOWN"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">7 ảnh</span><span class="chothuenhanh-label"></span><span
-                                        class="post-save js-btn-save" data-post-id="272444"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/khai-truong-phong-tro-dang-can-ho-mini-co-may-lanh-cua-so-bep-bao-ve-24-24-doi-dien-etown.html"><span
-                                                class="star star-5"></span> KHAI TRƯƠNG PHÒNG TRỌ DANG CĂN HỘ MINI CÓ
-                                            MÁY LẠNH - CỬA SỔ - BẾP - BẢO VỆ… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">3 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">20m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-binh"
-                                                title="Cho thuê Phòng trọ Quận Tân Bình, Hồ Chí Minh">Quận Tân Bình, Hồ
-                                                Chí Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">TRUSTHOME - Hệ Thống Phòng Cho Thuê. * Chính thức đưa vào
-                                        hoạt động ngày 30/05/2020Cho thuê phòng trọ mới xây số 45/27 đường Lê Văn Huân -
-                                        Cộng…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="231680">
-                                <figure><a
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/ktx-sieu-cao-cap-chi-1-500-000d-ban-se-huu-ngay-sieu-biet-thu-dep-lung-sang-chanh.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/11/23/fb-img-1574521875981_1574522078.jpg"
-                                            alt="KTX SIÊU CAO CẤP - CHỈ 1tr5 /Người Bao Gồm Tất Cả Phí Bạn Sẽ Ở Trong SIÊU BIỆT THỰ ĐẸP LUNG- Gần Hutech"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">10 ảnh</span><span class="chothuenhanh-label"></span><span
-                                        class="post-save js-btn-save" data-post-id="231680"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/tinh-thanh/ho-chi-minh/ktx-sieu-cao-cap-chi-1-500-000d-ban-se-huu-ngay-sieu-biet-thu-dep-lung-sang-chanh.html"><span
-                                                class="star star-5"></span> KTX SIÊU CAO CẤP - CHỈ 1tr5 /Người Bao Gồm
-                                            Tất Cả Phí Bạn Sẽ Ở Trong SIÊU… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">1.5 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">35m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">Quận Bình Thạnh,
-                                                Hồ Chí Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">KTX cao cấp trong biệt thự siêu sang chuẩn 5 sao chỉ
-                                        1tr5/người (miễn phí điện nước).Bạn mệt mỏi vì phải ở trong các phòng trọ chật
-                                        chội, nóng bức.…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="584243">
-                                <figure><a
-                                        href="https://phongtro123.com/khai-truong-can-ho-day-du-noi-that-gia-chi-tu-2tr9-thang-ngay-nga-4-nguyen-oanh-nguyen-van-l-pr584243.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/03/18/hq4a0125_1616034953.jpg"
-                                            alt="KHAI TRƯƠNG !!! CĂN HỘ ĐẦY ĐỦ NỘI THẤT GIÁ CHỈ TỪ 2TR9/THÁNG - Ngay ngã 4 Nguyễn Oanh + Nguyễn Văn L"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">8 ảnh</span><span class="chothuenhanh-label"></span><span
-                                        class="post-save js-btn-save" data-post-id="584243"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/khai-truong-can-ho-day-du-noi-that-gia-chi-tu-2tr9-thang-ngay-nga-4-nguyen-oanh-nguyen-van-l-pr584243.html"><span
-                                                class="star star-5"></span> KHAI TRƯƠNG !!! CĂN HỘ ĐẦY ĐỦ NỘI THẤT GIÁ
-                                            CHỈ TỪ 2TR9/THÁNG - Ngay ngã 4… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">2.9 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">16m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-go-vap"
-                                                title="Cho thuê Phòng trọ Quận Gò Vấp, Hồ Chí Minh">Quận Gò Vấp, Hồ Chí
-                                                Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">TRUSTHOME - Hệ Thống Phòng Cho Thuê.* Chính thức đưa vào
-                                        hoạt động ngày 01/04/2020 *.Cho thuê phòng trọ cao cấp mới xây số 162/15 Nguyễn
-                                        Văn Lượng, P17,…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="306525">
-                                <figure><a
-                                        href="https://phongtro123.com/phong-moi-xay-giam-gia-soc-cho-nhung-khach-dau-tien-pr306525.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ - Phongtro123.com_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/07/17/43c498fe-0f62-4747-b54d-6cb7eb3d920a_1594972251.jpg"
-                                            alt="PHÒNG MỚI XÂY NGAY CẦU VƯỢT HOÀNG HOA THÁM VÀ CỘNG HOÀ, BẢO VỆ 24/24h. GIÁ TỪ 2,7tr. GỌI 0934065165"
-                                            height="100" width="100" layout="responsive"></a><span
-                                        class="images-number">19 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="306525" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;"
-                                            href="https://phongtro123.com/phong-moi-xay-giam-gia-soc-cho-nhung-khach-dau-tien-pr306525.html"><span
-                                                class="star star-5"></span> PHÒNG MỚI XÂY NGAY CẦU VƯỢT HOÀNG HOA THÁM
-                                            VÀ CỘNG HOÀ, BẢO VỆ 24/24h. GIÁ… </a></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">2.7 triệu/tháng</span><time
-                                            class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">16m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-binh"
-                                                title="Cho thuê Phòng trọ Quận Tân Bình, Hồ Chí Minh">Quận Tân Bình, Hồ
-                                                Chí Minh</a></span></div><span class="post-hot"></span>
-                                    <p class="post-summary">CHO THUÊ PHÒNG MỚI 100% GIÁ SIÊU SỐC CHỈ 2,700,000 VND/
-                                        PHÒNG. ĐỊA CHỈ: 42 TRẦN VĂN DƯ, PHƯỜNG 13, QUẬN TÂN BÌNHNHÀ MỚI XÂY XONG BẮT ĐẦU
-                                        ĐƯA VÀO…</p>
-                                </div>
-                            </li>
-                          
-                        
                         </ul>
                         <ul class="pagination">
                             <li class="page-item disabled"><span class="page-link">«</span></li>
@@ -429,7 +107,7 @@
                 </div>
 
                 <app-aside></app-aside>
-                
+
             </div>
             <section class="section">
                 <div class="bottom-links clearfix">

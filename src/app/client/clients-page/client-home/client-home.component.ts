@@ -22,4 +22,10 @@ export class ClientHomeComponent implements OnInit {
       this.articles = data;
     });
   }
+
+  getAllArticleNoLogin2(){
+    this.articleService.getAllArticleNoLogin2(this.page).subscribe((data) =>{
+      this.articles = data;
+    });
+  }
 }

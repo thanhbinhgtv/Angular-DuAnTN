@@ -12,16 +12,22 @@ export class ViewNewspaperComponent implements OnInit {
   news: Array<NewsPaperResponseModel> = [];
   page = 0;
   deleteSuccess : boolean;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private newspaperService: NewspaperService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllNewsPaper();
+    
   }
 
   getAllNewsPaper(){
-    this.newspaperService.getAllNewsPaper(this.page).subscribe(news =>{
-      this.news = news;
+    this.newspaperService.getAllNewsPaper(this.page).subscribe(data =>{
+      this.news = data;
+      this.numberPage = data[0].pages;
+      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
+      console.log(this.arrayPage);
     });
   }
 
@@ -34,14 +40,19 @@ export class ViewNewspaperComponent implements OnInit {
 
   deleteNewpaper(id: number){
     this.newspaperService.deleteNewspaper(id).subscribe(() =>{
-      this.toastr.success('Xóa thành công')
-      this.deleteSuccess = true;
-      if(this.deleteSuccess){
-        this.getAllNewsPaper();
-      }
-    }, () => {
-      this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
-  });
+        this.toastr.success('Xóa thành công')
+        this.deleteSuccess = true;
+        if(this.deleteSuccess){
+          this.getAllNewsPaper();
+        }
+      }, () => {
+        this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
+    });
   }
+
+  onPage(page: number){
+    this.page = page;
+    this.getAllNewsPaper();
+ }
 
 }

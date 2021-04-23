@@ -20,6 +20,10 @@ export class ArticleService {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=10`);
   }
 
+  getAllArticleNoLogin2(page: number): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=20`);
+  }
+
   getArticleByIdNoLogin(id: number): Observable<ArticleResponseModel> {
     return this.httpClient.get<ArticleResponseModel>(`http://localhost:8080/article/${id}`);
   }

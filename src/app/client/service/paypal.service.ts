@@ -13,7 +13,13 @@ export class PaypalService {
     return this.httpClient.get(`http://localhost:8080/customer/pay?price=${price}&description=${description}`);
   }
 
-  getTransaction(page: number): Observable<any> {
-    return this.httpClient.get(`http://localhost:8080/customer/transaction?page=${page}&&limit=10`);
+  // Nạp Tiền
+  getTransaction1(page: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/customer/transaction?page=${page}&&limit=10&&type=true`);
+  }
+
+  // Thanh Toán
+  getTransaction2(page: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/customer/transaction?page=${page}&&limit=10&&type=false`);
   }
 }

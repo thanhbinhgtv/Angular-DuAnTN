@@ -1,5 +1,5 @@
 <aside id="aside">
-    <section class="section section-sublink">
+    <!-- <section class="section section-sublink">
         <div class="section-header"><span class="section-title">Danh mục cho thuê</span></div>
         <ul>
             <li><a href="https://phongtro123.com/cho-thue-phong-tro" title="Cho thuê phòng trọ">Cho thuê
@@ -17,7 +17,7 @@
             <li><a href="https://phongtro123.com/tim-nguoi-o-ghep" title="Tìm người ở ghép">Tìm người ở
                     ghép <span class="count">(15.799)</span></a></li>
         </ul>
-    </section>
+    </section> -->
     <section class="section section-aside-tinmoidang">
         <div class="section-header"><span class="section-title">Tin mới đăng</span></div>
         <ul class="post-listing aside clearfix">
@@ -25,9 +25,11 @@
                     <a href="https://phongtro123.com/cho-thue-phong-tro-tai-pho-le-thanh-nghi-quan-hai-ba-trung-la-khu-bach-kinh-xay-pr585197.html">
                     <img class="lazy" src="{{article.image}}" alt="" height="75" width="75" layout="responsive">
                     <div class="post-meta">
-                        <h4 class="post-title" style="color: #f60;"><span class="star star-3"></span>
-                            {{article.title}}</h4><span class="post-price">{{article.roomPrice}}
-                            triệu/tháng</span>
+                        <h4 class="post-title" style="color: #f60;">
+                            <span class="star star-3"></span>{{article.title}}
+                        </h4>
+                            <span class="post-price">{{article.roomPrice}} triệu/tháng</span>
+                            <span class="post-price" style="color: rgb(133, 125, 16);">Diện tích: {{article.acreage}}m2</span>
                     </div></a>
             </li>
         </ul>

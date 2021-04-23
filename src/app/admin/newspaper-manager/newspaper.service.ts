@@ -12,7 +12,7 @@ export class NewspaperService {
   constructor(private http: HttpClient) { }
 
   getAllNewsPaper(page: number): Observable<Array<NewsPaperResponseModel>> {
-    return this.http.get<Array<NewsPaperResponseModel>>(`http://localhost:8080/admin/new?page=${page}&&limit=5`);
+    return this.http.get<Array<NewsPaperResponseModel>>(`http://localhost:8080/admin/new?page=${page}&&limit=10`);
   }
 
   getNewpaperById(id: number): Observable<NewsPaperResponseModel> {

@@ -28,6 +28,8 @@ export interface ArticleResponseModel {
       customerId: number,
       name: string,
       email: string,
+      phone: string,
+      image: string,
     },
     moderator: null,
     location: {

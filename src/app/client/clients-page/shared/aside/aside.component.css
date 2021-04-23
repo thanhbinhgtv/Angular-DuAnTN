@@ -3401,9 +3401,13 @@ figure img:hover {
     font-size: 1.1rem;
     line-height: 1.5;
     font-weight: 700;
-    display: block;
-    white-space: normal;
-    margin: 0 0 10px
+    /* display: block;
+    white-space: normal; */
+    margin: 0 0 10px;
+    width: 160px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-listing .post-item .post-title a {
@@ -3615,7 +3619,7 @@ figure img:hover {
 .star {
     width: 14px;
     height: 17px;
-    /* background: url(../images/mobile/star2.png) left center repeat-x; */
+    background: url(https://www.pinclipart.com/picdir/middle/17-170999_christmas-christmas-star-clip-art-library-amazing.png) left center repeat-x;
     background-size: 14px 14px;
     display: inline-block;
     margin-right: 3px;
