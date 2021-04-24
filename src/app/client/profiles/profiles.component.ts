@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-profiles',
   template: `
-    <app-header></app-header>
-    <app-sidebar></app-sidebar>
+    <!-- <app-header></app-header> -->
+    <!-- <app-sidebar></app-sidebar> -->
     <router-outlet></router-outlet>
     <!-- <app-footer></app-footer> -->
   `,

@@ -95,9 +95,9 @@ export class CreateArticleComponent implements OnInit {
       this.articleModel.number = this.articleForm.get('number').value;
         
       this.articleService.createArticle(this.articleModel).subscribe((data) => {
-          console.log(data);
-          // this.router.navigate(['/admin/staff'], { queryParams: { registered: 'true' } });
           this.toastr.success('Thành công');
+          this.router.navigate(['/profile/article-manager']);
+
       }, (error) => {
           this.toastr.error("Vui lòng kiểm tra lại thông tin");
       });
