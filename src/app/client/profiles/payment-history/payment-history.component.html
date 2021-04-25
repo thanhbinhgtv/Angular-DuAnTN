@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let payment of paymentHistory">
-                                    <td [ngStyle]="{'text-align': 'center'}">{{payment.transactionId}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">#{{payment.transactionId}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{payment.date}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">Paypal</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{payment.amount}}</td>

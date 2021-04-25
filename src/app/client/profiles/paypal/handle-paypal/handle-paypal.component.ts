@@ -23,7 +23,7 @@ export class HandlePaypalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCustomerById();
+    this.getCustomerProfile();
 
     this.paypalForm = new FormGroup({
       money: new FormControl("", [Validators.required, Validators.max(10000)]),
@@ -42,8 +42,8 @@ export class HandlePaypalComponent implements OnInit {
     
   }
 
-  getCustomerById(){
-    this.customerService.getCustomerById().subscribe((data) => {
+  getCustomerProfile(){
+    this.customerService.getCustomerProfile().subscribe((data) => {
       this.customerModel = data;
     })
   }

@@ -10,7 +10,7 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCustomerById(): Observable<CustomerResponseModel>{
+  getCustomerProfile(): Observable<CustomerResponseModel>{
     return this.httpClient.get<CustomerResponseModel>('http://localhost:8080/customer/profile');
   }
 }

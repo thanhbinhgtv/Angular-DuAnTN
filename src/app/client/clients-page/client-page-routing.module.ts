@@ -28,7 +28,7 @@ const routes: Routes = [{
       path: 'detail-article/:id', component: DetailArticleComponent,
     },
     {
-      path: 'detail-newpaper', component: DetailNewpaperComponent,
+      path: 'detail-newpaper/:id', component: DetailNewpaperComponent,
     },
     {
       path: 'blog', component: ClientBlogComponent,

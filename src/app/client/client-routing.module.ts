@@ -14,7 +14,7 @@ const routes: Routes = [{
     {
       path: '',
       loadChildren: () => import('./clients-page/client-page.module')
-        .then(m => m.ClientPageModule), canActivate: [AuthGuard],
+        .then(m => m.ClientPageModule),
     },
     {
       path: 'profile',

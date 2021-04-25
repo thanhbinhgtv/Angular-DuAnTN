@@ -3009,7 +3009,8 @@ figure img:hover {
 }
 
 .user-welcome .welcome-text {
-    margin-right: 10px
+    margin-right: 10px;
+    font-size: small;
 }
 
 .user-welcome .btn {
@@ -3028,7 +3029,7 @@ figure img:hover {
 }
 
 .user-welcome .btn.btn-add-post i {
-    /* background: url(../images/add-white.svg) center no-repeat; */
+    background: url(https://icons-for-free.com/iconfiles/png/512/create+cross+new+plus+icon-1320168707626274697.png) center no-repeat;
     background-size: contain;
     margin-left: 5px
 }

@@ -24,7 +24,7 @@
                     <section class="section section-aside-tinmoidang">
                         <ul class="blog-listing clearfix">
                             <article class="article-item clearfix" *ngFor="let newpaper of newpapers">
-                                <a href="https://phongtro123.com/tim-phong-tro-trong-thoi-dai-4-0-so-sanh-giua-tim-phong-tro-kieu-truyen-thong-va-hien-dai.html">
+                                <a routerLink="/detail-newpaper/{{newpaper.newId}}">
                                     <figure>
                                         <img class="lazy_done" src="{{newpaper.image}}"
                                             data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/16/thue-nha-40_1618563001.jpg"

@@ -3,175 +3,9 @@
         <!-- Header -->
         <app-header></app-header>
         <main id="main">
-            <div id="searchbar">
-                <div class="container">
-                    <form role="search" method="POST" id="searchformTop" class="searchform js-form-submit-data" data-action-url="https://phongtro123.com/api/search" novalidate="novalidate">
-                        <div class="search_field">
-                            <div class="clearfix">
-                                <div class="search_field_item search_field_item_loaitin"><label class="search_field_item_label">Loại tin</label><select id="search_room_type" class="form-control js_select2_room_type" name="type">
-                                        <option value="1" selected="">Phòng trọ, nhà trọ</option>
-                                        <option value="2">Nhà thuê nguyên căn</option>
-                                        <option value="3">Cho thuê căn hộ</option>
-                                        <option value="6">Cho thuê căn hộ mini</option>
-                                        <option value="7">Cho thuê căn hộ dịch vụ</option>
-                                        <option value="4">Tìm người ở ghép</option>
-                                        <option value="5">Cho thuê mặt bằng</option>
-                                    </select></div>
-                                <div class="search_field_item search_field_item_tinhthanh"><label class="search_field_item_label">Tỉnh thành</label><select id="search_city" class="form-control tinh-tp js_select2_tinhthanh js-select-tinhthanhpho select2-hidden-accessible" name="tinh" tabindex="-1" aria-hidden="true">
-                                        <option value="0">Tất cả</option>
-                                        <option value="90">Hồ Chí Minh</option>
-                                        <option value="41" selected="">Hà Nội</option>
-                                        <option value="72">Đà Nẵng</option>
-                                        <option value="87">Bình Dương</option>
-                                        <option value="88">Đồng Nai</option>
-                                        <option value="89">Bà Rịa - Vũng Tàu</option>
-                                        <option value="99">Cần Thơ</option>
-                                        <option value="77">Khánh Hòa</option>
-                                        <option value="60">Hải Phòng</option>
-                                        <option value="97">An Giang</option>
-                                        <option value="55">Bắc Giang</option>
-                                        <option value="44">Bắc Kạn</option>
-                                        <option value="102">Bạc Liêu</option>
-                                        <option value="58">Bắc Ninh</option>
-                                        <option value="93">Bến Tre</option>
-                                        <option value="85">Bình Phước</option>
-                                        <option value="79">Bình Thuận</option>
-                                        <option value="75">Bình Định</option>
-                                        <option value="103">Cà Mau</option>
-                                        <option value="43">Cao Bằng</option>
-                                        <option value="81">Gia Lai</option>
-                                        <option value="42">Hà Giang</option>
-                                        <option value="63">Hà Nam</option>
-                                        <option value="68">Hà Tĩnh</option>
-                                        <option value="59">Hải Dương</option>
-                                        <option value="100">Hậu Giang</option>
-                                        <option value="51">Hòa Bình</option>
-                                        <option value="61">Hưng Yên</option>
-                                        <option value="98">Kiên Giang</option>
-                                        <option value="80">Kon Tum</option>
-                                        <option value="48">Lai Châu</option>
-                                        <option value="84">Lâm Đồng</option>
-                                        <option value="53">Lạng Sơn</option>
-                                        <option value="46">Lào Cai</option>
-                                        <option value="91">Long An</option>
-                                        <option value="64">Nam Định</option>
-                                        <option value="67">Nghệ An</option>
-                                        <option value="65">Ninh Bình</option>
-                                        <option value="78">Ninh Thuận</option>
-                                        <option value="56">Phú Thọ</option>
-                                        <option value="76">Phú Yên</option>
-                                        <option value="69">Quảng Bình</option>
-                                        <option value="73">Quảng Nam</option>
-                                        <option value="74">Quảng Ngãi</option>
-                                        <option value="54">Quảng Ninh</option>
-                                        <option value="70">Quảng Trị</option>
-                                        <option value="101">Sóc Trăng</option>
-                                        <option value="49">Sơn La</option>
-                                        <option value="86">Tây Ninh</option>
-                                        <option value="62">Thái Bình</option>
-                                        <option value="52">Thái Nguyên</option>
-                                        <option value="66">Thanh Hóa</option>
-                                        <option value="71">Thừa Thiên Huế</option>
-                                        <option value="92">Tiền Giang</option>
-                                        <option value="94">Trà Vinh</option>
-                                        <option value="45">Tuyên Quang</option>
-                                        <option value="95">Vĩnh Long</option>
-                                        <option value="57">Vĩnh Phúc</option>
-                                        <option value="50">Yên Bái</option>
-                                        <option value="82">Đắk Lắk</option>
-                                        <option value="83">Đắk Nông</option>
-                                        <option value="47">Điện Biên</option>
-                                        <option value="96">Đồng Tháp</option>
-                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 142px;"><span class="selection"><span
-                                                class="select2-selection select2-selection--single" role="combobox"
-                                                aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                                aria-labelledby="select2-search_city-container"><span
-                                                    class="select2-selection__rendered"
-                                                    id="select2-search_city-container" title="Hà Nội">Hà Nội</span><span class="select2-selection__arrow" role="presentation"><b
-                                                        role="presentation"></b></span></span>
-                                    </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                </div>
-                                <div class="search_field_item search_field_item_quanhuyen"><label class="search_field_item_label">Quận huyện</label><select class="form-control js_select2_quanhuyen js-select-quanhuyen select2-hidden-accessible" name="quan" data-current="" tabindex="-1" aria-hidden="true">
-                                        <option value="0">Tất cả</option>
-                                        <option value="105">Quận Ba Đình</option>
-                                        <option value="855">Quận Bắc Từ Liêm</option>
-                                        <option value="109">Quận Cầu Giấy</option>
-                                        <option value="120">Quận Hà Đông</option>
-                                        <option value="111">Quận Hai Bà Trưng</option>
-                                        <option value="106">Quận Hoàn Kiếm</option>
-                                        <option value="112">Quận Hoàng Mai</option>
-                                        <option value="108">Quận Long Biên</option>
-                                        <option value="117">Quận Nam Từ Liêm</option>
-                                        <option value="107">Quận Tây Hồ</option>
-                                        <option value="113">Quận Thanh Xuân</option>
-                                        <option value="110">Quận Đống Đa</option>
-                                        <option value="122">Huyện Ba Vì</option>
-                                        <option value="128">Huyện Chương Mỹ</option>
-                                        <option value="116">Huyện Gia Lâm</option>
-                                        <option value="125">Huyện Hoài Đức</option>
-                                        <option value="119">Huyện Mê Linh</option>
-                                        <option value="133">Huyện Mỹ Đức</option>
-                                        <option value="131">Huyện Phú Xuyên</option>
-                                        <option value="123">Huyện Phúc Thọ</option>
-                                        <option value="126">Huyện Quốc Oai</option>
-                                        <option value="114">Huyện Sóc Sơn</option>
-                                        <option value="127">Huyện Thạch Thất</option>
-                                        <option value="129">Huyện Thanh Oai</option>
-                                        <option value="118">Huyện Thanh Trì</option>
-                                        <option value="130">Huyện Thường Tín</option>
-                                        <option value="132">Huyện Ứng Hòa</option>
-                                        <option value="124">Huyện Đan Phượng</option>
-                                        <option value="115">Huyện Đông Anh</option>
-                                        <option value="121">Thị Xã Sơn Tây</option>
-                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 142px;"><span class="selection"><span
-                                                class="select2-selection select2-selection--single" role="combobox"
-                                                aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                                aria-labelledby="select2-quan-8j-container"><span
-                                                    class="select2-selection__rendered" id="select2-quan-8j-container"
-                                                    title="Tất cả">Tất cả</span><span class="select2-selection__arrow" role="presentation"><b
-                                                        role="presentation"></b></span></span>
-                                    </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                </div>
-                                <div class="search_field_item search_field_item_duongpho"><label class="search_field_item_label">Đường phố</label><select name="duong" class="form-control js_select2_duongpho js-select-duong select2-hidden-accessible" data-current="" tabindex="-1" aria-hidden="true">
-                                        <option value="0">Tất cả</option>
-                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 142px;"><span class="selection"><span
-                                                class="select2-selection select2-selection--single" role="combobox"
-                                                aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                                aria-labelledby="select2-duong-s9-container"><span
-                                                    class="select2-selection__rendered" id="select2-duong-s9-container"
-                                                    title="Tất cả">Tất cả</span><span class="select2-selection__arrow" role="presentation"><b
-                                                        role="presentation"></b></span></span>
-                                    </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                </div>
-                                <div class="search_field_item search_field_item_mucgia"><label class="search_field_item_label">Khoảng giá</label><select class="form-control price js_select2_price" name="gia">
-                                        <option value="0" selected="">Chọn mức giá</option>
-                                        <option value="1">Dưới 1 triệu</option>
-                                        <option value="2">1 triệu - 2 triệu</option>
-                                        <option value="3">2 triệu - 3 triệu</option>
-                                        <option value="4">3 triệu - 5 triệu</option>
-                                        <option value="5">5 triệu - 7 triệu</option>
-                                        <option value="6">7 triệu - 10 triệu</option>
-                                        <option value="7">10 triệu - 15 triệu</option>
-                                        <option value="8">Trên 15 triệu</option>
-                                    </select></div>
-                                <div class="search_field_item search_field_item_dientich"><label class="search_field_item_label">Diện tích</label><select id="search_dientich" name="dt" class="form-control js_select2_acreage">
-                                        <option value="0" selected="">Chọn diện tích</option>
-                                        <option value="1">Dưới 20 m2</option>
-                                        <option value="2">20 m2 - 30 m2</option>
-                                        <option value="3">30 m2 - 50 m2</option>
-                                        <option value="4"> 50 - 60 m2</option>
-                                        <option value="5"> 60 - 70 m2</option>
-                                        <option value="6"> 70 - 80 m2</option>
-                                        <option value="7"> 80 - 90 m2</option>
-                                        <option value="8"> 90 - 100 m2</option>
-                                        <option value="9"> Trên 100 m2</option>
-                                    </select></div>
-                                <div class="search_field_item search_field_item_submit"><label class="search_field_item_label">&nbsp;</label><button type="submit" class="btn btn-default btn_search_box"> Lọc tin </button></div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <!-- SearchBar -->
+            <app-searchbar></app-searchbar>
+            <!-- Link > Link -->
             <div id="breadcrumb">
                 <ol class="clearfix" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" class="first link" itemscope="" itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing" itemprop="item" href="https://phongtro123.com/cho-thue-phong-tro" title="Cho thuê phòng trọ"><span
@@ -184,74 +18,12 @@
                     </li>
                 </ol>
             </div>
+
             <header class="page-header location">
                 <h1 class="page-h1">Cho thuê Phòng trọ Hà Nội</h1>
                 <div class="page-description">Có <strong>4.755</strong> phòng trọ Hà Nội cần cho thuê. Cho thuê phòng trọ Hà Nội, tất cả tin đăng nhà trọ Hà Nội mới nhất năm 2021: giá rẻ, không chung chủ, WC riêng. Tìm phòng trọ Hà Nội : diện tích, mức giá khác nhau.</div>
             </header>
-            <section class="section section-top-location">
-                <ul class="location-district phongtro clearfix">
-                    <li><a class="district-item" title="Cho thuê phòng trọ Ba Đình" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-ba-dinh"> Ba Đình <span
-                                class="count">(256)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Bắc Từ Liêm" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-bac-tu-liem"> Bắc Từ Liêm <span
-                                class="count">(104)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Cầu Giấy" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-cau-giay"> Cầu Giấy <span
-                                class="count">(792)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Hà Đông" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-ha-dong"> Hà Đông <span
-                                class="count">(336)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Hai Bà Trưng" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-hai-ba-trung"> Hai Bà Trưng <span
-                                class="count">(376)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Hoàn Kiếm" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-hoan-kiem"> Hoàn Kiếm <span
-                                class="count">(68)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Hoàng Mai" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-hoang-mai"> Hoàng Mai <span
-                                class="count">(558)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Long Biên" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-long-bien"> Long Biên <span
-                                class="count">(142)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Nam Từ Liêm" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-tu-liem"> Nam Từ Liêm <span
-                                class="count">(507)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Tây Hồ" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-tay-ho"> Tây Hồ <span
-                                class="count">(165)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thanh Xuân" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"> Thanh Xuân <span
-                                class="count">(623)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Đống Đa" href="https://phongtro123.com/tinh-thanh/ha-noi/quan-dong-da"> Đống Đa <span
-                                class="count">(666)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Ba Vì" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-ba-vi"> Ba Vì <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Chương Mỹ" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-chuong-my"> Chương Mỹ <span
-                                class="count">(6)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Gia Lâm" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-gia-lam"> Gia Lâm <span
-                                class="count">(31)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Hoài Đức" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-hoai-duc"> Hoài Đức <span
-                                class="count">(15)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Mê Linh" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-me-linh"> Mê Linh <span
-                                class="count">(1)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Mỹ Đức" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-my-duc"> Mỹ Đức <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Phú Xuyên" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-phu-xuyen"> Phú Xuyên <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Phúc Thọ" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-phuc-tho"> Phúc Thọ <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Quốc Oai" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-quoc-oai"> Quốc Oai <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Sóc Sơn" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-soc-son"> Sóc Sơn <span
-                                class="count">(3)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thạch Thất" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-thach-that"> Thạch Thất <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thanh Oai" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-thanh-oai"> Thanh Oai <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thanh Trì" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-thanh-tri"> Thanh Trì <span
-                                class="count">(78)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thường Tín" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-thuong-tin"> Thường Tín <span
-                                class="count">(2)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Ứng Hòa" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-ung-hoa"> Ứng Hòa <span
-                                class="count">(0)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Đan Phượng" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-dan-phuong"> Đan Phượng <span
-                                class="count">(3)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Đông Anh" href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-dong-anh"> Đông Anh <span
-                                class="count">(21)</span></a></li>
-                    <li><a class="district-item" title="Cho thuê phòng trọ Thị Xã Sơn Tây" href="https://phongtro123.com/tinh-thanh/ha-noi/thi-xa-son-tay">Thị Xã Sơn Tây <span
-                                class="count">(0)</span></a></li>
-                </ul>
-            </section>
+            
             <div class="container clearfix">
                 <div id="left-col">
                     <section class="section section-post-listing">
@@ -280,219 +52,9 @@
                                     </p>
                                 </div>
                             </li>
-                            <li class="post-item clearfix tin-vip vip3" style="border-color: #3763e0;" post-id="307440">
-                                <figure>
-                                    <a href="https://phongtro123.com/cho-thue-phong-tai-ngo-378-my-dinh-nam-tu-liem-ha-n-pr307440.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/gig07380_1595340192.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/07/21/gig07380_1595340192.jpg"
-                                            alt="Cho thuê phòng trọ mới, sạch, đẹp tại ngõ 378 Mỹ Đình, Nam Từ Liêm, Hà Nội" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">7 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="307440" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #3763e0;" href="https://phongtro123.com/cho-thue-phong-tai-ngo-378-my-dinh-nam-tu-liem-ha-n-pr307440.html"><span
-                                                class="star star-2"></span> Cho thuê phòng trọ mới, sạch, đẹp tại ngõ
-                                            378 Mỹ Đình, Nam Từ Liêm, Hà Nội </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-tu-liem"
-                                                title="Cho thuê Phòng trọ Quận Nam Từ Liêm, Hà Nội">Quận Nam Từ Liêm, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Nhà mình có phòng cho thuê tại ngõ 378 Đường Mỹ Đình,Mỹ Đình 1, Nam Từ Liêm, Hà Nội.Phòng MỚI 100%, sạch, đẹp.Phòng đã có đủ đồ: giường, tủ…
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vip3" style="border-color: #3763e0;" post-id="315520">
-                                <figure>
-                                    <a href="https://phongtro123.com/cho-thue-phong-tro-tai-nguyen-an-ninh-truong-dinh-gan-dhkt-xd-bk-pr315520.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/mt001_1606798356.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/12/01/mt001_1606798356.jpg"
-                                            alt="Cho thuê phòng trọ tại Nguyễn An Ninh, Trương Định gần ĐHKT, XD, BK" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">3 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="315520" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #3763e0;" href="https://phongtro123.com/cho-thue-phong-tro-tai-nguyen-an-ninh-truong-dinh-gan-dhkt-xd-bk-pr315520.html"><span
-                                                class="star star-2"></span> Cho thuê phòng trọ tại Nguyễn An Ninh,
-                                            Trương Định gần ĐHKT, XD, BK </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3 triệu/tháng</span><time class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-hoang-mai"
-                                                title="Cho thuê Phòng trọ Quận Hoàng Mai, Hà Nội">Quận Hoàng Mai, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Cho thuê chung cư mini tại Số 57 Ngõ 35 Phố Nguyễn An Ninh - Tương Mai - Hoàng Mai – Hà Nội.(Chính chủ không qua trung gian)- Phòng đẹp, thiết kế tiện…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vip3" style="border-color: #3763e0;" post-id="585279">
-                                <figure>
-                                    <a href="https://phongtro123.com/phong-full-noi-that-tai-dinh-thon-my-dinh-i-nam-tu-liem-chi-don-vao-la-o-pr585279.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/img-4385_1617696065.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/06/img-4385_1617696065.jpg"
-                                            alt="Phòng FULL nội thất tại Đình Thôn, Mỹ Đình I, Nam Từ Liêm - Chỉ dọn vào là ở!" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">12 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="585279" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #3763e0;" href="https://phongtro123.com/phong-full-noi-that-tai-dinh-thon-my-dinh-i-nam-tu-liem-chi-don-vao-la-o-pr585279.html"><span
-                                                class="star star-2"></span> Phòng FULL nội thất tại Đình Thôn, Mỹ Đình
-                                            I, Nam Từ Liêm - Chỉ dọn vào… </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.2 triệu/tháng</span><time class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-tu-liem"
-                                                title="Cho thuê Phòng trọ Quận Nam Từ Liêm, Hà Nội">Quận Nam Từ Liêm, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Tớ đăng giùm bà chủ nhà!!Cho thuê phòng trọ FULL nội thất tại Đình Thôn, Mỹ Đình I, Nam Từ Liêm. Chỉ dọn vào là ở, không cần sắm sửa thêm nhiều.-…
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vip3" style="border-color: #3763e0;" post-id="584919">
-                                <figure>
-                                    <a href="https://phongtro123.com/cho-thue-phong-tro-cao-cap-tai-gan-nga-tu-so-ha-noi-chinh-chu-nha-7-tang-moi-xay-co-thang-may-pr584919.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/img-0616_1617095386.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/03/30/img-0616_1617095386.jpg"
-                                            alt="Cho thuê phòng trọ cao cấp tại gần Ngã Tư Sở - Hà Nội. Ful nội thất, chính chủ, nhà 7 tầng mới xây, có thang máy" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">9 ảnh</span>
-                                    <span class="post-save js-btn-save" data-post-id="584919" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #3763e0;" href="https://phongtro123.com/cho-thue-phong-tro-cao-cap-tai-gan-nga-tu-so-ha-noi-chinh-chu-nha-7-tang-moi-xay-co-thang-may-pr584919.html"><span
-                                                class="star star-2"></span> Cho thuê phòng trọ cao cấp tại gần Ngã Tư Sở
-                                            - Hà Nội. Ful nội thất, chính… </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.5 triệu/tháng</span><time class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">28m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"
-                                                title="Cho thuê Phòng trọ Quận Thanh Xuân, Hà Nội">Quận Thanh Xuân, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Cho thuê phòng trọ cao cấp kép kín CHÍNH CHỦ tại số 5 Ngõ 129/12 Nguyễn Trãi - Ngã Tư Sở - Hà Nội. (Đối diện chung cư Royal City) có thang máy, camera. Nội…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix tin-vip vip3" style="border-color: #3763e0;" post-id="585170">
-                                <figure>
-                                    <a href="https://phongtro123.com/cho-thue-phong-khep-kin-rieng-biet-pr585170.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/z2094228456333-18d3da29e8d6885e4579b6816bcf16e0-1601133052_1617519602.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/04/z2094228456333-18d3da29e8d6885e4579b6816bcf16e0-1601133052_1617519602.jpg"
-                                            alt="Cho thuê phòng khép kín, riêng biệt" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">3
-                                        ảnh</span><span class="chothuenhanh-label"></span><span class="post-save js-btn-save" data-post-id="585170" title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #3763e0;" href="https://phongtro123.com/cho-thue-phong-khep-kin-rieng-biet-pr585170.html"><span
-                                                class="star star-2"></span> Cho thuê phòng khép kín, riêng biệt </a>
-                                    </h3>
-                                    <div class="meta-row clearfix"><span class="post-price">2.5 triệu/tháng</span><time class="post-time">Cập nhật: Hôm nay</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">25m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"
-                                                title="Cho thuê Phòng trọ Quận Thanh Xuân, Hà Nội">Quận Thanh Xuân, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Phòng tầng 4, thoáng, sạch, 25 m2, khép kín riêng chủ, đủ tiện nghi. Liên hệ 0818136333 hoặc 0975578989</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585639">
-                                <figure>
-                                    <a href="https://phongtro123.com/ccmn-1-khach-1-ngu-nha-moi-phong-moi-tien-nghi-hien-dai-co-de-oto-gia-chi-3-9tr-pr585639.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/z2427200685712-3c864b94122ad1dd9a07fbdfe5240b8e_1618220232.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/z2427200685712-3c864b94122ad1dd9a07fbdfe5240b8e_1618220232.jpg"
-                                            alt="CCMN 1 Khách 1 Ngủ Nhà Mới Phòng Mới Tiện Nghi Hiện Đại. Có Để Oto. Giá chì 3,9tr" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">5 ảnh</span><span class="chothuenhanh-label"></span>
-                                    <span class="post-save js-btn-save" data-post-id="585639" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/ccmn-1-khach-1-ngu-nha-moi-phong-moi-tien-nghi-hien-dai-co-de-oto-gia-chi-3-9tr-pr585639.html">
-                                            CCMN 1 Khách 1 Ngủ Nhà Mới Phòng Mới Tiện Nghi Hiện Đại. Có Để Oto. Giá…
-                                        </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.9 triệu/tháng</span><time class="post-time">Cập nhật: 8 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/huyen-tu-liem"
-                                                title="Cho thuê Phòng trọ Quận Nam Từ Liêm, Hà Nội">Quận Nam Từ Liêm, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Tòa Nhà được xây dựng trong KĐT sạch sẽ hiện đại nhiều cây xanh, tòa nhà 7 tầng diện tích sàn 120m2- Phòng 1 khách 1 ngủ diện tích 35m2 Giá chỉ 3.9tr-…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585631">
-                                <figure>
-                                    <a href="https://phongtro123.com/nhapminh-dang-co-phong-tien-nghi-gia-sinh-vien-mat-me-o-quan-bac-tu-liem-gan-dai-hoc-y-te-khep-kin-pr585631.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/2aaa39b941afb3f1eabe_1618214499.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/2aaa39b941afb3f1eabe_1618214499.jpg"
-                                            alt="Nhà Mình đang có phòng tiện nghi giá sinh viên mát mẻ ở quận Bắc Từ Liêm gần Đại Học Y Tế khép kin" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">10 ảnh</span>
-                                    <span class="post-save js-btn-save" data-post-id="585631" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/nhapminh-dang-co-phong-tien-nghi-gia-sinh-vien-mat-me-o-quan-bac-tu-liem-gan-dai-hoc-y-te-khep-kin-pr585631.html">
-                                            Nhà Mình đang có phòng tiện nghi giá sinh viên mát mẻ ở quận Bắc Từ Liêm…
-                                        </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3 triệu/tháng</span><time class="post-time">Cập nhật: 9 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">25m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-bac-tu-liem"
-                                                title="Cho thuê Phòng trọ Quận Bắc Từ Liêm, Hà Nội">Quận Bắc Từ Liêm, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Thông tin chi tiết về phòng:CHỈ CẦN MANG ĐỒ VÀO Ở (KHÔNG CẦN SẮM NHIỀU) PHÙ HỢPCHO AI THÍCH TÌM PHÒNG NGON- BỔ- RẺ- Gía: 2,7-3.0 tr- Được trang bị…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585627">
-                                <figure>
-                                    <a href="https://phongtro123.com/chinh-chu-cho-thue-phong-khep-kin-full-do-tai-trung-tam-pho-co-pr585627.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/10042281-2b791573c67758d259f96d89a7e26c60_1618211236.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/10042281-2b791573c67758d259f96d89a7e26c60_1618211236.jpg"
-                                            alt="Chính chủ cho thuê phòng khép kín full đồ tại trung tâm Phố Cổ" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">7 ảnh</span><span class="post-save js-btn-save"
-                                        data-post-id="585627" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/chinh-chu-cho-thue-phong-khep-kin-full-do-tai-trung-tam-pho-co-pr585627.html">
-                                            Chính chủ cho thuê phòng khép kín full đồ tại trung tâm Phố Cổ </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.6 triệu/tháng</span><time class="post-time">Cập nhật: 10 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">20m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-hoan-kiem"
-                                                title="Cho thuê Phòng trọ Quận Hoàn Kiếm, Hà Nội">Quận Hoàn Kiếm, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Phòng như hình, diện tích 20m2, có cửa sổ thoáng, chỉ cần xách quần áo đến ở. Địa chỉ mặt phố Bát Đàn, gần chợ Hàng Da cách phố đi bộ 1km, phù…
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585418">
-                                <figure>
-                                    <a href="https://phongtro123.com/cho-thue-phong-tro-khu-vuc-ha-dong-ha-noi-pr585418.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/z2421544468550-c7692293b45ae9ad9f4d7bf0ea39a418-1_1617877642.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/08/z2421544468550-c7692293b45ae9ad9f4d7bf0ea39a418-1_1617877642.jpg"
-                                            alt="Cho Thuê Phòng Trọ Khu Vực Hà Đông Hà Nội" height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">4
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585418" title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/cho-thue-phong-tro-khu-vuc-ha-dong-ha-noi-pr585418.html">
-                                            Cho Thuê Phòng Trọ Khu Vực Hà Đông Hà Nội </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.2 triệu/tháng</span><time class="post-time">Cập nhật: 10 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">25m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-ha-dong"
-                                                title="Cho thuê Phòng trọ Quận Hà Đông, Hà Nội">Quận Hà Đông, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Mình còn 1 CCMN cho thuêĐịa chỉ : Ngõ 55 Trần Phú, Hà Đông.( gần trường Đh Sư Phạm Nghệ Thuật Trung Ương, Đh Công Nghệ GTVT, Đh Kiến Trúc, Học Viện Bưu…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="136941">
-                                <figure>
-                                    <a href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang-2.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/thumb_default.jpg" data-src="https://phongtro123.com/img/thumb_default.jpg" alt="Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại, giá 3,1 triệu/tháng"
-                                            height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">0 ảnh</span><span class="post-save js-btn-save" data-post-id="136941" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang-2.html">
-                                            Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại, giá 3,1
-                                            triệu/tháng </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.1 triệu/tháng</span><time class="post-time">Cập nhật: 12 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">35m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"
-                                                title="Cho thuê Phòng trọ Quận Thanh Xuân, Hà Nội">Quận Thanh Xuân, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">&nbsp;Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại, giá 3,2 triệu/tháng. Phòng rộng 35m2, có cữa sổ,có ban công, có nóng lạnh điều hoà có WC…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="120978">
-                                <figure>
-                                    <a href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/thumb_default.jpg" data-src="https://phongtro123.com/img/thumb_default.jpg" alt="Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại. Giá 2,8 triệu/tháng"
-                                            height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">0 ảnh</span><span class="post-save js-btn-save" data-post-id="120978" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang.html">
-                                            Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại. Giá 2,8
-                                            triệu/tháng </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">2.8 triệu/tháng</span><time class="post-time">Cập nhật: 12 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"
-                                                title="Cho thuê Phòng trọ Quận Thanh Xuân, Hà Nội">Quận Thanh Xuân, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại, giá 2,8 triệu/tháng. Phòng rộng 30m2, có cữa sổ, có nóng lạnh điều hoà có WC khép kín, có chổ…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="120978">
-                                <figure>
-                                    <a href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang.html"><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/thumb_default.jpg" data-src="https://phongtro123.com/img/thumb_default.jpg" alt="Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại. Giá 2,8 triệu/tháng"
-                                            height="100" width="100" layout="responsive" data-loaded="true"></a><span class="images-number">0 ảnh</span><span class="post-save js-btn-save" data-post-id="120978" title="Lưu tin này vào danh sách quan tâm"><i></i></span>
-                                </figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;" href="https://phongtro123.com/tinh-thanh/ha-noi/chinh-chu-cho-thue-phong-khep-kin-o-ngo-106-nguyen-ngoc-nai-gia-27-trieuthang.html">
-                                            Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại. Giá 2,8
-                                            triệu/tháng </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">2.8 triệu/tháng</span><time class="post-time">Cập nhật: 12 giờ trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ha-noi/quan-thanh-xuan"
-                                                title="Cho thuê Phòng trọ Quận Thanh Xuân, Hà Nội">Quận Thanh Xuân, Hà
-                                                Nội</a></span></div>
-                                    <p class="post-summary">Chính chủ cho thuê phòng khép kín ở ngõ 106 Nguyễn Ngọc Nại, giá 2,8 triệu/tháng. Phòng rộng 30m2, có cữa sổ, có nóng lạnh điều hoà có WC khép kín, có chổ…</p>
-                                </div>
-                            </li>
+                           
                         </ul>
+                        <!-- Pagination -->
                         <ul class="pagination">
                             <li class="page-item disabled"><span class="page-link">«</span></li>
                             <li class="page-item active"><span class="page-link">1</span></li>
@@ -510,228 +72,10 @@
                         </ul>
                     </section>
                 </div>
-                <aside id="aside">
-                    <section class="section section-sublink">
-                        <div class="section-header"><span class="section-title">Danh mục cho thuê</span></div>
-                        <ul>
-                            <li><a href="https://phongtro123.com/cho-thue-phong-tro" title="Cho thuê phòng trọ">Cho thuê
-                                    phòng trọ <span class="count">(52.191)</span></a></li>
-                            <li><a href="https://phongtro123.com/nha-cho-thue" title="Cho thuê nhà nguyên căn">Cho thuê
-                                    nhà nguyên căn <span class="count">(9.683)</span></a></li>
-                            <li><a href="https://phongtro123.com/cho-thue-can-ho" title="Cho thuê căn hộ">Cho thuê căn
-                                    hộ <span class="count">(9.700)</span></a></li>
-                            <li class="sub"><a href="https://phongtro123.com/cho-thue-can-ho-chung-cu-mini" title="Cho Thuê Căn Hộ Chung Cư Mini">Cho thuê căn hộ mini</a></li>
-                            <li class="sub"><a href="https://phongtro123.com/cho-thue-can-ho-dich-vu" title="Cho Thuê Căn Hộ Dịch Vụ">Cho thuê căn hộ dịch vụ</a></li>
-                            <li><a href="https://phongtro123.com/cho-thue-mat-bang" title="Cho thuê mặt bằng">Cho thuê
-                                    mặt bằng <span class="count">(2.164)</span></a></li>
-                            <li><a href="https://phongtro123.com/tim-nguoi-o-ghep" title="Tìm người ở ghép">Tìm người ở
-                                    ghép <span class="count">(15.830)</span></a></li>
-                        </ul>
-                    </section>
-                    <section class="section section-aside-tinmoidang">
-                        <div class="section-header"><span class="section-title">Tin mới đăng</span></div>
-                        <ul class="post-listing aside clearfix">
-                            <li class="post-item clearfix normal" post-id="585650">
-                                <a href="https://phongtro123.com/phong-tro-moi-xay-gan-au-co-lac-long-quan-ngay-trung-tam-q11-gia-re-pr585650.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/z2431391304006-86132ca0ffdffe435b992f65de26d597_1618248637.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/13/z2431391304006-86132ca0ffdffe435b992f65de26d597_1618248637.jpg"
-                                            alt="PHÒNG TRỌ MỚI XÂY, GẦN ÂU CƠ LẠC LONG QUÂN, NGAY TRUNG TÂM Q11, GIÁ RẺ" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> PHÒNG TRỌ MỚI XÂY, GẦN ÂU CƠ LẠC LONG QUÂN,… </h4><span class="post-price">3 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585649">
-                                <a href="https://phongtro123.com/chinh-chu-cho-thue-1360m2-kho-xuong-mt-duong-kenh-c-xa-le-minh-xuan-bchanh-pr585649.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/1_1618246132.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/1_1618246132.jpg"
-                                            alt="Chính chủ cho thuê 1360m2 kho xưởng MT Đường Kênh C Xã Lê Minh Xuân BChánh" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Chính chủ cho thuê 1360m2 kho xưởng MT Đường… </h4><span class="post-price">60 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585648">
-                                <a href="https://phongtro123.com/phong-tro-cho-thue-o-gan-cv-phan-mem-quang-trung-q12-ql1-30m2-pr585648.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/z2431200903771-e878fef8b08a20176ebd77fd978bd9f7_1618243537.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/z2431200903771-e878fef8b08a20176ebd77fd978bd9f7_1618243537.jpg"
-                                            alt="Phòng trọ cho thuê ở gần CV Phần mềm Quang Trung Q12 QL1 30m2" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Phòng trọ cho thuê ở gần CV Phần mềm Quang… </h4><span class="post-price">1.6 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585647">
-                                <a href="https://phongtro123.com/phong-tro-gia-re-quan-12-cho-sinh-vien-pr585647.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/thumb_default.jpg" data-src="https://phongtro123.com/img/thumb_default.jpg" alt="Phòng trọ giá rẻ quận 12 cho sinh viên"
-                                            height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Phòng trọ giá rẻ quận 12 cho sinh viên </h4><span class="post-price">1.2 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585646">
-                                <a href="https://phongtro123.com/cho-thue-mat-bang-nha-nguyen-can-chinh-chu-gia-ca-phai-chang-pr585646.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/172051582-994893124377905-3773738345522784960-n_1618236790.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/172051582-994893124377905-3773738345522784960-n_1618236790.jpg"
-                                            alt="Cho thuê mặt bằng, nhà nguyên căn CHÍNH CHỦ, giá cả phải chăng" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Cho thuê mặt bằng, nhà nguyên căn CHÍNH CHỦ,… </h4><span class="post-price">45 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585645">
-                                <a href="https://phongtro123.com/chinh-chu-cho-thue-900m2-lam-kho-xuong-mat-tien-duong-38-p-hbc-q-thu-duc-pr585645.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/1_1618236380.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/1_1618236380.jpg"
-                                            alt="Chính chủ cho thuê 900m2 làm kho xưởng Mặt tiền Đường 38 P HBC Q Thủ Đức" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Chính chủ cho thuê 900m2 làm kho xưởng Mặt… </h4><span class="post-price">60 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585644">
-                                <a href="https://phongtro123.com/nha-tro-quan-3-gan-kenh-nhieu-loc-pr585644.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/1_1618234428.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/1_1618234428.jpg"
-                                            alt="Nhà Trọ - Quận 3 - Gần Kênh Nhiêu Lộc" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Nhà Trọ - Quận 3 - Gần Kênh Nhiêu Lộc </h4><span class="post-price">1.6 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585643">
-                                <a href="https://phongtro123.com/52m2-can-ho-sieu-rong-ban-cong-cuc-thoang-full-nt-cao-cap-gan-nga-4-hang-xanh-d1-binh-thanh-pr585643.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/0ea1f1cd-f07a-4403-81a2-154322c10cb7_1618232651.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/0ea1f1cd-f07a-4403-81a2-154322c10cb7_1618232651.jpg"
-                                            alt="52m2 CĂN HỘ SIÊU RỘNG - BAN CÔNG CỰC THOÁNG FULL NT CAO CẤP GẦN NGÃ 4 hàng xanh D1 BÌNH THẠNH" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> 52m2 CĂN HỘ SIÊU RỘNG - BAN CÔNG CỰC THOÁNG… </h4><span class="post-price">8 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585642">
-                                <a href="https://phongtro123.com/cho-thue-nha-rieng-chinh-chu-42m2-gias-2-xtr-thang-pr585642.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/thumb_default.jpg" data-src="https://phongtro123.com/img/thumb_default.jpg" alt="Cho thuê nhà riêng (chính chủ), 42m2, gias 2.xtr/ tháng"
-                                            height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Cho thuê nhà riêng (chính chủ), 42m2, gias 2.xtr/… </h4><span class="post-price">2.8 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="post-item clearfix normal" post-id="585641">
-                                <a href="https://phongtro123.com/phong-tro-mat-tien-q-binh-thanh-pr585641.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/img-1618214358385-1618216189992_1618222527.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/12/img-1618214358385-1618216189992_1618222527.jpg"
-                                            alt="Phong tro mat tien Q.Binh Thanh" height="100" width="100" layout="responsive" data-loaded="true"></figure>
-                                    <div class="post-meta">
-                                        <h4 class="post-title" style="color: #055699;"> Phong tro mat tien Q.Binh Thanh
-                                        </h4><span class="post-price">4 triệu/tháng</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                    <section class="section">
-                        <a target="_blank" href="https://atrungroi.com/xstc-xo-so-tu-chon-mega-645-vietlott.html"><img
-                                alt="Xem kết quả xổ số tự chọn Mega 6/45 Vietlott mới nhất"
-                                title="Xem kết quả xổ số tự chọn Mega 6/45 Vietlott mới nhất"
-                                src="https://image.thanhnien.vn/768/uploaded/thanhthuy/2020_07_25/kqxs2-4-6_jssz_rihu.jpg"></a>
-                    </section>
-                    <section class="section section-aside-tinmoidang">
-                        <div class="section-header" style="margin-botttom: 10px;"><span class="section-title">Bài viết
-                                mới</span></div>
-                        <ul class="blog-listing aside clearfix">
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/uu-va-nhuoc-diem-cua-viec-o-tro-ban-nen-biet.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/uu-va-nhuoc-diem-cua-o-tro_1611981473.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/01/30/uu-va-nhuoc-diem-cua-o-tro_1611981473.jpg"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Ưu và nhược điểm của việc ở trọ "bạn nên biết"</h6>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/top-5-website-dang-tin-cho-thue-mat-bang-hieu-qua-nhat-hien-nay.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/chothuematbang01-1_1591697241.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/06/09/chothuematbang01-1_1591697241.jpg"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Top 5 website đăng tin cho thuê mặt bằng hiệu quả nhất hiện nay</h6>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/dang-tin-tim-nguoi-o-ghep-mien-phi-o-dau-hieu-qua.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/trang-web-dang-tin-o-ghep-bds123_1584091714.png" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/03/13/trang-web-dang-tin-o-ghep-bds123_1584091714.png"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Đăng tin tìm người ở ghép miễn phí ở đâu hiệu quả?
-                                        </h6>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/dau-tu-dat-xay-phong-tro_1567824476.jpg" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/dau-tu-dat-xay-phong-tro_1567824476.jpg"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Kinh nghiệm chọn đất đầu tư xây phòng trọ không bao giờ lỗ</h6>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/bds123-giao-dien_1567824794.png" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/bds123-giao-dien_1567824794.png"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Đăng tin cho thuê văn phòng ở đâu hiệu quả nhất?</h6>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="article-item clearfix">
-                                <a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html">
-                                    <figure><img class="lazy_done" src="./Cho Thuê Phòng Trọ Hà Nội, Giá Rẻ, Tiện Nghi, Mới Nhất 2021_files/bds123-giao-dien_1567824838.png" data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2019/09/07/bds123-giao-dien_1567824838.png"
-                                            data-loaded="true"></figure>
-                                    <div class="article-meta">
-                                        <h6 class="article-title">Đăng tin cho thuê mặt bằng ở đâu nhanh chóng và hiệu quả nhất?</h6>
-                                    </div>
-                                </a>
-                            </article>
-                        </ul>
-                    </section>
-                    <section class="section section-sublink">
-                        <div class="section-header"><span class="section-title">Có thể bạn quan tâm</span></div>
-                        <ul>
-                            <li><a href="https://phongtro123.com/news/hop-dong-thue-nha-tro-phong-tro" title="Mẫu hợp đồng cho thuê phòng trọ">Mẫu hợp đồng cho thuê phòng trọ</a></li>
-                            <li><a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-thue-phong-tro-tranh-bi-lua-gat.html" title="Cẩn thận các kiểu lừa đảo khi thuê phòng trọ">Cẩn thận các kiểu lừa đảo khi
-                                    thuê phòng trọ</a></li>
-                            <li><a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html" title="Kinh nghiệm thuê phòng trọ cho Sinh Viên">Kinh nghiệm thuê phòng trọ Sinh
-                                    Viên</a></li>
-                        </ul>
-                    </section>
-                </aside>
+
+                <app-aside></app-aside>
+                
             </div>
-            <section class="section section-text js-bottom-content">
-                <div class="section-content">
-                    <h2>Website cho thuê phòng trọ Hà Nội giá rẻ - Nhà trọ Hà Nội mới nhất&nbsp;2021</h2>
-                    <p>Hiện có&nbsp;<strong>4.755</strong>&nbsp;tin đăng cho&nbsp;<strong>thuê&nbsp;phòng trọ Hà
-                            Nội</strong>&nbsp;để bạn có thể tự do lựa chọn theo đúng các nhu cầu về giá, an ninh, diện tích phòng.&nbsp;Với kinh nghiệm lâu năm của mình, chúng tôi tự tin có thể giúp bạn trong việc tìm thuê nhà trọ Hà Nội, phòng trọ ở
-                        Hà Nội và trên cả nước. Dưới đây là một số chia sẻ xoay quanh vấn đề thuê&nbsp;nhà trọ Hà Nội mà các bạn sinh viên, người đi thuê phòng trọ nên biết để hạn chế tối thiểu&nbsp;rủi ro.</p>
-                    <h3>Thực trạng vấn đề tìm thuê phòng trọ tại Hà Nội</h3>
-                    <p>Hà Nội luôn là thành phố đi đầu về phát triển kinh tế vì vậy lượng người dân nhập cư từ các tỉnh thành khác là rất đông, từ đó kéo theo nhu cầu&nbsp;<strong>tìm phòng trọ</strong>, tìm nhà ở, căn hộ để sinh sống, an cư lạc nghiệp.
-                        Ngoài ra thành phố Hà Nội còn tập trung nhiều trường cao đẳng, đại học nên số lượng sinh viên có nhu cầu&nbsp;<strong>tìm phòng trọ giá rẻ</strong>, nhà trọ dành cho sinh viên cũng là rất cao. Vì có lượng nhu cầu cao nên việc tìm
-                        thuê nhà trọ tại Hà Nội đôi khi là khó khăn với những người mới, đặc biệt là sinh viên năm nhất muốn tìm phòng trọ với tiêu chí&nbsp;<strong>giá rẻ, gần trường</strong>, thì còn khó hơn vì chưa có kinh nghiệm với việc tìm phòng,
-                        nhiều trường hợp sinh viên đi thuê phòng trọ còn bị lừa đảo rất đáng tiếc.
-                    </p>
-                    <p style="text-align: center;"><img src="https://tromoi.com/uploads/members/hiephoang/thang%207/31_07/bi-quyet-thu-hut-khach-thue-nha-02.jpg" alt="phòng trọ tại Hà nội" width="755" height="425"></p>
-                    <h3>Cách thuê được nhà trọ Hà Nội, phòng trọ giá rẻ Hà Nội.</h3>
-                    <p>Nhu cầu tìm&nbsp;<strong>phòng trọ Hà Nội</strong>&nbsp;luôn vượt lượng cung, đặc biệt là các tiêu chí giá rẻ,&nbsp;<strong>phòng trọ đẹp</strong>, an ninh... Đầu tiên muốn thuê được nhà trọ đúng nhu cầu thì phải xem nhiều nơi, nhiều
-                        phòng trọ để có thể chọn lựa, nhưng việc chạy xe ngoài đường để tìm kiếm phòng trọ cho thuê tại&nbsp;hà nội&nbsp;thì tốn rất nhiều thời gian cũng như công sức. Vậy để đạt được mục đích 1 cách dễ dàng thì người đi thuê nhà nên lên
-                        mạng tra cứu, tìm hiểu thông tin trước, ví dụ như website phongtro123.com chuyên dịch vụ tìm phòng trọ, nhà trọ cho thuê tại&nbsp;hà nội&nbsp;và phòng trọ cả nước. Sau khi đã tham khảo, lựa chọn được&nbsp;
-                        <strong>phòng trọ đúng nhu cầu</strong>&nbsp;(xem bài đăng có hình ảnh, video, giới thiệu thông tin phòng trọ) thì có thể liên lạc với&nbsp;<strong>chính chủ nhà
-                            trọ</strong>&nbsp;để thuê nhà rất dễ dàng và thuận tiện.</p>
-                    <h3>Kinh nghiệm tìm thuê nhà trọ Hà Nội, phòng trọ Hà Nội trên mạng online</h3>
-                    <p>Thông tin online thì rất nhiều và nên được chọn lọc kĩ để tránh mất thời gian và lừa đảo. Người thuê nhà nên chọn các đơn vị có&nbsp;<strong>uy tín, kinh nghiệm lâu năm</strong>&nbsp;để xem. Ví dụ như website phongtro123.com, đơn vị
-                        chuyên cung cấp dịch vụ&nbsp;đăng tin cho thuê nhà trọ,&nbsp;
-                        <strong>cho thuê phòng&nbsp;trọ</strong>&nbsp;tại các tỉnh thành lớn trên cả nước (phòng trọ tp.hcm, phòng trọ hà nội, đà nẵng ...).</p>
-                    <p>Hãy luôn tỉnh táo, sáng suốt đọc kỹ thông tin phòng để lựa chọn được phòng trọ theo đúng các tiêu chí (giá rẻ, gần trường, gần cơ quan, diện&nbsp;tích rộng, phòng đẹp, mới...). Việc tìm phòng trọ,&nbsp;
-                        <strong>nhà trọ Hà Nội&nbsp;</strong>sẽ không còn khó khăn như bạn nghĩ, chúc các bạn may mắn.</p>
-                    <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">&nbsp;</div>
-                </div>
-                <div class="button-readmore"><span class="js-btn-readmore">Xem thêm</span></div>
-            </section>
             <section class="section">
                 <div class="bottom-links clearfix">
                     <div class="bottom-links-col">
@@ -772,6 +116,36 @@
                     </div>
                 </div>
             </section>
+            <section class="section section-text js-bottom-content">
+                <div class="section-content">
+                    <h2>Website cho thuê phòng trọ Hà Nội giá rẻ - Nhà trọ Hà Nội mới nhất&nbsp;2021</h2>
+                    <p>Hiện có&nbsp;<strong>4.755</strong>&nbsp;tin đăng cho&nbsp;<strong>thuê&nbsp;phòng trọ Hà
+                            Nội</strong>&nbsp;để bạn có thể tự do lựa chọn theo đúng các nhu cầu về giá, an ninh, diện tích phòng.&nbsp;Với kinh nghiệm lâu năm của mình, chúng tôi tự tin có thể giúp bạn trong việc tìm thuê nhà trọ Hà Nội, phòng trọ ở
+                        Hà Nội và trên cả nước. Dưới đây là một số chia sẻ xoay quanh vấn đề thuê&nbsp;nhà trọ Hà Nội mà các bạn sinh viên, người đi thuê phòng trọ nên biết để hạn chế tối thiểu&nbsp;rủi ro.</p>
+                    <h3>Thực trạng vấn đề tìm thuê phòng trọ tại Hà Nội</h3>
+                    <p>Hà Nội luôn là thành phố đi đầu về phát triển kinh tế vì vậy lượng người dân nhập cư từ các tỉnh thành khác là rất đông, từ đó kéo theo nhu cầu&nbsp;<strong>tìm phòng trọ</strong>, tìm nhà ở, căn hộ để sinh sống, an cư lạc nghiệp.
+                        Ngoài ra thành phố Hà Nội còn tập trung nhiều trường cao đẳng, đại học nên số lượng sinh viên có nhu cầu&nbsp;<strong>tìm phòng trọ giá rẻ</strong>, nhà trọ dành cho sinh viên cũng là rất cao. Vì có lượng nhu cầu cao nên việc tìm
+                        thuê nhà trọ tại Hà Nội đôi khi là khó khăn với những người mới, đặc biệt là sinh viên năm nhất muốn tìm phòng trọ với tiêu chí&nbsp;<strong>giá rẻ, gần trường</strong>, thì còn khó hơn vì chưa có kinh nghiệm với việc tìm phòng,
+                        nhiều trường hợp sinh viên đi thuê phòng trọ còn bị lừa đảo rất đáng tiếc.
+                    </p>
+                    <p style="text-align: center;"><img src="https://tromoi.com/uploads/members/hiephoang/thang%207/31_07/bi-quyet-thu-hut-khach-thue-nha-02.jpg" alt="phòng trọ tại Hà nội" width="755" height="425"></p>
+                    <h3>Cách thuê được nhà trọ Hà Nội, phòng trọ giá rẻ Hà Nội.</h3>
+                    <p>Nhu cầu tìm&nbsp;<strong>phòng trọ Hà Nội</strong>&nbsp;luôn vượt lượng cung, đặc biệt là các tiêu chí giá rẻ,&nbsp;<strong>phòng trọ đẹp</strong>, an ninh... Đầu tiên muốn thuê được nhà trọ đúng nhu cầu thì phải xem nhiều nơi, nhiều
+                        phòng trọ để có thể chọn lựa, nhưng việc chạy xe ngoài đường để tìm kiếm phòng trọ cho thuê tại&nbsp;hà nội&nbsp;thì tốn rất nhiều thời gian cũng như công sức. Vậy để đạt được mục đích 1 cách dễ dàng thì người đi thuê nhà nên lên
+                        mạng tra cứu, tìm hiểu thông tin trước, ví dụ như website phongtro123.com chuyên dịch vụ tìm phòng trọ, nhà trọ cho thuê tại&nbsp;hà nội&nbsp;và phòng trọ cả nước. Sau khi đã tham khảo, lựa chọn được&nbsp;
+                        <strong>phòng trọ đúng nhu cầu</strong>&nbsp;(xem bài đăng có hình ảnh, video, giới thiệu thông tin phòng trọ) thì có thể liên lạc với&nbsp;<strong>chính chủ nhà
+                            trọ</strong>&nbsp;để thuê nhà rất dễ dàng và thuận tiện.</p>
+                    <h3>Kinh nghiệm tìm thuê nhà trọ Hà Nội, phòng trọ Hà Nội trên mạng online</h3>
+                    <p>Thông tin online thì rất nhiều và nên được chọn lọc kĩ để tránh mất thời gian và lừa đảo. Người thuê nhà nên chọn các đơn vị có&nbsp;<strong>uy tín, kinh nghiệm lâu năm</strong>&nbsp;để xem. Ví dụ như website phongtro123.com, đơn vị
+                        chuyên cung cấp dịch vụ&nbsp;đăng tin cho thuê nhà trọ,&nbsp;
+                        <strong>cho thuê phòng&nbsp;trọ</strong>&nbsp;tại các tỉnh thành lớn trên cả nước (phòng trọ tp.hcm, phòng trọ hà nội, đà nẵng ...).</p>
+                    <p>Hãy luôn tỉnh táo, sáng suốt đọc kỹ thông tin phòng để lựa chọn được phòng trọ theo đúng các tiêu chí (giá rẻ, gần trường, gần cơ quan, diện&nbsp;tích rộng, phòng đẹp, mới...). Việc tìm phòng trọ,&nbsp;
+                        <strong>nhà trọ Hà Nội&nbsp;</strong>sẽ không còn khó khăn như bạn nghĩ, chúc các bạn may mắn.</p>
+                    <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">&nbsp;</div>
+                </div>
+                <div class="button-readmore"><span class="js-btn-readmore">Xem thêm</span></div>
+            </section>
+            
             <section class="section section-whyus">
                 <div class="section-content">
                     <h3>Tại sao lại chọn PhongtroThanhXuan.com?</h3>
@@ -808,5 +182,14 @@
                 </div>
             </section>
         </main>
-</div>
+        <!-- Footer -->
+        <div id="fixed_Left" class="banner_fixed" style="display: block; left: 39.5px;">
+            <a target="_blank" href="https://bds123.vn/"><img src="https://phongtro123.com/images/bds123_120_300.gif"></a>
+        </div>
+        <div id="fixed_Right" class="banner_fixed" style="display: block; right: 39.5px;">
+            <a target="_blank"  rel="nofollow" href="http://bit.ly/nhom-phong-tro-facebook">
+                <img  src="https://phongtro123.com/images/ad_nhom_fb.jpg"></a>
+        </div>
     </div>
+</div>
+<app-footer></app-footer>

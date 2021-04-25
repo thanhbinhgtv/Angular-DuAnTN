@@ -841,3 +841,16 @@ table thead {
     font-weight: bold;
     color: #f60;
 }
+
+/* Them */
+.user-info-image{
+    width: 130px;
+    height: 140px;
+    margin-top: -140px;
+    position: relative; top: -140px; left: 10px;
+    border-radius: 10px;
+}
+
+.user-info-image>input{
+    display: none;
+}

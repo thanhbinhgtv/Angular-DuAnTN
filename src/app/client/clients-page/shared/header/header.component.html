@@ -3,14 +3,29 @@
                 title="cho thuê phòng trọ, cho thuê nhà trọ, tìm phòng trọ">cho thuê phòng trọ, cho thuê nhà trọ, tìm
                 phòng trọ</a>
             <div class="user-welcome clearfix js-reload-html-header">
-                <div class="welcome-text">Xin chào, <strong>Phạm Thanh Bình</strong>. Mã tài khoản:
-                    <strong>99624</strong>. Số dư: <strong>0 VNĐ</strong>
+                <div class="welcome-text" *ngIf="isLoggedIn === true">
+                    Xin chào, <strong>{{customerModel?.name}}</strong> | Mã tài khoản:
+                    <strong>{{customerModel?.customerId}}</strong> | Số dư: <strong>{{customerModel?.accountBalance}} VNĐ</strong>
                 </div>
-                <div class="dropdown">
+
+                <div class="welcome-text" *ngIf="isLoggedIn === false">
+                   Phòng trọ ThanhXuan.com xin chào!
+                </div>
+
+                <a rel="nofollow" class="btn btn-primary" routerLink="/auth/login" *ngIf="isLoggedIn === false">Đăng nhập</a>
+                <a rel="nofollow" class="btn btn-primary" routerLink="/auth/signup" *ngIf="isLoggedIn === false">Đăng ký</a>
+
+                <div class="dropdown" *ngIf="isLoggedIn === true">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Quản lý tài khoản <i class="arrow-down"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li>
+                            <a class="dropdown-menu-item thong-tin-ca-nhan" rel="nofollow"
+                                routerLink="/profile/edit-profile"><i></i>
+                                Thông tin cá nhân
+                            </a>
+                        </li>
                         <li>
                             <a class="dropdown-menu-item dang-tin" rel="nofollow"
                                 routerLink="/profile/create-article"
@@ -37,17 +52,11 @@
                                 Lịch sử nạp tiền
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-menu-item thong-tin-ca-nhan" rel="nofollow"
-                                routerLink="/profile/edit-profile"><i></i>
-                                Thông tin cá nhân
-                            </a>
-                        </li>
-                        <li>
+                        <!-- <li>
                             <a class="dropdown-menu-item tin-da-luu" rel="nofollow"
                                 ><i></i> Tin đã lưu
                             </a>
-                        </li>
+                        </li> -->
                         <li (click)="logout()">
                             <a class="dropdown-menu-item thoat" rel="nofollow"
                                 title="Thoát"><i></i>
@@ -57,9 +66,7 @@
 
                     </ul>
                 </div>
-                <a rel="nofollow" class="btn btn-add-post" routerLink="/profile/create-article">Đăng
-                    tin mới <i></i></a>
-
+                <a rel="nofollow" class="btn btn-add-post" routerLink="/profile/create-article">Đăng tin mới <i></i></a>
             </div>
         </div>
         <nav id="navbar-menu">

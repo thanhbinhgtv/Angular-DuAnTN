@@ -13,11 +13,11 @@ export class ViewPaypalComponent implements OnInit {
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    this.getCustomerById();
+    this.getCustomerProfile();
   }
 
-  getCustomerById(){
-    this.customerService.getCustomerById().subscribe((data) => {
+  getCustomerProfile(){
+    this.customerService.getCustomerProfile().subscribe((data) => {
       this.customerModel = data;
     })
   }

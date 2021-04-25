@@ -20,7 +20,7 @@ export class DetailNewspaperComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getStaffById();
+    this.getNewpaperById();
 
     this.newsPaperForm = new FormGroup({
       newId: new FormControl({value:"", disabled:true}),
@@ -31,7 +31,7 @@ export class DetailNewspaperComponent implements OnInit {
     });
   }
 
-  getStaffById(){
+  getNewpaperById(){
     this.newspaperService.getNewpaperById(this.newPaperId).subscribe((data) => {
         this.newsPaperForm.patchValue(data);
         this.news = data;

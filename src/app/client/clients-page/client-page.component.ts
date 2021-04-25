@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clients-page',
+  
   template: `<router-outlet></router-outlet>`,
 })
 export class ClientsPageComponent implements OnInit {

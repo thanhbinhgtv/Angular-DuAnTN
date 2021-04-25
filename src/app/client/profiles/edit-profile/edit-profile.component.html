@@ -22,37 +22,55 @@
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                         <h1 class="h2">Cập nhật thông tin cá nhân</h1>
                     </div>
-
-                    <form class="js-form-submit-data" action="https://phongtro123.com/quan-ly/cap-nhat-thong-tin-ca-nhan.html#" data-action-url="https://phongtro123.com/api/user/update/profile" method="POST" novalidate="novalidate">
+                    
+                    <form class="js-form-submit-data" [formGroup]="customerForm" novalidate="novalidate">
+                        
                         <div class="form-group row mt-5">
                             <label for="user_id" class="col-md-2 offset-md-2 col-form-label">Mã thành viên</label>
                             <div class="col-md-6">
-                                <input type="text" readonly="" class="form-control disable" id="user_id" value="#99624">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="user_phone" class="col-md-2 offset-md-2 col-form-label">Số điện thoại</label>
-                            <div class="col-md-6">
-                                <input type="phone" readonly="" class="form-control disable" id="user_phone" value="0365834845">
-                                <div class="form-text text-muted"><a href="https://phongtro123.com/quan-ly/doi-so-dien-thoai.html">Đổi số điện thoại</a></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-5">
-                            <label for="user_name" class="col-md-2 offset-md-2 col-form-label">Tên liên hệ</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="user_name" name="name" value="Phạm Thanh Bình" placeholder="Ex: Phạm Thanh B">
+                                <input type="text" readonly="" class="form-control disable" [formControlName]="'customerId'">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="user_email" class="col-md-2 offset-md-2 col-form-label">Email</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="user_email" name="email" value="" placeholder="phamthanhb@gmail.com">
+                                <input type="text" class="form-control" [formControlName]="'email'" readonly="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="user_phone" class="col-md-2 offset-md-2 col-form-label">Số điện thoại</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control disable"[formControlName]="'phone'">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="user_phone" class="col-md-2 offset-md-2 col-form-label">Số CMND</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control disable"[formControlName]="'cardId'">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="user_name" class="col-md-2 offset-md-2 col-form-label">Tên liên hệ</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" [formControlName]="'name'">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 offset-md-2 col-form-label"> Ngày sinh </label>
+                            <div class="col-md-6">
+                                <input type="date" [formControlName]="'birthday'" class="form-control" id="birthday" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="user_phone" class="col-md-2 offset-md-2 col-form-label">Địa chỉ</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control disable"[formControlName]="'address'">
                             </div>
                         </div>
                         <div class="form-group row mt-5">
                             <label for="user_password" class="col-md-2 offset-md-2 col-form-label" style="padding-top: 0;">Mật khẩu</label>
                             <div class="col-md-6">
-                                <a class="" href="https://phongtro123.com/quan-ly/doi-mat-khau.html">Đổi mật khẩu</a>
+                                <a href="">Đổi mật khẩu</a>
                             </div>
                         </div>
                         <div class="form-group row mt-5">
@@ -61,8 +79,15 @@
                                 <button type="submit" class="btn btn-primary mb-2 btn-block">Cập nhật</button>
                             </div>
                         </div>
-                        <input type="hidden" name="user_id" value="99624">
                     </form>
+                    <div class="user-info-image">
+                        <label for="file-input">
+                            <img class="user-info-image" *ngIf="customerModel?.image == null || customerModel?.image == ''" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
+                            <img class="user-info-image" *ngIf="customerModel?.image" src="{{customerModel?.image}}">
+                            <span class="user-info-image" [ngStyle]="{'margin-left': '15px'}">Chọn lại Avatar</span>
+                        </label>
+                        <input id="file-input" type="file">
+                    </div>
 
                     <!-- PHẦN Ô QUẢNG CÁO Ở CUỐI TRANG WEB HIỂN THỊ SDT CHO NG DÙNG LIÊN HỆ -->
                     <section class="section section-support">
@@ -73,18 +98,18 @@
                                 <div class="list-support-title">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hỗ trợ thanh toán</span>
-                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hỗ trợ đăng tin</span>
-                                    <a rel="nofollow" href="tel:0902657123">Điện thoại: 0902657123</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0902657123">Zalo: 0902657123</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hotline 24/7</span>
-                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <a class="btn btn-page-contact" rel="nofollow" href="https://phongtro123.com/lien-he">Gửi liên hệ</a>
                             </div>

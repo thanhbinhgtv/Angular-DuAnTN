@@ -38,7 +38,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let recharge of rechargeHistory">
-                                    <td [ngStyle]="{'text-align': 'center'}">{{recharge.transactionId}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">#{{recharge.transactionId}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{recharge.date}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">Paypal</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{recharge.amount}}</td>
