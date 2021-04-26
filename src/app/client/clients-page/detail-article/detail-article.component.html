@@ -31,6 +31,13 @@
                                         title="Phòng trọ Quận Bình Thạnh"><span itemprop="name">{{article?.location.districtName}}</span></a>
                                     <meta itemprop="position" content="3">
                                 </li>
+                                <li itemprop="itemListElement" class="link last" itemscope=""
+                                    itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
+                                        itemprop="item"
+                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
+                                        title="Phòng trọ Quận Bình Thạnh"><span itemprop="name">{{article?.location.wardName}}</span></a>
+                                    <meta itemprop="position" content="3">
+                                </li>
                             </ol>
                         </div>
                         <header class="page-header">
@@ -134,10 +141,19 @@
                         <section class="section post-map">
                             <div class="section-header">
                                 <div class="section-title">Bản đồ</div>
-                                <p class="section-description">Địa chỉ: 224/17 Đường Phan Văn Hân, Phường 17, Quận Bình
-                                    Thạnh, Hồ Chí Minh</p>
+                                <p class="section-description">
+                                Địa chỉ: {{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</p>
                             </div>
-                            <div class="section-content">
+                            
+                            <!-- <div class="section-content">
+                                <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
+                                    <agm-marker [latitude]="latitude" [longitude]="longitude">
+                                        <agm-info-window><strong>{{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</strong></agm-info-window>
+                                    </agm-marker>
+                                    <agm-marker [latitude]="latitude2" [longitude]="longitude2"></agm-marker>
+                                </agm-map>
+                            </div> -->
+                            <!-- <div class="section-content">
                                 <div id="__maps_content" style="width:100%; height:300px;" data-lat="10.791874"
                                     data-long="106.707702"
                                     data-address="224/17 Đường Phan Văn Hân, Phường 17, Quận Bình Thạnh, Hồ Chí Minh">
@@ -146,7 +162,7 @@
                                         width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
                                     </iframe>
                                 </div>
-                            </div>
+                            </div> -->
                         </section>
                         <section class="section post-report">
                             <div class="section-content">

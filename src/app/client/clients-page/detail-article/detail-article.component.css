@@ -39,7 +39,7 @@ abbr[title] {
 }
 
 b, strong {
-    font-weight: bolder
+    font-weight: bold
 }
 
 code, kbd, samp {
@@ -4791,3 +4791,7 @@ figure img:hover {
 }
 
 /*# sourceMappingURL=min.desktop.frontend.2021.css.map */
+agm-map {
+    width: 680px;
+    height: 320px;
+}

@@ -13,9 +13,11 @@ import { AuthService } from "./auth/service/auth.service";
 export class TokenInterceptor implements HttpInterceptor {
     constructor(public authService: AuthService, private toastr: ToastrService) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-        if (this.authService.getJwtToken()) {
-            request = this.addToken(request, this.authService.getJwtToken());
+        
+        if(!request.url.includes('https://maps')){
+            if (this.authService.getJwtToken()) {
+                request = this.addToken(request, this.authService.getJwtToken());
+            }
         }
         return next.handle(request).pipe(catchError(error => {
             if (error instanceof HttpErrorResponse && error.status === 401) {

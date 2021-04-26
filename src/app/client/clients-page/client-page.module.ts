@@ -16,6 +16,7 @@ import { ClientBlogComponent } from './client-blog/client-blog.component';
 import { ClientTutorialComponent } from './client-tutorial/client-tutorial.component';
 import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ClientPageRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
+    }),
   ]
 })
 export class ClientPageModule { }

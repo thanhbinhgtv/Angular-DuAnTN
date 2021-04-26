@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
+import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
 import { ArticleService } from '../../service/article.service';
 
 @Component({
@@ -12,12 +14,19 @@ export class DetailArticleComponent implements OnInit {
   article: ArticleResponseModel;
   articleId: number;
 
-  constructor(private articleService: ArticleService, private activateRoute: ActivatedRoute) { 
+  latitude: number = 21.0339076;
+  longitude: number = 106.7648209;
+  latitude2: number = 53.678418;
+  longitude2: number = 7.809007;
+  name: string = 'Ha Noi';
+
+  constructor(private articleService: ArticleService, private activateRoute: ActivatedRoute, private httpClient: HttpClient) { 
     this.articleId = this.activateRoute.snapshot.params.id;
   }
 
   ngOnInit(): void {
     this.getAllArticleNoLogin();
+    
   }
 
   getAllArticleNoLogin(){
@@ -27,6 +36,18 @@ export class DetailArticleComponent implements OnInit {
         convertData.image = convertImage;
         
         this.article = convertData;
+        // this.loadMap();
     });
   }
+
+  loadMap(){
+      this.httpClient.get<GoogleMapApiResponse>(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.article.location.wardName}, ${this.article.location.districtName}, ${this.article.location.cityName}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
+          console.log(data);
+          this.latitude = data.results[0].geometry.location.lat;
+          this.longitude = data.results[0].geometry.location.lng;
+          console.log(data.results[0].geometry.location.lat);
+          
+      });
+  }
+
 }

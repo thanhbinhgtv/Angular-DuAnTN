@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { DatePipe } from '@angular/common';
 import { TokenInterceptor } from './token-interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgxWebstorageModule.forRoot(),
     SharedModule,
     NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
+    }),
   ],
   providers: [
     DatePipe,
