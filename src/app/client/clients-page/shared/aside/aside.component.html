@@ -46,7 +46,7 @@
         <div class="section-header" [ngStyle]="{'margin-botttom':'10px'}"><span class="section-title">Bài viết mới</span></div>
         <ul class="blog-listing aside clearfix">
             <article class="article-item clearfix" *ngFor="let newpaper of newpapers">
-                    <a href="https://phongtro123.com/uu-va-nhuoc-diem-cua-viec-o-tro-ban-nen-biet.html">
+                    <a routerLink="/detail-newpaper/{{newpaper.newId}}">
                     <figure><img class="lazy"
                             src="{{newpaper.image}}">
                     </figure>

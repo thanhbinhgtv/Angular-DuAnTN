@@ -24,63 +24,74 @@
                         <h1 class="h2">Thẻ tín dụng quốc tế</h1>
                     </div>
 
+                    <h3 class="mt-4 mb-3">Chọn số tiền cần nạp</h3>
+
                     <div class="row">
                         <div class="col-md-9">
                             <form class="-form-horizontal js-form-submit-data" id="frm-nap-card" [formGroup]="paypalForm" (ngSubmit)="getPaypal()">
                                 <div class="step_content_atm">
                                     <div class="atm_block">
-                                        <h3 class="mt-4 mb-3">Chọn số tiền cần nạp</h3>
                                         <div class="atm_block_body">
                                             <div class="form-group">
                                                 <p>Chọn nhanh số tiền cần nạp</p>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio5" [value]="5" checked="">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 5" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio5" [value]="5">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 5" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio5" [value]="5">
                                                     <label class="form-check-label" for="radio5">5 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio10" [value]="10">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 10" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio10" [value]="10">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 10" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio10" [value]="10">
                                                     <label class="form-check-label" for="radio10">10 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio20" [value]="20">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 20" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio20" [value]="20">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 20" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio20" [value]="20">
                                                     <label class="form-check-label" for="radio20">20 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio50" [value]="50">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 50" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio50" [value]="50">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 50" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio50" [value]="50">
                                                     <label class="form-check-label" for="radio50">50 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio100" [value]="100">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 100" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio100" [value]="100">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 100" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio100" [value]="100">
                                                     <label class="form-check-label" for="radio100">100 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline mr-4 js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio200" [value]="200">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 200" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio200" [value]="200">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 200" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio200" [value]="200">
                                                     <label class="form-check-label" for="radio200">200 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio500" [value]="500">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 500" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio500" [value]="500">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 500" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio500" [value]="500">
                                                     <label class="form-check-label" for="radio500">500 USD</label>
                                                 </div>
                                                 <div class="form-check form-check-inline js-btn-group-price">
-                                                    <input class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio1000" [value]="1000">
+                                                    <input *ngIf="(paypalForm.get('money').value) === 1000" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio1000" [value]="1000">
+                                                    <input *ngIf="(paypalForm.get('money').value) !== 1000" class="form-check-input" [formControlName]="'money'" type="radio" name="money" id="radio1000" [value]="1000">
                                                     <label class="form-check-label" for="radio1000">1000 USD</label>
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4">
-                                                <p>Hoặc nhập số tiền cần nạp (tối đa: 10.000 usd)</p>
+                                                <p>Nhập số tiền cần nạp (tối đa: 10.000 usd)</p>
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12">
                                                         <div class="js-price-wrapper">
                                                             <div class="input-group mb-3">
-                                                                <input type="number" class="form-control js-price" [formControlName]="'money'" name="amount_input" placeholder="Nhập số tiền cần nạp">
+                                                                <input type="number" class="form-control js-price" [formControlName]="'money'" [value]="paypalForm.get('money').value" name="amount_input" placeholder="Nhập số tiền cần nạp">
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text" id="basic-addon2">USD</span>
                                                                 </div>
                                                             </div>
-                                                            <span class="js-price-text hidden"></span>
+                                                            <span class="js-price-text">Tương đương: </span>
+                                                            <span class="js-price-text" [ngStyle]="{'color':'green'}">{{(paypalForm.get('money').value) * 23000 | currency:'VN': true}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <p>Mô tả</p>
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12">
@@ -114,9 +125,9 @@
                                     <h3 class="heading" style="margin-top: 0; margin-bottom: 0; color: #28a745;"><strong>{{customerModel?.accountBalance}} đ</strong></h3>
                                 </div>
                             </div>
-                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/quan-ly/lich-su-nap-tien.html">Lịch sử nạp tiền <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/quan-ly/lich-su-thanh-toan.html">Lịch sử thanh toán <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-                            <a class="btn btn-secondary btn-block" href="https://phongtro123.com/bang-gia-dich-vu">Bảng giá dịch vụ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            <a class="btn btn-secondary btn-block" routerLink="/profile/recharge-history">Lịch sử nạp tiền <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            <a class="btn btn-secondary btn-block" routerLink="/profile/payment-history">Lịch sử thanh toán <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            <a class="btn btn-secondary btn-block" routerLink="/profile/price-list">Bảng giá dịch vụ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
                         </div>
                     </div>
 

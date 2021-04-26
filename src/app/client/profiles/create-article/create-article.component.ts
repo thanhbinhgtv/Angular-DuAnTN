@@ -49,7 +49,7 @@ export class CreateArticleComponent implements OnInit {
           wardId: new FormControl("", Validators.required),
           address: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(220)]),
           title: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(220)]),
-          description: new FormControl("", [Validators.minLength(3), Validators.maxLength(220)]),
+          description: new FormControl("", [Validators.minLength(3), Validators.maxLength(10000)]),
           roomPrice: new FormControl("", [Validators.required, Validators.min(1000)]),
           acreage: new FormControl("", [Validators.required, Validators.min(1000)]),
           electricPrice: new FormControl("", [Validators.required, Validators.min(1000)]),

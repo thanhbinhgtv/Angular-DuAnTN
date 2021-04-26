@@ -35,7 +35,8 @@ export class HandlePaypalComponent implements OnInit {
     const money = this.paypalForm.get('money').value;
     const description = this.paypalForm.get('description').value;
     this.toastr.info("Vui lòng chờ giây lát");
-    
+    console.log(money);
+    console.log(description);
     this.paypalService.getPaypal(money, description).subscribe((data) => {
       window.location.replace(data.mess);
     })

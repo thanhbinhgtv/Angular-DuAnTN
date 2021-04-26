@@ -19,7 +19,9 @@ export class TokenInterceptor implements HttpInterceptor {
         }
         return next.handle(request).pipe(catchError(error => {
             if (error instanceof HttpErrorResponse && error.status === 401) {
-                this.toastr.info("Token hết hạn, đang làm mới Token");
+                // this.toastr.info("Token hết hạn, đang làm mới Token");
+                console.log("Token hết hạn, đang làm mới Token");
+                
                 return this.handle401Error(request, next);
             }if (error instanceof HttpErrorResponse && error.status === 403) {
                 this.toastr.info("Bạn không có quyền truy cập");
