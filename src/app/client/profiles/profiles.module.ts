@@ -16,6 +16,8 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { PriceListComponent } from './price-list/price-list.component';
 import { ViewPaypalComponent } from './paypal/view-paypal/view-paypal.component';
 import { ConfirmPaymentComponent } from './paypal/confirm-payment/confirm-payment.component';
+import { FavoritesArticleComponent } from './favorites-article/favorites-article.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -33,11 +35,15 @@ import { ConfirmPaymentComponent } from './paypal/confirm-payment/confirm-paymen
     PriceListComponent,
     ViewPaypalComponent,
     ConfirmPaymentComponent,
+    FavoritesArticleComponent,
   ],
   imports: [
     CommonModule,
     ProfilesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
+    }),
   ]
 })
 export class ProfilesModule { }

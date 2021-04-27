@@ -12,6 +12,7 @@ export interface ArticleResponseModel {
     status: string,
     acreage: number,
     address: string,
+    countLike: string,
     service: {
       serviceId: number,
       waterPrice: number,

@@ -458,3 +458,8 @@
   table.table td a.delete {
     color: #E34724;
   }
+  /* GG Map */
+  agm-map {
+    width: 780px;
+    height: 420px;
+}

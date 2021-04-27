@@ -35,7 +35,10 @@
                             <figure><a routerLink="/detail-article/{{article.articleId}}">
                                         <img class="lazy_done" src="{{article.image}}" alt="" height="100" width="100" layout="responsive" data-loaded="true">
                                     </a><span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="chothuenhanh-label"></span>
-                                    <span class="post-save js-btn-save" data-post-id="585180" title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
+                                    <span class="post-save js-btn-save" data-post-id="585180" title="Lưu tin này vào danh sách quan tâm" (click)="onFavorite(article.articleId)">
+                                        <i></i>{{article.countLike}}
+                                    </span>
+                            </figure>
                             <div class="post-meta">
                                 <h4 class="post-title"><span class="star star-5"></span>
                                     <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>

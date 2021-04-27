@@ -13,4 +13,12 @@ export class CustomerService {
   getCustomerProfile(): Observable<CustomerResponseModel>{
     return this.httpClient.get<CustomerResponseModel>('http://localhost:8080/customer/profile');
   }
+
+  getFavorite(id: number): Observable<any>{
+    return this.httpClient.get(`http://localhost:8080/customer/favorite-article/add-remove?article-id=${id}`);
+  }
+
+  getListFavorites(page: number): Observable<any>{
+    return this.httpClient.get(`http://localhost:8080/customer/favorite-article?page=${page}&limit=10`);
+  }
 }

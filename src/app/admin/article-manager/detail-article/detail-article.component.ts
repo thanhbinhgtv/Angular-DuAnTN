@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleManagerService } from '../article-manager.service';
 import { ArticleResponseModel } from '../../../shared/model/responses/article-response-model';
+import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail-article',
@@ -15,8 +17,11 @@ export class DetailArticleComponent implements OnInit {
   articleId: number;
   article: ArticleResponseModel;
 
+  latitude: number = 21.028511;
+  longitude: number = 105.804817;
   
-  constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) {
+  constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute,
+     private router: Router, private toastr: ToastrService, private httpClient: HttpClient) {
     this.articleId = this.activateRoute.snapshot.params.id;
    }
 
@@ -40,6 +45,7 @@ export class DetailArticleComponent implements OnInit {
       
         this.articleForm.patchValue(data);
         this.article = convertData;
+        // this.loadMap();
     });
   }
 
@@ -60,5 +66,15 @@ export class DetailArticleComponent implements OnInit {
       this.toastr.error(error.error.mess);
     });
   }
+
+  loadMap(){
+    this.httpClient.get<GoogleMapApiResponse>(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.article.location.wardName}, ${this.article.location.districtName}, ${this.article.location.cityName}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
+        console.log(data);
+        this.latitude = data.results[0].geometry.location.lat;
+        this.longitude = data.results[0].geometry.location.lng;
+        console.log(data.results[0].geometry.location.lat);
+        
+    });
+}
 
 }

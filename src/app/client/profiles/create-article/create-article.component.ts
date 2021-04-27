@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticlePostRequestModel } from 'src/app/shared/model/requests/article-post-request-model';
+import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { AddressService } from '../../service/address.service';
 import { ArticleService } from '../../service/article.service';
@@ -22,7 +24,10 @@ export class CreateArticleComponent implements OnInit {
   urlFiles : "";
   wardId: number;
 
-  constructor(private articleService: ArticleService ,private addressService: AddressService, private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService) { 
+  latitude: number = 21.028511;
+  longitude: number = 105.804817;
+
+  constructor(private articleService: ArticleService, private httpClient: HttpClient, private addressService: AddressService, private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService) { 
       this.articleModel = {
         wardId: 0,
         address: "",
@@ -122,10 +127,24 @@ export class CreateArticleComponent implements OnInit {
   }
 
   getWardId(wardId: number){
+      console.log(wardId);
       this.wardId = wardId;
+    //   this.loadMap();
   }
 
   getFiles(event){
-    this.selectedFile = event.target.files;
-}
+      this.selectedFile = event.target.files;
+  }
+
+  loadMap(){
+    this.httpClient.get<GoogleMapApiResponse>
+    (`https://maps.googleapis.com/maps/api/geocode/json?address=${this.wardId}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
+        console.log(data);
+        this.latitude = data.results[0].geometry.location.lat;
+        this.longitude = data.results[0].geometry.location.lng;
+        console.log(data.results[0].geometry.location.lat);
+        
+    });
+  }
+
 }

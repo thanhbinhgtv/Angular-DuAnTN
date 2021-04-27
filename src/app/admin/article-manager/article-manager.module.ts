@@ -7,6 +7,7 @@ import { ViewArticleComponent } from './view-article/view-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import { MatSliderModule } from '@angular/material/slider';
     ArticleManagerRoutingModule,
     ReactiveFormsModule,
     MatSliderModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
+    }),
   ]
 })
 export class ArticleManagerModule { }

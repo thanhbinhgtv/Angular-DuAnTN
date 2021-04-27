@@ -14,11 +14,8 @@ export class DetailArticleComponent implements OnInit {
   article: ArticleResponseModel;
   articleId: number;
 
-  latitude: number = 21.0339076;
-  longitude: number = 106.7648209;
-  latitude2: number = 53.678418;
-  longitude2: number = 7.809007;
-  name: string = 'Ha Noi';
+  latitude: number = 21.028511;
+  longitude: number = 105.804817;
 
   constructor(private articleService: ArticleService, private activateRoute: ActivatedRoute, private httpClient: HttpClient) { 
     this.articleId = this.activateRoute.snapshot.params.id;

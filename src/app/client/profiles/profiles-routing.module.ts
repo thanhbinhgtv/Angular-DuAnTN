@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ArticleManagerComponent } from './article-manager/article-manager.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FavoritesArticleComponent } from './favorites-article/favorites-article.component';
 import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 import { HandlePaypalComponent } from './paypal/handle-paypal/handle-paypal.component';
 import { ViewPaypalComponent } from './paypal/view-paypal/view-paypal.component';
@@ -24,6 +25,9 @@ const routes: Routes = [{
     },
     {
       path: 'article-manager', component: ArticleManagerComponent,
+    },
+    {
+      path: 'favorite-article', component: FavoritesArticleComponent,
     },
     {
       path: 'payment-history', component: PaymentHistoryComponent,

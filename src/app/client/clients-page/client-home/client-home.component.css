@@ -3481,13 +3481,13 @@ figure img:hover {
 .post-listing .post-item .post-save i {
     width: 20px;
     height: 20px;
-    /* background: url(../images/love.png) center no-repeat; */
+    background: url(https://www.freepnglogos.com/uploads/heart-png/file-heart-icon-hollow-5.png) center no-repeat;
     background-size: contain;
     display: inline-block
 }
 
 .post-listing .post-item .post-save.saved i, .post-listing .post-item .post-save:hover i {
-    /* background: url(../images/love-full-2.svg) center no-repeat; */
+    background: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png) center no-repeat;
     background-size: contain
 }
 
