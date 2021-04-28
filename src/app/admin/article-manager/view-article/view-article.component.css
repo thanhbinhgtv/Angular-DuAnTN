@@ -208,6 +208,14 @@
     font-weight: bold;
     font-size: 1rem;
     color: #055699;
+
+    width: 300px;
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    line-height: 20px; 
+    -webkit-line-clamp: 2; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
   }
   .table_post_listing .post_btn_toolbar .btn {
     margin-right: 5px;
@@ -446,7 +454,7 @@
   }
   table.table td a {
     color: #a0a5b1;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0 5px;
   }
   table.table td a.view {

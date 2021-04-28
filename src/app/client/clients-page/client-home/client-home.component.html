@@ -43,8 +43,9 @@
                                     </span>
                             </figure>
                             <div class="post-meta">
-                                <h4 class="post-title"><span class="star star-5"></span>
+                                <h4 class="post-title">
                                     <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>
+                                    <span class="star star-5"></span>
                                     </h4><span class="post-price">{{article.roomPrice}}
                                     triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span>
                                     <span class="post-location">
@@ -74,8 +75,9 @@
                                             <span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="post-save js-btn-save" data-post-id="585160"
                                         title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
                                 <div class="post-meta">
-                                    <h4 class="post-title"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
-                                        <span class="star star-5"></span>{{article.title}}</a></h4>
+                                    <h4 class="post-title2"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
+                                     {{article.title}}</a>
+                                     <span class="star star-5"></span></h4>
                                     <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time
                                             class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
                                     <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
