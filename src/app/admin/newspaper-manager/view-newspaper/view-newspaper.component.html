@@ -55,7 +55,7 @@
                                     <th>Mã tin</th>
                                     <th style="text-align: center; white-space: nowrap;">Ảnh đại diện</th>
                                     <th>Tiêu đề</th>
-                                    <th style="white-space: nowrap;">Nội dung</th>
+                                    <!-- <th style="white-space: nowrap;">Nội dung</th> -->
                                     <th style="white-space: nowrap;">Tác giả</th>
                                     <th style="white-space: nowrap;">Trạng thái</th>
                                     <th>Chức năng</th>
@@ -99,7 +99,7 @@
                                             Cập nhật gần nhất: 17:08 08/10/2020
                                         </span>
                                     </td>
-                                    <td  class="textnd">{{new.content}}</td> 
+                                    <!-- <td  class="textnd">{{new.content}}</td>  -->
                                     <td>{{new.author}}</td>
                                     <td *ngIf="new.deleted == true" [ngStyle]="{'color':'red'}">Đã ẩn</td>
                                     <td *ngIf="new.deleted == false" [ngStyle]="{'color':'green'}">Đang hiện</td>
