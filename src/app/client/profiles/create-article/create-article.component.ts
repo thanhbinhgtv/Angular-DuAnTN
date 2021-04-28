@@ -23,6 +23,9 @@ export class CreateArticleComponent implements OnInit {
   selectedFile: File[] = null;
   urlFiles : "";
   wardId: number;
+  wardName: string = "";
+  districtName: string;
+  cityName: string;
 
   latitude: number = 21.028511;
   longitude: number = 105.804817;
@@ -117,18 +120,28 @@ export class CreateArticleComponent implements OnInit {
   getAllDistrictByCityId(cityId: number){
       this.addressService.getDistrictById(cityId).subscribe(data => {
           this.districts = data;
+
+          const city:any = this.citys.find((o:any) => o.id === +cityId);
+          this.cityName = city.name;
+        //   this.loadMap();
       })
   }
 
   getAllWardByDistrictId(districtId: number){
       this.addressService.getWardById(districtId).subscribe(data => {
           this.wards = data;
+
+          const district:any = this.districts.find((o:any) => o.id === +districtId);
+          this.districtName = district.name;
+        //   this.loadMap();
       })
   }
 
   getWardId(wardId: number){
-      console.log(wardId);
       this.wardId = wardId;
+
+      const wards:any = this.wards.find((o: any) => o.id === +wardId);
+      this.wardName = wards.name;
     //   this.loadMap();
   }
 
@@ -138,12 +151,11 @@ export class CreateArticleComponent implements OnInit {
 
   loadMap(){
     this.httpClient.get<GoogleMapApiResponse>
-    (`https://maps.googleapis.com/maps/api/geocode/json?address=${this.wardId}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
-        console.log(data);
+    (`https://maps.googleapis.com/maps/api/geocode/json?address=${this.cityName+', '}${this.districtName+', '}${this.wardName}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
         this.latitude = data.results[0].geometry.location.lat;
         this.longitude = data.results[0].geometry.location.lng;
         console.log(data.results[0].geometry.location.lat);
-        
+        console.log(data.results[0].geometry.location.lng);
     });
   }
 

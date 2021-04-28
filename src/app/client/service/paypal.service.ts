@@ -9,8 +9,8 @@ export class PaypalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPaypal(price: number, description: string): Observable<any> {
-    return this.httpClient.get(`http://localhost:8080/customer/pay?price=${price}&description=${description}`);
+  getPaypal(price: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/customer/pay?price=${price}`);
   }
 
   // Nạp Tiền

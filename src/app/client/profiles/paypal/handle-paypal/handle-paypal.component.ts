@@ -27,17 +27,14 @@ export class HandlePaypalComponent implements OnInit {
 
     this.paypalForm = new FormGroup({
       money: new FormControl("", [Validators.required, Validators.max(10000)]),
-      description: new FormControl(""),
     });
   }
 
   getPaypal(){
     const money = this.paypalForm.get('money').value;
-    const description = this.paypalForm.get('description').value;
     this.toastr.info("Vui lòng chờ giây lát");
     console.log(money);
-    console.log(description);
-    this.paypalService.getPaypal(money, description).subscribe((data) => {
+    this.paypalService.getPaypal(money).subscribe((data) => {
       window.location.replace(data.mess);
     })
     

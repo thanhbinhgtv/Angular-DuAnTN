@@ -13,6 +13,7 @@ export interface ArticleResponseModel {
     acreage: number,
     address: string,
     countLike: string,
+    liked: boolean,
     service: {
       serviceId: number,
       waterPrice: number,

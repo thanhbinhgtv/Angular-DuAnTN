@@ -3478,6 +3478,20 @@ figure img:hover {
     cursor: pointer
 }
 
+/* Liked = true */
+.post-listing .post-item .post-save1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer
+}
+
 .post-listing .post-item .post-save i {
     width: 20px;
     height: 20px;
@@ -3486,8 +3500,23 @@ figure img:hover {
     display: inline-block
 }
 
+/* Liked = true */
+.post-listing .post-item .post-save1 i {
+    width: 20px;
+    height: 20px;
+    background: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png) center no-repeat;
+    background-size: contain;
+    display: inline-block
+}
+
 .post-listing .post-item .post-save.saved i, .post-listing .post-item .post-save:hover i {
     background: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png) center no-repeat;
+    background-size: contain
+}
+
+/* Liked = true */
+.post-listing .post-item .post-save1.saved i, .post-listing .post-item .post-save1:hover i {
+    background: url(https://www.freepnglogos.com/uploads/heart-png/file-heart-icon-hollow-5.png) center no-repeat;
     background-size: contain
 }
 
