@@ -10,8 +10,14 @@ export interface ArticlePostRequestModel {
     wifiPrice: number,
     image: string,
     video: string,
-    roommateInsertDTO: string,
+    roommateDTO: roommate,
     vip: boolean,
     type: string,
     number: string,
+}
+
+export interface roommate {
+    description: string,
+    gender: boolean,
+    quantity: number,
 }

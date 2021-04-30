@@ -47,7 +47,6 @@ export class CreateNewspaperComponent implements OnInit {
       fb.append('files', this.selectedFile[i]);
     }
     this.firebaseService.uploadFiles(fb).subscribe((data) => {
-        console.log(data);
         this.urlFiles = data.join();
         this.uploadForm();
     }, (error) => {

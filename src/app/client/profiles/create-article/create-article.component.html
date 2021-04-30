@@ -21,19 +21,57 @@
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                         <h1 class="h1">Đăng tin mới</h1>
                     </div>
-                    <div class="alert alert-danger mb-5" role="alert">
-                        Nếu bạn đã từng đăng tin trên Phongtro.com, hãy sử dụng chức năng ĐẨY TIN / GIA HẠN / NÂNG CẤP VIP trong mục QUẢN LÝ TIN ĐĂNG để làm mới, đẩy tin lên cao thay vì đăng tin mới. Tin đăng trùng nhau sẽ không được duyệt.
-                    </div>
+                    <p class="alert alert-danger mb-5" role="alert">
+                        Vui lòng nhập và kiểm tra lại đầy đủ thông tin để tránh những sai sót không đáng có.
+                         Nếu có bất cứ thắc mắc hay khiếu nại về dịch vụ, hãy gọi cho chúng tôi theo số điện thoại 0973.800.896. 
+                         Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.
+                    </p>
 
                     <!-- FORM -->
                     <form id="form_dangtin" class="form-horizontal" [formGroup]="articleForm" (ngSubmit)="createArticle()">
                         <div class="row">
                             <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3>Địa chỉ cho thuê</h3>
+                                <div class="form-group row mt-3">
+                                    <label for="post_cat" class="col-md-12 col-form-label">Loại chuyên mục</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="post_cat" (change)="getTypeArticle($event.target.value)">
+                                            <!-- <option value="0">-- Chọn loại chuyên mục --</option> -->
+                                            <option value="1">Phòng trọ, nhà trọ</option>
+                                            <option value="2">Tìm người ở ghép</option>
+                                        </select>
                                     </div>
                                 </div>
+                                <div class="row mt-3 roommate" *ngIf="typeArticle === 2">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Giới tính</label>
+                                            <select id="province_id" [formControlName]="'rmGender'" class="form-control js-select-tinhthanhpho select2-hidden-accessible" required="">
+                                                <option value="true">Nam</option>
+                                                <option value="false">Nữ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Số lượng</label>
+                                            <input type="number" [formControlName]="'rmQuantity'" class="form-control js-select-tinhthanhpho select2-hidden-accessible">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label for="post_content" class="col-md-12 col-form-label">Nội dung mô tả</label>
+                                            <div class="col-md-12">
+                                                <textarea [formControlName]="'rmDescription'" class="form-control" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Địa chỉ</h3>
+                                    </div>
+                                </div> -->
                                 
                                 <div class="row mt-3">
                                     <div class="col-md-3">
@@ -85,27 +123,9 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-5">
+                                <!-- <div class="form-group row mt-2">
                                     <div class="col-md-12">
                                         <h3>Thông tin mô tả</h3>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="form-group row mt-3">
-                                    <label for="post_cat" class="col-md-12 col-form-label">Loại chuyên mục</label>
-                                    <div class="col-md-6">
-                                        <select class="form-control" id="post_cat" name="loai_chuyen_muc" required="" data-msg-required="Chưa chọn loại chuyên mục">
-                                            <option value="">-- Chọn loại chuyên mục --</option>
-                                            <option value="1">Phòng trọ, nhà trọ</option>
-                                            <option value="2">Nhà thuê nguyên căn</option>
-                                            <optgroup label="Căn hộ">
-                                                <option value="3">Cho thuê căn hộ</option>
-                                                <option value="6">Cho thuê căn hộ mini</option>
-                                                <option value="7">Cho thuê căn hộ dịch vụ</option>
-                                            </optgroup>
-                                            <option value="4">Tìm người ở ghép</option>
-                                            <option value="5">Cho thuê mặt bằng</option>
-                                        </select>
                                     </div>
                                 </div> -->
 
@@ -142,7 +162,7 @@
                                                 <span class="input-group-text">đồng</span>
                                             </div>
                                         </div>
-                                        <small class="form-text text-muted">Nhập đầy đủ số, ví dụ 1 triệu thì nhập là 1000000</small>
+                                        <small class="form-text text-muted">Nhập đầy đủ số, ví dụ 1 triệu thì nhập là 1000000 (tối thiểu 1000đ)</small>
                                     </div>
                                     <label for="text_giachothue" id="text_giachothue" class="col-sm-12 control-label js-number-text" style="color: red;"></label>
                                 </div>
@@ -150,39 +170,43 @@
                                 <div class="form-group row">
                                     <label for="post_acreage" class="col-md-12 col-form-label">Diện tích</label>
                                     <div class="col-md-6">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group">
                                             <input id="post_acreage" type="number" [formControlName]="'acreage'" class="form-control" required="">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">m<sup>2</sup></span>
                                             </div>
                                         </div>
+                                        <small class="form-text text-muted">Tối thiểu 1000đ</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-md-12 col-form-label">Giá điện</label>
                                     <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <input id="phone" type="number" [formControlName]="'electricPrice'" name="phone" class="form-control" placeholder="Giá điện phải lớn hơn 1000" value="">
+                                        <div class="input-group">
+                                            <input id="phone" type="number" [formControlName]="'electricPrice'" name="phone" class="form-control" placeholder="" value="">
                                         </div>
+                                        <small class="form-text text-muted">Tối thiểu 1000đ</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-md-12 col-form-label">Giá nước</label>
                                     <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <input id="phone" type="number" [formControlName]="'waterPrice'" name="phone" class="form-control" placeholder="Giá nước phải lớn hơn 1000" value="">
+                                        <div class="input-group">
+                                            <input id="phone" type="number" [formControlName]="'waterPrice'" name="phone" class="form-control" placeholder="" value="">
                                         </div>
+                                        <small class="form-text text-muted">Tối thiểu 1000đ</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-md-12 col-form-label">Giá wifi</label>
                                     <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <input id="phone" type="number" [formControlName]="'wifiPrice'" name="phone" class="form-control" placeholder="Giá wifi phải lớn hơn 1000" value="">
+                                        <div class="input-group">
+                                            <input id="phone" type="number" [formControlName]="'wifiPrice'" name="phone" class="form-control" placeholder="" value="">
                                         </div>
+                                        <small class="form-text text-muted">Tối thiểu 1000đ</small>
                                     </div>
                                 </div>
 
@@ -208,21 +232,6 @@
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <p>Cập nhật hình ảnh rõ ràng sẽ cho thuê nhanh hơn</p>
-                                        <!-- <div class="form-group">
-                                            <div for="browse_photos" class="browse_photos js-dropzone dz-clickable"><i class="icon-upload-image"></i><span class="js-btn-chon-anh">Thêm Ảnh</span></div>
-                                        </div> -->
-                                        <!-- <div class="list_photos row dropzone-previews" id="list-photos-dropzone-previews"></div> -->
-                                        <!-- <div id="tpl" style="display:none">
-                                            <div class="photo_item col-md-2 col-3 js-photo-manual">
-                                                <div class="photo"><img data-dz-thumbnail=""></div>
-                                                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
-                                                <div class="bottom clearfix">
-                                                    <span class="photo_name" data-dz-name=""></span>
-                                                    <span class="photo_delete" data-dz-remove=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg> Xóa</span>
-                                                </div>
-                                                <input name="" value="" type="hidden">
-                                            </div>
-                                        </div> -->
                                         <input type="file" multiple [formControlName]="'image'" (change)="getFiles($event)">
                                     </div>
                                 </div>
@@ -239,32 +248,6 @@
                                         <input class="form-control" [formControlName]="'video'" name="youtube_url" id="youtube_url">
                                     </div>
                                 </div>
-
-                                <!-- <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <p>Hoặc upload Video từ máy của bạn</p>
-                                        <div class="form-group">
-                                            <div for="browse_photos" class="browse_photos js-dropzone-video dz-clickable"><i class="icon-upload-video"></i><span class="js-btn-chon-video">Thêm Video</span></div>
-                                        </div>
-                                        <div class="list_photos row dropzone-previews" id="list-videos-dropzone-previews"></div>
-                                        <div id="tpl-video" style="display:none">
-                                            <div class="photo_item col-md-2 col-3 js-video-manual">
-                                                <div class="photo">
-                                                    <video width="100%" height="100%" controls="" id="video">
-                                                <source src="">
-                                            </video>
-                                                </div>
-                                                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
-                                                <div class="bottom clearfix">
-                                                    <span class="photo_name" data-dz-name=""></span>
-                                                    <span class="photo_delete" data-dz-remove=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg> Xóa</span>
-                                                </div>
-                                                <input name="" value="" type="hidden">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
 
                                 <div class="form-group row mt-5">
                                     <div class="col-md-12">
@@ -311,56 +294,20 @@
                                                     <option value="7">7</option>
                                                 </select>
                                             </div>
-
-                                            <!-- <div class="js-package-type js-package-type-week hidden">
-                                                <label class="col-form-label" for="formGroupInputSmall">Số tuần</label>
-                                                <select class="form-control" name="total_week">
-                                                    <option [disabled]="true" [value]="0">Lựa Chọn</option>
-                                                    <option value="1">1 tuần</option>
-                                                    <option value="2">2 tuần</option>
-                                                    <option value="3">3 tuần</option>
-                                                    <option value="4">4 tuần</option>
-                                                    <option value="5">5 tuần</option>
-                                                </select>
-                                            </div> -->
-
-                                            <!-- <div class="form-group js-package-type js-package-type-month hidden">
-                                                <label class="col-form-label" for="formGroupInputSmall">Số tháng</label>
-                                                <select class="form-control" name="total_month">
-                                                    <option value="1">1 tháng</option>
-                                                    <option value="2">2 tháng</option>
-                                                    <option value="3">3 tháng</option>
-                                                    <option value="4">4 tháng</option>
-                                                    <option value="5">5 tháng</option>
-                                                    <option value="6">6 tháng</option>
-                                                </select>
-                                            </div> -->
-
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- <div class="row mt-3">
-                                    <div class="col-md-4">
-                                        <div class="form-group" style="margin-bottom: 0;">
-                                            <label class="label-title" for="">Gắn nhãn</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="post_label" value="1" id="post_label">
-                                                <label class="form-check-label" for="post_label">Cho thuê nhanh (2.000 đ/ngày)</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
 
                                 <div class="card-title" style="font-weight: bold; font-size: 1.5rem; margin-bottom: 20px; margin-top: 30px;">Chọn phương thức thanh toán</div>
                                 <div class="form-group payment_method_group">
                                     <div class="form-check js-payment-item js-payment-account">
                                         <input type="radio" name="payment_method" id="payment_from_account" value="account" checked="checked" class="form-check-input">
                                         <label for="payment_from_account" class="form-check-label">
-                                            Trừ tiền trong tài khoản Phongtro123 (Bạn đang có TK Chính: 0đ
-                                            <p style="color: red;" class="js-note-outofmoney">Số tiền trong tài khoản của bạn không đủ để thực hiện thanh toán, vui lòng <a href="https://phongtro123.com/quan-ly/nap-tien.html">nạp thêm</a> hoặc chọn phương thức khác bên dưới</p>
+                                            Trừ tiền trong tài khoản (Bạn đang có TK Chính: 0đ)
+                                            <!-- <p style="color: red;" class="js-note-outofmoney">Số tiền trong tài khoản của bạn không đủ để thực hiện thanh toán, vui lòng <a href="https://phongtro123.com/quan-ly/nap-tien.html">nạp thêm</a> hoặc chọn phương thức khác bên dưới</p> -->
                                         </label>
                                     </div>
+                                    <br>
                                     <!-- <div class="form-check js-payment-item js-payment-momo">
                                         <input type="radio" name="payment_method" id="payment_from_momo" value="momo" class="form-check-input">
                                         <label for="payment_from_momo" class="form-check-label">
@@ -376,20 +323,20 @@
                                         </label>
                                     </div> -->
                                     <div class="form-check js-payment-item js-payment-visa">
-                                        <input type="radio" name="payment_method" id="payment_from_credit" value="visa" class="form-check-input">
+                                        <input [disabled]="true" type="radio" name="payment_method" id="payment_from_credit" value="visa" class="form-check-input">
                                         <label for="payment_from_credit" class="form-check-label">
-                                            Thanh toán qua thẻ quốc tế
+                                            Thanh toán qua thẻ quốc tế (Tính năng đang cập nhất)
                                             <div><span class="bds_icon icon_visa"></span><span style="margin: 0 3px;" class="bds_icon icon_mastercard"></span><span class="bds_icon icon_jcb"></span></div>
                                         </label>
                                     </div>
-                                    <div class="form-check js-payment-item js-payment-bank-transfer mb-2">
+                                    <!-- <div class="form-check js-payment-item js-payment-bank-transfer mb-2">
                                         <input type="radio" name="payment_method" id="payment_from_bank_transfer" value="bank_transfer" class="form-check-input">
                                         <label for="payment_from_bank_transfer" class="form-check-label">
                                             Chuyển khoản ngân hàng
                                             <p class="js-note-transfer-money" style="font-weight: normal;">Nội dung chuyển khoản: <span style="color: red;">PT123_0365834845_DANGTINMOI_<span class="js-package-title-ck">tin thuong</span>_<span class="js-time-type-ck">Dang theo ngay</span>_<span class="js-time-type-so-luong">5 ngay</span></span></p>
                                             <p>Số tiền chuyển khoản: <span style="color: red;" class="js-package-grand-total">10.000đ</span></p>
                                         </label>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="form-group row mt-5">
                                     <div class="col-md-12">
@@ -537,18 +484,18 @@
                                 <div class="list-support-title">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hỗ trợ thanh toán</span>
-                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hỗ trợ đăng tin</span>
-                                    <a rel="nofollow" href="tel:0902657123">Điện thoại: 0902657123</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0902657123">Zalo: 0902657123</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <div class="support-item">
                                     <span class="support-item-title">Hotline 24/7</span>
-                                    <a rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a>
-                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a>
+                                    <a rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a>
+                                    <a rel="nofollow" target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a>
                                 </div>
                                 <a class="btn btn-page-contact" rel="nofollow" href="https://phongtro123.com/lien-he">Gửi liên hệ</a>
                             </div>

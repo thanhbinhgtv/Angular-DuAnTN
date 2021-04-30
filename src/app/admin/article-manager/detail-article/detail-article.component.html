@@ -71,7 +71,7 @@
                                                 class="red_require">(*)</span></label>
                                         <p>Vị trí tin bài trên bản đồ
                                         </p>
-                                        <div id="maps" style="width: 100%; height: 300px; position: relative; overflow: hidden;">
+                                        <div id="maps" style="width: 100%; height: 300px; position: relative; overflow: hidden; border: 1px solid red;">
                                             <!-- <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
                                                 <agm-marker [latitude]="latitude" [longitude]="longitude">
                                                     <agm-info-window><strong>{{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</strong></agm-info-window>
@@ -286,13 +286,13 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <div class="list_photos row dropzone-previews" id="list-photos-dropzone-previews">
-                                        <div class="photo_item col-md-2 col-3 js-photo-manual" *ngFor="let image of article?.image">
+                                        <div class="photo_item col-md-2 col-3 js-photo-manual" *ngFor="let image of article?.image; let i=index">
                                             <div class="photo"><img src="{{image}}">
                                             </div>
                                             <div class="dz-progress"><span class="dz-upload"></span></div>
                                             <div class="bottom clearfix">
                                                 <span class="photo_delete" data-dz-remove="">
-                                                    Ảnh 1
+                                                    Ảnh {{i+1}}
                                                 </span>
                                             </div>
                                         </div>

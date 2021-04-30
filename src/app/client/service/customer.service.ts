@@ -21,4 +21,9 @@ export class CustomerService {
   getListFavorites(page: number): Observable<any>{
     return this.httpClient.get(`http://localhost:8080/customer/favorite-article?page=${page}&limit=10`);
   }
+
+  postEditImage(strImage: string): Observable<any>{
+    console.log(strImage);
+    return this.httpClient.post(`http://localhost:8080/customer/avatar`, strImage);
+  }
 }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ArticlePostRequestModel } from 'src/app/shared/model/requests/article-post-request-model';
+import { ArticlePostRequestModel, roommate } from 'src/app/shared/model/requests/article-post-request-model';
 import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { AddressService } from '../../service/address.service';
@@ -26,28 +26,14 @@ export class CreateArticleComponent implements OnInit {
   wardName: string = "";
   districtName: string;
   cityName: string;
+  typeArticle: number;
 
   latitude: number = 21.028511;
   longitude: number = 105.804817;
 
   constructor(private articleService: ArticleService, private httpClient: HttpClient, private addressService: AddressService, private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService) { 
-      this.articleModel = {
-        wardId: 0,
-        address: "",
-        title: "",
-        description: "",
-        roomPrice: 0,
-        acreage: 0,
-        electricPrice: 0,
-        waterPrice: 0,
-        wifiPrice: 0,
-        image: "",
-        video: "",
-        roommateInsertDTO: null,
-        vip: false,
-        type: "",
-        number: "",
-      };
+      this.articleModel = {} as ArticlePostRequestModel;
+      this.articleModel.roommateDTO = {} as roommate;
   }
 
   ngOnInit(): void {
@@ -64,11 +50,13 @@ export class CreateArticleComponent implements OnInit {
           waterPrice: new FormControl("", [Validators.required, Validators.min(1000)]),
           wifiPrice: new FormControl({value:""}, [Validators.required, Validators.min(1000)]),
           image: new FormControl("", [Validators.required]),
-          video: new FormControl("", [Validators.minLength(3), Validators.maxLength(220)]),
-        //   roommateInsertDTO: new FormControl("", Validators.required),
+          video: new FormControl(""),
           vip: new FormControl("", [Validators.required]),
           type: new FormControl("", [Validators.required]),
           number: new FormControl("", [Validators.required, Validators.min(1)]),
+          rmDescription: new FormControl(""),
+          rmGender: new FormControl(""),
+          rmQuantity: new FormControl(""),
       });
   }
 
@@ -101,6 +89,10 @@ export class CreateArticleComponent implements OnInit {
       this.articleModel.vip = this.articleForm.get('vip').value;
       this.articleModel.type = this.articleForm.get('type').value;
       this.articleModel.number = this.articleForm.get('number').value;
+      this.articleModel.roommateDTO.quantity = this.articleForm.get('rmQuantity').value;
+      this.articleModel.roommateDTO.gender = this.articleForm.get('rmGender').value;
+      this.articleModel.roommateDTO.description = this.articleForm.get('rmDescription').value;
+        console.log(this.articleModel);
         
       this.articleService.createArticle(this.articleModel).subscribe((data) => {
           this.toastr.success('Thành công');
@@ -147,6 +139,10 @@ export class CreateArticleComponent implements OnInit {
 
   getFiles(event){
       this.selectedFile = event.target.files;
+  }
+
+  getTypeArticle(typeArticle: number){
+      this.typeArticle = +typeArticle;
   }
 
   loadMap(){
