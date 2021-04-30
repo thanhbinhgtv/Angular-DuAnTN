@@ -66,7 +66,7 @@
                                     <td>#{{new.newId}}</td>
                                     <td>
                                         <div class="post_thumb">
-                                            <a href="https://phongtro123.com/quan-ly/tin-dang.html#" target="_blank">
+                                            <a routerLink="detail-newspaper/{{new.newId}}">
                                                 <img src="{{new.image}}"></a>
                                         </div>
                                     </td>
@@ -75,11 +75,11 @@
                                         <!-- <span class="badge badge-pill badge-warning">Phòng trọ</span>
                                         <span class="badge badge-pill badge-warning">Ở ghép</span> -->
 
-                                        <a class="post_title" target="_blank"
-                                            href="https://phongtro123.com/quan-ly/tin-dang.html#"
+                                        <a class="post_title" 
+                                            routerLink="detail-newspaper/{{new.newId}}"
                                             style="color: #055699;">{{new.title}}
                                         </a>
-
+<!-- 
                                         <div class="post_btn_toolbar mt-3">
                                             <a href="https://phongtro123.com/quan-ly/tin-dang/dang-lai-tin/312303" class="btn btn-sm btn_danglai">
                                                 <svg
@@ -94,9 +94,9 @@
                                                     </path>
                                                 </svg> Đăng lại tin
                                             </a>
-                                        </div>
+                                        </div> -->
                                         <span style="display: block; color: #999; margin-top: 10px;">
-                                            Cập nhật gần nhất: 17:08 08/10/2020
+                                            Cập nhật gần nhất: {{new.updateTime | date:'dd/MM/yyyy HH:mm'}}
                                         </span>
                                     </td>
                                     <!-- <td  class="textnd">{{new.content}}</td>  -->
