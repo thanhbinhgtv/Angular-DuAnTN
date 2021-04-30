@@ -3758,11 +3758,27 @@ figure img:hover {
     margin-top: 5px;
     margin-bottom: 10px;
     color: #055699;
-    padding-right: 10px
+    padding-right: 10px;
+    /* // */
+    /* width: 300px; */
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    /* line-height: 20px;  */
+    -webkit-line-clamp: 2; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .blog-listing .article-item .article-summary {
-    color: grey
+    color: grey;
+    
+    /* width: 300px; */
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    /* line-height: 20px;  */
+    -webkit-line-clamp: 3; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .blog-listing.aside .article-item figure {
@@ -3786,11 +3802,11 @@ figure img:hover {
 
 .the-article .article-summary {
     font-style: italic;
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
 .the-article .article-summary p {
-    line-height: 1.8
+    line-height: 1.8;
 }
 
 .the-article .article-summary :first-of-type {
