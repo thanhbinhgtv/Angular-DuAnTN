@@ -25,8 +25,15 @@ export class ClientHomeComponent implements OnInit {
       });
   }
 
-  onFavorite(id: number){
-      this.customerService.getFavorite(id).subscribe(data => {
+  onFavorite(article: any){
+      this.customerService.getFavorite(article.articleId).subscribe(data => {
+        article.liked = article.liked? false:true;
+        if(article.liked == true){
+          article.countLike = article.countLike+1;
+        }
+        if(article.liked == false){
+          article.countLike = article.countLike-1;
+        }
         this.toastr.success(data.mess);
       });
   }

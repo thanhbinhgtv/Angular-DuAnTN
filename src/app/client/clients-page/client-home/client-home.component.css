@@ -3502,6 +3502,7 @@ figure img:hover {
     font-size: .95rem
 }
 
+/* Liked = false */
 .post-listing .post-item .post-save {
     position: absolute;
     bottom: 0;
@@ -3512,7 +3513,8 @@ figure img:hover {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    cursor: pointer
+    cursor: pointer;
+    /* color: white; */
 }
 
 /* Liked = true */
@@ -3526,7 +3528,8 @@ figure img:hover {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    cursor: pointer
+    cursor: pointer;
+    /* color: white; */
 }
 
 .post-listing .post-item .post-save i {

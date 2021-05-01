@@ -56,9 +56,9 @@ export class CreateArticleComponent implements OnInit {
           vip: new FormControl("", [Validators.required]),
           type: new FormControl("", [Validators.required]),
           number: new FormControl("", [Validators.required, Validators.min(1)]),
-          rmDescription: new FormControl(""),
-          rmGender: new FormControl(""),
-          rmQuantity: new FormControl(""),
+          rmDescription: new FormControl(null),
+          rmGender: new FormControl(null),
+          rmQuantity: new FormControl(null),
       });
   }
 
@@ -91,11 +91,15 @@ export class CreateArticleComponent implements OnInit {
       this.articleModel.vip = this.articleForm.get('vip').value;
       this.articleModel.type = this.articleForm.get('type').value;
       this.articleModel.number = this.articleForm.get('number').value;
+      
       this.articleModel.roommateDTO.quantity = this.articleForm.get('rmQuantity').value;
       this.articleModel.roommateDTO.gender = this.articleForm.get('rmGender').value;
       this.articleModel.roommateDTO.description = this.articleForm.get('rmDescription').value;
         console.log(this.articleModel);
         
+        if(this.articleModel.roommateDTO.quantity == null && this.articleModel.roommateDTO.gender == null && this.articleModel.roommateDTO.description ==null){
+            this.articleModel.roommateDTO = null;
+        }
       this.articleService.createArticle(this.articleModel).subscribe((data) => {
           this.toastr.success('Thành công');
           this.router.navigate(['/profile/article-manager']);
