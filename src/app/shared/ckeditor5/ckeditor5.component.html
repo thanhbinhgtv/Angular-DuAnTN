@@ -1,1 +1,7 @@
-<ckeditor [editor]="Editor" ></ckeditor>
+<form [formGroup]="templateForm">
+    <ckeditor 
+        [editor]="Editor"
+        [formControlName]="'body'"
+        >
+    </ckeditor>
+</form>

@@ -8,6 +8,7 @@ import { NewspaperManagerComponent } from './newspaper-manager.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailNewspaperComponent } from './detail-newspaper/detail-newspaper.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     NewspaperManagerRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    CKEditorModule,
   ]
 })
 export class NewspaperManagerModule { }

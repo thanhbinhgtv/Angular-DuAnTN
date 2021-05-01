@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/auth/service/auth.service';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { NewsPaperPostRequestModel } from '../create-newspaper/newspaper-post-request';
 import { NewspaperService } from '../newspaper.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-update-newspaper',
@@ -13,6 +14,7 @@ import { NewspaperService } from '../newspaper.service';
   styleUrls: ['./update-newspaper.component.css']
 })
 export class UpdateNewspaperComponent implements OnInit {
+  public Editor = ClassicEditor;
   newsPaperForm: FormGroup;
   newPaperId: number
   newpaperModel: NewsPaperPostRequestModel;

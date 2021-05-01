@@ -22,8 +22,12 @@
 
                             <div class="form-group">
                                 <label> Nội Dung </label>
-                                <!-- <input type="tex" [formControlName]="'content'" class="form-control form-control-user" id="content"> -->
-                                <textarea type="tex" [formControlName]="'content'" class="form-control form-control-user" id="content"></textarea>
+                                <div class="editor">
+                                    <ckeditor
+                                        [editor]="Editor"
+                                        [formControlName]="'content'">
+                                    </ckeditor>
+                                </div>
                             </div>
 
                             <div class="form-group">

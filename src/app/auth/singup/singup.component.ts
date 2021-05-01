@@ -71,7 +71,8 @@ export class SingupComponent implements OnInit {
         this.router.navigate(['/auth'], { queryParams: { registered: 'true' } });
         this.toastr.success('Đăng ký tài khoản thành công, Vui lòng kích hoạt tài khoản qua email')
         }, (error) => {
-            this.toastr.error(error.error.mess);
+          console.log(error.error);
+            this.toastr.error("Email đã được sử dụng");
         });
       }
    }

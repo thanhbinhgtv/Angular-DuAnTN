@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
@@ -8,10 +9,14 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class Ckeditor5Component implements OnInit {
   public Editor = ClassicEditor;
-  
+  templateForm: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.templateForm = new FormGroup({
+      body: new FormControl(""),
+    })
   }
 
 }

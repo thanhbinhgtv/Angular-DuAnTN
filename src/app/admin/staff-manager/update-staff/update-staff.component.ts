@@ -23,7 +23,7 @@ export class UpdateStaffComponent implements OnInit {
     this.staffId = this.activateRoute.snapshot.params.id;
     
     datepipe = new DatePipe('en-US');
-
+    // Test lại xem cần cái này ko?
     this.staffModel = {
       address: '',
       birthday: 0,

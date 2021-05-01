@@ -43,3 +43,12 @@
   .radio-label{
     margin-left: 25px;
   }
+
+  :host ::ng-deep .ck-editor__editable_inline {
+    min-height: 150px !important;
+  }
+
+  .editor{
+    border-radius: 5px;
+    border: 1px solid rgb(11, 102, 207);
+  }
