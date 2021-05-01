@@ -3108,7 +3108,7 @@ figure img:hover {
     text-indent: -9999999px;
     display: block;
     float: left;
-    cursor: pointer;
+    cursor: default;
     margin-left: -49px;
 }
 
@@ -3165,7 +3165,7 @@ figure img:hover {
 }
 
 #navbar-menu ul>li a:hover, #navbar-menu ul>li.current-menu-item a {
-    background: #f73859
+    background: #e93754
 }
 
 #main {

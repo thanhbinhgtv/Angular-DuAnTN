@@ -39,7 +39,7 @@
                                     <th [ngStyle]="{'text-align': 'center'}">Họ tên</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Email</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Địa Chỉ</th>
-                                    <th [ngStyle]="{'text-align': 'center'}">Tuổi</th>
+                                    <!-- <th [ngStyle]="{'text-align': 'center'}">Tuổi</th> -->
                                     <th [ngStyle]="{'text-align': 'center'}">Giới Tính</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Vai Trò</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Trạng Thái</th>
@@ -56,7 +56,7 @@
                                     <td [ngStyle]="{'text-align': 'center'}">{{staff.name}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{staff.email}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{staff.address}}</td>
-                                    <td [ngStyle]="{'text-align': 'center'}">{{staff.birthday | date:'dd/MM/yyyy'}}</td>
+                                    <!-- <td [ngStyle]="{'text-align': 'center'}">{{staff.birthday | date:'dd/MM/yyyy'}}</td> -->
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.gender == true">Nam</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.gender == false">Nữ</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.role == true">Super Admin</td>

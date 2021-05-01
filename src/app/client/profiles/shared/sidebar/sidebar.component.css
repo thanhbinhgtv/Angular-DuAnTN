@@ -68,7 +68,7 @@
     border-bottom: 1px dashed #eee;
   }
   .sidebar .nav-link.active {
-    font-weight: bold;
+    background-color: rgb(226, 222, 222);
   }
   .sidebar .nav-link:hover {
     color: #000;
