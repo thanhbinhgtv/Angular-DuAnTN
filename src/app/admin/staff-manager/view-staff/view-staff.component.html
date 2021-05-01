@@ -35,40 +35,40 @@
                         <table class="table table_post_listing table-bordered _table-hover">
                             <thead>
                                 <tr>
-                                    <th>Mã nhân viên</th>
-                                    <th>Họ tên</th>
-                                    <th>Email</th>
-                                    <th>Địa Chỉ</th>
-                                    <th>Tuổi</th>
-                                    <th>Giới Tính</th>
-                                    <th>Vai Trò</th>
-                                    <th>Trạng Thái</th>
-                                    <th style="text-align: center; white-space: nowrap;">Ảnh</th>
-                                    <th>Chức năng</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Mã nhân viên</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Họ tên</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Email</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Địa Chỉ</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Tuổi</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Giới Tính</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Vai Trò</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Trạng Thái</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Ảnh</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let staff of staffsFilter">
-                                    <td>{{staff.staffId}}
-                                        <br> <!-- thêm ô checkbox để chọn từng nhân viên  -->
-                                        <input type="checkbox" style="border-radius: 10px;">
+                                    <td [ngStyle]="{'text-align': 'center'}">#{{staff.staffId}}
+                                        <!-- <br>
+                                        <input type="checkbox" style="border-radius: 10px;"> -->
                                     </td>
-                                    <td>{{staff.name}}</td>
-                                    <td>{{staff.email}}</td>
-                                    <td>{{staff.address}}</td>
-                                    <td>{{staff.birthday | date:'dd/MM/yyyy'}}</td>
-                                    <td *ngIf="staff.gender == true">Nam</td>
-                                    <td *ngIf="staff.gender == false">Nữ</td>
-                                    <td *ngIf="staff.role == true">Super Admin</td>
-                                    <td *ngIf="staff.role == false">Admin</td>
-                                    <td *ngIf="staff.deleted == true" [ngStyle]="{'color':'red'}">Đang khóa</td>
-                                    <td *ngIf="staff.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
-                                    <td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{staff.name}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{staff.email}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{staff.address}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{staff.birthday | date:'dd/MM/yyyy'}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.gender == true">Nam</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.gender == false">Nữ</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.role == true">Super Admin</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.role == false">Admin</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.deleted == true" [ngStyle]="{'color':'red'}">Đang khóa</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">
                                         <img src="{{staff.image}}" 
                                             style="width: 80px; height: 100px; padding-top: 10px;" />
                                     </td>
 
-                                    <td>
+                                    <td [ngStyle]="{'text-align': 'center'}">
                                         <a routerLink="detail-staff/{{staff.staffId}}" class="view" title="View"
                                             data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a routerLink="update-staff/{{staff.staffId}}" class="edit" title="Edit"

@@ -8,6 +8,7 @@ import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { AddressService } from '../../service/address.service';
 import { ArticleService } from '../../service/article.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-create-article',
@@ -15,6 +16,7 @@ import { ArticleService } from '../../service/article.service';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
+  public Editor = ClassicEditor;
   articleModel: ArticlePostRequestModel;
   articleForm : FormGroup;
   citys: [];

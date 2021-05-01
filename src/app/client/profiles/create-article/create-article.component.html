@@ -61,7 +61,12 @@
                                         <div class="form-group row">
                                             <label for="post_content" class="col-md-12 col-form-label">Nội dung mô tả</label>
                                             <div class="col-md-12">
-                                                <textarea [formControlName]="'rmDescription'" class="form-control" rows="6"></textarea>
+                                                <div class="editor">
+                                                    <ckeditor
+                                                        [editor]="Editor"
+                                                        [formControlName]="'rmDescription'">
+                                                    </ckeditor>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +144,13 @@
                                 <div class="form-group row">
                                     <label for="post_content" class="col-md-12 col-form-label">Nội dung mô tả</label>
                                     <div class="col-md-12">
-                                        <textarea class="form-control" [formControlName]="'description'" name="noi_dung" id="post_content" rows="8"></textarea>
+                                        <div class="editor">
+                                            <ckeditor
+                                                [editor]="Editor"
+                                                [formControlName]="'description'">
+                                            </ckeditor>
+                                        </div>
+                                        <!-- <textarea class="form-control" [formControlName]="'description'" name="noi_dung" id="post_content" rows="8"></textarea> -->
                                     </div>
                                 </div>
 

@@ -855,3 +855,12 @@ agm-map {
     border: 2px solid #F7CA54;
     border-radius: 5px;
 }
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 150px !important;
+}
+
+.editor{
+    border-radius: 5px;
+    border: 1px solid rgb(203, 204, 207);
+}

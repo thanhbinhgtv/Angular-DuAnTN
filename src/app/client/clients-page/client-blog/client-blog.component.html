@@ -32,7 +32,8 @@
                                     </figure>
                                     <div class="article-meta">
                                         <h6 class="article-title">{{newpaper.title}}.</h6>
-                                        <p class="article-summary">{{newpaper.content}}</p>
+                                        <p class="article-summary" [innerHTML]="newpaper.content"></p>
+                                        <!-- <p class="article-summary">{{newpaper.content}}</p> -->
                                     </div>
                                 </a>
                             </article>

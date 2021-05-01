@@ -69,8 +69,7 @@
                                 <div class="section-title">Thông tin mô tả</div>
                             </div>
                             <div class="section-content">
-                                <p>{{article?.description}}</p>
-                                
+                                <p [innerHTML]="article?.description"></p>
                             </div>
                         </section>
                         <section class="section post-overview">

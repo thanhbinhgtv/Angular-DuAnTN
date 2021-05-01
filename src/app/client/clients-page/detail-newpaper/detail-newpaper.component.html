@@ -29,7 +29,7 @@
                                 <img src="{{new?.image}}"
                                     alt="Hình blog" width="900" height="476">
                             </p>
-                            <p>{{new?.content}}</p>
+                            <p [innerHTML]="new?.content"></p>
                         </div>
                     </article>
                     <section class="section section-blog-listing">

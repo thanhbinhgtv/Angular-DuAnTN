@@ -18,6 +18,7 @@ import { ViewPaypalComponent } from './paypal/view-paypal/view-paypal.component'
 import { ConfirmPaymentComponent } from './paypal/confirm-payment/confirm-payment.component';
 import { FavoritesArticleComponent } from './favorites-article/favorites-article.component';
 import { AgmCoreModule } from '@agm/core';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
     }),
+    CKEditorModule,
   ]
 })
 export class ProfilesModule { }
