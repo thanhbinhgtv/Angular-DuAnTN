@@ -34,6 +34,11 @@ const routes: Routes = [{
       loadChildren: () => import('./newspaper-manager/newspaper-manager.module')
         .then(m => m.NewspaperManagerModule), canActivate: [AuthGuard],
     },
+    {
+      path: 'statistical',
+      loadChildren: () => import('./statistical/statistical.module')
+        .then(m => m.StatisticalModule), canActivate: [AuthGuard],
+    },
 
     { path: '**', redirectTo: 'home' },
   ],
