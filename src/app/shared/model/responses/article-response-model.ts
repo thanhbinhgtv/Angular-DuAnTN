@@ -14,6 +14,7 @@ export interface ArticleResponseModel {
     address: string,
     countLike: string,
     liked: boolean,
+    pages: number,
     service: {
       serviceId: number,
       waterPrice: number,

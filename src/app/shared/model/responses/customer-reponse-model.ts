@@ -10,4 +10,5 @@ export interface CustomerResponseModel{
     name: string,
     phone: string,
     deleted: boolean,
+    pages: number,
 }

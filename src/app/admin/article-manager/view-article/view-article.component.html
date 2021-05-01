@@ -120,7 +120,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                               <li class="page-item">
@@ -129,12 +128,9 @@
                                   <span class="sr-only">Previous</span>
                                 </a>
                               </li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(0)">1</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(1)">2</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(2)">3</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(3)">4</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(4)">5</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/article" (click)="onPage(5)">6</a></li>
+                              <li class="page-item" *ngFor="let item of arrayPage">
+                                  <a class="page-link" routerLink="/admin/article" (click)="onPage(item)">{{item+1}}</a>
+                              </li>
                               <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                   <span aria-hidden="true">&raquo;</span>

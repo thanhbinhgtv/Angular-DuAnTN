@@ -12,9 +12,11 @@ export class ViewStaffComponent implements OnInit {
   staffs: Array<StaffResponseModel> = [];
   staffsFilter: Array<StaffResponseModel> = [];
   deleteSuccess : boolean;
-  page = 0;
   value = '';
   status = 0;
+  page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
@@ -29,6 +31,9 @@ export class ViewStaffComponent implements OnInit {
       this.staffs = data;
       this.staffsFilter = this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
       || staff.email.toLowerCase().includes(this.value));
+
+      this.numberPage = data[0].pages;
+      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 

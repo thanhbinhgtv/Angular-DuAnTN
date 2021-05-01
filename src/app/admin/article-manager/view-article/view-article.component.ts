@@ -11,6 +11,8 @@ import { ArticleResponseModel } from '../../../shared/model/responses/article-re
 export class ViewArticleComponent implements OnInit {
   article: Array<ArticleResponseModel> = [];
   page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private articleService: ArticleManagerService, private toastr: ToastrService) { }
 
@@ -21,6 +23,9 @@ export class ViewArticleComponent implements OnInit {
   getAllArticle(){
     this.articleService.getAllArticle(this.page).subscribe((data) =>{
       this.article = data;
+
+      this.numberPage = data[0].pages;
+      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 

@@ -35,10 +35,10 @@
                             <figure><a routerLink="/detail-article/{{article.articleId}}">
                                         <img class="lazy_done" src="{{article.image}}" alt="" height="100" width="100" layout="responsive" data-loaded="true">
                                     </a><span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="chothuenhanh-label"></span>
-                                    <span *ngIf="article.liked === false" (click)="getAllArticleNoLogin()" class="post-save js-btn-save" data-post-id="585180" title="Lưu tin" (click)="onFavorite(article.articleId)">
+                                    <span *ngIf="article.liked === false" class="post-save js-btn-save" data-post-id="585180" title="Lưu tin" (click)="onFavorite(article.articleId)">
                                         <i></i>{{article.countLike}}
                                     </span>
-                                    <span *ngIf="article.liked === true" (click)="getAllArticleNoLogin()" class="post-save1 js-btn-save" data-post-id="585180" title="Bỏ lưu tin" (click)="onFavorite(article.articleId)">
+                                    <span *ngIf="article.liked === true" class="post-save1 js-btn-save" data-post-id="585180" title="Bỏ lưu tin" (click)="onFavorite(article.articleId)">
                                         <i></i>{{article.countLike}}
                                     </span>
                             </figure>

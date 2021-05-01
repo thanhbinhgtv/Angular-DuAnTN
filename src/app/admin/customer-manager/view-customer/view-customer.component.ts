@@ -11,10 +11,12 @@ import { CustomerResponseModel } from '../../../shared/model/responses/customer-
 export class ViewCustomerComponent implements OnInit {
   customers: Array<CustomerResponseModel> = [];
   deleteSuccess: boolean;
-  page = 0;
   customerFilter: Array<CustomerResponseModel> = [];  //Empty array to show the many users searched for
   value = '';  //create Empty variable, get data from the search box on the interface side
   status = 0;
+  page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
 
   // call api CustomersService
@@ -29,6 +31,9 @@ export class ViewCustomerComponent implements OnInit {
   getAllCustomer() {
     this.customerService.getAllCustomers(this.page).subscribe(data => {
       this.customers = data;
+
+      this.numberPage = data[0].pages;
+      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     })
   }
 

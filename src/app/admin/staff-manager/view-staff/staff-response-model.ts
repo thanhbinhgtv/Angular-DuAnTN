@@ -11,4 +11,5 @@ export interface StaffResponseModel {
     role: boolean,
     deleted: boolean,
     staffId: number,
+    pages: number,
 }

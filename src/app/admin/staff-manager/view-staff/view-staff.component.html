@@ -88,9 +88,9 @@
                                   <span class="sr-only">Previous</span>
                                 </a>
                               </li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(0)">1</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(1)">2</a></li>
-                              <li class="page-item"><a class="page-link" routerLink="/admin/staff" (click)="onPage(2)">3</a></li>
+                              <li class="page-item" *ngFor="let item of arrayPage">
+                                  <a class="page-link" routerLink="/admin/staff" (click)="onPage(item)">{{item+1}}</a>
+                              </li>
                               <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                   <span aria-hidden="true">&raquo;</span>

@@ -10,8 +10,8 @@ import { NewsPaperResponseModel } from '../../../shared/model/responses/newspape
 })
 export class ViewNewspaperComponent implements OnInit {
   news: Array<NewsPaperResponseModel> = [];
-  page = 0;
   deleteSuccess : boolean;
+  page = 0;
   arrayPage = new Array();
   numberPage: number;
 
@@ -25,9 +25,9 @@ export class ViewNewspaperComponent implements OnInit {
   getAllNewsPaper(){
     this.newspaperService.getAllNewsPaper(this.page).subscribe(data =>{
       this.news = data;
+
       this.numberPage = data[0].pages;
       this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
-      console.log(this.arrayPage);
     });
   }
 

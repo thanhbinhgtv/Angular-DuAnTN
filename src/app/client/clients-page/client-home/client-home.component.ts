@@ -22,7 +22,6 @@ export class ClientHomeComponent implements OnInit {
   getAllArticleNoLogin(){
       this.articleService.getAllArticleNoLogin(this.page).subscribe((data) =>{
         this.articles = data;
-        console.log(data);
       });
   }
 
