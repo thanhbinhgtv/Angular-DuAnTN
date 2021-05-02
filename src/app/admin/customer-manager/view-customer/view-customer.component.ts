@@ -48,10 +48,10 @@ export class ViewCustomerComponent implements OnInit {
     this.page = page;
     this.getAllCustomer();
   }
-  // hiep 9/4 -  search customer
+  // h 9/4 -  search customer
   onChange(event: any) {
     console.log(event);
-    this.value = event.target.value.toLowerCase(); // lay gia trị tu form
+    this.value = event.target.value.toLowerCase();
     this.customerFilter = this.status === 0 ? this.customers.filter(customer => customer.name.toLowerCase().includes(this.value) || customer.email.toLowerCase().includes(this.value))
         : this.customers.filter(customer => (customer.name.toLowerCase().includes(this.value) || customer.email.toLowerCase().includes(this.value)) 
         && this.status === 1 ? !customer.deleted : customer.deleted);

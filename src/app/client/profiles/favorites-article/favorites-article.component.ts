@@ -10,7 +10,9 @@ import { CustomerService } from '../../service/customer.service';
 })
 export class FavoritesArticleComponent implements OnInit {
   articles: Array<FavoriteResponseModel> = [];
-  page = 0
+  page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private customerService: CustomerService) { }
 
@@ -21,7 +23,15 @@ export class FavoritesArticleComponent implements OnInit {
   getAllFavorites(){
       this.customerService.getListFavorites(this.page).subscribe(data => {
           this.articles = data;
+
+          this.numberPage = data[0].pages;
+          this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
       })
+  }
+
+  onPage(page: number) {
+    this.page = page;
+    this.getAllFavorites();
   }
 
 }

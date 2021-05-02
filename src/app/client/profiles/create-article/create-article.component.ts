@@ -97,7 +97,7 @@ export class CreateArticleComponent implements OnInit {
       this.articleModel.roommateDTO.description = this.articleForm.get('rmDescription').value;
         console.log(this.articleModel);
         
-        if(this.articleModel.roommateDTO.quantity == null && this.articleModel.roommateDTO.gender == null && this.articleModel.roommateDTO.description ==null){
+        if(this.articleModel.roommateDTO.quantity == null && this.articleModel.roommateDTO.gender == null){
             this.articleModel.roommateDTO = null;
         }
       this.articleService.createArticle(this.articleModel).subscribe((data) => {

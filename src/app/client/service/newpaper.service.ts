@@ -12,7 +12,7 @@ export class NewpaperService {
 
   // No Login
   getAllNewpaperNoLogin(page: number): Observable<Array<NewsPaperResponseModel>> {
-    return this.httpClient.get<Array<NewsPaperResponseModel>>(`http://localhost:8080/new?page=${page}&&limit=8`);
+    return this.httpClient.get<Array<NewsPaperResponseModel>>(`http://localhost:8080/new?page=${page}&&limit=10`);
   }
 
   getNewpaperByIdNoLogin(newId: number): Observable<NewsPaperResponseModel> {

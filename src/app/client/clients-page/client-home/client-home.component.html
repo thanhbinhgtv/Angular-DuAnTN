@@ -31,7 +31,7 @@
                 <ul class="post-listing grid clearfix">
                     <div class="inner" >
                         <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                            post-id="585180" *ngFor="let article of articles">
+                            post-id="585180" *ngFor="let article of articleVip">
                             <figure><a routerLink="/detail-article/{{article.articleId}}">
                                         <img class="lazy_done" src="{{article.image}}" alt="" height="100" width="100" layout="responsive" data-loaded="true">
                                     </a><span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="chothuenhanh-label"></span>
@@ -45,7 +45,7 @@
                             <div class="post-meta">
                                 <h4 class="post-title">
                                     <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>
-                                    <span class="star star-5"></span>
+                                    <span class="star star-5" *ngIf="article.vip == true"></span>
                                     </h4><span class="post-price">{{article.roomPrice}}
                                     triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span>
                                     <span class="post-location">
@@ -66,49 +66,53 @@
                         <div class="section-header"><span class="section-title">Danh sách tin đăng</span></div>
                         <ul class="post-listing clearfix">
                             <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                post-id="585160" *ngFor="let article of articles">
+                                post-id="585160" *ngFor="let article of articleNoVip">
                                 <figure><a routerLink="/detail-article/{{article.articleId}}">
                                     <img class="lazy_done"
                                             src="{{article.image}}"
                                             alt="" height="100"
                                             width="100" layout="responsive"></a>
-                                            <span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="post-save js-btn-save" data-post-id="585160"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
+                                            <span class="images-number">{{(article.image.split(',')).length}} ảnh</span>
+                                            <span *ngIf="article.liked === false" class="post-save js-btn-save" data-post-id="585180" title="Lưu tin" (click)="onFavorite(article)">
+                                                <i></i>{{article.countLike}}
+                                            </span>
+                                            <span *ngIf="article.liked === true" class="post-save1 js-btn-save" data-post-id="585180" title="Bỏ lưu tin" (click)="onFavorite(article)">
+                                                <i></i>{{article.countLike}}
+                                            </span>
+                                </figure>
                                 <div class="post-meta">
                                     <h4 class="post-title2"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
                                      {{article.title}}</a>
-                                     <span class="star star-5"></span></h4>
+                                     <span class="star star-5" *ngIf="article.vip == true"></span></h4>
                                     <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time
                                             class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
                                     <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-4"
-                                                title="{{article.title}}">{{article.address}}</a></span></div>
+                                            class="post-location">
+                                            <a title="{{article.title}}">{{article.address}}</a></span></div>
                                                 <span class="post-hot"></span>
-                                    <p class="post-summary">Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
+                                    <div class="post-summary">Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
                                         Tiện nghi của 2 phòng:- Máy lạnh- Máy nước nóng lạnh- Bếp riêng trong phòng- WC
-                                        riêng trong…</p>
+                                        riêng trong…</div>
                                 </div>
                             </li>
                         </ul>
                         <ul class="pagination">
-                            <li class="page-item disabled"><span class="page-link">«</span></li>
-                            <li class="page-item active"><span class="page-link">1</span></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=2">2</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=3">3</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=4">4</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=5">5</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=6">6</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=7">7</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=8">8</a></li>
-                            <li class="page-item disabled"><span class="page-link">...</span></li>
-                            <li class="page-item"><a class="page-link"
-                                    href="https://phongtro123.com/?page=4089">4089</a></li>
-                            <li class="page-item"><a class="page-link"
-                                    href="https://phongtro123.com/?page=4090">4090</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/?page=2"
-                                    rel="next">»</a></li>
-                        </ul>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item" *ngFor="let item of arrayPage">
+                                <a class="page-link" routerLink="/" (click)="onPage(item)">{{item+1}}</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                          </ul>
                     </section>
                 </div>
 

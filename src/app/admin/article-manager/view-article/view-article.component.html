@@ -75,12 +75,11 @@
                                         <div class="post_thumb"><img src={{article?.image}}></div>
                                     </td>
                                     <td>
-                                        <span class="badge badge-pill badge-warning">Phòng trọ</span>
-                                        <span class="badge badge-pill badge-warning">Ở ghép</span>
-
                                         <a class="post_title" routerLink="detail-article/{{article.articleId}}"
                                             style="color: #055699;">{{article?.title}}
                                         </a>
+                                        <span class="badge badge-pill badge-warning" *ngIf="article.roommate == null">Phòng trọ</span>
+                                        <span class="badge badge-pill badge-warning" *ngIf="article.roommate != null">Ở ghép</span>
                                         <span style="display: block; color: #999; margin-top: 10px;">
                                             Cập nhật gần nhất: {{article?.lastUpdateTime | date:'dd/MM/yyyy'}}
                                         </span>

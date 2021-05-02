@@ -8,8 +8,10 @@ import { NewpaperService } from '../../service/newpaper.service';
   styleUrls: ['./client-blog.component.css']
 })
 export class ClientBlogComponent implements OnInit {
-  page = 0;
   newpapers : Array<NewsPaperResponseModel> = [];
+  page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private newpaperService: NewpaperService) { }
 
@@ -20,7 +22,15 @@ export class ClientBlogComponent implements OnInit {
   getAllNewpaperNoLogin(){
     this.newpaperService.getAllNewpaperNoLogin(this.page).subscribe(data => {
         this.newpapers = data;
+
+        this.numberPage = data[0].pages;
+        this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     })
+  }
+
+  onPage(page: number) {
+    this.page = page;
+    this.getAllNewpaperNoLogin();
   }
 
 }

@@ -12,46 +12,44 @@
                         
                         <div id="breadcrumb">
                             <ol class="clearfix" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                                <li itemprop="itemListElement" class="first link" itemscope=""
+                                <li *ngIf="article?.roommate == null" itemprop="itemListElement" class="first link" itemscope=""
                                     itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
-                                        itemprop="item" href="https://PhongTroThanhXuan.com/cho-thue-phong-tro"
-                                        title="Phòng trọ"><span itemprop="name">Phòng trọ</span></a>
+                                        itemprop="item" title="Phòng trọ"><span itemprop="name">Tìm phòng trọ</span></a>
+                                    <meta itemprop="position" content="1">
+                                </li>
+                                <li *ngIf="article?.roommate != null" itemprop="itemListElement" class="first link" itemscope=""
+                                    itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
+                                        itemprop="item" title="Phòng trọ"><span itemprop="name">Tìm ở ghép</span></a>
                                     <meta itemprop="position" content="1">
                                 </li>
                                 <li itemprop="itemListElement" class="link link" itemscope=""
                                     itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
-                                        itemprop="item" href="https://phongtro123.com/tinh-thanh/ho-chi-minh"
+                                        itemprop="item"
                                         title="Phòng trọ Hồ Chí Minh"><span itemprop="name">{{article?.location.cityName}}</span></a>
                                     <meta itemprop="position" content="2">
                                 </li>
                                 <li itemprop="itemListElement" class="link last" itemscope=""
                                     itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
                                         itemprop="item"
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
                                         title="Phòng trọ Quận Bình Thạnh"><span itemprop="name">{{article?.location.districtName}}</span></a>
                                     <meta itemprop="position" content="3">
                                 </li>
                                 <li itemprop="itemListElement" class="link last" itemscope=""
                                     itemtype="http://schema.org/ListItem"><a itemtype="https://schema.org/Thing"
                                         itemprop="item"
-                                        href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
                                         title="Phòng trọ Quận Bình Thạnh"><span itemprop="name">{{article?.location.wardName}}</span></a>
                                     <meta itemprop="position" content="3">
                                 </li>
                             </ol>
                         </div>
                         <header class="page-header">
-                            <span class="star star-5"></span>
+                            <span class="star star-5" *ngIf="article?.vip == true"></span>
                             <h1 class="page-h1" style="color: #E13427;">{{article?.title}}</h1>
-                            <p class="post-address" style="margin-bottom: 10px;">Chuyên mục: <a
-                                    style="text-decoration: underline; " title="Phòng trọ Bình Thạnh"
-                                    href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh">Cho thuê phòng
-                                    trọ Hà Nội</a></p>
                             <p class="post-address">Địa chỉ: {{article?.address}}</p>
                             <div class="post-price">
                                 <span class="post-price-item" style="color: #16c784;">
                                     <span>Giá cho thuê: </span>
-                                    <strong>{{article?.roomPrice}} triệu/tháng</strong>
+                                    <strong>{{article?.roomPrice | currency:'VN': true}} triệu/tháng</strong>
                                 </span>
                                 <span class="post-price-item">
                                     <span>Diện tích: </span>{{article?.acreage}}m<sup>2</sup>
@@ -116,6 +114,30 @@
                         </section>
                         <section class="section post-contact">
                             <div class="section-header">
+                                <div class="section-title">Tìm người ở ghép</div>
+                            </div>
+                            <div class="section-content">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="name">Giới tính:</td>
+                                            <td *ngIf="article?.roommate.gender == true">Nam giới</td>
+                                            <td *ngIf="article?.roommate.gender == false">Nữ giới</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name">Số lượng:</td>
+                                            <td>{{article?.roommate.quantity}} người</td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td class="name">Nội dung:</td>
+                                            <td [innerHTML]="article?.roommate.description"></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section class="section post-contact">
+                            <div class="section-header">
                                 <div class="section-title">Thông tin liên hệ</div>
                             </div>
                             <div class="section-content">
@@ -144,13 +166,13 @@
                                 Địa chỉ: {{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</p>
                             </div>
                             
-                            <!-- <div class="section-content">
-                                <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
+                            <div class="section-content">
+                                <!-- <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
                                     <agm-marker [latitude]="latitude" [longitude]="longitude">
                                         <agm-info-window><strong>{{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</strong></agm-info-window>
                                     </agm-marker>
-                                </agm-map>
-                            </div> -->
+                                </agm-map> -->
+                            </div>
                             <!-- <div class="section-content">
                                 <div id="__maps_content" style="width:100%; height:300px;" data-lat="10.791874"
                                     data-long="106.707702"
@@ -162,14 +184,70 @@
                                 </div>
                             </div> -->
                         </section>
+
                         <section class="section post-report">
                             <div class="section-content">
                                 <p>Mọi thông tin trên website chỉ mang tính chất tham khảo. Nếu bạn có phản hồi với tin
                                     đăng này (báo xấu, tin đã cho thuê, không liên lạc được,...), vui lòng thông báo để
-                                    PhòngTrọ123 có thể xử lý.</p><a class="btn btn-report btn-outline" target="_blank"
+                                    PhongTroThanhXuan.com có thể xử lý.</p><a class="btn btn-report btn-outline" target="_blank"
                                     rel="nofollow" href="https://phongtro123.com/lien-he"><i></i> Gửi phản hồi</a>
                             </div>
                         </section>
+                        <!-- Comments -->
+                        <section class="section">
+                            <div class="post-comment">
+                                <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+                                    <div class="form-group row">
+                                        <div class="radio-label">
+                                            Đánh giá : 
+                                        </div>
+                                        <div class="radio-star" >
+                                            <input id="radio-1" type="radio" name="star" [value]="1" [formControlName]="'star'">
+                                            <span class="star-1"></span> <br>
+                                            <input id="radio-2" type="radio" name="star" [value]="2" [formControlName]="'star'">
+                                            <span class="star-1"></span><span class="star-1"></span> <br>
+                                            <input id="radio-2" type="radio" name="star" [value]="3" [formControlName]="'star'">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span> <br>
+                                            <input id="radio-2" type="radio" name="star" [value]="4" [formControlName]="'star'">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span> <br>
+                                            <input id="radio-2" type="radio" name="star" [value]="5" [formControlName]="'star'">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" [formControlName]="'comment'"  placeholder="Bình luận" rows="2"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary  float-right" [disabled]="commentForm.invalid">Bình luận & Đánh giá</button>
+                                </form>
+                            </div>
+                            <div class="divc" style="margin-top: 70px;">
+                                <div class="comment" *ngFor="let data of comments?.data">
+                                    <!-- <div class="username">
+                                        <a routerLink="/user/comment.username"></a>
+                                    </div> -->
+                                    <div>
+                                        <span *ngIf="data.start == 1">
+                                            <span class="star-1"></span>
+                                        </span>
+                                        <span *ngIf="data.start == 2">
+                                            <span class="star-1"></span><span class="star-1"></span>
+                                        </span>
+                                        <span *ngIf="data.start == 3">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span>
+                                        </span>
+                                        <span *ngIf="data.start == 4">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span>
+                                        </span>
+                                        <span *ngIf="data.start == 5">
+                                            <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span>
+                                        </span>
+                                        <b>{{data?.customer.name}} : </b>
+                                        <span>{{data.comment}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- /Comment -->
                     </article>
                     <section class="section section-post-listing">
                         <div class="section-header"><span class="section-title">Có thể bạn quan tâm</span></div>
@@ -415,19 +493,27 @@
                     <div class="list-support clearfix">
                         <div class="list-support-title">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</div>
                         <div class="support-item"><span class="support-item-title">Hỗ trợ thanh toán</span><a
-                                rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a><a rel="nofollow"
-                                target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a></div>
+                                rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow"
+                                target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a></div>
                         <div class="support-item"><span class="support-item-title">Hỗ trợ đăng tin</span><a
-                                rel="nofollow" href="tel:0902657123">Điện thoại: 0902657123</a><a rel="nofollow"
-                                target="_blank" href="https://zalo.me/0902657123">Zalo: 0902657123</a></div>
+                                rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow"
+                                target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a></div>
                         <div class="support-item"><span class="support-item-title">Hotline 24/7</span><a rel="nofollow"
-                                href="tel:0917686101">Điện thoại: 0917686101</a><a rel="nofollow" target="_blank"
-                                href="https://zalo.me/0917686101">Zalo: 0917686101</a></div><a
+                                href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow" target="_blank"
+                                href="https://zalo.me/0973800896">Zalo: 0973800896</a></div><a
                             class="btn btn-page-contact" rel="nofollow" href="https://phongtro123.com/lien-he">Gửi liên
                             hệ</a>
                     </div>
                 </div>
             </section>
         </main>
+        <!-- Footer -->
+        <div id="fixed_Left" class="banner_fixed" style="display: block; left: 39.5px;">
+            <a target="_blank" href="https://bds123.vn/"><img src="https://phongtro123.com/images/bds123_120_300.gif"></a>
+        </div>
+        <div id="fixed_Right" class="banner_fixed" style="display: block; right: 39.5px;">
+            <a target="_blank"  rel="nofollow" href="http://bit.ly/nhom-phong-tro-facebook">
+                <img  src="https://phongtro123.com/images/ad_nhom_fb.jpg"></a>
+        </div>
     </div>
 </div>

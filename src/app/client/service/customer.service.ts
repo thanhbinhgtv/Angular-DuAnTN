@@ -27,7 +27,6 @@ export class CustomerService {
   }
 
   postEditImage(strImage: string): Observable<any>{
-    console.log(strImage);
     return this.httpClient.post(`http://localhost:8080/customer/avatar`, strImage);
   }
 }

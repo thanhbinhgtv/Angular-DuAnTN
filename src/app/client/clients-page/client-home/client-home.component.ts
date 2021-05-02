@@ -10,18 +10,22 @@ import { CustomerService } from '../../service/customer.service';
   styleUrls: ['./client-home.component.css']
 })
 export class ClientHomeComponent implements OnInit {
-  articles: Array<ArticleResponseModel> = [];
+  articleVip: Array<ArticleResponseModel> = [];
+  articleNoVip: Array<ArticleResponseModel> = [];
   page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private articleService: ArticleService, private customerService: CustomerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
       this.getAllArticleNoLogin();
+      this.getAllArticleNoLogin2();
   }
 
   getAllArticleNoLogin(){
       this.articleService.getAllArticleNoLogin(this.page).subscribe((data) =>{
-        this.articles = data;
+        this.articleVip = data;
       });
   }
 
@@ -34,13 +38,22 @@ export class ClientHomeComponent implements OnInit {
         if(article.liked == false){
           article.countLike = article.countLike-1;
         }
-        this.toastr.success(data.mess);
+        this.toastr.info(data.mess);
       });
   }
 
-  // getAllArticleNoLogin2(){
-  //   this.articleService.getAllArticleNoLogin2(this.page).subscribe((data) =>{
-  //     this.articles = data;
-  //   });
-  // }
+  getAllArticleNoLogin2(){
+    this.articleService.getAllArticleNoLogin2(this.page).subscribe((data) =>{
+      this.articleNoVip = data;
+
+      this.numberPage = data[0].pages;
+      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
+    });
+  }
+
+  onPage(page: number) {
+    this.page = page;
+    this.getAllArticleNoLogin2();
+  }
+
 }

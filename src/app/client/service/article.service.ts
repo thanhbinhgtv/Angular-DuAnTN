@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticlePostRequestModel } from 'src/app/shared/model/requests/article-post-request-model';
+import { CommentRequestModel } from 'src/app/shared/model/requests/comment-request-model';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
+import { CommentResponseModel } from 'src/app/shared/model/responses/comment-response-model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +17,11 @@ export class ArticleService {
     return this.httpClient.post('http://localhost:8080/customer/article', postArticleModel);
   }
 
-  //No login
+  //No login in Home, Aside (Vip)
   getAllArticleNoLogin(page: number): Observable<Array<ArticleResponseModel>> {
-    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=10`);
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=10&&vip=true`);
   }
-
+  //No login in Home, Aside (Vip and noVip)
   getAllArticleNoLogin2(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=20`);
   }
@@ -30,6 +32,14 @@ export class ArticleService {
   
   getAllArticleCustomer(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/customer/article?page=${page}&&limit=10`);
+  }
+
+  getAllComment( articleId: number,page: number): Observable<CommentResponseModel> {
+    return this.httpClient.get<CommentResponseModel>(`http://localhost:8080/comment/list?article-id=15&page=${page}&limit=10`);
+  }
+
+  postComment(postComment: CommentRequestModel): Observable<any>{
+    return this.httpClient.post('http://localhost:8080/customer/comment/add-update', postComment);
   }
 
 }

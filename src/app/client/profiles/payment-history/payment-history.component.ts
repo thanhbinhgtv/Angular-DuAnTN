@@ -10,6 +10,8 @@ import { PaypalService } from '../../service/paypal.service';
 export class PaymentHistoryComponent implements OnInit {
   paymentHistory: Array<TransactionResponseModel> = [];
   page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private paypal: PaypalService) { }
 
@@ -20,6 +22,14 @@ export class PaymentHistoryComponent implements OnInit {
   getTransaction(){
       this.paypal.getTransaction2(this.page).subscribe(data => {
           this.paymentHistory = data;
+        
+          this.numberPage = data[0].pages;
+          this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
       })
+  }
+
+  onPage(page: number) {
+    this.page = page;
+    this.getTransaction();
   }
 }

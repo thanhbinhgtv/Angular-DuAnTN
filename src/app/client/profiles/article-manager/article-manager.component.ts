@@ -9,7 +9,9 @@ import { ArticleService } from '../../service/article.service';
 })
 export class ArticleManagerComponent implements OnInit {
   articles: Array<ArticleResponseModel> = [];
-  page = 0
+  page = 0;
+  arrayPage = new Array();
+  numberPage: number;
 
   constructor(private articleService: ArticleService) { }
 
@@ -20,6 +22,15 @@ export class ArticleManagerComponent implements OnInit {
   getAllArticleCustomer(){
       this.articleService.getAllArticleCustomer(this.page).subscribe(data => {
           this.articles = data;
+          
+          this.numberPage = data[0].pages;
+          this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
       })
   }
+
+  onPage(page: number) {
+    this.page = page;
+    this.getAllArticleCustomer();
+  }
+
 }

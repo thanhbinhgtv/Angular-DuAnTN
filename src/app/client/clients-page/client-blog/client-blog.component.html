@@ -40,13 +40,22 @@
                         </ul>
                         <!-- Pagination -->
                         <ul class="pagination">
-                            <li class="page-item disabled"><span class="page-link">«</span></li>
-                            <li class="page-item active"><span class="page-link">1</span></li>
-                            <li class="page-item"><a class="page-link"
-                                    href="https://phongtro123.com/blog.html?page=2">2</a></li>
-                            <li class="page-item"><a class="page-link" href="https://phongtro123.com/blog.html?page=2"
-                                    rel="next">»</a></li>
-                        </ul>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item" *ngFor="let item of arrayPage">
+                                <a class="page-link" routerLink="/blog" (click)="onPage(item)">{{item+1}}</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                          </ul>
                     </section>
                 </div>
                 <app-aside></app-aside>
@@ -95,14 +104,14 @@
                     <div class="list-support clearfix">
                         <div class="list-support-title">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</div>
                         <div class="support-item"><span class="support-item-title">Hỗ trợ thanh toán</span><a
-                                rel="nofollow" href="tel:0917686101">Điện thoại: 0917686101</a><a rel="nofollow"
-                                target="_blank" href="https://zalo.me/0917686101">Zalo: 0917686101</a></div>
+                                rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow"
+                                target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a></div>
                         <div class="support-item"><span class="support-item-title">Hỗ trợ đăng tin</span><a
-                                rel="nofollow" href="tel:0902657123">Điện thoại: 0902657123</a><a rel="nofollow"
-                                target="_blank" href="https://zalo.me/0902657123">Zalo: 0902657123</a></div>
+                                rel="nofollow" href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow"
+                                target="_blank" href="https://zalo.me/0973800896">Zalo: 0973800896</a></div>
                         <div class="support-item"><span class="support-item-title">Hotline 24/7</span><a rel="nofollow"
-                                href="tel:0917686101">Điện thoại: 0917686101</a><a rel="nofollow" target="_blank"
-                                href="https://zalo.me/0917686101">Zalo: 0917686101</a></div><a
+                                href="tel:0973800896">Điện thoại: 0973800896</a><a rel="nofollow" target="_blank"
+                                href="https://zalo.me/0973800896">Zalo: 0973800896</a></div><a
                             class="btn btn-page-contact" rel="nofollow" href="https://phongtro123.com/lien-he">Gửi liên
                             hệ</a>
                     </div>
