@@ -7,6 +7,7 @@ import { StatisticalCustomerComponent } from './statistical-customer/statistical
 import { StatisticalCountRequestComponent } from './statistical-count-request/statistical-count-request.component';
 import { StatisticalRevenueComponent } from './statistical-revenue/statistical-revenue.component';
 import { StatisticalComponent } from './statistical.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { StatisticalComponent } from './statistical.component';
   ],
   imports: [
     CommonModule,
-    StatisticalRoutingModule
+    ReactiveFormsModule,
+    StatisticalRoutingModule,
   ]
 })
 export class StatisticalModule { }

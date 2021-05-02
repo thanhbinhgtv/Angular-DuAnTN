@@ -1,1 +1,65 @@
-<p>statistical-count-request works!</p>
+<div id="webpage">
+    <div class="container-fluid">
+        <div class="row" style="margin-left: -250px;">
+            <main role="main" class="ml-sm-auto col-lg-10" >
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Thống kê lượt truy cập website</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div id="hic">
+                            <div id="demo-2">
+                                <input type="search" [formControl]="year" placeholder="Tìm theo năm" style="border: 1px solid #e6e6e6;">
+                            </div>
+                        </div>
+                        <div id="hic">
+                            <div id="demo-2">
+                                <input type="search" [formControl]="month" placeholder="Tìm theo tháng" style="border: 1px solid #e6e6e6;">
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
+                    </div>
+                </div>
+
+                <div class="d-none d-md-block">
+                    <div class="table-responsive">
+                        <table class="table table_post_listing table-bordered _table-hover">
+                            <thead>
+                                <tr>
+                                    <th [ngStyle]="{'text-align': 'center'}">Ngày/Tháng/Năm</th>
+                                    <th [ngStyle]="{'text-align': 'center'}">Lượt truy cập</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="texttr" *ngFor="let data of countRequest?.data">
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.year">Năm {{data?.year}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.month">Tháng {{data?.month}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.date">Ngày {{data?.date}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{data?.number}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                              <li class="page-item" *ngFor="let item of arrayPage">
+                                  <a class="page-link" routerLink="/admin/newspaper" (click)="onPage(item)">{{item+1}}</a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav> -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

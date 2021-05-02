@@ -91,13 +91,15 @@ export class CreateArticleComponent implements OnInit {
       this.articleModel.vip = this.articleForm.get('vip').value;
       this.articleModel.type = this.articleForm.get('type').value;
       this.articleModel.number = this.articleForm.get('number').value;
-      
-      this.articleModel.roommateDTO.quantity = this.articleForm.get('rmQuantity').value;
+      console.log(this.articleForm.get('rmGender').value);
+      console.log(this.articleForm.get('rmQuantity').value);
+      console.log(this.articleForm.get('rmDescription').value);
       this.articleModel.roommateDTO.gender = this.articleForm.get('rmGender').value;
+      this.articleModel.roommateDTO.quantity = this.articleForm.get('rmQuantity').value;
       this.articleModel.roommateDTO.description = this.articleForm.get('rmDescription').value;
         console.log(this.articleModel);
         
-        if(this.articleModel.roommateDTO.quantity == null && this.articleModel.roommateDTO.gender == null){
+        if(this.articleModel.roommateDTO.gender == null || this.articleForm.get('rmGender').value == 'null' || this.articleModel.roommateDTO.quantity == null){
             this.articleModel.roommateDTO = null;
         }
       this.articleService.createArticle(this.articleModel).subscribe((data) => {
@@ -105,7 +107,11 @@ export class CreateArticleComponent implements OnInit {
           this.router.navigate(['/profile/article-manager']);
 
       }, (error) => {
-          this.toastr.error("Vui lòng kiểm tra lại thông tin");
+          if(error.error.mess){
+            this.toastr.error(error.error.mess);
+          }else{
+            this.toastr.error("Vui lòng kiểm tra lại thông tin");
+          }
       });
   }
 
