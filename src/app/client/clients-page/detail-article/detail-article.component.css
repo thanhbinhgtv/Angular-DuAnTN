@@ -4892,3 +4892,9 @@ agm-map {
 .radio-star{
     margin-left: 10px;
 }
+
+.detail{
+    float: left;
+    margin-left: 440px;
+    margin-top: 4px;
+}

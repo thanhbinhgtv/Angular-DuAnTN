@@ -20,6 +20,7 @@ export class DetailArticleComponent implements OnInit {
   commentModel: CommentRequestModel;
   commentForm: FormGroup;
   articleId: number;
+  isloading: boolean = false;
 
   latitude: number = 21.028511;
   longitude: number = 105.804817;
@@ -53,6 +54,7 @@ export class DetailArticleComponent implements OnInit {
   }
 
   postComment(){
+    this.isloading = true;
     this.commentModel.articleId = this.articleId;
     this.commentModel.start = this.commentForm.get('star').value;
     this.commentModel.comment = this.commentForm.get('comment').value;
@@ -61,6 +63,7 @@ export class DetailArticleComponent implements OnInit {
       this.toastr.success("Cảm ơn bạn đã đánh giá bài viết này");
       this.commentForm.get('comment').setValue('');
       this.getListComment();
+      this.isloading = false;
     }, error =>{
       this.toastr.error(error.error.mess);
     })

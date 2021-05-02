@@ -42,10 +42,11 @@ export class DetailArticleComponent implements OnInit {
         let convertData:any = data;
         let convertImage = data.image.split(",");
         convertData.image = convertImage;
-        console.log(data);
         
         this.articleForm.patchValue(data);
         this.article = convertData;
+        console.log(this.article);
+
         // this.loadMap();
     });
   }
