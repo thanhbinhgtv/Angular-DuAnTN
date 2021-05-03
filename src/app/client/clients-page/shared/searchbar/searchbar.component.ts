@@ -16,6 +16,8 @@ export class SearchbarComponent implements OnInit {
   cityId: number;
   districtId: number;
   wardId: number;
+  minPrice: number;
+  maxPrice: number;
   href: string;
 
   constructor(private addressService: AddressService, private router: Router) { }
@@ -58,10 +60,22 @@ export class SearchbarComponent implements OnInit {
     console.log(this.districtId);
     console.log(this.wardId);
     if(this.typeRoom === 1){
-      this.href = `rent-room?type=${this.typeRoom}&city=${this.cityId}&district=${this.districtId}&ward=${this.wardId}`;
+      this.href = `rent-room?type=${this.typeRoom}&city=${this.cityId}&district=${this.districtId}&ward=${this.wardId}&minPrice=${this.minPrice}&maxPrice=${this.maxPrice}`;
     }else{
-      this.href = `room-mates?type=${this.typeRoom}&city=${this.cityId}&district=${this.districtId}&ward=${this.wardId}`;
+      this.href = `room-mates?type=${this.typeRoom}&city=${this.cityId}&district=${this.districtId}&ward=${this.wardId}&minPrice=${this.minPrice}&maxPrice=${this.maxPrice}`;
     }
+  }
+
+  getMinPrice(minPrice: number){
+    this.minPrice = minPrice;
+    console.log(this.minPrice);
+    
+  }
+
+  getMaxPrice(maxPrice: number){
+    this.maxPrice = maxPrice;
+    console.log(this.maxPrice);
+    
   }
   
 }

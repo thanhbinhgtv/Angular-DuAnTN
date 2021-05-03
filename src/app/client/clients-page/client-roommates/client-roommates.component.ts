@@ -45,7 +45,7 @@ export class ClientRoommatesComponent implements OnInit {
     this.articleService.getAllArticleNoLogin4(this.page, this.cityId, this.districtId,this.wardId).subscribe((data) =>{
       this.article = data;
       
-      this.numberPage = data[0].pages;
+      this.numberPage = data[0]?.pages;
       this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }

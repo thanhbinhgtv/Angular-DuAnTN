@@ -18,12 +18,16 @@ export class ClientRentRoomComponent implements OnInit {
   cityId: number
   districtId: number;
   wardId: number;
+  minPrice: number;
+  maxPrice: number;
 
   constructor(private articleService: ArticleService, private customerService: CustomerService, private toastr: ToastrService, private activateRoute: ActivatedRoute) { 
     this.activateRoute.queryParams.subscribe(params => {
       this.cityId = params['city'];
       this.districtId = params['district'];
       this.wardId = params['ward'];
+      this.minPrice = params['minPrice'];
+      this.maxPrice = params['maxPrice'];
     });
   }
 
@@ -41,11 +45,17 @@ export class ClientRentRoomComponent implements OnInit {
     if(this.wardId?.toString() === "undefined"){
       this.wardId = null;
     }
+    if(this.minPrice?.toString() === "undefined"){
+      this.minPrice = null;
+    }
+    if(this.maxPrice?.toString() === "undefined"){
+      this.maxPrice = null;
+    }
     
-    this.articleService.getAllArticleNoLogin3(this.page, this.cityId, this.districtId,this.wardId).subscribe((data) =>{
+    this.articleService.getAllArticleNoLogin3(this.page, this.cityId, this.districtId,this.wardId, this.maxPrice, this.maxPrice).subscribe((data) =>{
       this.article = data;
       
-      this.numberPage = data[0].pages;
+      this.numberPage = data[0]?.pages;
       this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
