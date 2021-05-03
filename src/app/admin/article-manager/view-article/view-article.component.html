@@ -8,24 +8,8 @@
 
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
-                            <div id="demo-2">
-                                <input class="search" type="search" placeholder="Tìm kiếm" style="border: 1px solid #e6e6e6;">
-                            </div>
-                        </div>
-                        
-                        <div class="dropdown mr-1">
-                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Lọc theo ngày
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=all&amp;package=vip50">
-                                    Ngày tăng dần</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=all&amp;package=vip30">
-                                    Ngày giảm dần</a>
+                            <div id="demo-2" >
+                                <input class="search" type="search" placeholder="Tìm kiếm bài đăng" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
                         <div class="dropdown mr-1">
@@ -35,18 +19,16 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=publish&amp;package=all">Tin
-                                    chưa duyệt</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=expired&amp;package=all">Tin
-                                    đã duyệt</a>
+                                <button class="dropdown-item" (click)="getAllArticle('')">Tất cả</button>
+                                <button class="dropdown-item" (click)="getAllArticle('uncheck')">Chưa duyệt</button>
+                                <button class="dropdown-item" (click)="getAllArticle('active')">Đang đăng</button>
+                                <button class="dropdown-item" (click)="getAllArticle('hidden')">Đã ẩn</button>
+                                <button class="dropdown-item" (click)="getAllArticle('expired')">Hết hạn</button>
+                                <button class="dropdown-item" (click)="getAllArticle('suggest-fix')">Yêu cầu sửa lại</button>
                             </div>
                         </div>
-                        <!-- <button class="btn btn-success btn-sm d-none d-md-block"
-                            href="https://phongtro123.com/quan-ly/dang-tin-moi.html" [disabled]="true">Đăng tin mới</button>
-                        <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
-                                href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a></div> -->
+                        <!-- BUTTON THÊM NHÂN VIÊN -->
+                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="/admin/article">Tìm kiếm</a>
                     </div>
                 </div>
 
@@ -69,7 +51,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let article of article">
+                                <tr *ngFor="let article of article | paginate: { itemsPerPage: 10, currentPage: page }">
                                     <td [ngStyle]="{'text-align': 'center'}">#{{article.articleId}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}" routerLink="detail-article/{{article.articleId}}">
                                         <div class="post_thumb"><img src={{article?.image}}></div>
@@ -102,7 +84,7 @@
                             </tbody>
                         </table>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination">
+                            <!-- <ul class="pagination">
                               <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
                                   <span aria-hidden="true">&laquo;</span>
@@ -118,7 +100,8 @@
                                   <span class="sr-only">Next</span>
                                 </a>
                               </li>
-                            </ul>
+                            </ul> -->
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
                           </nav>
                     </div>
                 </div>

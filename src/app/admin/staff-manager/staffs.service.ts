@@ -12,8 +12,8 @@ export class StaffsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllStaffs(page: number): Observable<Array<StaffResponseModel>> {
-    return this.http.get<Array<StaffResponseModel>>(`http://localhost:8080/super-admin/staffs?page=${page}&&limit=5`);
+  getAllStaffs(page: number, block: string): Observable<Array<StaffResponseModel>> {
+    return this.http.get<Array<StaffResponseModel>>(`http://localhost:8080/super-admin/staffs?page=${page}&&limit=10&&block=${block?block:''}`);
   }
 
   getStaffsById(id: number): Observable<StaffResponseModel> {

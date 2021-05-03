@@ -19,9 +19,9 @@
                                 Lọc theo trạng thái
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button class="dropdown-item" (click)="getAllStaff()">Tất cả</button>
-                                <button class="dropdown-item" (click)="getAllActiveOrBlockStaff(false)">Hoạt động</button>
-                                <button class="dropdown-item" (click)="getAllActiveOrBlockStaff(true)">Đã khóa</button>
+                                <button class="dropdown-item" (click)="getAllStaff('')">Tất cả</button>
+                                <button class="dropdown-item" (click)="getAllStaff('false')">Hoạt động</button>
+                                <button class="dropdown-item" (click)="getAllStaff('true')">Đã khóa</button>
                             </div>
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->
@@ -72,9 +72,9 @@
                                             data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a routerLink="update-staff/{{staff.staffId}}" class="edit" title="Edit"
                                             data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i
+                                        <!-- <a routerLink="../staff" class="delete" title="Delete" data-toggle="tooltip"><i
                                                 class="material-icons"
-                                                (click)="deleteStaff(staff.staffId)">&#xE872;</i></a>
+                                                (click)="deleteStaff(staff.staffId)">&#xE872;</i></a> -->
                                     </td>
                                 </tr>
                             </tbody>
@@ -82,7 +82,7 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                               <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
+                                <a class="page-link" aria-label="Previous">
                                   <span aria-hidden="true">&laquo;</span>
                                   <span class="sr-only">Previous</span>
                                 </a>
@@ -91,7 +91,7 @@
                                   <a class="page-link" routerLink="/admin/staff" (click)="onPage(item)">{{item+1}}</a>
                               </li>
                               <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
+                                <a class="page-link" aria-label="Next">
                                   <span aria-hidden="true">&raquo;</span>
                                   <span class="sr-only">Next</span>
                                 </a>

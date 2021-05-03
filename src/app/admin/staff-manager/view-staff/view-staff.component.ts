@@ -17,39 +17,42 @@ export class ViewStaffComponent implements OnInit {
   page = 0;
   arrayPage = new Array();
   numberPage: number;
+  block: string = '';
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
-    this.getAllStaff();
+    this.getAllStaff(this.block);
   }
 
-  getAllStaff(){
+  getAllStaff(block: string){
+    this.block = block;
     this.status = 0;
-    this.staffService.getAllStaffs(this.page).subscribe(data =>{
+    this.staffService.getAllStaffs(this.page, this.block).subscribe(data =>{
       this.staffs = data;
       this.staffsFilter = this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
       || staff.email.toLowerCase().includes(this.value));
 
-      this.numberPage = data[0].pages;
+      this.numberPage = data[0]?.pages;
       this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 
-  getAllActiveOrBlockStaff(deleted: boolean){
-      this.status = deleted ? 2 : 1;
-      const filterData = this.staffs.filter(staff => staff.deleted === deleted && (staff.name.toLowerCase().includes(this.value) 
-                        || staff.email.toLowerCase().includes(this.value)));
-      this.staffsFilter = filterData;
-  }
+  // getAllActiveOrBlockStaff(deleted: boolean){
+  //     this.status = deleted ? 2 : 1;
+  //     const filterData = this.staffs.filter(staff => staff.deleted === deleted && (staff.name.toLowerCase().includes(this.value) 
+  //                       || staff.email.toLowerCase().includes(this.value)));
+  //     this.staffsFilter = filterData;
+  // }
 
+  // Đã comment (Back and Front)
   deleteStaff(id: number){
     this.staffService.deleteStaff(id).subscribe(() =>{
       this.toastr.success('Xóa thành công')
       this.deleteSuccess = true;
       if(this.deleteSuccess){
-        this.getAllStaff();
+        this.getAllStaff(this.block);
       }
     }, () => {
       this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
@@ -58,7 +61,7 @@ export class ViewStaffComponent implements OnInit {
 
   onPage(page: number){
      this.page = page;
-     this.getAllStaff();
+     this.getAllStaff(this.block);
   }
 
   onChange(event: any){

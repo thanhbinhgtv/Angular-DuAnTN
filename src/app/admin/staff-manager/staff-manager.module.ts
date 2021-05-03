@@ -9,6 +9,7 @@ import { DetailStaffComponent } from './detail-staff/detail-staff.component';
 import { UpdateStaffComponent } from './update-staff/update-staff.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     StaffManagerRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ]
 })
 export class StaffManagerModule { }

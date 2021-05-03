@@ -5,6 +5,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CKEditorModule,
     NgbModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [
     Ckeditor5Component,

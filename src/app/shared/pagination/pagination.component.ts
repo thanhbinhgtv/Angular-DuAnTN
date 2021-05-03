@@ -10,7 +10,7 @@ import { ArticleManagerService } from '../../admin/article-manager/article-manag
 export class PaginationComponent implements OnInit {
   articles: Array<ArticleResponseModel> = [];
   page: number = 0;
-
+  status : string = '';
   // key: string = 'name'; //set default
   // reverse: boolean = false;
 
@@ -26,7 +26,7 @@ export class PaginationComponent implements OnInit {
   }
 
   getAllArticle(){
-    this.articleService.getAllArticle(this.page).subscribe((data) =>{
+    this.articleService.getAllArticle(this.page, this.status).subscribe((data) =>{
       this.articles = data;
       console.log(data);
     });
