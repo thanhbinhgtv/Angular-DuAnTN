@@ -6,6 +6,17 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-7">
                     <div class="p-5">
+
+                        <div class="user-info-image">
+                            <label for="file-input">
+                                <img class="user-info-image" *ngIf="staffModel?.image == null || staffModel?.image == ''" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
+                                <img class="user-info-image" *ngIf="staffModel?.image" src="{{staffModel?.image}}">
+                                <span class="user-info-image" [ngStyle]="{'margin-left': '15px'}">Chọn ảnh cho nhân viên</span>
+                            </label>
+                            <input id="file-input" type="file" (change)="getFiles($event)">
+                            <button class="btn btn-primary" (click)="uploadImage()" *ngIf="selectedFile != null">Update</button>
+                        </div> 
+
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">THÊM NHÂN VIÊN MỚI!</h1>
                         </div>
@@ -54,20 +65,16 @@
                             </div>
 
                             <label>Vai Trò</label>
-                            <div class="form-group">
-                                <div class="form-control form-control-user">
-                                    <select name="subject" [formControlName]="'role'" [ngModel]="1">
-                                        <option [disabled]="true" [value]="1">Lựa Chọn</option>
-                                        <option [value]="false">Admin</option>
-                                        <option [value]="true">Super Admin</option>
-                                    </select>
-                                    <div class="select-dropdown"></div>
-                                </div>
-                            </div>
 
                             <div class="form-group">
-                                <label> Ảnh </label>
-                                <input type="file" [formControlName]="'image'" (change)="getFiles($event)" class="form-control form-control-user" id="image" placeholder="">
+                                <div class="select">
+                                    <select name="slct" id="slct" [formControlName]="'role'">
+                                        <option disabled="disabled" [value]="1">Lựa Chọn</option>
+                                        <option [value]='true'>Super Admin</option>
+                                        <option [value]="false">Admin</option>
+                                    </select>
+                                    <!-- <div class="select-dropdown"></div> -->
+                                </div>
                             </div>
 
                             <div class="form-group row">
