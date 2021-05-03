@@ -19,6 +19,7 @@ export class DetailArticleComponent implements OnInit {
 
   latitude: number = 21.028511;
   longitude: number = 105.804817;
+  isLoading: boolean = false;
   
   constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute,
      private router: Router, private toastr: ToastrService, private httpClient: HttpClient) {
@@ -52,19 +53,25 @@ export class DetailArticleComponent implements OnInit {
   }
 
   active(){
+    this.isLoading = true;
     this.ArticleService.getActive(this.articleId).subscribe((data) => {
+      this.isLoading = false;
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/article']);
     }, (error) => {
+      this.isLoading = false;
       this.toastr.error(error.error.mess);
     });
   }
 
   hidden(){
+    this.isLoading = true;
     this.ArticleService.getHidden(this.articleId).subscribe((data) => {
+      this.isLoading = false;
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/article']);
     }, (error) => {
+      this.isLoading = false;
       this.toastr.error(error.error.mess);
     });
   }

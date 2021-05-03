@@ -96,8 +96,8 @@
                                         style="height: 250px;
                                         overflow: auto;
                                         border: 1px solid #CCCCCC;
-                                        margin: 1em 0;" disabled>
-                                        {{article?.description}}
+                                        margin: 1em 0;" disabled [innerHTML]="article?.description">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -283,8 +283,8 @@
                                 <div class="col-md-12">
 
                                     <a class="form-control" name="youtube_url" id="youtube_url"
-                                        href="https://www.youtube.com/watch?v=BdPk9ipvczM" target="_blank">
-                                        Video chi tiết phòng trọ (ấn để xem)
+                                        href="{{article?.video}}" target="_blank">
+                                        Link video chi tiết phòng trọ (ấn để xem)
                                     </a>
 
                                     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/BdPk9ipvczM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
@@ -292,7 +292,7 @@
                             </div>
                             <hr>
                             <!-- NGƯỜI Ở GHÉP -->
-                            <div *ngIf="article?.roommate?.roommateId == null" class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 19px;" >
+                            <div *ngIf="article?.roommate?.roommateId !== null" class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 19px;" >
                                 <div class="form-group row mt-5">
                                     <div class="col-md-12">
                                         <h3 style="font-size: 1.75rem; color: #111111;">Bạn cùng phòng</h3>
@@ -302,11 +302,15 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="province_id" class="col-form-label">Giới tính</label>
-                                            <label id="province_id" name="province_id"
-                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible"
-                                                required="" data-msg-required="Chưa chọn Tỉnh/TP" tabindex="-1"
+                                            <label id="province_id" name="province_id" *ngIf="article?.roommate?.gender == true"
+                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible" tabindex="-1"
                                                 aria-hidden="true">
-                                                {{article?.roommate?.gender}}
+                                                Nam giới
+                                            </label>
+                                            <label id="province_id" name="province_id" *ngIf="article?.roommate?.gender == false"
+                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible" tabindex="-1"
+                                                aria-hidden="true">
+                                                Nữ giới
                                             </label>
                                         </div>
                                     </div>
@@ -333,17 +337,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr />
+                                <br>
                             </div>
                             <br>
-                            <hr>
                             <div class="form-group row">
                                 <button type="button" class="btn btn-success" (click)="active()">Duyệt bài</button>
                                 <button type="button" class="btn btn-secondary" (click)="hidden()">Ẩn bài</button>
+                            <div class="loader" *ngIf="isLoading"></div>
                             </div>
                         </div>
                     </div>
-
                 </form>
             </div>
 
@@ -360,11 +363,14 @@
                                 </tr>
                                 <tr>
                                     <td>Loại tin:</td>
-                                    <td class="js-package-title">Tin thường</td>
+                                    <td class="js-package-title" *ngIf="article?.vip == false">Tin thường</td>
+                                    <td class="js-package-title" *ngIf="article?.vip == true">Tin Vip</td>
                                 </tr>
                                 <tr>
                                     <td>Gói thời gian:</td>
-                                    <td class="js-time-type">Đăng theo ngày</td>
+                                    <td class="js-time-type" *ngIf="article?.type == 'day'">Đăng theo ngày</td>
+                                    <td class="js-time-type" *ngIf="article?.type == 'week'">Đăng theo tuần</td>
+                                    <td class="js-time-type" *ngIf="article?.type == 'month'">Đăng theo tháng</td>
                                 </tr>
                                 <tr>
                                     <td>Đơn giá:</td>
@@ -380,12 +386,12 @@
                                 </tr>
                                 <tr>
                                     <td>Ngày hết hạn</td>
-                                    <td class="js-package-deadline">0:59, 5/4/2021</td>
+                                    <td class="js-package-deadline">{{article?.expDate | date:'dd/MM/yyyy'}}</td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle;">Thành tiền:</td>
                                     <td><span style="font-size: 30px; font-weight: bold; color: #F90;"
-                                            class="js-package-grand-total">10.000đ</span></td>
+                                            class="js-package-grand-total">{{article?.amount}}đ</span></td>
                                 </tr>
                             </tbody>
                         </table>
