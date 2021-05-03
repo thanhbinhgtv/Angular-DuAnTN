@@ -342,36 +342,31 @@
                                 <br>
                             </div>
                             <br>
-                            <div class="form-group row">
-                                <button type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'"
+                            <div class="form-group row" >
+                                <button style="margin-left: 12px;" type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'"
                                     (click)="active()">Duyệt bài</button>
-                                <button type="button" class="btn btn-info"
+                                <button style="margin-left: 12px;" type="button" class="btn btn-info"
                                     *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'"
                                     (click)="suggestFix()">Yêu cầu sửa bài</button>
-                                <button type="button" class="btn btn-secondary" *ngIf="article?.status == 'Đang đăng'"
+                                <button style="margin-left: 12px;" type="button" class="btn btn-secondary" *ngIf="article?.status == 'Đang đăng'"
                                     (click)="hidden()">Ẩn bài</button>
                                 <div class="loader" *ngIf="isLoading"></div>
                             </div>
 
                             <!-- reply to hide posts -  phản hồi ẩn bài viết -->
-                            <div class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 19px;">
+                            <div class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 23px;
+                            margin-right: 88px;">
 
-                                <div class="form-group row mt-5">
-                                    <button style="background: #990000; margin-top: -35px; margin-left: 529px;"
-                                        type="button" class="btn btn-info"
-                                        *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'"
-                                        (click)="suggestFix()">Gửi phản hồi</button>
-
-                                    <div class="col-md-12">
-                                        <h3 style="color: #111111;">Nội dung gửi phản hồi đến người dùng</h3>
+                                <!-- <div class="form-group row mt-5"> -->
+                                    <div style="    margin-top: 18px;" class="col-md-12">
+                                        <h3 style="color: #111111; margin-left: 99px; ">Nội dung gửi Eamil phản hồi đến người dùng</h3>
                                     </div>
-                                </div>
-
+                                <!-- </div> -->
                                 <div class="row mt-3">
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <label class="col-form-label" for="district_id">Mô tả cho người dùng</label>
-                                            <textarea style="height: 103px;" name="district_id" id="district_id"
+                                            <textarea style="height: 103px; width: 547px;" name="district_id" id="district_id"
                                                 class="form-control js-select-quanhuyen select2-hidden-accessible"
                                                 aria-hidden="true">
                                                 {{article?.roommate?.description}}
@@ -379,6 +374,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <button style="background: #990000; margin-top: -6px;
+                                margin-bottom: 15px; margin-left: 437px;"
+                                type="button" class="btn btn-info">Gửi phản hồi</button>
                                 <br>
                             </div>
                         </div>
