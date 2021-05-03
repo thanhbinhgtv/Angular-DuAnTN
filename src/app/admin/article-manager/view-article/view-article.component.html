@@ -9,26 +9,26 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2" >
-                                <input class="search" type="search" placeholder="Tìm kiếm bài đăng" style="border: 1px solid #e6e6e6;">
+                                <input class="search" [formControl]="searchForm" type="search" placeholder="Tìm kiếm bài đăng" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
                         <div class="dropdown mr-1">
-                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
+                            <!-- <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 Lọc theo trạng thái
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button class="dropdown-item" (click)="getAllArticle('')">Tất cả</button>
-                                <button class="dropdown-item" (click)="getAllArticle('uncheck')">Chưa duyệt</button>
-                                <button class="dropdown-item" (click)="getAllArticle('active')">Đang đăng</button>
-                                <button class="dropdown-item" (click)="getAllArticle('hidden')">Đã ẩn</button>
-                                <button class="dropdown-item" (click)="getAllArticle('expired')">Hết hạn</button>
-                                <button class="dropdown-item" (click)="getAllArticle('suggest-fix')">Yêu cầu sửa lại</button>
-                            </div>
+                            </button> -->
+                            <select [formControl]="statusForm">
+                                <option value=''>Tất cả</option>
+                                <option value='uncheck'>Chưa duyệt</option>
+                                <option value='active'>Đang đăng</option>
+                                <option value='hidden'>Đã ẩn</option>
+                                <option value='expired'>Hết hạn</option>
+                                <option value='suggest-fix'>Yêu cầu sửa lại</option>
+                            </select>
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->
-                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="/admin/article">Tìm kiếm</a>
+                        <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()" routerLink="/admin/article">Tìm kiếm</button>
                     </div>
                 </div>
 
@@ -84,6 +84,7 @@
                             </tbody>
                         </table>
                         <nav aria-label="Page navigation example">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
                             <!-- <ul class="pagination">
                               <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -101,7 +102,6 @@
                                 </a>
                               </li>
                             </ul> -->
-                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
                           </nav>
                     </div>
                 </div>

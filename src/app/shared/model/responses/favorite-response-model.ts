@@ -5,7 +5,7 @@ export interface FavoriteResponseModel{
     id: string,
     image: string,
     pages: string,
-    price: string,
+    price: number,
     status: string,
     timeUpdate: string,
     title: string,

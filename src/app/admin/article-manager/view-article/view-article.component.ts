@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleManagerService } from '../article-manager.service';
 import { ArticleResponseModel } from '../../../shared/model/responses/article-response-model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-view-article',
@@ -11,28 +12,26 @@ import { ArticleResponseModel } from '../../../shared/model/responses/article-re
 export class ViewArticleComponent implements OnInit {
   article: Array<ArticleResponseModel> = [];
   page = 0;
-  // arrayPage = new Array();
-  // numberPage: number;
   status: string = '';
-
+  search: string = '';
+  searchForm = new FormControl('');
+  statusForm = new FormControl('');
   constructor(private articleService: ArticleManagerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.getAllArticle(this.status);
+    this.getAllArticle();
   }
 
-  getAllArticle(status: string){
-    this.status = status;
-
-    this.articleService.getAllArticle(this.status).subscribe((data) =>{
+  getAllArticle(){
+    this.articleService.getAllArticle(this.status, this.search).subscribe((data) =>{
       this.article = data;
-      // this.numberPage = data[0]?.pages;
-      // this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 
-//   onPage(page: number){
-//     this.page = page;
-//     // this.getAllArticle(this.status);
-//  }
+  Search(){
+    this.status = this.statusForm.value;
+    this.search = this.searchForm.value;
+    this.getAllArticle();
+  }
+
 }

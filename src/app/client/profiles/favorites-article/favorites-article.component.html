@@ -99,7 +99,7 @@
                                         </td>
                                         <!-- Price -->
                                         <td [ngStyle]="{'text-align': 'center'}" *ngIf="article.articleId !== 'Bài đăng đã bị ẩn'">
-                                            <div class="post_price">{{article.price}} triệu/tháng</div>
+                                            <div class="post_price">{{((article.price)/1000000).toFixed(1)}} triệu/tháng</div>
                                         </td>
                                         <td [ngStyle]="{'text-align': 'center'}" *ngIf="article.articleId === 'Bài đăng đã bị ẩn'">
                                             <div class="post_price">Bài đăng đã bị ẩn</div>

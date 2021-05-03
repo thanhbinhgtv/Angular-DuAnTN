@@ -10,8 +10,9 @@ export class ArticleManagerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllArticle(status: string): Observable<Array<ArticleResponseModel>> {
-    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/admin/article?page=0&&limit=1000&&status=${status?status:''}`);
+  getAllArticle(status: string, search: string): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>
+    (`http://localhost:8080/admin/article?page=0&&limit=2000&&status=${status?status:''}&&search=${search?search:''}`);
   }
 
   getArticleById(id: number): Observable<ArticleResponseModel> {
