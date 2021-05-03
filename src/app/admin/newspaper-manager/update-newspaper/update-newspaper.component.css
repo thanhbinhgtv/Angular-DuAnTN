@@ -52,3 +52,24 @@
     border-radius: 5px;
     border: 1px solid rgb(11, 102, 207);
   }
+  /*  */
+.user-info-image{
+  width: 165px;
+  height: 212px;
+  margin-top: -223px;
+  position: relative;
+   /* top: -165px;  */
+  left: -118px;
+  top: 240px;
+  border-radius: 10px;
+}
+
+.user-info-image>input{
+  display: none;
+}
+
+.user-info-image button{
+  position: relative;
+  bottom: 160px;
+  left: 30px;
+}

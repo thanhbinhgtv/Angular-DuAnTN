@@ -479,4 +479,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
   } */
- 
+ /*  */
+.search{
+  height: 36px;
+  width: 230px;
+    margin-right: 8px;
+   border-radius: 31px;
+}

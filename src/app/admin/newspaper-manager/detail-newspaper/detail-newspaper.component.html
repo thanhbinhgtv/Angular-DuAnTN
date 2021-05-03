@@ -29,28 +29,38 @@
                             <div class="form-group">
                               <label class="col-md-2 col-sm-3 col-xs-12 control-label">Mã bài viết</label> 
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                  <input type="text" [formControlName]="'newId'" class="form-control">
+                                <label type="text" class="form-control">
+                                      {{news?.newId}}
+                                </label>
                               </div>
                           </div>
                             <!-- Tác giả -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Tác giả</label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" [formControlName]="'author'" class="form-control">
+                                    <label type="text" class="form-control">
+                                        {{news?.author}}
+                                  </label>
                                 </div>
                             </div>
                             <!-- Tiêu đề -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Tiêu đề</label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" [formControlName]="'title'" class="form-control">
+                                    <label type="text" class="form-control">
+                                        {{news?.title}}
+                                  </label>
                                 </div>
                             </div>
                             <!-- Nội dung -->
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nội dung</label> 
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <div type="text" [innerHTML]="news?.content" class="form-control"></div>
+                                    <div  style="height: 250px;
+                                    overflow: auto;
+                                    border: 1px solid #CCCCCC;
+                                    margin: 1em 0;" disabled
+                                     type="text" [innerHTML]="news?.content" class="form-control"></div>
                                 </div>
                             </div>
                         </fieldset>

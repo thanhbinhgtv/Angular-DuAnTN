@@ -6,6 +6,15 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-7">
                     <div class="p-5">
+                        <div class="user-info-image">
+                            <label for="file-input">
+                                <img class="user-info-image" *ngIf="newpaperModel?.image == null || newpaperModel?.image == ''" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png">
+                                <img class="user-info-image" *ngIf="newpaperModel?.image" src="{{newpaperModel?.image}}">
+                                <span class="user-info-image" [ngStyle]="{'margin-left': '15px'}">Chọn lại ảnh bài viết</span>
+                            </label>
+                            <input id="file-input" type="file" (change)="getFiles($event)">
+                            <button class="btn btn-primary" (click)="uploadImage()" *ngIf="selectedFile != null">Update</button>
+                        </div>  
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">CẬP NHẬT BÀI VIẾT</h1>
                         </div>
@@ -30,10 +39,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label> Ảnh </label>
                                 <input type="file"  (change)="getFiles($event)" class="form-control form-control-user" id="image" placeholder="">
-                            </div>
+                            </div> -->
 
                             <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="newsPaperForm.invalid">
                                 Cập nhật

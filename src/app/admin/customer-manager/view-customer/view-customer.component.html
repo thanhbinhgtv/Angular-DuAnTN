@@ -9,7 +9,7 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2">
-                                <input type="search" placeholder="Tìm kiếm" (keyup)="onChange($event)" style="border: 1px solid #e6e6e6;">
+                                <input  class="search" type="search" placeholder="Tìm kiếm" (keyup)="onChange($event)" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
 
@@ -37,9 +37,6 @@
                                     <th [ngStyle]="{'text-align': 'center'}">Họ tên</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Email</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Số dư TK</th>
-                                    <!-- <th [ngStyle]="{'text-align': 'center'}">CMND</th> -->
-                                    <th [ngStyle]="{'text-align': 'center'}">Địa chỉ</th>
-                                    <!-- <th [ngStyle]="{'text-align': 'center'}">Ngày sinh</th> -->
                                     <th [ngStyle]="{'text-align': 'center'}">SĐT</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Giới tính</th>
                                     <th [ngStyle]="{'text-align': 'center'}">Trạng thái</th>
@@ -54,9 +51,6 @@
                                     <td [ngStyle]="{'text-align': 'center'}">{{customer?.name}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{customer?.email}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{customer?.accountBalance}}</td>
-                                    <!-- <td [ngStyle]="{'text-align': 'center'}">{{customer?.cardId}}</td> -->
-                                    <td [ngStyle]="{'text-align': 'center'}">{{customer?.address}}</td>
-                                    <!-- <td [ngStyle]="{'text-align': 'center'}">{{customer?.birthday | date:'dd/MM/yyyy'}}</td> -->
                                     <td [ngStyle]="{'text-align': 'center'}">{{customer?.phone}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="customer?.gender == true">Nam</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="customer?.gender == false">Nữ</td>
