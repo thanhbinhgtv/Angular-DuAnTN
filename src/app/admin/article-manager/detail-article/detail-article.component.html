@@ -92,12 +92,11 @@
                             <div class="form-group row">
                                 <label for="post_content" class="col-md-12 col-form-label">Nội dung mô tả</label>
                                 <div class="col-md-12">
-                                    <div class="form-control" name="noi_dung" id="post_content"
-                                        style="height: 250px;
+                                    <div class="form-control" name="noi_dung" id="post_content" style="height: 250px;
                                         overflow: auto;
                                         border: 1px solid #CCCCCC;
                                         margin: 1em 0;" disabled [innerHTML]="article?.description">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -292,7 +291,8 @@
                             </div>
                             <hr>
                             <!-- NGƯỜI Ở GHÉP -->
-                            <div *ngIf="article?.roommate?.roommateId !== null" class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 19px;" >
+                            <div *ngIf="article?.roommate?.roommateId !== null" class="nguoiOghep"
+                                style="border: 2px double #C0C0C0; padding-left: 19px;">
                                 <div class="form-group row mt-5">
                                     <div class="col-md-12">
                                         <h3 style="font-size: 1.75rem; color: #111111;">Bạn cùng phòng</h3>
@@ -302,14 +302,16 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="province_id" class="col-form-label">Giới tính</label>
-                                            <label id="province_id" name="province_id" *ngIf="article?.roommate?.gender == true"
-                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible" tabindex="-1"
-                                                aria-hidden="true">
+                                            <label id="province_id" name="province_id"
+                                                *ngIf="article?.roommate?.gender == true"
+                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible"
+                                                tabindex="-1" aria-hidden="true">
                                                 Nam giới
                                             </label>
-                                            <label id="province_id" name="province_id" *ngIf="article?.roommate?.gender == false"
-                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible" tabindex="-1"
-                                                aria-hidden="true">
+                                            <label id="province_id" name="province_id"
+                                                *ngIf="article?.roommate?.gender == false"
+                                                class="form-control js-select-tinhthanhpho select2-hidden-accessible"
+                                                tabindex="-1" aria-hidden="true">
                                                 Nữ giới
                                             </label>
                                         </div>
@@ -341,10 +343,43 @@
                             </div>
                             <br>
                             <div class="form-group row">
-                                <button type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'" (click)="active()">Duyệt bài</button>
-                                <button type="button" class="btn btn-info" *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'" (click)="suggestFix()">Yêu cầu sửa bài</button>
-                                <button type="button" class="btn btn-secondary" *ngIf="article?.status == 'Đang đăng'" (click)="hidden()">Ẩn bài</button>
-                            <div class="loader" *ngIf="isLoading"></div>
+                                <button type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'"
+                                    (click)="active()">Duyệt bài</button>
+                                <button type="button" class="btn btn-info"
+                                    *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'"
+                                    (click)="suggestFix()">Yêu cầu sửa bài</button>
+                                <button type="button" class="btn btn-secondary" *ngIf="article?.status == 'Đang đăng'"
+                                    (click)="hidden()">Ẩn bài</button>
+                                <div class="loader" *ngIf="isLoading"></div>
+                            </div>
+
+                            <!-- reply to hide posts -  phản hồi ẩn bài viết -->
+                            <div class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 19px;">
+
+                                <div class="form-group row mt-5">
+                                    <button style="background: #990000; margin-top: -35px; margin-left: 529px;"
+                                        type="button" class="btn btn-info"
+                                        *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'"
+                                        (click)="suggestFix()">Gửi phản hồi</button>
+
+                                    <div class="col-md-12">
+                                        <h3 style="color: #111111;">Nội dung gửi phản hồi đến người dùng</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            <label class="col-form-label" for="district_id">Mô tả cho người dùng</label>
+                                            <textarea style="height: 103px;" name="district_id" id="district_id"
+                                                class="form-control js-select-quanhuyen select2-hidden-accessible"
+                                                aria-hidden="true">
+                                                {{article?.roommate?.description}}
+                                             </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -396,36 +431,6 @@
                 </div>
             </div>
 
-
-            <!-- <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Người ở ghép</h5>
-                        <table class="table ">
-                            <tbody>
-                                <tr>
-                                    <td>Bạn đang có:</td>
-                                    <td>0đ</td>
-                                </tr>
-                                <tr>
-                                    <td>Loại tin:</td>
-                                    <td class="js-package-title">Tin thường</td>
-                                </tr>
-                                <tr>
-                                    <td>Gói thời gian:</td>
-                                    <td class="js-time-type">Đăng theo ngày</td>
-                                </tr>
-   
-                                <tr>
-                                    <td style="vertical-align: middle;">Thành tiền:</td>
-                                    <td><span style="font-size: 30px; font-weight: bold; color: #F90;"
-                                            class="js-package-grand-total">10.000đ</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </main>
 </div>
