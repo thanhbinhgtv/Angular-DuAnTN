@@ -82,7 +82,7 @@
                                             <span style="display: block; color: #999; margin-top: 10px;">Cập nhật gần nhất: {{article.lastUpdateTime | date:'dd/MM/yyyy - HH:mm'}}</span>
                                         </td>
                                         <td>
-                                            <div class="post_price">{{article.roomPrice}} triệu/tháng</div>
+                                            <div class="post_price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</div>
                                         </td>
                                         <td>{{article.createTime | date:'dd/MM/yyyy - HH:mm'}}</td>
                                         <td>{{article.expDate | date:'dd/MM/yyyy - HH:mm'}}</td>

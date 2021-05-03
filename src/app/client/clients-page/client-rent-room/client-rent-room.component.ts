@@ -13,8 +13,6 @@ import { CustomerService } from '../../service/customer.service';
 export class ClientRentRoomComponent implements OnInit {
   article: Array<ArticleResponseModel> = [];
   page = 0;
-  arrayPage = new Array();
-  numberPage: number;
   cityId: number
   districtId: number;
   wardId: number;
@@ -52,11 +50,9 @@ export class ClientRentRoomComponent implements OnInit {
       this.maxPrice = null;
     }
     
-    this.articleService.getAllArticleNoLogin3(this.page, this.cityId, this.districtId,this.wardId, this.maxPrice, this.maxPrice).subscribe((data) =>{
+    this.articleService.getAllArticleNoLogin3(this.cityId, this.districtId,this.wardId, this.maxPrice, this.maxPrice).subscribe((data) =>{
       this.article = data;
       
-      this.numberPage = data[0]?.pages;
-      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 
@@ -71,11 +67,6 @@ export class ClientRentRoomComponent implements OnInit {
       }
       this.toastr.info(data.mess);
     });
-  }
-
-  onPage(page: number) {
-    this.page = page;
-    this.getAllArticleNoLogin();
   }
 
 }

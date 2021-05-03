@@ -13,8 +13,6 @@ export class ClientHomeComponent implements OnInit {
   articleVip: Array<ArticleResponseModel> = [];
   articleNoVip: Array<ArticleResponseModel> = [];
   page = 0;
-  arrayPage = new Array();
-  numberPage: number;
 
   constructor(private articleService: ArticleService, private customerService: CustomerService, private toastr: ToastrService) { }
 
@@ -46,15 +44,7 @@ export class ClientHomeComponent implements OnInit {
     this.articleService.getAllArticleNoLogin2(this.page).subscribe((data) =>{
       this.articleNoVip = data;
       // console.log(Math.round(3145000/100000)/10.0);
-      
-      this.numberPage = data[0].pages;
-      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
-  }
-
-  onPage(page: number) {
-    this.page = page;
-    this.getAllArticleNoLogin2();
   }
 
 }

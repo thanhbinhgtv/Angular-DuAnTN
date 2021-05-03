@@ -72,6 +72,8 @@ export class DetailArticleComponent implements OnInit {
   getListComment(){
     this.articleService.getAllComment(this.articleId, 0).subscribe((data) => {
         this.comments = data;
+        console.log(data);
+        
     })
   }
 

@@ -17,6 +17,7 @@ import { ClientTutorialComponent } from './client-tutorial/client-tutorial.compo
 import { DetailNewpaperComponent } from './detail-newpaper/detail-newpaper.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0",
     }),
+    NgxPaginationModule
   ]
 })
 export class ClientPageModule { }

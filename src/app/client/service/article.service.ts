@@ -23,17 +23,17 @@ export class ArticleService {
   }
   //No login in Home, Aside (Vip and noVip)
   getAllArticleNoLogin2(page: number): Observable<Array<ArticleResponseModel>> {
-    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=20`);
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=2000`);
   }
   // Rent Room
-  getAllArticleNoLogin3(page: number, city: number, district: number, ward: number, minPrice: number, maxPrice: number): Observable<Array<ArticleResponseModel>> {
+  getAllArticleNoLogin3(city: number, district: number, ward: number, minPrice: number, maxPrice: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>
-    (`http://localhost:8080/article?page=${page}&&limit=10&&roommate=false&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}&&minPrice=${minPrice?minPrice:''}&&maxPrice=${maxPrice?maxPrice:''}`);
+    (`http://localhost:8080/article?page=0&&limit=2000&&roommate=false&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}&&minPrice=${minPrice?minPrice:''}&&maxPrice=${maxPrice?maxPrice:''}`);
   }
   // RoomMate
-  getAllArticleNoLogin4(page: number, city: number, district: number, ward: number, minPrice: number, maxPrice: number): Observable<Array<ArticleResponseModel>> {
+  getAllArticleNoLogin4(city: number, district: number, ward: number, minPrice: number, maxPrice: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>
-    (`http://localhost:8080/article?page=${page}&&limit=10&&roommate=true&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}&&minPrice=${minPrice?minPrice:''}&&maxPrice=${maxPrice?maxPrice:''}`);
+    (`http://localhost:8080/article?page=0&&limit=2000&&roommate=true&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}&&minPrice=${minPrice?minPrice:''}&&maxPrice=${maxPrice?maxPrice:''}`);
   }
 
   getArticleByIdNoLogin(id: number): Observable<ArticleResponseModel> {
@@ -45,7 +45,7 @@ export class ArticleService {
   }
 
   getAllComment( articleId: number,page: number): Observable<CommentResponseModel> {
-    return this.httpClient.get<CommentResponseModel>(`http://localhost:8080/comment/list?article-id=15&page=${page}&limit=10`);
+    return this.httpClient.get<CommentResponseModel>(`http://localhost:8080/comment/list?article-id=${articleId}&page=${page}&limit=10`);
   }
 
   postComment(postComment: CommentRequestModel): Observable<any>{

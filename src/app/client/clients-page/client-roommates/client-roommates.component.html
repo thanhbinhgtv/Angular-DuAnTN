@@ -41,7 +41,7 @@
                                 video</a></div>
                                 <ul class="post-listing clearfix">
                                     <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
-                                        post-id="585160" *ngFor="let article of article">
+                                        post-id="585160" *ngFor="let article of article | paginate: { itemsPerPage: 14, currentPage: page }">
                                         <figure><a routerLink="/detail-article/{{article.articleId}}">
                                             <img class="lazy_done"
                                                     src="{{article.image}}"
@@ -73,24 +73,9 @@
                                 </ul>
 
                         <!-- Pagination -->
-                        <!-- Pagination -->
                         <ul class="pagination">
-                            <li class="page-item">
-                              <a class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                            </li>
-                            <li class="page-item" *ngFor="let item of arrayPage">
-                                <a class="page-link" routerLink="/room-mates" (click)="onPage(item)">{{item+1}}</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </li>
-                          </ul>
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </ul>
                     </section>
                 </div>
 
