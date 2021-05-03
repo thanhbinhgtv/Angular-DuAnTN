@@ -30,6 +30,7 @@ export class UpdateArticleComponent implements OnInit {
   cityName: string;
   typeArticle: number;
   articleId: number;
+  isLoading: boolean = false;
 
   latitude: number = 21.028511;
   longitude: number = 105.804817;
@@ -66,6 +67,7 @@ export class UpdateArticleComponent implements OnInit {
   }
 
   createArticle(){
+      this.isLoading = true;
       const fb = new FormData();
       for(var i=0; i<this.selectedFile.length; i++){
           fb.append('files', this.selectedFile[i]);
@@ -74,8 +76,10 @@ export class UpdateArticleComponent implements OnInit {
               console.log(data);
               this.urlFiles = data.join();
               this.uploadForm();
+              this.isLoading = false;
           }, (error) => {
               this.toastr.error(error.error.mess);
+              this.isLoading = false;
           });
   }
 
