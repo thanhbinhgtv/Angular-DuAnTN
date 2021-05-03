@@ -9,24 +9,29 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2" >
-                                <input class="search" type="search" placeholder="Tìm kiếm nhân viên" (keyup)="onChange($event)" style="border: 1px solid #e6e6e6;">
+                                <input class="search" [formControl]="searchForm" type="search" placeholder="Tìm kiếm nhân viên" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
                         <div class="dropdown mr-1">
-                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
+                            <!-- <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 Lọc theo trạng thái
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            </button> -->
+                            <select [formControl]="blockForm">
+                                <option value=''>Tất cả</option>
+                                <option value='false'>Hoạt động</option>
+                                <option value='true'>Đã khóa</option>
+                            </select>
+                            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <button class="dropdown-item" (click)="getAllStaff('')">Tất cả</button>
                                 <button class="dropdown-item" (click)="getAllStaff('false')">Hoạt động</button>
                                 <button class="dropdown-item" (click)="getAllStaff('true')">Đã khóa</button>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->
-                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="create-staff">Thêm nhân
-                            viên</a>
+                        <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
+                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="create-staff">Thêm nhân viên</a>
                     </div>
                 </div>
 
@@ -48,7 +53,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let staff of staffsFilter">
+                                <tr *ngFor="let staff of staffs | paginate: { itemsPerPage: 10, currentPage: page }">
                                     <td [ngStyle]="{'text-align': 'center'}">#{{staff.staffId}}
                                         <!-- <br>
                                         <input type="checkbox" style="border-radius: 10px;"> -->
@@ -80,7 +85,8 @@
                             </tbody>
                         </table>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                            <!-- <ul class="pagination">
                               <li class="page-item">
                                 <a class="page-link" aria-label="Previous">
                                   <span aria-hidden="true">&laquo;</span>
@@ -96,7 +102,7 @@
                                   <span class="sr-only">Next</span>
                                 </a>
                               </li>
-                            </ul>
+                            </ul> -->
                           </nav>
                     </div>
                 </div>

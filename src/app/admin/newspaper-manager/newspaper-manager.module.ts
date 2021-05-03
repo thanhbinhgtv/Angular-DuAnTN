@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DetailNewspaperComponent } from './detail-newspaper/detail-newspaper.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ReactiveFormsModule,
     SharedModule,
     CKEditorModule,
+    NgxPaginationModule
   ]
 })
 export class NewspaperManagerModule { }

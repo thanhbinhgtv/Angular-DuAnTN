@@ -16,6 +16,7 @@ export class ViewArticleComponent implements OnInit {
   search: string = '';
   searchForm = new FormControl('');
   statusForm = new FormControl('');
+  
   constructor(private articleService: ArticleManagerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {

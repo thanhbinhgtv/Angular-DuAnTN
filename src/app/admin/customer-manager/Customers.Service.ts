@@ -9,8 +9,9 @@ import { CustomerResponseModel } from '../../shared/model/responses/customer-rep
 export class CustomersService{
     constructor(private http: HttpClient) {}
 
-    getAllCustomers(page: number): Observable<Array<CustomerResponseModel>>{
-        return this.http.get<Array<CustomerResponseModel>>(`http://localhost:8080/admin/customers?page=${page}&&limit=10`);
+    getAllCustomers(deleted: string, search: string): Observable<Array<CustomerResponseModel>>{
+        return this.http.get<Array<CustomerResponseModel>>
+        (`http://localhost:8080/admin/customers?page=0&&limit=2000&&status=${deleted?deleted:''}&&search=${search?search:''}`);
     }
     
     getCustomerById(id: number): Observable<CustomerResponseModel>{

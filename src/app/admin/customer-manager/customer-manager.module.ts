@@ -7,6 +7,7 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { DetailCustomerComponent } from './detail-customer/detail-customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CustomerManagerRoutingModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class CustomerManagerModule { }

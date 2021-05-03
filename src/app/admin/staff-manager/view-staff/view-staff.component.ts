@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { StaffsService } from '../staffs.service';
 import { StaffResponseModel } from './staff-response-model';
@@ -10,33 +11,40 @@ import { StaffResponseModel } from './staff-response-model';
 })
 export class ViewStaffComponent implements OnInit {
   staffs: Array<StaffResponseModel> = [];
-  staffsFilter: Array<StaffResponseModel> = [];
-  deleteSuccess : boolean;
-  value = '';
-  status = 0;
   page = 0;
-  arrayPage = new Array();
-  numberPage: number;
   block: string = '';
+  search: string = '';
+  blockForm = new FormControl('');
+  searchForm = new FormControl('');
+  // staffsFilter: Array<StaffResponseModel> = [];
+  // deleteSuccess : boolean;
+  // value = '';
+  // arrayPage = new Array();
+  // numberPage: number;
 
   constructor(private staffService: StaffsService, private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
-    this.getAllStaff(this.block);
+    this.getAllStaff();
   }
 
-  getAllStaff(block: string){
-    this.block = block;
-    this.status = 0;
-    this.staffService.getAllStaffs(this.page, this.block).subscribe(data =>{
+  getAllStaff(){
+    this.staffService.getAllStaffs(this.block, this.search).subscribe(data =>{
       this.staffs = data;
-      this.staffsFilter = this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
-      || staff.email.toLowerCase().includes(this.value));
 
-      this.numberPage = data[0]?.pages;
-      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
+      // this.staffsFilter = this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
+      // || staff.email.toLowerCase().includes(this.value));
+
+      // this.numberPage = data[0]?.pages;
+      // this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
+  }
+
+  Search(){
+    this.block = this.blockForm.value;
+    this.search = this.searchForm.value;
+    this.getAllStaff();
   }
 
   // getAllActiveOrBlockStaff(deleted: boolean){
@@ -47,31 +55,31 @@ export class ViewStaffComponent implements OnInit {
   // }
 
   // Đã comment (Back and Front)
-  deleteStaff(id: number){
-    this.staffService.deleteStaff(id).subscribe(() =>{
-      this.toastr.success('Xóa thành công')
-      this.deleteSuccess = true;
-      if(this.deleteSuccess){
-        this.getAllStaff(this.block);
-      }
-    }, () => {
-      this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
-  });
-  }
+  // deleteStaff(id: number){
+  //   this.staffService.deleteStaff(id).subscribe(() =>{
+  //     this.toastr.success('Xóa thành công')
+  //     this.deleteSuccess = true;
+  //     if(this.deleteSuccess){
+  //       this.getAllStaff(this.block);
+  //     }
+  //   }, () => {
+  //     this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
+  // });
+  // }
 
-  onPage(page: number){
-     this.page = page;
-     this.getAllStaff(this.block);
-  }
+  // onPage(page: number){
+  //    this.page = page;
+  //    this.getAllStaff(this.block);
+  // }
 
-  onChange(event: any){
-    console.log(event);
-    this.value = event.target.value.toLowerCase();
+  // onChange(event: any){
+  //   console.log(event);
+  //   this.value = event.target.value.toLowerCase();
     
-    this.staffsFilter = this.status === 0 ? this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
-                || staff.email.toLowerCase().includes(this.value)) 
-                : this.staffs.filter(staff => (staff.name.toLowerCase().includes(this.value) 
-                || staff.email.toLowerCase().includes(this.value)) && this.status === 1 ? !staff.deleted : staff.deleted);
-  }
+  //   this.staffsFilter = this.status === 0 ? this.staffs.filter(staff => staff.name.toLowerCase().includes(this.value) 
+  //               || staff.email.toLowerCase().includes(this.value)) 
+  //               : this.staffs.filter(staff => (staff.name.toLowerCase().includes(this.value) 
+  //               || staff.email.toLowerCase().includes(this.value)) && this.status === 1 ? !staff.deleted : staff.deleted);
+  // }
 
 }

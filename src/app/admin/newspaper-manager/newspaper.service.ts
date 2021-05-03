@@ -11,8 +11,12 @@ export class NewspaperService {
 
   constructor(private http: HttpClient) { }
 
-  getAllNewsPaper(page: number): Observable<Array<NewsPaperResponseModel>> {
-    return this.http.get<Array<NewsPaperResponseModel>>(`http://localhost:8080/admin/new?page=${page}&&limit=10`);
+  getAllNewsPaper(hidden: string, search: string): Observable<Array<NewsPaperResponseModel>> {
+    console.log(hidden);
+    console.log(search);
+    
+    return this.http.get<Array<NewsPaperResponseModel>>
+    (`http://localhost:8080/admin/new?page=0&&limit=2000&&hidden=${hidden?hidden:''}&&search=${search?search:''}`);
   }
 
   getNewpaperById(id: number): Observable<NewsPaperResponseModel> {

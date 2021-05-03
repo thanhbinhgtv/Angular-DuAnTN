@@ -9,37 +9,18 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2">
-                                <input class="search" type="search" placeholder="Tìm kiếm" style="border: 1px solid #e6e6e6;">
+                                <input class="search" [formControl]="searchForm" type="search" placeholder="Tìm kiếm tin tức" style="border: 1px solid #e6e6e6;">
                             </div>
                         </div>
+                        <div class="dropdown mr-1">
+                            <select [formControl]="hiddenForm">
+                                <option value=''>Tất cả</option>
+                                <option value='false'>Tin đang hiện</option>
+                                <option value='true'>Tin đã ẩn</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
                         
-                        <div class="dropdown mr-1">
-                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Lọc theo ngày
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=all&amp;package=vip50">
-                                    Ngày tăng dần</a>
-                                <a class="dropdown-item"
-                                    href="https://phongtro123.com/quan-ly/tin-dang.html?status=all&amp;package=vip30">
-                                    Ngày giảm dần</a>
-                            </div>
-                        </div>
-                        <div class="dropdown mr-1">
-                            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Lọc theo trạng thái
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button class="dropdown-item" (click)="getAllNewsPaper()">Tất cả</button>
-                                <button class="dropdown-item" (click)="getAllActiveOrHiddenNewsPaper(false)">Tin đang hiện</button>
-                                <button class="dropdown-item" (click)="getAllActiveOrHiddenNewsPaper(true)">Tin đã ẩn</button>
-                            </div>
-                        </div>
                         <a class="btn btn-success btn-sm d-none d-md-block"
                             routerLink="create-newspaper">Đăng tin mới</a>
                         <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
@@ -62,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="texttr" *ngFor="let new of news">
+                                <tr class="texttr" *ngFor="let new of news | paginate: { itemsPerPage: 10, currentPage: page }">
                                     <td [ngStyle]="{'text-align': 'center'}">#{{new.newId}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">
                                         <div class="post_thumb">
@@ -86,32 +67,14 @@
                                     <td [ngStyle]="{'text-align': 'center'}">
                                         <a routerLink="detail-newspaper/{{new.newId}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a routerLink="update-newspaper/{{new.newId}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a routerLink="." class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteNewpaper(new.newId)">&#xE872;</i></a>
+                                        <!-- <a routerLink="." class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="deleteNewpaper(new.newId)">&#xE872;</i></a> -->
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                  <span aria-hidden="true">&laquo;</span>
-                                  <span class="sr-only">Previous</span>
-                                </a>
-                              </li>
-                              <li class="page-item" *ngFor="let item of arrayPage">
-                                  <a class="page-link" routerLink="/admin/newspaper" (click)="onPage(item)">{{item+1}}</a>
-                                  <!-- <a class="page-link" *ngIf="item <= 2 || item >= news[0].pages-1 " routerLink="/admin/newspaper" (click)="onPage(item)">{{item+1}}</a>
-                                  <a class="page-link" *ngIf="item > 2 && item < news[0].pages-1 " routerLink="/admin/newspaper" (click)="onPage(item)">**</a> -->
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                  <span aria-hidden="true">&raquo;</span>
-                                  <span class="sr-only">Next</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </nav>
                     </div>
                 </div>
             </main>

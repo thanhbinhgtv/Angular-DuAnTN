@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NewspaperService } from '../newspaper.service';
 import { NewsPaperResponseModel } from '../../../shared/model/responses/newspaper-response-model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-view-newspaper',
@@ -10,10 +11,12 @@ import { NewsPaperResponseModel } from '../../../shared/model/responses/newspape
 })
 export class ViewNewspaperComponent implements OnInit {
   news: Array<NewsPaperResponseModel> = [];
-  deleteSuccess : boolean;
+  // deleteSuccess : boolean;
   page = 0;
-  arrayPage = new Array();
-  numberPage: number;
+  hidden: string = '';
+  search: string = '';
+  searchForm = new FormControl('');
+  hiddenForm = new FormControl('');
 
   constructor(private newspaperService: NewspaperService, private toastr: ToastrService) { }
 
@@ -23,36 +26,27 @@ export class ViewNewspaperComponent implements OnInit {
   }
 
   getAllNewsPaper(){
-    this.newspaperService.getAllNewsPaper(this.page).subscribe(data =>{
+    this.newspaperService.getAllNewsPaper(this.hidden, this.search).subscribe(data =>{
       this.news = data;
-
-      this.numberPage = data[0].pages;
-      this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });
   }
 
-  getAllActiveOrHiddenNewsPaper(deleted: boolean){
-    this.newspaperService.getAllNewsPaper(this.page).subscribe(data =>{
-      const filterData = data.filter(data => data.deleted == deleted);
-      this.news = filterData;
-    });
-  }
-
-  deleteNewpaper(id: number){
-    this.newspaperService.deleteNewspaper(id).subscribe(() =>{
-        this.toastr.success('Xóa thành công')
-        this.deleteSuccess = true;
-        if(this.deleteSuccess){
-          this.getAllNewsPaper();
-        }
-      }, () => {
-        this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
-    });
-  }
-
-  onPage(page: number){
-    this.page = page;
+  Search(){
+    this.hidden = this.hiddenForm.value;
+    this.search = this.searchForm.value;
     this.getAllNewsPaper();
- }
+  }
+
+  // deleteNewpaper(id: number){
+  //   this.newspaperService.deleteNewspaper(id).subscribe(() =>{
+  //       this.toastr.success('Xóa thành công')
+  //       this.deleteSuccess = true;
+  //       if(this.deleteSuccess){
+  //         this.getAllNewsPaper();
+  //       }
+  //     }, () => {
+  //       this.toastr.error('Xóa thất bại! Vui lòng kiểm tra lại');
+  //   });
+  // }
 
 }
