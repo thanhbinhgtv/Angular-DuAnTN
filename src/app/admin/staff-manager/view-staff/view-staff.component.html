@@ -18,7 +18,8 @@
                                 aria-expanded="false">
                                 Lọc theo trạng thái
                             </button> -->
-                            <select [formControl]="blockForm">
+                            <select style="height: 36px; width: 93px;  border: 1px solid #AAAAAA; border-radius: 13px;" 
+                                [formControl]="blockForm">
                                 <option value=''>Tất cả</option>
                                 <option value='false'>Hoạt động</option>
                                 <option value='true'>Đã khóa</option>
@@ -31,7 +32,7 @@
                         </div>
                         <!-- BUTTON THÊM NHÂN VIÊN -->
                         <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
-                        <a class="btn btn-success btn-sm d-none d-md-block" routerLink="create-staff">Thêm nhân viên</a>
+                        <a style="margin-left: 8px;" class="btn btn-success btn-sm d-none d-md-block" routerLink="create-staff">Thêm nhân viên</a>
                     </div>
                 </div>
 

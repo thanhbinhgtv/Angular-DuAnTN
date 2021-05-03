@@ -13,7 +13,8 @@
                             </div>
                         </div>
                         <div class="dropdown mr-1">
-                            <select [formControl]="hiddenForm">
+                            <select [formControl]="hiddenForm"
+                            style="height: 36px; width: 93px;  border: 1px solid #AAAAAA; border-radius: 13px;">
                                 <option value=''>Tất cả</option>
                                 <option value='false'>Tin đang hiện</option>
                                 <option value='true'>Tin đã ẩn</option>
@@ -21,9 +22,9 @@
                         </div>
                         <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
                         
-                        <a class="btn btn-success btn-sm d-none d-md-block"
+                        <a style="margin-left: 8px;" class="btn btn-success btn-sm d-none d-md-block"
                             routerLink="create-newspaper">Đăng tin mới</a>
-                        <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
+                            <div class="d-lg-none" style="width: 100%;"><a class="btn btn-danger btn-block mt-3"
                                 href="https://phongtro123.com/quan-ly/dang-tin-moi.html">Đăng tin mới</a></div>
                     </div>
                 </div>
