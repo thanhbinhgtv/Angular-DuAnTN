@@ -52,15 +52,13 @@
                                             <h4 class="post-title2"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
                                              {{article.title}}</a>
                                              <span class="star star-5" *ngIf="article.vip == true"></span></h4>
-                                            <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time
+                                            <div class="meta-row clearfix"><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</span><time
                                                     class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
                                             <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
                                                     class="post-location">
                                                     <a title="{{article.title}}">{{article.address}}</a></span></div>
                                                         <span class="post-hot"></span>
-                                            <div class="post-summary">Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
-                                                Tiện nghi của 2 phòng:- Máy lạnh- Máy nước nóng lạnh- Bếp riêng trong phòng- WC
-                                                riêng trong…</div>
+                                            <div class="post-summary">{{article.description}}</div>
                                         </div>
                                     </li>
                                 </ul>

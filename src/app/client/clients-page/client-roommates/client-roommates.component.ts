@@ -18,12 +18,16 @@ export class ClientRoommatesComponent implements OnInit {
   cityId: number
   districtId: number;
   wardId: number;
+  minPrice: number;
+  maxPrice: number;
 
   constructor(private articleService: ArticleService, private customerService: CustomerService, private toastr: ToastrService, private activateRoute: ActivatedRoute) { 
     this.activateRoute.queryParams.subscribe(params => {
       this.cityId = params['city'];
       this.districtId = params['district'];
       this.wardId = params['ward'];
+      this.minPrice = params['minPrice'];
+      this.maxPrice = params['maxPrice'];
     });
   }
 
@@ -42,7 +46,7 @@ export class ClientRoommatesComponent implements OnInit {
       this.wardId = null;
     }
     
-    this.articleService.getAllArticleNoLogin4(this.page, this.cityId, this.districtId,this.wardId).subscribe((data) =>{
+    this.articleService.getAllArticleNoLogin4(this.page, this.cityId, this.districtId,this.wardId, this.minPrice, this.maxPrice).subscribe((data) =>{
       this.article = data;
       
       this.numberPage = data[0]?.pages;

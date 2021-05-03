@@ -18,6 +18,7 @@ export interface ArticleResponseModel {
     amount: number,
     video: string,
     type: string,
+    price: number,
     service: {
       serviceId: number,
       waterPrice: number,

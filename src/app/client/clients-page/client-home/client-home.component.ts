@@ -45,7 +45,8 @@ export class ClientHomeComponent implements OnInit {
   getAllArticleNoLogin2(){
     this.articleService.getAllArticleNoLogin2(this.page).subscribe((data) =>{
       this.articleNoVip = data;
-
+      // console.log(Math.round(3145000/100000)/10.0);
+      
       this.numberPage = data[0].pages;
       this.arrayPage = Array(this.numberPage).fill(0).map((x,i)=>i);
     });

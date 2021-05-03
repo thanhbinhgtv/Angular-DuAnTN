@@ -21,6 +21,7 @@ export class UpdateNewspaperComponent implements OnInit {
   accountId: number;
   selectedFile: File[] = null;
   urlFiles : "";
+  srcImg: string;
   
   constructor( private newspaperService: NewspaperService, private firebaseService: FirebaseService, private authService: AuthService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
     this.newPaperId = this.activateRoute.snapshot.params.id;
@@ -77,6 +78,9 @@ export class UpdateNewspaperComponent implements OnInit {
   getStaffById(){
     this.newspaperService.getNewpaperById(this.newPaperId).subscribe((data) => {
         this.newsPaperForm.patchValue(data);
+        this.srcImg = data.image;
+        console.log(this.srcImg);
+        
     })
   }
 

@@ -356,7 +356,6 @@
                             <!-- reply to hide posts -  phản hồi ẩn bài viết -->
                             <div class="nguoiOghep" style="border: 2px double #C0C0C0; padding-left: 23px;
                             margin-right: 88px;">
-
                                 <!-- <div class="form-group row mt-5"> -->
                                     <div style="    margin-top: 18px;" class="col-md-12">
                                         <h3 style="color: #111111; margin-left: 99px; ">Nội dung gửi Eamil phản hồi đến người dùng</h3>
@@ -404,15 +403,15 @@
                                 </tr>
                                 <tr>
                                     <td>Đơn giá:</td>
-                                    <td class="js-package-price">2.000/ngày</td>
+                                    <td class="js-package-price">{{article?.price}}/ngày</td>
                                 </tr>
-                                <tr class="js-use-label hidden">
+                                <!-- <tr class="js-use-label hidden">
                                     <td>Gắn nhãn:</td>
                                     <td>2.000 đ/ngày</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
-                                    <td>Số ngày:</td>
-                                    <td class="js-package-days">5</td>
+                                    <td>Ngày Tạo:</td>
+                                    <td class="js-package-days">{{article?.createTime | date:'dd/MM/yyyy'}}</td>
                                 </tr>
                                 <tr>
                                     <td>Ngày hết hạn</td>

@@ -46,7 +46,7 @@
                                 <h4 class="post-title">
                                     <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>
                                     <span class="star star-5" *ngIf="article.vip == true"></span>
-                                    </h4><span class="post-price">{{article.roomPrice}}
+                                    </h4><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}}
                                     triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span>
                                     <span class="post-location">
                                         <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.address}}</a>
@@ -84,7 +84,7 @@
                                     <h4 class="post-title2"><a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">
                                      {{article.title}}</a>
                                      <span class="star star-5" *ngIf="article.vip == true"></span></h4>
-                                    <div class="meta-row clearfix"><span class="post-price">3.3 triệu/tháng</span><time
+                                    <div class="meta-row clearfix"><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</span><time
                                             class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
                                     <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
                                             class="post-location">
