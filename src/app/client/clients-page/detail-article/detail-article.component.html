@@ -49,7 +49,7 @@
                             <div class="post-price">
                                 <span class="post-price-item" style="color: #16c784;">
                                     <span>Giá cho thuê: </span>
-                                    <strong>{{article?.roomPrice | currency:'VN': true}} triệu/tháng</strong>
+                                    <strong>{{article?.roomPrice | currency:'VN': true}}</strong>
                                 </span>
                                 <span class="post-price-item">
                                     <span>Diện tích: </span>{{article?.acreage}}m<sup>2</sup>
@@ -116,7 +116,7 @@
                             <div class="section-header">
                                 <div class="section-title">Tìm người ở ghép</div>
                             </div>
-                            <div class="section-content">
+                            <div class="section-content" *ngIf="article?.roommate != null">
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -167,11 +167,11 @@
                             </div>
                             
                             <div class="section-content">
-                                <!-- <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
+                                <agm-map [zoom]="13" [latitude]="latitude" [longitude]="longitude">
                                     <agm-marker [latitude]="latitude" [longitude]="longitude">
                                         <agm-info-window><strong>{{article?.location.wardName}}, {{article?.location.districtName}}, {{article?.location.cityName}}</strong></agm-info-window>
                                     </agm-marker>
-                                </agm-map> -->
+                                </agm-map>
                             </div>
                             <!-- <div class="section-content">
                                 <div id="__maps_content" style="width:100%; height:300px;" data-lat="10.791874"
@@ -271,142 +271,40 @@
                         <!-- /Comment -->
                     </article>
                     <section class="section section-post-listing">
-                        <div class="section-header"><span class="section-title">Có thể bạn quan tâm</span></div>
-                        <ul class="post-listing clearfix">
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585752">
-                                <figure><a
-                                        href="https://phongtro123.com/cho-thue-phong-tro-binh-thanh-gia-re-sach-co-noi-that-pr585752.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/image-placeholder.png"
-                                            data-src="https://phongtro123.com/img/thumb_default.jpg"
-                                            alt="Cho thuê phòng trọ Bình Thạnh giá rẻ, sạch, có nội thất" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">0
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585752"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;"
-                                            href="https://phongtro123.com/cho-thue-phong-tro-binh-thanh-gia-re-sach-co-noi-that-pr585752.html">
-                                            Cho thuê phòng trọ Bình Thạnh giá rẻ, sạch, có nội thất </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">3.5 triệu/tháng</span><time
-                                            class="post-time" title="Thứ 4, 13:55 14/04/2021">Cập nhật: 9 giờ
-                                            trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">18m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Phòng trọ Bình Thạnh, Hồ Chí Minh"> Bình Thạnh, Hồ Chí
-                                                Minh</a></span></div>
-                                    <p class="post-summary">CHO THUÊ PHÒNG TRỌ - BÌNH THẠNH-gần phạm văn đồng . ĐẠI HỌC
-                                        VĂN LANGNơ trang Long .p13 . Q.Bình ThạnhVị trí : Cực kỳ đẹp, thuận tiện di
-                                        chuyển ra…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585749">
-                                <figure><a
-                                        href="https://phongtro123.com/phong-tro-sat-truong-dai-hoc-hutech-ung-van-khiem-gia-re-pr585749.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/14/thang1_1618382593.jpg"
-                                            alt="Phòng trọ sát trường đại học Hutech ,ung văn khiêm giá rẻ" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">3
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585749"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;"
-                                            href="https://phongtro123.com/phong-tro-sat-truong-dai-hoc-hutech-ung-van-khiem-gia-re-pr585749.html">
-                                            Phòng trọ sát trường đại học Hutech ,ung văn khiêm giá rẻ </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">4.5 triệu/tháng</span><time
-                                            class="post-time" title="Thứ 4, 13:44 14/04/2021">Cập nhật: 9 giờ
-                                            trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">35m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Phòng trọ Bình Thạnh, Hồ Chí Minh"> Bình Thạnh, Hồ Chí
-                                                Minh</a></span></div>
-                                    <p class="post-summary">Phòng cho thuê- Giá phòng: từ 4 - 4.5 triệu- Diện tích: từ
-                                        30 - 35m2 ( 100% phòng đều có cửa sổ thông thoángĐịa chỉ: 31/17 ung văn khiêm,
-                                        P25, Bình…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585748">
-                                <figure><a
-                                        href="https://phongtro123.com/phong-tro-cao-cap-dep-dang-thuy-tram-binh-thanh-pr585748.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/14/img-20210412-081631_1618382416.jpg"
-                                            alt="Phòng Trọ Cao Cấp Đẹp Đặng Thuỳ Trâm Bình Thạnh" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">3
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585748"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;"
-                                            href="https://phongtro123.com/phong-tro-cao-cap-dep-dang-thuy-tram-binh-thanh-pr585748.html">
-                                            Phòng Trọ Cao Cấp Đẹp Đặng Thuỳ Trâm Bình Thạnh </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">4 triệu/tháng</span><time
-                                            class="post-time" title="Thứ 4, 14:17 14/04/2021">Cập nhật: 9 giờ
-                                            trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">18m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Phòng trọ Bình Thạnh, Hồ Chí Minh"> Bình Thạnh, Hồ Chí
-                                                Minh</a></span></div>
-                                    <p class="post-summary">CHO THUÊ PHÒNG TRỌ - BÌNH THẠNH- ĐI BỘ QUA ĐẠI HỌC VĂN LANG
-                                        196/ Đặng Thuỳ Trâm, F.13, Q.Bình Thạnh Vị trí : Cực kỳ đẹp, thuận tiện di
-                                        chuyển ra…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585746">
-                                <figure><a
-                                        href="https://phongtro123.com/phong-full-noi-that-dep-ngay-177-ngo-tat-to-binh-thanh-pr585746.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/14/z2427719923360-4b2a72203279e68216ab4621887dbc3a_1618381909.jpg"
-                                            alt="Phòng full nội thất đẹp ngay 177 Ngô Tất Tố, Bình Thạnh" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">7
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585746"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;"
-                                            href="https://phongtro123.com/phong-full-noi-that-dep-ngay-177-ngo-tat-to-binh-thanh-pr585746.html">
-                                            Phòng full nội thất đẹp ngay 177 Ngô Tất Tố, Bình Thạnh </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">4.7 triệu/tháng</span><time
-                                            class="post-time" title="Thứ 4, 13:32 14/04/2021">Cập nhật: 9 giờ
-                                            trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">26m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Phòng trọ Bình Thạnh, Hồ Chí Minh"> Bình Thạnh, Hồ Chí
-                                                Minh</a></span></div>
-                                    <p class="post-summary">Phòng studio đầy đủ nội thất 5,5tr hiện giảm còn
-                                        4,7tr/tháng.- Khu vực chung (hành lang, cầu thang, bãi xe, sân thượng...) có
-                                        nhân viên dọn dẹp tuần 3…</p>
-                                </div>
-                            </li>
-                            <li class="post-item clearfix normal" style="border-color: #055699;" post-id="585708">
-                                <figure><a
-                                        href="https://phongtro123.com/phong-tro-o-bach-dang-binh-thanh-pr585708.html"><img
-                                            class="lazy"
-                                            src="./Cho thuê phòng trọ cao cấp số 224_17 Phan Văn Hân, phường 17, quận Bình Thạnh_files/image-placeholder.png"
-                                            data-src="https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2021/04/13/img-6878_1618323273.jpg"
-                                            alt="Phòng trọ ở mới tại đường Bạch Đằng, Bình Thạnh" height="100"
-                                            width="100" layout="responsive"></a><span class="images-number">6
-                                        ảnh</span><span class="post-save js-btn-save" data-post-id="585708"
-                                        title="Lưu tin này vào danh sách quan tâm"><i></i></span></figure>
-                                <div class="post-meta">
-                                    <h3 class="post-title"><a style="color: #055699;"
-                                            href="https://phongtro123.com/phong-tro-o-bach-dang-binh-thanh-pr585708.html">
-                                            Phòng trọ ở mới tại đường Bạch Đằng, Bình Thạnh </a></h3>
-                                    <div class="meta-row clearfix"><span class="post-price">5 triệu/tháng</span><time
-                                            class="post-time" title="Thứ 3, 21:20 13/04/2021">Cập nhật: 1 ngày
-                                            trước</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">30m²</span><span
-                                            class="post-location"><a
-                                                href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
-                                                title="Phòng trọ Bình Thạnh, Hồ Chí Minh"> Bình Thạnh, Hồ Chí
-                                                Minh</a></span></div>
-                                    <p class="post-summary">Khu vực xung quanh an ninh, hẻm rộng, xe tải nhỏ có thể vào
-                                        đượcGần trường đại học HuTech và Hồng Bàng, cách trung tâm 10' lái xe</p>
-                                </div>
-                            </li>
+                        <div class="section-header"><span class="section-title">Bài viết chọn lọc</span></div>
+                        <ul class="post-listing grid clearfix">
+                            <div class="inner" >
+                                <li class="post-item clearfix tin-vip vipnoibat" style="border-color: #E13427;"
+                                    post-id="585180" *ngFor="let article of articleVip">
+                                    <figure><a routerLink="/detail-article/{{article.articleId}}">
+                                                <img class="lazy_done" src="{{article.image}}" alt="" height="100" width="100" layout="responsive" data-loaded="true">
+                                            </a><span class="images-number">{{(article.image.split(',')).length}} ảnh</span><span class="chothuenhanh-label"></span>
+                                            <span *ngIf="article.liked === false" class="post-save js-btn-save" data-post-id="585180" title="Lưu tin" (click)="onFavorite(article)">
+                                                <i></i>{{article.countLike}}
+                                            </span>
+                                            <span *ngIf="article.liked === true" class="post-save1 js-btn-save" data-post-id="585180" title="Bỏ lưu tin" (click)="onFavorite(article)">
+                                                <i></i>{{article.countLike}}
+                                            </span>
+                                    </figure>
+                                    <div class="post-meta">
+                                        <h4 class="post-title">
+                                            <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>
+                                            <span class="star star-5" *ngIf="article.vip == true"></span>
+                                        </h4>
+                                            <span class="post-price">
+                                                {{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng
+                                            </span>
+                                            <span class="post-acreage">
+                                                {{article.acreage}}m²
+                                            </span>
+                                            <span class="post-location">
+                                                <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.location.districtName}},{{article.location.cityName}}</a>
+                                            </span>
+                                            <time class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time>
+                                            <span class="post-hot"></span>
+                                    </div>
+                                </li>
+                            </div>
                         </ul>
                     </section>
                 </div>

@@ -23,12 +23,14 @@ export class ArticleManagerService {
     return this.httpClient.get('http://localhost:8080/admin/article/active/' +id);
   }
 
-  getHidden(id: number): Observable<any> {
-    return this.httpClient.post(`http://localhost:8080/admin/article/hidden/${id}`, "Ok");
+  getHidden(id: number, mess: string): Observable<any> {
+    return this.httpClient.post(`http://localhost:8080/admin/article/hidden/${id}`, mess);
   }
 
-  postSuggestFix(id: number): Observable<any> {
-    return this.httpClient.post(`http://localhost:8080/admin/article/suggest-fix/${id}`, "Ok");
+  postSuggestFix(id: number, mess: string): Observable<any> {
+    console.log(mess);
+    
+    return this.httpClient.post(`http://localhost:8080/admin/article/suggest-fix/${id}`, mess);
   }
 
 }

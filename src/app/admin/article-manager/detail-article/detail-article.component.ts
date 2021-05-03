@@ -20,6 +20,9 @@ export class DetailArticleComponent implements OnInit {
   latitude: number = 21.028511;
   longitude: number = 105.804817;
   isLoading: boolean = false;
+  desc = new FormControl('');
+  isAnBai: boolean = false;
+  isYeuCauSua: boolean = false;
   
   constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute,
      private router: Router, private toastr: ToastrService, private httpClient: HttpClient) {
@@ -66,7 +69,7 @@ export class DetailArticleComponent implements OnInit {
 
   hidden(){
     this.isLoading = true;
-    this.ArticleService.getHidden(this.articleId).subscribe((data) => {
+    this.ArticleService.getHidden(this.articleId, this.desc.value).subscribe((data) => {
       this.isLoading = false;
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/article']);
@@ -78,7 +81,7 @@ export class DetailArticleComponent implements OnInit {
 
   suggestFix(){
     this.isLoading = true;
-    this.ArticleService.postSuggestFix(this.articleId).subscribe((data) => {
+    this.ArticleService.postSuggestFix(this.articleId, this.desc.value).subscribe((data) => {
       this.isLoading = false;
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/article']);
@@ -95,6 +98,14 @@ export class DetailArticleComponent implements OnInit {
         this.longitude = data.results[0].geometry.location.lng;
         console.log(data.results[0].geometry.location.lat);
     });
-}
+  }
+
+  issYeuCauSua(isYeuCauSua: boolean){
+    this.isYeuCauSua = !isYeuCauSua;
+  }
+
+  issAnBai(isAnbai: boolean){
+    this.isAnBai = !isAnbai;
+  }
 
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticlePostRequestModel } from 'src/app/shared/model/requests/article-post-request-model';
+import { ArticlePutRequestModel } from 'src/app/shared/model/requests/article-put-request-model';
 import { CommentRequestModel } from 'src/app/shared/model/requests/comment-request-model';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
 import { CommentResponseModel } from 'src/app/shared/model/responses/comment-response-model';
@@ -15,6 +16,10 @@ export class ArticleService {
 
   createArticle(postArticleModel: ArticlePostRequestModel): Observable<any>{
     return this.httpClient.post('http://localhost:8080/customer/article', postArticleModel);
+  }
+
+  updateArticle(id: number ,putArticleModel: ArticlePutRequestModel): Observable<any>{
+    return this.httpClient.put(`http://localhost:8080/customer/article/${id}`, putArticleModel);
   }
 
   //No login in Home, Aside (Vip)
@@ -35,7 +40,10 @@ export class ArticleService {
     return this.httpClient.get<Array<ArticleResponseModel>>
     (`http://localhost:8080/article?page=0&&limit=2000&&roommate=true&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}&&minPrice=${minPrice?minPrice:''}&&maxPrice=${maxPrice?maxPrice:''}`);
   }
-
+  // Detail Article NoLogin
+  getAllArticleNoLoginDetail(): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=0&&limit=5&&vip=true`);
+  }
   getArticleByIdNoLogin(id: number): Observable<ArticleResponseModel> {
     return this.httpClient.get<ArticleResponseModel>(`http://localhost:8080/article/${id}`);
   }

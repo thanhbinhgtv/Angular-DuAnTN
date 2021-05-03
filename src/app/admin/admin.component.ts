@@ -107,7 +107,7 @@ import { AuthService } from '../auth/service/auth.service';
                           <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/revenue">Doanh Thu</a>
                           <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/customer">Khách Hàng</a>
                           <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/article">Bài Đăng</a>
-                          <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/staff-action">Hoạt động nhân viên</a>
+                          <!-- <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/staff-action">Hoạt động nhân viên</a> -->
                           <a class="collapse-item" routerLinkActive="active" routerLink="/admin/statistical/count-request">Lượt truy cập website</a>
                           <!-- <div class="collapse-divider"></div> -->
                           <!-- <h6 class="collapse-header">Other Pages:</h6>

@@ -19,6 +19,7 @@ import { ConfirmPaymentComponent } from './paypal/confirm-payment/confirm-paymen
 import { FavoritesArticleComponent } from './favorites-article/favorites-article.component';
 import { AgmCoreModule } from '@agm/core';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ViewPaypalComponent,
     ConfirmPaymentComponent,
     FavoritesArticleComponent,
+    UpdateArticleComponent,
   ],
   imports: [
     CommonModule,

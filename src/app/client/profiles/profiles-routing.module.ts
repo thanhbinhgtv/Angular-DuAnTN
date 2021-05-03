@@ -10,6 +10,7 @@ import { ViewPaypalComponent } from './paypal/view-paypal/view-paypal.component'
 import { PriceListComponent } from './price-list/price-list.component';
 import { ProfilesComponent } from './profiles.component';
 import { RechargeHistoryComponent } from './recharge-history/recharge-history.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 const routes: Routes = [{
   path: '', component: ProfilesComponent,
@@ -37,6 +38,9 @@ const routes: Routes = [{
     },
     {
       path: 'create-article', component: CreateArticleComponent,
+    },
+    {
+      path: 'update-article/:id', component: UpdateArticleComponent,
     },
     {
       path: 'price-list', component: PriceListComponent,

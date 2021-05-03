@@ -8,6 +8,7 @@ import { ArticleResponseModel } from 'src/app/shared/model/responses/article-res
 import { CommentResponseModel } from 'src/app/shared/model/responses/comment-response-model';
 import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
 import { ArticleService } from '../../service/article.service';
+import { CustomerService } from '../../service/customer.service';
 
 @Component({
   selector: 'app-detail-article',
@@ -16,6 +17,7 @@ import { ArticleService } from '../../service/article.service';
 })
 export class DetailArticleComponent implements OnInit {
   article: ArticleResponseModel;
+  articleVip: Array<ArticleResponseModel> = [];
   comments:  CommentResponseModel;
   commentModel: CommentRequestModel;
   commentForm: FormGroup;
@@ -26,7 +28,7 @@ export class DetailArticleComponent implements OnInit {
   longitude: number = 105.804817;
 
   constructor(private articleService: ArticleService, private activateRoute: ActivatedRoute,
-     private httpClient: HttpClient, private toastr: ToastrService) { 
+     private httpClient: HttpClient, private toastr: ToastrService, private customerService: CustomerService) { 
 
     this.articleId = this.activateRoute.snapshot.params.id;
     this.commentModel = {} as CommentRequestModel;
@@ -34,6 +36,7 @@ export class DetailArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllArticleNoLogin();
+    this.getAllArticleNoLogin2();
     this.getListComment();
 
     this.commentForm = new FormGroup({
@@ -49,7 +52,26 @@ export class DetailArticleComponent implements OnInit {
         convertData.image = convertImage;
         
         this.article = convertData;
-        // this.loadMap();
+        this.loadMap();
+    });
+  }
+  // Tin Vip
+  getAllArticleNoLogin2(){
+    this.articleService.getAllArticleNoLoginDetail().subscribe((data) =>{
+      this.articleVip = data;
+    });
+  }
+
+  onFavorite(article: any){
+    this.customerService.getFavorite(article.articleId).subscribe(data => {
+      article.liked = article.liked? false:true;
+      if(article.liked == true){
+        article.countLike = article.countLike+1;
+      }
+      if(article.liked == false){
+        article.countLike = article.countLike-1;
+      }
+      this.toastr.info(data.mess);
     });
   }
 
