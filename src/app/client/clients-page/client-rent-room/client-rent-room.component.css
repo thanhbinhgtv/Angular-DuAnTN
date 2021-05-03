@@ -3488,7 +3488,7 @@ figure img:hover {
     display: block;
     width: 100%;
     overflow: hidden;
-    max-width: 250px;
+    /* max-width: 250px; */
     color: #333
 }
 
@@ -3499,7 +3499,15 @@ figure img:hover {
 .post-listing .post-item .post-summary {
     margin: 10px 0 0;
     color: grey;
-    font-size: .95rem
+    font-size: .95rem;
+
+    /* width: 300px; */
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    line-height: 20px; 
+    -webkit-line-clamp: 2; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 /* Liked = false */

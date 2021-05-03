@@ -3465,7 +3465,15 @@ figure img:hover {
     float: left;
     margin-bottom: 10px;
     margin-right: 20px;
-    color: #333
+    color: #333;
+
+    /* width: 300px; */
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    line-height: 20px; 
+    -webkit-line-clamp: 2; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .post-listing .post-item .post-price {
@@ -3481,14 +3489,12 @@ figure img:hover {
 }
 
 .post-listing .post-item .post-location a {
-    /* ssss */
     text-decoration: none;
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
     width: 100%;
     overflow: hidden;
-    max-width: 250px;
     color: #333
 }
 

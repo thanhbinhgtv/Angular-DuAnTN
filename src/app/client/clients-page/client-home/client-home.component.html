@@ -46,10 +46,15 @@
                                 <h4 class="post-title">
                                     <a style="color: #E13427;" routerLink="/detail-article/{{article.articleId}}">{{article.title}}</a>
                                     <span class="star star-5" *ngIf="article.vip == true"></span>
-                                    </h4><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}}
-                                    triệu/tháng</span><span class="post-acreage">{{article.acreage}}m²</span>
+                                </h4>
+                                    <span class="post-price">
+                                        {{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng
+                                    </span>
+                                    <span class="post-acreage">
+                                        {{article.acreage}}m²
+                                    </span>
                                     <span class="post-location">
-                                        <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.address}}</a>
+                                        <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.location.districtName}},{{article.location.cityName}}</a>
                                     </span>
                                     <time class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time>
                                     <span class="post-hot"></span>
@@ -86,11 +91,15 @@
                                      <span class="star star-5" *ngIf="article.vip == true"></span></h4>
                                     <div class="meta-row clearfix"><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</span><time
                                             class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
-                                    <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
-                                            class="post-location">
-                                            <a title="{{article.title}}">{{article.address}}</a></span></div>
+                                    <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span>
+                                        <span class="post-location">
+                                            <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.location.wardName}},{{article.location.districtName}},{{article.location.cityName}}</a>
+                                        </span>
+                                        </div>
                                                 <span class="post-hot"></span>
                                     <div class="post-summary">Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
+                                        Tiện nghi của 2 phòng:- Máy lạnh- Máy nước nóng lạnh- Bếp riêng trong phòng- WC
+                                        riêng trong…Nhà có 2 phòng: Diện tích:- Phòng 1: 20m2- Phòng 2: 25m2
                                         Tiện nghi của 2 phòng:- Máy lạnh- Máy nước nóng lạnh- Bếp riêng trong phòng- WC
                                         riêng trong…</div>
                                 </div>
@@ -224,7 +233,7 @@
         </main>
         <!-- Footer -->
         <div id="fixed_Left" class="banner_fixed" style="display: block; left: 39.5px;">
-            <a target="_blank" href="https://bds123.vn/"><img src="https://phongtro123.com/images/ad_nhom_fb.jpg"></a>
+            <a target="_blank" href="https://bds123.vn/"><img src="https://phongtro123.com/images/bds123_120_300.gif"></a>
         </div>
         <div id="fixed_Right" class="banner_fixed" style="display: block; right: 39.5px;">
             <a target="_blank"  rel="nofollow" href="http://bit.ly/nhom-phong-tro-facebook">

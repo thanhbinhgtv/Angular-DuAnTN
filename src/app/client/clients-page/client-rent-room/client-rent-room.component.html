@@ -54,9 +54,11 @@
                                              <span class="star star-5" *ngIf="article.vip == true"></span></h4>
                                             <div class="meta-row clearfix"><span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</span><time
                                                     class="post-time">Cập nhật: {{article.lastUpdateTime | date:'dd/MM/yyyy HH:mm'}}</time></div>
-                                            <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span><span
-                                                    class="post-location">
-                                                    <a title="{{article.title}}">{{article.address}}</a></span></div>
+                                            <div class="meta-row clearfix"><span class="post-acreage">{{article.acreage}}m²</span>
+                                                <span class="post-location">
+                                                    <a title="Cho thuê Phòng trọ Quận Bình Thạnh, Hồ Chí Minh">{{article.location.wardName}},{{article.location.districtName}},{{article.location.cityName}}</a>
+                                                </span>
+                                                </div>
                                                         <span class="post-hot"></span>
                                             <div class="post-summary">{{article.description}}</div>
                                         </div>
