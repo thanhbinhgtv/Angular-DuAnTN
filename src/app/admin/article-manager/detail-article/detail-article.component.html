@@ -341,8 +341,9 @@
                             </div>
                             <br>
                             <div class="form-group row">
-                                <button type="button" class="btn btn-success" (click)="active()">Duyệt bài</button>
-                                <button type="button" class="btn btn-secondary" (click)="hidden()">Ẩn bài</button>
+                                <button type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'" (click)="active()">Duyệt bài</button>
+                                <button type="button" class="btn btn-info" *ngIf="article?.status == 'Đang đăng' || article?.status == 'Chưa duyệt'" (click)="suggestFix()">Yêu cầu sửa bài</button>
+                                <button type="button" class="btn btn-secondary" *ngIf="article?.status == 'Đang đăng'" (click)="hidden()">Ẩn bài</button>
                             <div class="loader" *ngIf="isLoading"></div>
                             </div>
                         </div>
@@ -357,10 +358,6 @@
                         <h4 class="card-title">Thông tin thanh toán</h4>
                         <table class="table table-striped">
                             <tbody>
-                                <tr>
-                                    <td>Bạn đang có:</td>
-                                    <td>0đ</td>
-                                </tr>
                                 <tr>
                                     <td>Loại tin:</td>
                                     <td class="js-package-title" *ngIf="article?.vip == false">Tin thường</td>

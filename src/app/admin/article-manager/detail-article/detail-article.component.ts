@@ -76,13 +76,24 @@ export class DetailArticleComponent implements OnInit {
     });
   }
 
+  suggestFix(){
+    this.isLoading = true;
+    this.ArticleService.postSuggestFix(this.articleId).subscribe((data) => {
+      this.isLoading = false;
+      this.toastr.success(data.mess);
+      this.router.navigate(['/admin/article']);
+    }, (error) => {
+      this.isLoading = false;
+      this.toastr.error(error.error.mess);
+    });
+  }
+
   loadMap(){
     this.httpClient.get<GoogleMapApiResponse>(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.article.location.wardName}, ${this.article.location.districtName}, ${this.article.location.cityName}&key=${"AIzaSyDKZ5wTHBFxhvaU2_82x-QiFllwf0fOnB0"}`).subscribe(data => {
         console.log(data);
         this.latitude = data.results[0].geometry.location.lat;
         this.longitude = data.results[0].geometry.location.lng;
         console.log(data.results[0].geometry.location.lat);
-        
     });
 }
 

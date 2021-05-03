@@ -26,4 +26,8 @@ export class ArticleManagerService {
     return this.httpClient.post(`http://localhost:8080/admin/article/hidden/${id}`, "Ok");
   }
 
+  postSuggestFix(id: number): Observable<any> {
+    return this.httpClient.post(`http://localhost:8080/admin/article/suggest-fix/${id}`, "Ok");
+  }
+
 }
