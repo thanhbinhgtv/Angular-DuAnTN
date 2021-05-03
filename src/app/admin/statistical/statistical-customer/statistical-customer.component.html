@@ -1,19 +1,24 @@
 <div id="webpage">
     <div class="container-fluid">
         <div class="row" style="margin-left: -250px;">
-            <main role="main" class="ml-sm-auto col-lg-10" >
+            <main role="main" class="ml-sm-auto col-lg-10">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h2">Thống kê Khách Hàng</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div id="hic">
                             <div id="demo-2">
-                                <input type="search" [formControl]="year" placeholder="Tìm theo năm" style="border: 1px solid #e6e6e6;">
+                                <input type="search" [formControl]="year" placeholder="Tìm theo năm" 
+                                style=" height: 36px; border-radius: 12px; border: 1px solid #999999;">
                             </div>
                         </div>
                         <div id="hic">
                             <div id="demo-2">
-                                <input type="search" [formControl]="month" placeholder="Tìm theo tháng" style="border: 1px solid #e6e6e6;">
+                                <input type="search" [formControl]="month" placeholder="Tìm theo tháng" style=" height: 36px;
+                                margin-right: 8px;
+                                margin-left: 8px;
+                                border-radius: 12px;
+                                border: 1px solid #999999;">
                             </div>
                         </div>
                         <button class="btn btn-success btn-sm d-none d-md-block" (click)="Search()">Tìm kiếm</button>
@@ -21,7 +26,7 @@
                 </div>
 
                 <div class="d-none d-md-block">
-                    <div class="table-responsive table-striped" >
+                    <div class="table-responsive table-striped">
                         <table class="table table_post_listing table-bordered _table-hover table-striped">
                             <thead>
                                 <tr>
@@ -32,7 +37,8 @@
                             <tbody>
                                 <tr class="texttr" *ngFor="let data of customer?.data">
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.year">Năm {{data?.year}}</td>
-                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.month">Tháng {{data?.month}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.month">Tháng {{data?.month}}
+                                    </td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.date">Ngày {{data?.date}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}">{{data?.number}}</td>
                                 </tr>
