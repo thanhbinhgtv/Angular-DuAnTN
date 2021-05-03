@@ -15,6 +15,9 @@ export interface ArticleResponseModel {
     countLike: string,
     liked: boolean,
     pages: number,
+    amount: number,
+    video: string,
+    type: string,
     service: {
       serviceId: number,
       waterPrice: number,
