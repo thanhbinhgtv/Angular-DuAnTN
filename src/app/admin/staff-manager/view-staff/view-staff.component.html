@@ -64,8 +64,7 @@
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.deleted == true" [ngStyle]="{'color':'red'}">Đang khóa</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="staff.deleted == false" [ngStyle]="{'color':'green'}">Hoạt động</td>
                                     <td [ngStyle]="{'text-align': 'center'}">
-                                        <img src="{{staff.image}}" 
-                                            style="width: 80px; height: 100px; padding-top: 10px;" />
+                                        <img style="width: 80px; height: 100px; padding-top: 10px;"  src="{{staff.image}}"/>
                                     </td>
 
                                     <td [ngStyle]="{'text-align': 'center'}">
