@@ -121,12 +121,12 @@
                                     <tbody>
                                         <tr>
                                             <td class="name">Giới tính:</td>
-                                            <td *ngIf="article?.roommate.gender == true">Nam giới</td>
-                                            <td *ngIf="article?.roommate.gender == false">Nữ giới</td>
+                                            <td *ngIf="article?.roommate?.gender == true">Nam giới</td>
+                                            <td *ngIf="article?.roommate?.gender == false">Nữ giới</td>
                                         </tr>
                                         <tr>
                                             <td class="name">Số lượng:</td>
-                                            <td>{{article?.roommate.quantity}} người</td>
+                                            <td>{{article?.roommate?.quantity}} người</td>
                                         </tr>
                                         <!-- <tr>
                                             <td class="name">Nội dung:</td>
@@ -199,18 +199,18 @@
                                 <form [formGroup]="commentForm" (ngSubmit)="postComment()">
                                     <div class="form-group row">
                                         <div class="radio-label">
-                                            Điểm đánh giá bài viết này : 
+                                            Điểm đánh giá bài viết này ({{comments?.avgStar}}) : 
                                         </div>
                                         <div class="radio-star" *ngIf="comments?.avgStar < 1.5">
                                             <span class="star-1"></span> <br>
                                         </div>
-                                        <div class="radio-star" *ngIf="1.5<=comments?.avgStar && comments.avgStar < 2.5">
+                                        <div class="radio-star" *ngIf="1.5<=comments?.avgStar && comments?.avgStar < 2.5">
                                             <span class="star-1"></span><span class="star-1"></span> <br>
                                         </div>
-                                        <div class="radio-star" *ngIf="2.5<=comments?.avgStar && comments.avgStar < 3.5">
+                                        <div class="radio-star" *ngIf="2.5<=comments?.avgStar && comments?.avgStar < 3.5">
                                             <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span> <br>
                                         </div>
-                                        <div class="radio-star" *ngIf="3.5<=comments?.avgStar && comments.avgStar < 4.5">
+                                        <div class="radio-star" *ngIf="3.5<=comments?.avgStar && comments?.avgStar < 4.5">
                                             <span class="star-1"></span><span class="star-1"></span><span class="star-1"></span><span class="star-1"></span> <br>
                                         </div>
                                         <div class="radio-star" *ngIf="4.5<=comments?.avgStar">

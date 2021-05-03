@@ -25,6 +25,16 @@ export class ArticleService {
   getAllArticleNoLogin2(page: number): Observable<Array<ArticleResponseModel>> {
     return this.httpClient.get<Array<ArticleResponseModel>>(`http://localhost:8080/article?page=${page}&&limit=20`);
   }
+  // Rent Room
+  getAllArticleNoLogin3(page: number, city: number, district: number, ward: number): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>
+    (`http://localhost:8080/article?page=${page}&&limit=10&&roommate=false&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}`);
+  }
+  // RoomMate
+  getAllArticleNoLogin4(page: number, city: number, district: number, ward: number): Observable<Array<ArticleResponseModel>> {
+    return this.httpClient.get<Array<ArticleResponseModel>>
+    (`http://localhost:8080/article?page=${page}&&limit=10&&roommate=true&&city=${city?city:''}&&district=${district?district:''}&&ward=${ward?ward:''}`);
+  }
 
   getArticleByIdNoLogin(id: number): Observable<ArticleResponseModel> {
     return this.httpClient.get<ArticleResponseModel>(`http://localhost:8080/article/${id}`);

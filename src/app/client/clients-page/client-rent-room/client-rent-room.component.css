@@ -3397,8 +3397,9 @@ figure img:hover {
     right: -5px
 }
 
+/* Tin nổi bật */
 .post-listing .post-item .post-title {
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
     line-height: 1.5;
     font-weight: 700;
     display: block;
@@ -3407,10 +3408,13 @@ figure img:hover {
 }
 
 .post-listing .post-item .post-title a {
-    text-decoration: none;
-    display: block;
-    font-weight: 700;
-    text-transform: uppercase
+     width: 300px;
+    overflow: hidden; /* Ẩn đoạn text bị thừa*/
+    text-overflow: ellipsis; /*Cắt một đoạn text và thay thế bằng dấu …    */
+    line-height: 20px; 
+    -webkit-line-clamp: 2; /*2 dòng*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .post-listing .post-item .post-title a:hover {
@@ -3422,7 +3426,39 @@ figure img:hover {
 }
 
 .post-listing .post-item.vipnoibat .post-title a {
-    padding-right: 20px
+    /* padding-right: 20px */
+}
+
+/* DANH SÁCH TIN ĐĂNG */
+.post-listing .post-item .post-title2 {
+    /* font-size: 1.1rem; */
+    line-height: 1.5;
+    font-weight: 700;
+    display: block;
+    white-space: normal;
+    margin: 0 0 10px
+}
+
+.post-listing .post-item .post-title2 a {
+     /* width: 300px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.post-listing .post-item .post-title2 a:hover {
+    text-decoration: underline
+}
+
+.post-listing .post-item.normal .post-title2 a {
+    text-transform: initial
+}
+
+.post-listing .post-item.vipnoibat .post-title2 a {
+    /* padding-right: 20px */
 }
 
 .post-listing .post-item .post-acreage, .post-listing .post-item .post-location, .post-listing .post-item .post-price, .post-listing .post-item .post-summary, .post-listing .post-item .post-time {
@@ -3445,6 +3481,7 @@ figure img:hover {
 }
 
 .post-listing .post-item .post-location a {
+    /* ssss */
     text-decoration: none;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -3465,6 +3502,7 @@ figure img:hover {
     font-size: .95rem
 }
 
+/* Liked = false */
 .post-listing .post-item .post-save {
     position: absolute;
     bottom: 0;
@@ -3475,19 +3513,50 @@ figure img:hover {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    cursor: pointer
+    cursor: pointer;
+    /* color: white; */
+}
+
+/* Liked = true */
+.post-listing .post-item .post-save1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    /* color: white; */
 }
 
 .post-listing .post-item .post-save i {
     width: 20px;
     height: 20px;
-    /* background: url(../images/love.png) center no-repeat; */
+    background: url(https://www.freepnglogos.com/uploads/heart-png/file-heart-icon-hollow-5.png) center no-repeat;
     background-size: contain;
     display: inline-block
 }
 
 .post-listing .post-item .post-save.saved i, .post-listing .post-item .post-save:hover i {
-    /* background: url(../images/love-full-2.svg) center no-repeat; */
+    background: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png) center no-repeat;
+    background-size: contain
+}
+
+/* Liked = true */
+.post-listing .post-item .post-save1 i {
+    width: 20px;
+    height: 20px;
+    background: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png) center no-repeat;
+    background-size: contain;
+    display: inline-block
+}
+
+/* Liked = true */
+.post-listing .post-item .post-save1.saved i, .post-listing .post-item .post-save1:hover i {
+    background: url(https://www.freepnglogos.com/uploads/heart-png/file-heart-icon-hollow-5.png) center no-repeat;
     background-size: contain
 }
 

@@ -22,7 +22,7 @@
         <div class="section-header"><span class="section-title">Tin mới đăng</span></div>
         <ul class="post-listing aside clearfix">
             <li class="post-item clearfix tin-vip vip2" post-id="585197" *ngFor="let article of articles">
-                    <a href="https://phongtro123.com/cho-thue-phong-tro-tai-pho-le-thanh-nghi-quan-hai-ba-trung-la-khu-bach-kinh-xay-pr585197.html">
+                    <a routerLink="/detail-article/{{article.articleId}}">
                     <img class="lazy" src="{{article.image}}" alt="" height="75" width="75" layout="responsive">
                     <div class="post-meta">
                         <h4 class="post-title" style="color: #f60;">
@@ -36,7 +36,7 @@
     </section>
     <section class="section">
         <!-- <center> -->
-        <a target="_blank" href="https://atrungroi.com/xstc-xo-so-tu-chon-mega-645-vietlott.html"><img
+        <a target="_blank"><img
                 alt="Xem kết quả xổ số tự chọn Mega 6/45 Vietlott mới nhất"
                 title="Xem kết quả xổ số tự chọn Mega 6/45 Vietlott mới nhất"
                 src="https://image.thanhnien.vn/768/uploaded/thanhthuy/2020_07_25/kqxs2-4-6_jssz_rihu.jpg"></a>
@@ -59,14 +59,9 @@
     <section class="section section-sublink">
         <div class="section-header"><span class="section-title">Có thể bạn quan tâm</span></div>
         <ul>
-            <li><a href="https://phongtro123.com/news/hop-dong-thue-nha-tro-phong-tro"
-                    title="Mẫu hợp đồng cho thuê phòng trọ">Mẫu hợp đồng cho thuê phòng trọ</a></li>
-            <li><a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-thue-phong-tro-tranh-bi-lua-gat.html"
-                    title="Cẩn thận các kiểu lừa đảo khi thuê phòng trọ">Cẩn thận các kiểu lừa đảo khi
-                    thuê phòng trọ</a></li>
-            <li><a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html"
-                    title="Kinh nghiệm thuê phòng trọ cho Sinh Viên">Kinh nghiệm thuê phòng trọ Sinh
-                    Viên</a></li>
+            <li><a title="Mẫu hợp đồng cho thuê phòng trọ">Mẫu hợp đồng cho thuê phòng trọ</a></li>
+            <li><a title="Cẩn thận các kiểu lừa đảo khi thuê phòng trọ">Cẩn thận các kiểu lừa đảo khi thuê phòng trọ</a></li>
+            <li><a title="Kinh nghiệm thuê phòng trọ cho Sinh Viên">Kinh nghiệm thuê phòng trọ Sinh Viên</a></li>
         </ul>
     </section>
 </aside>
