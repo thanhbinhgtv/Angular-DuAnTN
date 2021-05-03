@@ -57,20 +57,19 @@
 
                             <label>Vai Trò</label>
                             <div class="form-group">
-                                <div class="form-control form-control-user">
-                                    <select name="subject" [formControlName]="'role'">
+                                <div class="select">
+                                    <select name="slct" id="slct" [formControlName]="'role'">
                                         <option disabled="disabled" [value]="1">Lựa Chọn</option>
                                         <option [value]='true'>Super Admin</option>
                                         <option [value]="false">Admin</option>
                                     </select>
-                                    <div class="select-dropdown"></div>
+                                    <!-- <div class="select-dropdown"></div> -->
                                 </div>
                             </div>
-
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label> Ảnh </label>
                                 <input type="file" (change)="getFiles($event)" class="form-control form-control-user" id="image" placeholder="">
-                            </div>
+                            </div> -->
 
                             <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="staffForm.invalid">
                                 Cập nhập
