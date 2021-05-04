@@ -7,6 +7,8 @@ import { NewspaperService } from '../newspaper.service';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-create-newspaper',
@@ -22,7 +24,7 @@ export class CreateNewspaperComponent implements OnInit {
   urlFiles : "";
 
   constructor(private newspaperService: NewspaperService, private firebaseService: FirebaseService,
-     private authService: AuthService, private router: Router, private toastr: ToastrService) { 
+     private authService: AuthService, private router: Router, private toastr: ToastrService,  private dialog: MatDialog) { 
     this.accountId = this.authService.getId();
     
     this.newpaperModel = {
@@ -44,6 +46,9 @@ export class CreateNewspaperComponent implements OnInit {
   }
 
   createNewsPaper(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
     const fb = new FormData();
     for(var i=0; i<this.selectedFile.length; i++){
       fb.append('files', this.selectedFile[i]);
@@ -54,6 +59,8 @@ export class CreateNewspaperComponent implements OnInit {
     }, (error) => {
       this.toastr.error(error.error.mess);
     });
+  }
+});
   }
 
   uploadForm(){

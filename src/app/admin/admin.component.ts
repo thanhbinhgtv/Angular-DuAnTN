@@ -116,8 +116,8 @@ import { AuthService } from '../auth/service/auth.service';
                       </div>
                   </div>
               </li>
-              <hr class="sidebar-divider">
-              <div class="sidebar-heading">
+              <!-- <hr class="sidebar-divider"> -->
+              <!-- <div class="sidebar-heading">
                   Tài Khoản
               </div>
               <li class="nav-item">
@@ -133,13 +133,9 @@ import { AuthService } from '../auth/service/auth.service';
                           <a class="collapse-item" routerLinkActive="active" routerLink="/auth/login" *ngIf="isLoggedIn">Đăng Xuất</a>
                           <a class="collapse-item" routerLinkActive="active" routerLink="/auth/signup">Đăng Ký</a>
                           <a class="collapse-item" routerLinkActive="active" routerLink="/auth/forgot-password">Quên Mật Khẩu</a>
-                          <!-- <div class="collapse-divider"></div> -->
-                          <!-- <h6 class="collapse-header">Other Pages:</h6>
-                          <a class="collapse-item" href="404.html">404 Page</a>
-                          <a class="collapse-item" href="blank.html">Blank Page</a> -->
                       </div>
                   </div>
-              </li>
+              </li> -->
               <!-- Nav Item - Charts -->
               <!-- <li class="nav-item">
                   <a class="nav-link" href="charts.html">

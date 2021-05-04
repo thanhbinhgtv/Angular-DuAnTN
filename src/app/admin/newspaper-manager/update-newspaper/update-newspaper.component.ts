@@ -7,6 +7,8 @@ import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { NewsPaperPostRequestModel } from '../create-newspaper/newspaper-post-request';
 import { NewspaperService } from '../newspaper.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-update-newspaper',
@@ -23,7 +25,8 @@ export class UpdateNewspaperComponent implements OnInit {
   urlFiles : "";
   srcImg: string;
   
-  constructor( private newspaperService: NewspaperService, private firebaseService: FirebaseService, private authService: AuthService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
+  constructor( private newspaperService: NewspaperService, private firebaseService: FirebaseService, private authService: AuthService,
+     private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService, private dialog: MatDialog) { 
     this.newPaperId = this.activateRoute.snapshot.params.id;
     this.accountId = this.authService.getId();
     
@@ -48,6 +51,9 @@ export class UpdateNewspaperComponent implements OnInit {
   }
 
   updateNewsPaper(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
       const fb = new FormData();
       for(var i=0; i<this.selectedFile.length; i++){
           fb.append('files', this.selectedFile[i]);
@@ -59,6 +65,8 @@ export class UpdateNewspaperComponent implements OnInit {
       }, (error) => {
           this.toastr.error(error.error.mess);
       });
+    }
+  });
   }
 
   uploadForm(){

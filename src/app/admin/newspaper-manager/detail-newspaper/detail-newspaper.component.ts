@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NewspaperService } from '../newspaper.service';
 import { NewsPaperResponseModel } from '../../../shared/model/responses/newspaper-response-model';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-detail-newspaper',
@@ -15,7 +17,8 @@ export class DetailNewspaperComponent implements OnInit {
   newPaperId: number
   news : NewsPaperResponseModel;
 
-  constructor( private newspaperService: NewspaperService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
+  constructor( private newspaperService: NewspaperService, private activateRoute: ActivatedRoute, private router: Router,
+     private toastr: ToastrService, private dialog: MatDialog) { 
     this.newPaperId = this.activateRoute.snapshot.params.id;
   }
 
@@ -39,6 +42,9 @@ export class DetailNewspaperComponent implements OnInit {
   }
 
   activeNews(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
     this.newspaperService.getActiveNewsPaper(this.newPaperId).subscribe((data) => {
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/newspaper']);
@@ -46,13 +52,20 @@ export class DetailNewspaperComponent implements OnInit {
         this.toastr.error(error.error.mess);
     });
   }
+});
+  }
 
   hiddenNews(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
     this.newspaperService.getHiddenNewsPaper(this.newPaperId).subscribe((data) => {
       this.toastr.success(data.mess);
       this.router.navigate(['/admin/newspaper']);
     }, error =>{
         this.toastr.error(error.error.mess);
     });
+  }
+});
   }
 }
