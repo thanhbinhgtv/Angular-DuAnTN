@@ -50,7 +50,7 @@ export class ClientRentRoomComponent implements OnInit {
       this.maxPrice = null;
     }
     
-    this.articleService.getAllArticleNoLogin3(this.cityId, this.districtId,this.wardId, this.maxPrice, this.maxPrice).subscribe((data) =>{
+    this.articleService.getAllArticleNoLogin3(this.cityId, this.districtId,this.wardId, this.minPrice, this.maxPrice).subscribe((data) =>{
       this.article = data;
       
     });

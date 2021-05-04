@@ -343,7 +343,7 @@
                             </div>
                             <br>
                             <div class="form-group row" >
-                                <button style="margin-left: 12px;" type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt'"
+                                <button style="margin-left: 12px;" type="button" class="btn btn-success" *ngIf="article?.status == 'Chưa duyệt' || article?.status == 'Chưa duyệt '"
                                     (click)="active()">Duyệt bài</button>
                                 
                                     <button style="margin-left: 12px;" type="button" class="btn btn-info"
