@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { StaffsService } from '../staffs.service';
 import { StaffRequestModel } from './staff-request-model';
@@ -20,7 +22,8 @@ export class CreateStaffComponent implements OnInit {
   selectedFile: File[] = null;
   urlFiles : "";
 
-  constructor(private staffService: StaffsService, private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService) { 
+  constructor(private staffService: StaffsService, private firebaseService: FirebaseService, private router: Router,
+     private toastr: ToastrService, private dialog: MatDialog) { 
     this.staffModel = {
       address: '',
       birthday: 0,
@@ -53,6 +56,9 @@ export class CreateStaffComponent implements OnInit {
   }
 
   createStaff(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
     const fb = new FormData();
     for(var i=0; i<this.selectedFile.length; i++){
         fb.append('files', this.selectedFile[i]);
@@ -68,7 +74,9 @@ export class CreateStaffComponent implements OnInit {
         }, (error) => {
             this.toastr.error(error.error.mess);
         });
+      }
     }
+  });
   }
 
   uploadForm(){

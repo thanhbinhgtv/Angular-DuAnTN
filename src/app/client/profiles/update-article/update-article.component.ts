@@ -9,6 +9,8 @@ import { AddressService } from '../../service/address.service';
 import { ArticleService } from '../../service/article.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ArticlePutRequestModel, roommate } from 'src/app/shared/model/requests/article-put-request-model';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-create-article',
@@ -36,7 +38,8 @@ export class UpdateArticleComponent implements OnInit {
   longitude: number = 105.804817;
 
   constructor(private articleService: ArticleService, private httpClient: HttpClient, private addressService: AddressService,
-     private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService, private activateRoute: ActivatedRoute) { 
+     private firebaseService: FirebaseService, private router: Router, private toastr: ToastrService,
+      private activateRoute: ActivatedRoute,  private dialog: MatDialog) { 
       this.articleId = this.activateRoute.snapshot.params.id;
       this.articleModel = {} as ArticlePutRequestModel;
       this.articleModel.roommateDTO = {} as roommate;
@@ -67,6 +70,9 @@ export class UpdateArticleComponent implements OnInit {
   }
 
   createArticle(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+    confirmDialog.afterClosed().subscribe(result => {
+      if (result === true) {
       this.isLoading = true;
       const fb = new FormData();
       for(var i=0; i<this.selectedFile.length; i++){
@@ -81,6 +87,8 @@ export class UpdateArticleComponent implements OnInit {
               this.toastr.error(error.error.mess);
               this.isLoading = false;
           });
+        }
+    });
   }
 
   uploadForm(){

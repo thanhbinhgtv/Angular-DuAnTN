@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { RevenueRespone } from 'src/app/shared/model/responses/statistical/revenue-response.model';
 import { StatisticalService } from '../statistical.service';
 
@@ -14,7 +15,7 @@ export class StatisticalRevenueComponent implements OnInit {
   year = new FormControl('');
   month = new FormControl('');
 
-  constructor(private statisticalService: StatisticalService) { }
+  constructor(private statisticalService: StatisticalService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
       this.getRevenue();
@@ -24,6 +25,8 @@ export class StatisticalRevenueComponent implements OnInit {
       this.statisticalService.getRevenue(this.page, this.year.value, this.month.value).subscribe((data) => {
         this.revenue = data;
         console.log(this.revenue);
+      },error =>{
+        this.toastr.error(error.error.mess);
       })
   }
 

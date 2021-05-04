@@ -16,7 +16,7 @@ export class NewspaperService {
     console.log(search);
     
     return this.http.get<Array<NewsPaperResponseModel>>
-    (`http://localhost:8080/admin/new?page=0&&limit=2000&&hidden=${hidden?hidden:''}&&search=${search?search:''}`);
+    (`http://localhost:8080/admin/new?page=0&&limit=2000&&hidden=${hidden?hidden:''}&&title=${search?search:''}`);
   }
 
   getNewpaperById(id: number): Observable<NewsPaperResponseModel> {

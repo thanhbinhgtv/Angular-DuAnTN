@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CustomerRespone } from 'src/app/shared/model/responses/statistical/customer-response';
 import { StatisticalService } from '../statistical.service';
 
@@ -14,7 +15,7 @@ export class StatisticalArticleComponent implements OnInit {
   year = new FormControl('');
   month = new FormControl('');
 
-  constructor(private statisticalService: StatisticalService) { }
+  constructor(private statisticalService: StatisticalService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getArticle();
@@ -24,6 +25,8 @@ export class StatisticalArticleComponent implements OnInit {
     this.statisticalService.getArticle(this.page, this.year.value, this.month.value).subscribe((data) => {
       this.article = data;
       console.log(this.article);
+    },error =>{
+      this.toastr.error(error.error.mess);
     })
   }
 

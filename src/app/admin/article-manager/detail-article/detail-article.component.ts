@@ -6,6 +6,8 @@ import { ArticleManagerService } from '../article-manager.service';
 import { ArticleResponseModel } from '../../../shared/model/responses/article-response-model';
 import { GoogleMapApiResponse } from 'src/app/shared/model/responses/google-map-api-response';
 import { HttpClient } from '@angular/common/http';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-detail-article',
@@ -25,7 +27,7 @@ export class DetailArticleComponent implements OnInit {
   isYeuCauSua: boolean = false;
   
   constructor(private ArticleService: ArticleManagerService, private activateRoute: ActivatedRoute,
-     private router: Router, private toastr: ToastrService, private httpClient: HttpClient) {
+     private router: Router, private toastr: ToastrService, private httpClient: HttpClient, private dialog: MatDialog) {
     this.articleId = this.activateRoute.snapshot.params.id;
    }
 
@@ -56,14 +58,19 @@ export class DetailArticleComponent implements OnInit {
   }
 
   active(){
-    this.isLoading = true;
-    this.ArticleService.getActive(this.articleId).subscribe((data) => {
-      this.isLoading = false;
-      this.toastr.success(data.mess);
-      this.router.navigate(['/admin/article']);
-    }, (error) => {
-      this.isLoading = false;
-      this.toastr.error(error.error.mess);
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+    confirmDialog.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.isLoading = true;
+        this.ArticleService.getActive(this.articleId).subscribe((data) => {
+          this.isLoading = false;
+          this.toastr.success(data.mess);
+          this.router.navigate(['/admin/article']);
+        }, (error) => {
+          this.isLoading = false;
+          this.toastr.error(error.error.mess);
+        });
+      }
     });
   }
 

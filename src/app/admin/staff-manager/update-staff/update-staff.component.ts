@@ -1,8 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { FirebaseService } from 'src/app/shared/upload-file/firebase.service';
 import { StaffsService } from '../staffs.service';
 import { StaffUpdateRequestModel } from './staff-update-request-model';
@@ -19,7 +21,8 @@ export class UpdateStaffComponent implements OnInit {
   selectedFile: File[] = null;
   urlFiles : "";
 
-  constructor(public datepipe: DatePipe, private firebaseService: FirebaseService, private staffService: StaffsService, private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) { 
+  constructor(public datepipe: DatePipe, private firebaseService: FirebaseService, private staffService: StaffsService, 
+    private activateRoute: ActivatedRoute, private router: Router, private toastr: ToastrService, private dialog: MatDialog) { 
     this.staffId = this.activateRoute.snapshot.params.id;
     
     datepipe = new DatePipe('en-US');
@@ -53,6 +56,9 @@ export class UpdateStaffComponent implements OnInit {
   }
 
   updateStaff(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
       const fb = new FormData();
       for(var i=0; i<this.selectedFile.length; i++){
           fb.append('files', this.selectedFile[i]);
@@ -64,6 +70,8 @@ export class UpdateStaffComponent implements OnInit {
       }, (error) => {
           this.toastr.error(error.error.mess);
       });
+      }
+    });
   }
 
   uploadForm(){
