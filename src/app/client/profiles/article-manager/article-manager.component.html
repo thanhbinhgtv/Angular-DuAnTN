@@ -92,6 +92,25 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="form-group mt-4">
+                                <p>Số điểm tương tác cộng thêm</p>
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                        <div class="js-price-wrapper">
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control js-price" [formControlName]="'money'" [value]="paypalForm.get('money').value" name="amount_input" placeholder="Nhập số điểm">
+                                               
+                                            </div>
+                                            <span class="js-price-text" [ngStyle]="{'color':'green'}">{{(paypalForm.get('money').value) * 23000 | currency:'VN': true}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-30">
+                                <div class="col-md-6 col-sm-4 col-xs-12">
+                                    <button style="width: 403px;" type="submit" name="thanhtoan" class="btn btn-primary btn-block js-btn-hoan-tat" [disabled]="paypalForm.invalid">Tăng điểm <svg xmlns="http://www.w3.org/2000/svg" width="403" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                                </div>
+                            </div>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                   <li class="page-item">
