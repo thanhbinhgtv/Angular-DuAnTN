@@ -53,7 +53,7 @@ export class DetailArticleComponent implements OnInit {
         this.article = convertData;
         console.log(this.article);
 
-        // this.loadMap();
+        this.loadMap();
     });
   }
 

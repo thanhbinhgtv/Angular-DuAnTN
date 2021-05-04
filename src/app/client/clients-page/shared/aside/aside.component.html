@@ -28,7 +28,7 @@
                         <h4 class="post-title" style="color: #f60;">
                             <span class="star star-3"></span>{{article.title}}
                         </h4>
-                            <span class="post-price">{{article.roomPrice}} triệu/tháng</span>
+                            <span class="post-price">{{((article.roomPrice)/1000000).toFixed(1)}} triệu/tháng</span>
                             <span class="post-price" style="color: rgb(133, 125, 16);">Diện tích: {{article.acreage}}m2</span>
                     </div></a>
             </li>

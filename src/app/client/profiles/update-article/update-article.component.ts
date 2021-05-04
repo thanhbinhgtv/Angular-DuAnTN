@@ -142,7 +142,7 @@ export class UpdateArticleComponent implements OnInit {
 
           const city:any = this.citys.find((o:any) => o.id === +cityId);
           this.cityName = city.name;
-        //   this.loadMap();
+          this.loadMap();
       })
   }
 
@@ -152,7 +152,7 @@ export class UpdateArticleComponent implements OnInit {
 
           const district:any = this.districts.find((o:any) => o.id === +districtId);
           this.districtName = district.name;
-        //   this.loadMap();
+          this.loadMap();
       })
   }
 
@@ -161,7 +161,7 @@ export class UpdateArticleComponent implements OnInit {
 
       const wards:any = this.wards.find((o: any) => o.id === +wardId);
       this.wardName = wards.name;
-    //   this.loadMap();
+      this.loadMap();
   }
 
   getFiles(event){
