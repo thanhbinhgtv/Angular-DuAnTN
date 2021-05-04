@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
 import { ArticleService } from '../../service/article.service';
 
@@ -18,7 +20,7 @@ export class ArticleManagerComponent implements OnInit {
   point = new FormControl('');
   buffArticleId: number;
 
-  constructor(private articleService: ArticleService, private toastr: ToastrService) { }
+  constructor(private articleService: ArticleService, private toastr: ToastrService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
       this.getAllArticleCustomer();
@@ -39,12 +41,18 @@ export class ArticleManagerComponent implements OnInit {
   }
 
   onBuff(){
+    const confirmDialog = this.dialog.open(ConfirmationDialogComponent);
+      confirmDialog.afterClosed().subscribe(result => {
+        if (result === true) {
     this.articleService.getBuff(this.buffArticleId, this.point.value).subscribe(data => {
         this.toastr.success("Buff điểm thành công");
+        this.isBuff = false;
     }, error => {
-        this.toastr.error(error.error.mess);
+        this.toastr.error("Buff thất bại, kiểm tra lại thông tin");
+        this.isBuff = false;
     })
-
+  }
+});
   }
 
   getArticleId(articleId: number){
