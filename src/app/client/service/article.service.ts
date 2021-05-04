@@ -60,4 +60,9 @@ export class ArticleService {
     return this.httpClient.post('http://localhost:8080/customer/comment/add-update', postComment);
   }
 
+  getBuff( articleId: number, point: number): Observable<any> {
+    console.log(articleId);
+    console.log(point);
+    return this.httpClient.get(`http://localhost:8080/customer/article/buff/${articleId}?point=${point}`);
+  }
 }

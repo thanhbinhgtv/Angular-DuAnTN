@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ArticleResponseModel } from 'src/app/shared/model/responses/article-response-model';
 import { ArticleService } from '../../service/article.service';
 
@@ -12,8 +14,11 @@ export class ArticleManagerComponent implements OnInit {
   page = 0;
   arrayPage = new Array();
   numberPage: number;
+  isBuff: boolean= false;
+  point = new FormControl('');
+  buffArticleId: number;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
       this.getAllArticleCustomer();
@@ -31,6 +36,22 @@ export class ArticleManagerComponent implements OnInit {
   onPage(page: number) {
     this.page = page;
     this.getAllArticleCustomer();
+  }
+
+  onBuff(){
+    this.articleService.getBuff(this.buffArticleId, this.point.value).subscribe(data => {
+        this.toastr.success("Buff điểm thành công");
+    }, error => {
+        this.toastr.error(error.error.mess);
+    })
+
+  }
+
+  getArticleId(articleId: number){
+    this.isBuff = !this.isBuff;
+    this.buffArticleId = articleId;
+    console.log(this.buffArticleId);
+    
   }
 
 }
