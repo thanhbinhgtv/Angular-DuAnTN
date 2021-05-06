@@ -333,8 +333,8 @@
                                             <label name="district_id" id="district_id"
                                                 class="form-control js-select-quanhuyen select2-hidden-accessible"
                                                 required="" data-msg-required="Chưa chọn Quận/Huyện" tabindex="-1"
-                                                aria-hidden="true">
-                                                {{article?.roommate?.description}}
+                                                aria-hidden="true" [innerHTML]="article?.roommate?.description">
+                                                <!-- {{article?.roommate?.description}} -->
                                             </label>
                                         </div>
                                     </div>

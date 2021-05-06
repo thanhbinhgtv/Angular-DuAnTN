@@ -42,7 +42,7 @@
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.year">Năm {{data?.year}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.month">Tháng {{data?.month}}</td>
                                     <td [ngStyle]="{'text-align': 'center'}" *ngIf="data?.date">Ngày {{data?.date}}</td>
-                                    <td [ngStyle]="{'text-align': 'center'}">{{data?.sum}}</td>
+                                    <td [ngStyle]="{'text-align': 'center'}">{{data?.sum | currency:'VN': true}}</td>
                                 </tr>
                             </tbody>
                         </table>

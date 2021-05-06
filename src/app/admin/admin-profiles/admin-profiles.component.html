@@ -38,8 +38,11 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="eMail">Chức vụ</label>
-                        <label type="email" class="form-control" id="eMail" placeholder="Enter email ID" tabindex="-1">
-                            {{adminModel?.role}}
+                        <label type="email" *ngIf="adminModel?.role == true" class="form-control" id="eMail" placeholder="Enter email ID" tabindex="-1">
+                            Supper Admin
+                        </label>
+                        <label type="email" *ngIf="adminModel?.role == false" class="form-control" id="eMail" placeholder="Enter email ID" tabindex="-1">
+                            Admin
                         </label>
                     </div>
                 </div>
@@ -54,8 +57,11 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="website">Giới tính</label>
-                        <label type="url" class="form-control" id="website" placeholder="Website url" tabindex="-1">
-                            {{adminModel?.gender}}
+                        <label type="url" class="form-control" *ngIf="adminModel?.gender == true" id="website" placeholder="Website url" tabindex="-1">
+                            Nam
+                        </label>
+                        <label type="url" class="form-control" *ngIf="adminModel?.gender == false" id="website" placeholder="Website url" tabindex="-1">
+                            Nữ
                         </label>
                     </div>
                 </div>
